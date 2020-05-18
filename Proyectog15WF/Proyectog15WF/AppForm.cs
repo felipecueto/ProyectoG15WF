@@ -15,36 +15,52 @@ namespace Proyectog15WF
         public AppForm()
         {
             InitializeComponent();
+            
         }
-
-        private void StartApp_Paint(object sender, PaintEventArgs e)
+     
+        private void SOPTLOGO_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        private void EXITbutton_Click(object sender, EventArgs e)
         {
+            this.Close();
+        }
+
+        private void StartPanel_Paint(object sender, PaintEventArgs e)
+        {
+           
+        }
+
+
+        private void RegistrateButton_Click(object sender, EventArgs e)
+        {
+            StartPanel.SendToBack();
+            RegisterPanel.BringToFront();
+            RegisterPanel.Visible = true;
 
         }
 
-        private void LoginRegisterPanel_Paint(object sender, PaintEventArgs e)
+        private void BackButtonLogin_Click(object sender, EventArgs e)
         {
-
+            LoginPanel.SendToBack();
+            StartPanel.BringToFront();
+            LoginPanel.Visible = false;
         }
 
-        private void Label_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-
+            StartPanel.SendToBack();
+            LoginPanel.BringToFront();
+            LoginPanel.Visible = true;
         }
 
-        private void IniciarSecionBoton_Click(object sender, EventArgs e)
+        private void BackRegisterButton_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void Loginbuttom_Click(object sender, EventArgs e)
-        {
-
+            RegisterPanel.SendToBack();
+            StartPanel.BringToFront();
+            RegisterPanel.Visible = false;
         }
     }
 }
