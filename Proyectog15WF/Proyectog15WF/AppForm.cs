@@ -18,6 +18,9 @@ namespace Proyectog15WF
         public delegate bool LoginEventHandler(object source, LoginEventArgs args);
         public event LoginEventHandler LoginButtonClicked;
         public event EventHandler<LoginEventArgs> UserChecked;
+        public delegate void RegisterEventHandler(object source, RegisterEventArgs args);
+        //public event RegisterEventArgs RegisterButtonClicked;
+
 
         List<Panel> stackPanels = new List<Panel>();
         Dictionary<string, Panel> panels = new Dictionary<string, Panel>();
@@ -136,9 +139,20 @@ namespace Proyectog15WF
 
         private void InicioLoginButton_Click(object sender, EventArgs e)
         {
-            string username = UsernameInputRegister.Text;
+            string username = UsernameInPutLogin.Text;
             string pass = PasswordInPutLogin.Text;
             OnLoginButtonClicked(username, pass);
         }
+
+        private void Registerbutton_Click(object sender, EventArgs e)
+        {
+            string nameInputuser = nameInputRegister.Text;
+            string lastNameInputuser = LastNameInputRegister.Text;
+            string usernameInputuser = UsernameInputRegister.Text;
+            string mailInputuser = MailInputRegister.Text;
+            string passwordInputUser = PasswordInputRegister.Text;
+
+        }
+
     }
 }

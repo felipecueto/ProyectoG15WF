@@ -67,12 +67,12 @@
             // 
             this.StartPanel.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.StartPanel.Controls.Add(this.EXITbutton);
+            this.StartPanel.Controls.Add(this.RegisterPanel);
             this.StartPanel.Controls.Add(this.LoginPanel);
             this.StartPanel.Controls.Add(this.SOPTLOGO);
             this.StartPanel.Controls.Add(this.FLIXLOGO);
             this.StartPanel.Controls.Add(this.IniciarSeccionStartAppButton);
             this.StartPanel.Controls.Add(this.RegistrateButton);
-            this.StartPanel.Controls.Add(this.RegisterPanel);
             this.StartPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.StartPanel.Location = new System.Drawing.Point(0, 0);
             this.StartPanel.Margin = new System.Windows.Forms.Padding(2);
@@ -131,6 +131,7 @@
             this.Registerbutton.TabIndex = 12;
             this.Registerbutton.Text = "Registrate";
             this.Registerbutton.UseVisualStyleBackColor = true;
+            this.Registerbutton.Click += new System.EventHandler(this.Registerbutton_Click);
             // 
             // PasswordInputRegister
             // 
