@@ -21,6 +21,7 @@ namespace Controllers
             this.view = view as AppForm;
             this.view.LoginButtonClicked += OnLoginButtonClicked;
             this.view.UserChecked += OnUserChecked;
+            this.view.RegisterButtonClicked += OnRegisterButtonClicked;
         }
 
 
@@ -28,7 +29,7 @@ namespace Controllers
         {
             User result = null;
             result = users.Where(t =>
-               t.Username.ToUpper().Contains(e.UsernameText.ToUpper())).FirstOrDefault();
+               t.Username.ToUpper().Contains(e.UsernameText.ToUpper()) && (t.Password.ToUpper().Contains(e.PasswordText.ToUpper()))).FirstOrDefault();
             if (result is null)
             {
                 return false;
@@ -44,16 +45,24 @@ namespace Controllers
         {
             User user = null;
             user = users.Where(t =>
-               t.Username.ToUpper().Contains(e.UsernameText.ToUpper())).FirstOrDefault();
+               t.Username.ToUpper().Contains(e.UsernameText.ToUpper()) && (t.Password.ToUpper().Contains(e.PasswordText.ToUpper()))).FirstOrDefault();
+               
+
+        }
+        public bool OnRegisterButtonClicked(object sender, RegisterEventArgs e)
+        {
+            users.Add(new User(e.Usernametext,e.Nametext,e.Passwordtext));
+            return true;
 
         }
 
         public void initialize()
-        {
-            users.Add(new User("cdiazarze", "Carlos Díaz", 28));
-            users.Add(new User("ahowardm", "Andres Howard", 63));
-            users.Add(new User("jperez", "Juan Perez", 31));
-            users.Add(new User("ivansv", "Ivan Santivanez", 24));
+        {  
+
+           /*users.Add(new User("cdiazarze", "Carlos Díaz", "123456"));
+            users.Add(new User("ahowardm", "Andres Howard", "123456"));
+            users.Add(new User("jperez", "Juan Perez", "123456"));
+            users.Add(new User("ivansv", "Ivan Santivanez", "123456"));*/
         }
     }
 }

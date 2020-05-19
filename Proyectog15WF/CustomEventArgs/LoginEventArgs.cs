@@ -11,5 +11,7 @@ namespace CustomEventArgs
         public string UsernameText { get; set; }
         public string PasswordText { get; set; }
 
+        
+
     }
 }

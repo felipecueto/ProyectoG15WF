@@ -18,8 +18,9 @@ namespace Proyectog15WF
         public delegate bool LoginEventHandler(object source, LoginEventArgs args);
         public event LoginEventHandler LoginButtonClicked;
         public event EventHandler<LoginEventArgs> UserChecked;
-        public delegate void RegisterEventHandler(object source, RegisterEventArgs args);
-        //public event RegisterEventArgs RegisterButtonClicked;
+        public delegate bool  RegisterEventHandler(object source, RegisterEventArgs args);
+        public event RegisterEventHandler RegisterButtonClicked;
+        public event EventHandler<RegisterEventArgs> Registerchecked;
 
 
         List<Panel> stackPanels = new List<Panel>();
@@ -107,20 +108,39 @@ namespace Proyectog15WF
                 {
                     loginViewInvalidCredentialsAlert.ResetText();
                     loginViewInvalidCredentialsAlert.Visible = false;
-                    OnUserChecked(username);
+                    OnUserChecked(username,pass);
                 }
             }
         }
-        private void OnUserChecked(string username)
+        private void OnUserChecked(string username,string password)
         {
             if (UserChecked != null)
             {
-                UserChecked(this, new LoginEventArgs() { UsernameText = username });
+                UserChecked(this, new LoginEventArgs() { UsernameText = username ,PasswordText=password});
                 UsernameInPutLogin.ResetText();
                 PasswordInPutLogin.ResetText();
                 stackPanels.Add(panels["StartPanel"]);
                 ShowLastPanel();
             }
+        }
+        
+        public void Onregisteredbutooncliked(string Name, string Lastname,string Username,string Mailuser,string Passworduser)
+        {
+            if (RegisterButtonClicked != null)
+            {
+               bool result= RegisterButtonClicked(this, new RegisterEventArgs() { Usernametext = Username, Passwordtext = Passworduser });
+                if (result)
+                {
+                    nameInputRegister.ResetText();
+                    LastNameInputRegister.ResetText();
+                    UsernameInputRegister.ResetText();
+                    MailInputRegister.ResetText();
+                    PasswordInputRegister.ResetText();
+                    stackPanels.Add(panels["StartPanel"]);
+                    ShowLastPanel();
+                }
+            }
+
         }
         private void ShowLastPanel()
         {
@@ -151,6 +171,8 @@ namespace Proyectog15WF
             string usernameInputuser = UsernameInputRegister.Text;
             string mailInputuser = MailInputRegister.Text;
             string passwordInputUser = PasswordInputRegister.Text;
+            Onregisteredbutooncliked(nameInputuser, lastNameInputuser, usernameInputuser, mailInputuser, passwordInputUser);
+            
 
         }
 
