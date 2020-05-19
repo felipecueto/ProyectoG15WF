@@ -20,7 +20,7 @@ namespace Proyectog15WF
         public event EventHandler<LoginEventArgs> UserChecked;
         public delegate bool  RegisterEventHandler(object source, RegisterEventArgs args);
         public event RegisterEventHandler RegisterButtonClicked;
-        public event EventHandler<RegisterEventArgs> Registerchecked;
+        
 
 
         List<Panel> stackPanels = new List<Panel>();

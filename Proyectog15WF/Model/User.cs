@@ -12,10 +12,10 @@ namespace Model
         string password;
         string name;
         int age;
-        List<User> users;
+        
         public User()
         {
-            users = new List<User>();
+            
         }
 
         public User(string username, string name, string password)
