@@ -1,0 +1,6 @@
+C:\Users\Medicos\Desktop\Trabajo 3\ProyectoG15WF\Proyectog15WF\CustomEventArgs\bin\Debug\CustomEventArgs.dll
+C:\Users\Medicos\Desktop\Trabajo 3\ProyectoG15WF\Proyectog15WF\CustomEventArgs\bin\Debug\CustomEventArgs.pdb
+C:\Users\Medicos\Desktop\Trabajo 3\ProyectoG15WF\Proyectog15WF\CustomEventArgs\obj\Debug\CustomEventArgs.csprojAssemblyReference.cache
+C:\Users\Medicos\Desktop\Trabajo 3\ProyectoG15WF\Proyectog15WF\CustomEventArgs\obj\Debug\CustomEventArgs.csproj.CoreCompileInputs.cache
+C:\Users\Medicos\Desktop\Trabajo 3\ProyectoG15WF\Proyectog15WF\CustomEventArgs\obj\Debug\CustomEventArgs.dll
+C:\Users\Medicos\Desktop\Trabajo 3\ProyectoG15WF\Proyectog15WF\CustomEventArgs\obj\Debug\CustomEventArgs.pdb

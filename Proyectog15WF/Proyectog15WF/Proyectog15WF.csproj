@@ -52,6 +52,7 @@
     <Compile Include="AppForm.Designer.cs">
       <DependentUpon>AppForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Contollers\Usercontroller.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AppForm.resx">
@@ -82,6 +83,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\simbolo-del-boton-de-reproduccion-del-jugador.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CustomEventArgs\CustomEventArgs.csproj">
+      <Project>{9f77b1a1-3c7f-4865-9ac2-4fb05e3652ea}</Project>
+      <Name>CustomEventArgs</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Model\Model.csproj">
+      <Project>{ff718605-72d8-4fc6-b06f-56c92d307056}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

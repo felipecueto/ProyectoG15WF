@@ -33,6 +33,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -43,6 +44,23 @@
   <ItemGroup>
     <Compile Include="UserSystemController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CustomEventArgs\CustomEventArgs.csproj">
+      <Project>{9F77B1A1-3C7F-4865-9AC2-4FB05E3652EA}</Project>
+      <Name>CustomEventArgs</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Model\Model.csproj">
+      <Project>{ff718605-72d8-4fc6-b06f-56c92d307056}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Proyectog15WF\Proyectog15WF.csproj">
+      <Project>{757CB4FB-46F5-420B-ACEA-E9AE3F851F0B}</Project>
+      <Name>Proyectog15WF</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

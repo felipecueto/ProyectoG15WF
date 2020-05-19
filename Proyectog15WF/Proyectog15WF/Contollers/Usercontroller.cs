@@ -1,5 +1,5 @@
 ﻿using CustomEventArgs;
-/*using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -45,7 +45,7 @@ namespace Controllers
             User user = null;
             user = users.Where(t =>
                t.Username.ToUpper().Contains(e.UsernameText.ToUpper())).FirstOrDefault();
-            
+
         }
 
         public void initialize()
@@ -53,6 +53,7 @@ namespace Controllers
             users.Add(new User("cdiazarze", "Carlos Díaz", 28));
             users.Add(new User("ahowardm", "Andres Howard", 63));
             users.Add(new User("jperez", "Juan Perez", 31));
+            users.Add(new User("ivansv", "Ivan Santivanez", 24));
         }
     }
-}*/
+}

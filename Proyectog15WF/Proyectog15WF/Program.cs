@@ -1,8 +1,10 @@
-﻿using System;
+﻿using Controllers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
 
 namespace Proyectog15WF
 {
@@ -16,7 +18,9 @@ namespace Proyectog15WF
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new AppForm());
+            AppForm appForm = new AppForm();
+            UserController userController = new UserController(appForm);
+            Application.Run(appForm);
         }
     }
 }
