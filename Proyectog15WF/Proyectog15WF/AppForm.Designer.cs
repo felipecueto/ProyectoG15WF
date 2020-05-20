@@ -30,7 +30,20 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AppForm));
             this.StartPanel = new System.Windows.Forms.Panel();
+            this.CloseAppStart = new BWCMM.MZButtonWindows();
+            this.LoginPanel = new System.Windows.Forms.Panel();
+            this.CloseAppLogIn = new BWCMM.MZButtonWindows();
+            this.loginViewInvalidCredentialsAlert = new System.Windows.Forms.Label();
+            this.SaveLogin = new System.Windows.Forms.CheckBox();
+            this.BackButtonLogin = new System.Windows.Forms.Button();
+            this.InicioLoginButton = new System.Windows.Forms.Button();
+            this.PasswordInPutLogin = new System.Windows.Forms.TextBox();
+            this.UsernameInPutLogin = new System.Windows.Forms.TextBox();
+            this.IniciarseccionLabelLogin = new System.Windows.Forms.Label();
+            this.PasswordUsernameLabelLogin = new System.Windows.Forms.Label();
+            this.UsernameLabelLogin = new System.Windows.Forms.Label();
             this.RegisterPanel = new System.Windows.Forms.Panel();
+            this.CloseAppRegister = new BWCMM.MZButtonWindows();
             this.Registerbutton = new System.Windows.Forms.Button();
             this.PasswordInputRegister = new System.Windows.Forms.TextBox();
             this.MailInputRegister = new System.Windows.Forms.TextBox();
@@ -44,26 +57,13 @@
             this.NameLabelRegister = new System.Windows.Forms.Label();
             this.RegistrateLabel = new System.Windows.Forms.Label();
             this.BackRegisterButton = new System.Windows.Forms.Button();
-            this.LoginPanel = new System.Windows.Forms.Panel();
-            this.loginViewInvalidCredentialsAlert = new System.Windows.Forms.Label();
-            this.SaveLogin = new System.Windows.Forms.CheckBox();
-            this.BackButtonLogin = new System.Windows.Forms.Button();
-            this.InicioLoginButton = new System.Windows.Forms.Button();
-            this.PasswordInPutLogin = new System.Windows.Forms.TextBox();
-            this.UsernameInPutLogin = new System.Windows.Forms.TextBox();
-            this.IniciarseccionLabelLogin = new System.Windows.Forms.Label();
-            this.PasswordUsernameLabelLogin = new System.Windows.Forms.Label();
-            this.UsernameLabelLogin = new System.Windows.Forms.Label();
             this.SOPTLOGO = new System.Windows.Forms.Label();
             this.FLIXLOGO = new System.Windows.Forms.Label();
             this.IniciarSeccionStartAppButton = new System.Windows.Forms.Button();
             this.RegistrateButton = new System.Windows.Forms.Button();
-            this.CloseAppStart = new BWCMM.MZButtonWindows();
-            this.CloseAppLogIn = new BWCMM.MZButtonWindows();
-            this.CloseAppRegister = new BWCMM.MZButtonWindows();
             this.StartPanel.SuspendLayout();
-            this.RegisterPanel.SuspendLayout();
             this.LoginPanel.SuspendLayout();
+            this.RegisterPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // StartPanel
@@ -82,6 +82,167 @@
             this.StartPanel.Size = new System.Drawing.Size(1024, 768);
             this.StartPanel.TabIndex = 0;
             this.StartPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.StartPanel_Paint);
+            // 
+            // CloseAppStart
+            // 
+            this.CloseAppStart.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.CloseAppStart.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("CloseAppStart.BackgroundImage")));
+            this.CloseAppStart.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.CloseAppStart.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CloseAppStart.EstiloButton = BWCMM.MZButtonWindows.EstiloDeButton.Windows;
+            this.CloseAppStart.Location = new System.Drawing.Point(984, 0);
+            this.CloseAppStart.Name = "CloseAppStart";
+            this.CloseAppStart.ParentControl = this;
+            this.CloseAppStart.Size = new System.Drawing.Size(40, 24);
+            this.CloseAppStart.TabIndex = 14;
+            this.CloseAppStart.TipoButton = BWCMM.MZButtonWindows.ModeButton.Close;
+            // 
+            // LoginPanel
+            // 
+            this.LoginPanel.Controls.Add(this.CloseAppLogIn);
+            this.LoginPanel.Controls.Add(this.loginViewInvalidCredentialsAlert);
+            this.LoginPanel.Controls.Add(this.SaveLogin);
+            this.LoginPanel.Controls.Add(this.BackButtonLogin);
+            this.LoginPanel.Controls.Add(this.InicioLoginButton);
+            this.LoginPanel.Controls.Add(this.PasswordInPutLogin);
+            this.LoginPanel.Controls.Add(this.UsernameInPutLogin);
+            this.LoginPanel.Controls.Add(this.IniciarseccionLabelLogin);
+            this.LoginPanel.Controls.Add(this.PasswordUsernameLabelLogin);
+            this.LoginPanel.Controls.Add(this.UsernameLabelLogin);
+            this.LoginPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LoginPanel.Location = new System.Drawing.Point(0, 0);
+            this.LoginPanel.Name = "LoginPanel";
+            this.LoginPanel.Size = new System.Drawing.Size(1024, 768);
+            this.LoginPanel.TabIndex = 14;
+            this.LoginPanel.Visible = false;
+            // 
+            // CloseAppLogIn
+            // 
+            this.CloseAppLogIn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.CloseAppLogIn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("CloseAppLogIn.BackgroundImage")));
+            this.CloseAppLogIn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.CloseAppLogIn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CloseAppLogIn.EstiloButton = BWCMM.MZButtonWindows.EstiloDeButton.Windows;
+            this.CloseAppLogIn.Location = new System.Drawing.Point(984, 0);
+            this.CloseAppLogIn.Name = "CloseAppLogIn";
+            this.CloseAppLogIn.ParentControl = this;
+            this.CloseAppLogIn.Size = new System.Drawing.Size(40, 24);
+            this.CloseAppLogIn.TabIndex = 9;
+            this.CloseAppLogIn.TipoButton = BWCMM.MZButtonWindows.ModeButton.Null;
+            // 
+            // loginViewInvalidCredentialsAlert
+            // 
+            this.loginViewInvalidCredentialsAlert.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.loginViewInvalidCredentialsAlert.BackColor = System.Drawing.Color.Black;
+            this.loginViewInvalidCredentialsAlert.ForeColor = System.Drawing.Color.Red;
+            this.loginViewInvalidCredentialsAlert.Location = new System.Drawing.Point(412, 489);
+            this.loginViewInvalidCredentialsAlert.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.loginViewInvalidCredentialsAlert.Name = "loginViewInvalidCredentialsAlert";
+            this.loginViewInvalidCredentialsAlert.Size = new System.Drawing.Size(257, 20);
+            this.loginViewInvalidCredentialsAlert.TabIndex = 8;
+            this.loginViewInvalidCredentialsAlert.Text = "**Credencial de usuario invalida";
+            this.loginViewInvalidCredentialsAlert.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.loginViewInvalidCredentialsAlert.Visible = false;
+            // 
+            // SaveLogin
+            // 
+            this.SaveLogin.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.SaveLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SaveLogin.ForeColor = System.Drawing.Color.Red;
+            this.SaveLogin.Location = new System.Drawing.Point(416, 518);
+            this.SaveLogin.Name = "SaveLogin";
+            this.SaveLogin.Size = new System.Drawing.Size(281, 28);
+            this.SaveLogin.TabIndex = 7;
+            this.SaveLogin.Text = "Mantener Inicio de seccion";
+            this.SaveLogin.UseVisualStyleBackColor = true;
+            // 
+            // BackButtonLogin
+            // 
+            this.BackButtonLogin.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.BackButtonLogin.ForeColor = System.Drawing.Color.Red;
+            this.BackButtonLogin.Location = new System.Drawing.Point(12, 12);
+            this.BackButtonLogin.Name = "BackButtonLogin";
+            this.BackButtonLogin.Size = new System.Drawing.Size(50, 50);
+            this.BackButtonLogin.TabIndex = 6;
+            this.BackButtonLogin.Text = "<";
+            this.BackButtonLogin.UseVisualStyleBackColor = true;
+            this.BackButtonLogin.Click += new System.EventHandler(this.BackButtonLogin_Click);
+            // 
+            // InicioLoginButton
+            // 
+            this.InicioLoginButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.InicioLoginButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.InicioLoginButton.ForeColor = System.Drawing.Color.DarkRed;
+            this.InicioLoginButton.Location = new System.Drawing.Point(440, 591);
+            this.InicioLoginButton.Name = "InicioLoginButton";
+            this.InicioLoginButton.Size = new System.Drawing.Size(224, 50);
+            this.InicioLoginButton.TabIndex = 5;
+            this.InicioLoginButton.Text = "Iniciar Seccion";
+            this.InicioLoginButton.UseVisualStyleBackColor = true;
+            this.InicioLoginButton.Click += new System.EventHandler(this.InicioLoginButton_Click);
+            // 
+            // PasswordInPutLogin
+            // 
+            this.PasswordInPutLogin.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.PasswordInPutLogin.BackColor = System.Drawing.SystemColors.Menu;
+            this.PasswordInPutLogin.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.PasswordInPutLogin.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.PasswordInPutLogin.Location = new System.Drawing.Point(416, 411);
+            this.PasswordInPutLogin.Name = "PasswordInPutLogin";
+            this.PasswordInPutLogin.PasswordChar = '*';
+            this.PasswordInPutLogin.Size = new System.Drawing.Size(281, 19);
+            this.PasswordInPutLogin.TabIndex = 4;
+            // 
+            // UsernameInPutLogin
+            // 
+            this.UsernameInPutLogin.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.UsernameInPutLogin.BackColor = System.Drawing.SystemColors.Menu;
+            this.UsernameInPutLogin.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.UsernameInPutLogin.Location = new System.Drawing.Point(416, 326);
+            this.UsernameInPutLogin.Name = "UsernameInPutLogin";
+            this.UsernameInPutLogin.Size = new System.Drawing.Size(281, 19);
+            this.UsernameInPutLogin.TabIndex = 3;
+            // 
+            // IniciarseccionLabelLogin
+            // 
+            this.IniciarseccionLabelLogin.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.IniciarseccionLabelLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.IniciarseccionLabelLogin.ForeColor = System.Drawing.Color.Red;
+            this.IniciarseccionLabelLogin.Location = new System.Drawing.Point(416, 176);
+            this.IniciarseccionLabelLogin.Name = "IniciarseccionLabelLogin";
+            this.IniciarseccionLabelLogin.Size = new System.Drawing.Size(281, 70);
+            this.IniciarseccionLabelLogin.TabIndex = 2;
+            this.IniciarseccionLabelLogin.Text = "Inicar Seccion";
+            this.IniciarseccionLabelLogin.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.IniciarseccionLabelLogin.Click += new System.EventHandler(this.IniciarseccionLabelLogin_Click_1);
+            // 
+            // PasswordUsernameLabelLogin
+            // 
+            this.PasswordUsernameLabelLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PasswordUsernameLabelLogin.ForeColor = System.Drawing.Color.Red;
+            this.PasswordUsernameLabelLogin.Location = new System.Drawing.Point(266, 397);
+            this.PasswordUsernameLabelLogin.Name = "PasswordUsernameLabelLogin";
+            this.PasswordUsernameLabelLogin.Size = new System.Drawing.Size(137, 45);
+            this.PasswordUsernameLabelLogin.TabIndex = 1;
+            this.PasswordUsernameLabelLogin.Text = "Contraseña";
+            this.PasswordUsernameLabelLogin.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // UsernameLabelLogin
+            // 
+            this.UsernameLabelLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UsernameLabelLogin.ForeColor = System.Drawing.Color.Red;
+            this.UsernameLabelLogin.Location = new System.Drawing.Point(301, 318);
+            this.UsernameLabelLogin.Name = "UsernameLabelLogin";
+            this.UsernameLabelLogin.Size = new System.Drawing.Size(102, 33);
+            this.UsernameLabelLogin.TabIndex = 0;
+            this.UsernameLabelLogin.Text = "Usuario";
+            this.UsernameLabelLogin.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // RegisterPanel
             // 
@@ -108,13 +269,27 @@
             this.RegisterPanel.TabIndex = 1;
             this.RegisterPanel.Visible = false;
             // 
+            // CloseAppRegister
+            // 
+            this.CloseAppRegister.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.CloseAppRegister.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("CloseAppRegister.BackgroundImage")));
+            this.CloseAppRegister.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.CloseAppRegister.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CloseAppRegister.EstiloButton = BWCMM.MZButtonWindows.EstiloDeButton.Windows;
+            this.CloseAppRegister.Location = new System.Drawing.Point(984, 0);
+            this.CloseAppRegister.Name = "CloseAppRegister";
+            this.CloseAppRegister.ParentControl = this;
+            this.CloseAppRegister.Size = new System.Drawing.Size(40, 24);
+            this.CloseAppRegister.TabIndex = 16;
+            this.CloseAppRegister.TipoButton = BWCMM.MZButtonWindows.ModeButton.Null;
+            // 
             // Registerbutton
             // 
             this.Registerbutton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Registerbutton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.Registerbutton.ForeColor = System.Drawing.Color.Yellow;
-            this.Registerbutton.Location = new System.Drawing.Point(440, 558);
+            this.Registerbutton.Location = new System.Drawing.Point(501, 550);
             this.Registerbutton.Name = "Registerbutton";
             this.Registerbutton.Size = new System.Drawing.Size(160, 47);
             this.Registerbutton.TabIndex = 12;
@@ -232,7 +407,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.RegistrateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RegistrateLabel.ForeColor = System.Drawing.Color.Green;
-            this.RegistrateLabel.Location = new System.Drawing.Point(433, 125);
+            this.RegistrateLabel.Location = new System.Drawing.Point(394, 158);
             this.RegistrateLabel.Name = "RegistrateLabel";
             this.RegistrateLabel.Size = new System.Drawing.Size(311, 53);
             this.RegistrateLabel.TabIndex = 0;
@@ -243,157 +418,24 @@
             // 
             this.BackRegisterButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BackRegisterButton.ForeColor = System.Drawing.Color.ForestGreen;
-            this.BackRegisterButton.Location = new System.Drawing.Point(0, 3);
+            this.BackRegisterButton.Location = new System.Drawing.Point(12, 12);
             this.BackRegisterButton.Name = "BackRegisterButton";
-            this.BackRegisterButton.Size = new System.Drawing.Size(38, 32);
+            this.BackRegisterButton.Size = new System.Drawing.Size(50, 50);
             this.BackRegisterButton.TabIndex = 13;
             this.BackRegisterButton.Text = "<";
             this.BackRegisterButton.UseVisualStyleBackColor = true;
             this.BackRegisterButton.Click += new System.EventHandler(this.BackRegisterButton_Click);
-            // 
-            // LoginPanel
-            // 
-            this.LoginPanel.Controls.Add(this.CloseAppLogIn);
-            this.LoginPanel.Controls.Add(this.loginViewInvalidCredentialsAlert);
-            this.LoginPanel.Controls.Add(this.SaveLogin);
-            this.LoginPanel.Controls.Add(this.BackButtonLogin);
-            this.LoginPanel.Controls.Add(this.InicioLoginButton);
-            this.LoginPanel.Controls.Add(this.PasswordInPutLogin);
-            this.LoginPanel.Controls.Add(this.UsernameInPutLogin);
-            this.LoginPanel.Controls.Add(this.IniciarseccionLabelLogin);
-            this.LoginPanel.Controls.Add(this.PasswordUsernameLabelLogin);
-            this.LoginPanel.Controls.Add(this.UsernameLabelLogin);
-            this.LoginPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.LoginPanel.Location = new System.Drawing.Point(0, 0);
-            this.LoginPanel.Name = "LoginPanel";
-            this.LoginPanel.Size = new System.Drawing.Size(1024, 768);
-            this.LoginPanel.TabIndex = 14;
-            this.LoginPanel.Visible = false;
-            // 
-            // loginViewInvalidCredentialsAlert
-            // 
-            this.loginViewInvalidCredentialsAlert.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.loginViewInvalidCredentialsAlert.BackColor = System.Drawing.Color.Black;
-            this.loginViewInvalidCredentialsAlert.ForeColor = System.Drawing.Color.Red;
-            this.loginViewInvalidCredentialsAlert.Location = new System.Drawing.Point(469, 412);
-            this.loginViewInvalidCredentialsAlert.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.loginViewInvalidCredentialsAlert.Name = "loginViewInvalidCredentialsAlert";
-            this.loginViewInvalidCredentialsAlert.Size = new System.Drawing.Size(257, 20);
-            this.loginViewInvalidCredentialsAlert.TabIndex = 8;
-            this.loginViewInvalidCredentialsAlert.Text = "**Credencial de usuario invalida";
-            this.loginViewInvalidCredentialsAlert.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.loginViewInvalidCredentialsAlert.Visible = false;
-            // 
-            // SaveLogin
-            // 
-            this.SaveLogin.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.SaveLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SaveLogin.ForeColor = System.Drawing.Color.Red;
-            this.SaveLogin.Location = new System.Drawing.Point(473, 447);
-            this.SaveLogin.Name = "SaveLogin";
-            this.SaveLogin.Size = new System.Drawing.Size(281, 28);
-            this.SaveLogin.TabIndex = 7;
-            this.SaveLogin.Text = "Mantener Inicio de seccion";
-            this.SaveLogin.UseVisualStyleBackColor = true;
-            // 
-            // BackButtonLogin
-            // 
-            this.BackButtonLogin.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.BackButtonLogin.ForeColor = System.Drawing.Color.Red;
-            this.BackButtonLogin.Location = new System.Drawing.Point(10, 12);
-            this.BackButtonLogin.Name = "BackButtonLogin";
-            this.BackButtonLogin.Size = new System.Drawing.Size(56, 43);
-            this.BackButtonLogin.TabIndex = 6;
-            this.BackButtonLogin.Text = "<";
-            this.BackButtonLogin.UseVisualStyleBackColor = true;
-            this.BackButtonLogin.Click += new System.EventHandler(this.BackButtonLogin_Click);
-            // 
-            // InicioLoginButton
-            // 
-            this.InicioLoginButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.InicioLoginButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.InicioLoginButton.ForeColor = System.Drawing.Color.DarkRed;
-            this.InicioLoginButton.Location = new System.Drawing.Point(473, 499);
-            this.InicioLoginButton.Name = "InicioLoginButton";
-            this.InicioLoginButton.Size = new System.Drawing.Size(224, 50);
-            this.InicioLoginButton.TabIndex = 5;
-            this.InicioLoginButton.Text = "Iniciar Seccion";
-            this.InicioLoginButton.UseVisualStyleBackColor = true;
-            this.InicioLoginButton.Click += new System.EventHandler(this.InicioLoginButton_Click);
-            // 
-            // PasswordInPutLogin
-            // 
-            this.PasswordInPutLogin.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.PasswordInPutLogin.BackColor = System.Drawing.SystemColors.Menu;
-            this.PasswordInPutLogin.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.PasswordInPutLogin.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.PasswordInPutLogin.Location = new System.Drawing.Point(473, 376);
-            this.PasswordInPutLogin.Name = "PasswordInPutLogin";
-            this.PasswordInPutLogin.PasswordChar = '*';
-            this.PasswordInPutLogin.Size = new System.Drawing.Size(281, 19);
-            this.PasswordInPutLogin.TabIndex = 4;
-            // 
-            // UsernameInPutLogin
-            // 
-            this.UsernameInPutLogin.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.UsernameInPutLogin.BackColor = System.Drawing.SystemColors.Menu;
-            this.UsernameInPutLogin.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.UsernameInPutLogin.Location = new System.Drawing.Point(473, 286);
-            this.UsernameInPutLogin.Name = "UsernameInPutLogin";
-            this.UsernameInPutLogin.Size = new System.Drawing.Size(281, 19);
-            this.UsernameInPutLogin.TabIndex = 3;
-            // 
-            // IniciarseccionLabelLogin
-            // 
-            this.IniciarseccionLabelLogin.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.IniciarseccionLabelLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.IniciarseccionLabelLogin.ForeColor = System.Drawing.Color.Red;
-            this.IniciarseccionLabelLogin.Location = new System.Drawing.Point(335, 136);
-            this.IniciarseccionLabelLogin.Name = "IniciarseccionLabelLogin";
-            this.IniciarseccionLabelLogin.Size = new System.Drawing.Size(419, 70);
-            this.IniciarseccionLabelLogin.TabIndex = 2;
-            this.IniciarseccionLabelLogin.Text = "Inicar Seccion";
-            this.IniciarseccionLabelLogin.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.IniciarseccionLabelLogin.Click += new System.EventHandler(this.IniciarseccionLabelLogin_Click_1);
-            // 
-            // PasswordUsernameLabelLogin
-            // 
-            this.PasswordUsernameLabelLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PasswordUsernameLabelLogin.ForeColor = System.Drawing.Color.Red;
-            this.PasswordUsernameLabelLogin.Location = new System.Drawing.Point(330, 362);
-            this.PasswordUsernameLabelLogin.Name = "PasswordUsernameLabelLogin";
-            this.PasswordUsernameLabelLogin.Size = new System.Drawing.Size(137, 45);
-            this.PasswordUsernameLabelLogin.TabIndex = 1;
-            this.PasswordUsernameLabelLogin.Text = "Contraseña";
-            this.PasswordUsernameLabelLogin.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // UsernameLabelLogin
-            // 
-            this.UsernameLabelLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UsernameLabelLogin.ForeColor = System.Drawing.Color.Red;
-            this.UsernameLabelLogin.Location = new System.Drawing.Point(330, 278);
-            this.UsernameLabelLogin.Name = "UsernameLabelLogin";
-            this.UsernameLabelLogin.Size = new System.Drawing.Size(102, 33);
-            this.UsernameLabelLogin.TabIndex = 0;
-            this.UsernameLabelLogin.Text = "Usuario";
-            this.UsernameLabelLogin.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // SOPTLOGO
             // 
             this.SOPTLOGO.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.SOPTLOGO.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.SOPTLOGO.Font = new System.Drawing.Font("Castellar", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SOPTLOGO.Font = new System.Drawing.Font("Castellar", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SOPTLOGO.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.SOPTLOGO.Location = new System.Drawing.Point(358, 158);
+            this.SOPTLOGO.Location = new System.Drawing.Point(298, 157);
             this.SOPTLOGO.Name = "SOPTLOGO";
-            this.SOPTLOGO.Size = new System.Drawing.Size(150, 48);
+            this.SOPTLOGO.Size = new System.Drawing.Size(234, 89);
             this.SOPTLOGO.TabIndex = 0;
             this.SOPTLOGO.Text = "SPOT";
             this.SOPTLOGO.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -403,11 +445,11 @@
             // 
             this.FLIXLOGO.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.FLIXLOGO.Font = new System.Drawing.Font("Perpetua Titling MT", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FLIXLOGO.Font = new System.Drawing.Font("Perpetua Titling MT", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FLIXLOGO.ForeColor = System.Drawing.Color.Red;
-            this.FLIXLOGO.Location = new System.Drawing.Point(538, 226);
+            this.FLIXLOGO.Location = new System.Drawing.Point(538, 238);
             this.FLIXLOGO.Name = "FLIXLOGO";
-            this.FLIXLOGO.Size = new System.Drawing.Size(123, 47);
+            this.FLIXLOGO.Size = new System.Drawing.Size(224, 109);
             this.FLIXLOGO.TabIndex = 1;
             this.FLIXLOGO.Text = "FLIX";
             this.FLIXLOGO.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -418,9 +460,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.IniciarSeccionStartAppButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.IniciarSeccionStartAppButton.ForeColor = System.Drawing.Color.Red;
-            this.IniciarSeccionStartAppButton.Location = new System.Drawing.Point(306, 351);
+            this.IniciarSeccionStartAppButton.Location = new System.Drawing.Point(450, 374);
             this.IniciarSeccionStartAppButton.Name = "IniciarSeccionStartAppButton";
-            this.IniciarSeccionStartAppButton.Size = new System.Drawing.Size(355, 34);
+            this.IniciarSeccionStartAppButton.Size = new System.Drawing.Size(162, 77);
             this.IniciarSeccionStartAppButton.TabIndex = 15;
             this.IniciarSeccionStartAppButton.Text = "Inicar Seccion";
             this.IniciarSeccionStartAppButton.UseVisualStyleBackColor = true;
@@ -433,55 +475,13 @@
             this.RegistrateButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.RegistrateButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.RegistrateButton.ForeColor = System.Drawing.Color.LimeGreen;
-            this.RegistrateButton.Location = new System.Drawing.Point(298, 447);
+            this.RegistrateButton.Location = new System.Drawing.Point(450, 457);
             this.RegistrateButton.Name = "RegistrateButton";
-            this.RegistrateButton.Size = new System.Drawing.Size(363, 46);
+            this.RegistrateButton.Size = new System.Drawing.Size(162, 77);
             this.RegistrateButton.TabIndex = 1;
             this.RegistrateButton.Text = "Registrate";
             this.RegistrateButton.UseVisualStyleBackColor = true;
             this.RegistrateButton.Click += new System.EventHandler(this.RegistrateButton_Click);
-            // 
-            // CloseAppStart
-            // 
-            this.CloseAppStart.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("CloseAppStart.BackgroundImage")));
-            this.CloseAppStart.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.CloseAppStart.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.CloseAppStart.Dock = System.Windows.Forms.DockStyle.Right;
-            this.CloseAppStart.EstiloButton = BWCMM.MZButtonWindows.EstiloDeButton.Windows;
-            this.CloseAppStart.Location = new System.Drawing.Point(984, 0);
-            this.CloseAppStart.Name = "CloseAppStart";
-            this.CloseAppStart.ParentControl = this;
-            this.CloseAppStart.Size = new System.Drawing.Size(40, 24);
-            this.CloseAppStart.TabIndex = 14;
-            this.CloseAppStart.TipoButton = BWCMM.MZButtonWindows.ModeButton.Close;
-            // 
-            // CloseAppLogIn
-            // 
-            this.CloseAppLogIn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("CloseAppLogIn.BackgroundImage")));
-            this.CloseAppLogIn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.CloseAppLogIn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.CloseAppLogIn.Dock = System.Windows.Forms.DockStyle.Right;
-            this.CloseAppLogIn.EstiloButton = BWCMM.MZButtonWindows.EstiloDeButton.Windows;
-            this.CloseAppLogIn.Location = new System.Drawing.Point(984, 0);
-            this.CloseAppLogIn.Name = "CloseAppLogIn";
-            this.CloseAppLogIn.ParentControl = this;
-            this.CloseAppLogIn.Size = new System.Drawing.Size(40, 24);
-            this.CloseAppLogIn.TabIndex = 9;
-            this.CloseAppLogIn.TipoButton = BWCMM.MZButtonWindows.ModeButton.Null;
-            // 
-            // CloseAppRegister
-            // 
-            this.CloseAppRegister.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("CloseAppRegister.BackgroundImage")));
-            this.CloseAppRegister.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.CloseAppRegister.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.CloseAppRegister.Dock = System.Windows.Forms.DockStyle.Right;
-            this.CloseAppRegister.EstiloButton = BWCMM.MZButtonWindows.EstiloDeButton.Windows;
-            this.CloseAppRegister.Location = new System.Drawing.Point(984, 0);
-            this.CloseAppRegister.Name = "CloseAppRegister";
-            this.CloseAppRegister.ParentControl = this;
-            this.CloseAppRegister.Size = new System.Drawing.Size(40, 24);
-            this.CloseAppRegister.TabIndex = 16;
-            this.CloseAppRegister.TipoButton = BWCMM.MZButtonWindows.ModeButton.Null;
             // 
             // AppForm
             // 
@@ -494,10 +494,10 @@
             this.Name = "AppForm";
             this.Text = " ";
             this.StartPanel.ResumeLayout(false);
-            this.RegisterPanel.ResumeLayout(false);
-            this.RegisterPanel.PerformLayout();
             this.LoginPanel.ResumeLayout(false);
             this.LoginPanel.PerformLayout();
+            this.RegisterPanel.ResumeLayout(false);
+            this.RegisterPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
