@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -20,7 +21,8 @@ namespace Proyectog15WF
         public event EventHandler<LoginEventArgs> UserChecked;
         public delegate bool RegisterEventHandler(object source, RegisterEventArgs args);
         public event RegisterEventHandler RegisterButtonClicked;
-
+        public delegate string CheckusernameEventHandler(object source, RegisterEventArgs args);
+        public event CheckusernameEventHandler Checkusernameregister;
 
 
         List<Panel> stackPanels = new List<Panel>();
@@ -223,7 +225,7 @@ namespace Proyectog15WF
                 nameInputuser = nameInputRegister.Text;
                 if (nameInputuser == "")
                 {
-                    MessageBox.Show("Usuario incorrecto");
+                    MessageBox.Show("Nombre incorrecto");
                 }
                 else
                 {
@@ -242,6 +244,10 @@ namespace Proyectog15WF
                 if (usernameInputuser == "")
                 {
                     MessageBox.Show("Nombre usuario incorrecto");
+                }
+                else if (OncheckUsernameregister(usernameInputuser) != null)
+                {
+                    MessageBox.Show("Ya existe este nombre de usuario");
                 }
                 else
                 {
@@ -280,6 +286,23 @@ namespace Proyectog15WF
             }
 
 
+
+        }
+        public string OncheckUsernameregister(string Username)
+        {
+            string check = null;
+            if (Checkusernameregister != null)
+            {
+                if (Username == Checkusernameregister(this, new RegisterEventArgs() { Usernametext = Username }))
+                {
+                    check += Username;
+                }
+                else
+                {
+                    check = null;
+                }
+            }
+            return check;
 
         }
 

@@ -17,11 +17,11 @@ namespace Controllers
 
         public UserController(Form view)
         {
-            initialize();
             this.view = view as AppForm;
             this.view.LoginButtonClicked += OnLoginButtonClicked;
             this.view.UserChecked += OnUserChecked;
             this.view.RegisterButtonClicked += OnRegisterButtonClicked;
+            this.view.Checkusernameregister += OncheckUsernameregister;
         }
 
 
@@ -55,14 +55,19 @@ namespace Controllers
             return true;
 
         }
-
-        public void initialize()
+        public string OncheckUsernameregister(object sender, RegisterEventArgs e)
         {
+            string result = null;
+            foreach (User user in users)
+            {
+                if (user.Username == e.Usernametext)
+                {
+                    result = user.Username;
+                }
 
-            /*users.Add(new User("cdiazarze", "Carlos Díaz", "123456"));
-             users.Add(new User("ahowardm", "Andres Howard", "123456"));
-             users.Add(new User("jperez", "Juan Perez", "123456"));
-             users.Add(new User("ivansv", "Ivan Santivanez", "123456"));*/
+            }
+            return result;
+
         }
     }
-}
+}   
