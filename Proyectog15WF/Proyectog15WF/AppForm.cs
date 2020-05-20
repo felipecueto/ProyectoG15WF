@@ -308,20 +308,57 @@ namespace Proyectog15WF
 
         private void SearchButton_Click(object sender, EventArgs e)
         {
-            ShowSubPanel(SubSerchPanel);
+           
         }
 
         private void PlaylistButton_Click(object sender, EventArgs e)
         {
-            ShowSubPanel(SubPlaylistPanel);
+           
         }
 
         private void ArtistModeButton_Click(object sender, EventArgs e)
         {
-            ShowSubPanel(SubArtistPanel);
+            
         }
 
         private void Profilebutton_Click(object sender, EventArgs e)
+        {
+            
+            
+        }
+
+        private void UserSeachButton_Click(object sender, EventArgs e)
+        {
+            MainScreenPanel.Visible = false;
+            SearchUserPanel.Visible = true;
+        }
+
+        private void iconPictureBox2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SearchButton_Click_1(object sender, EventArgs e)
+        {
+            ShowSubPanel(SubSerchPanel);
+            if (SearchUserPanel.Visible == true)
+            {
+                MainScreenPanel.Visible = true;
+                SearchUserPanel.Visible = false;
+            }
+        }
+
+        private void PlayListButton_Click_1(object sender, EventArgs e)
+        {
+            ShowSubPanel(SubPlaylistPanel);
+        }
+
+        private void ArtisteModeButton_Click(object sender, EventArgs e)
+        {
+            ShowSubPanel(SubArtistPanel);
+        }
+
+        private void ProfileButton_Click_1(object sender, EventArgs e)
         {
             ShowSubPanel(SubProfilePanel);
         }
