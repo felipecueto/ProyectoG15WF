@@ -12,15 +12,15 @@ using System.Windows.Forms;
 
 namespace Proyectog15WF
 {
-    
+
     public partial class AppForm : Form
     {
         public delegate bool LoginEventHandler(object source, LoginEventArgs args);
         public event LoginEventHandler LoginButtonClicked;
         public event EventHandler<LoginEventArgs> UserChecked;
-        public delegate bool  RegisterEventHandler(object source, RegisterEventArgs args);
+        public delegate bool RegisterEventHandler(object source, RegisterEventArgs args);
         public event RegisterEventHandler RegisterButtonClicked;
-        
+
 
 
         List<Panel> stackPanels = new List<Panel>();
@@ -29,15 +29,15 @@ namespace Proyectog15WF
         {
 
             InitializeComponent();
-            panels.Add("StartPanel",StartPanel);
+            panels.Add("StartPanel", StartPanel);
             panels.Add("Registerpanel", RegisterPanel);
             panels.Add("LoginPanel", LoginPanel);
 
-            
+
         }
         private void loginViewButton_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void SOPTLOGO_Click(object sender, EventArgs e)
@@ -52,7 +52,7 @@ namespace Proyectog15WF
 
         private void StartPanel_Paint(object sender, PaintEventArgs e)
         {
-           
+
         }
 
 
@@ -101,6 +101,8 @@ namespace Proyectog15WF
                 bool result = LoginButtonClicked(this, new LoginEventArgs() { UsernameText = username, PasswordText = pass });
                 if (!result)
                 {
+                    UsernameInPutLogin.ResetText();
+                    PasswordInPutLogin.ResetText();
                     loginViewInvalidCredentialsAlert.Text = "Credenciales invalidas";
                     loginViewInvalidCredentialsAlert.Visible = true;
                 }
@@ -108,27 +110,27 @@ namespace Proyectog15WF
                 {
                     loginViewInvalidCredentialsAlert.ResetText();
                     loginViewInvalidCredentialsAlert.Visible = false;
-                    OnUserChecked(username,pass);
+                    OnUserChecked(username, pass);
                 }
             }
         }
-        private void OnUserChecked(string username,string password)
+        private void OnUserChecked(string username, string password)
         {
             if (UserChecked != null)
             {
-                UserChecked(this, new LoginEventArgs() { UsernameText = username ,PasswordText=password});
+                UserChecked(this, new LoginEventArgs() { UsernameText = username, PasswordText = password });
                 UsernameInPutLogin.ResetText();
                 PasswordInPutLogin.ResetText();
                 stackPanels.Add(panels["StartPanel"]);
                 ShowLastPanel();
             }
         }
-        
-        public void Onregisteredbutooncliked(string Name, string Lastname,string Username,string Mailuser,string Passworduser)
+
+        public void Onregisteredbutooncliked(string Name, string Lastname, string Username, string Mailuser, string Passworduser)
         {
             if (RegisterButtonClicked != null)
             {
-               bool result= RegisterButtonClicked(this, new RegisterEventArgs() { Usernametext = Username, Passwordtext = Passworduser });
+                bool result = RegisterButtonClicked(this, new RegisterEventArgs() { Usernametext = Username, Passwordtext = Passworduser });
                 if (result)
                 {
                     nameInputRegister.ResetText();
@@ -166,13 +168,74 @@ namespace Proyectog15WF
 
         private void Registerbutton_Click(object sender, EventArgs e)
         {
-            string nameInputuser = nameInputRegister.Text;
-            string lastNameInputuser = LastNameInputRegister.Text;
-            string usernameInputuser = UsernameInputRegister.Text;
-            string mailInputuser = MailInputRegister.Text;
-            string passwordInputUser = PasswordInputRegister.Text;
-            Onregisteredbutooncliked(nameInputuser, lastNameInputuser, usernameInputuser, mailInputuser, passwordInputUser);
-            
+            string nameInputuser = null;
+            string lastNameInputuser = null;
+            string usernameInputuser = null;
+            string mailInputuser = null;
+            string passwordInputUser = null;
+            int count = 0;
+            if (count == 0)
+            {
+                nameInputuser = nameInputRegister.Text;
+                if (nameInputuser == "")
+                {
+                    MessageBox.Show("Usuario incorrecto");
+                }
+                else
+                {
+                    count++;
+                }
+                lastNameInputuser = LastNameInputRegister.Text;
+                if (lastNameInputuser == "")
+                {
+                    MessageBox.Show("Apellido incorrecto");
+                }
+                else
+                {
+                    count++;
+                }
+                usernameInputuser = UsernameInputRegister.Text;
+                if (usernameInputuser == "")
+                {
+                    MessageBox.Show("Nombre usuario incorrecto");
+                }
+                else
+                {
+                    count++;
+                }
+
+                mailInputuser = MailInputRegister.Text;
+                if (mailInputuser == "")
+                {
+                    MessageBox.Show("Mail incorrecto");
+                }
+                else
+                {
+                    count++;
+                }
+
+                passwordInputUser = PasswordInputRegister.Text;
+                if (passwordInputUser == "" | passwordInputUser.Length < 8)
+                {
+                    MessageBox.Show("Su contraseña debe ser de largo 8 o mas");
+
+                }
+                else
+                {
+                    count++;
+                }
+                if (count == 5)
+                {
+                    Onregisteredbutooncliked(nameInputuser, lastNameInputuser, usernameInputuser, mailInputuser, passwordInputUser);
+                    MessageBox.Show("Gracias por unirte a SpotFlix" + " " + usernameInputuser);
+                    count = 0;
+                }
+
+
+
+            }
+
+
 
         }
 

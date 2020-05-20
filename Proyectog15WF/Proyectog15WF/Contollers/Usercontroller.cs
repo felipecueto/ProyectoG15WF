@@ -46,23 +46,23 @@ namespace Controllers
             User user = null;
             user = users.Where(t =>
                t.Username.ToUpper().Contains(e.UsernameText.ToUpper()) && (t.Password.ToUpper().Contains(e.PasswordText.ToUpper()))).FirstOrDefault();
-               
+
 
         }
         public bool OnRegisterButtonClicked(object sender, RegisterEventArgs e)
         {
-            users.Add(new User(e.Usernametext,e.Nametext,e.Passwordtext));
+            users.Add(new User(e.Usernametext, e.Nametext, e.Email, e.Passwordtext));
             return true;
 
         }
 
         public void initialize()
-        {  
+        {
 
-           /*users.Add(new User("cdiazarze", "Carlos Díaz", "123456"));
-            users.Add(new User("ahowardm", "Andres Howard", "123456"));
-            users.Add(new User("jperez", "Juan Perez", "123456"));
-            users.Add(new User("ivansv", "Ivan Santivanez", "123456"));*/
+            /*users.Add(new User("cdiazarze", "Carlos Díaz", "123456"));
+             users.Add(new User("ahowardm", "Andres Howard", "123456"));
+             users.Add(new User("jperez", "Juan Perez", "123456"));
+             users.Add(new User("ivansv", "Ivan Santivanez", "123456"));*/
         }
     }
 }

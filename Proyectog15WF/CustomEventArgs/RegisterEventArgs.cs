@@ -7,13 +7,14 @@ using System.Threading.Tasks;
 
 namespace CustomEventArgs
 {
-    public class RegisterEventArgs:EventArgs
+    public class RegisterEventArgs : EventArgs
     {
         public string Nametext { get; set; }
         public string Lastnametext { get; set; }
         public string Usernametext { get; set; }
+        public string Email { get; set; }
         public string Passwordtext { get; set; }
-        
+
 
 
 
