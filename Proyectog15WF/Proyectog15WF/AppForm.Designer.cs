@@ -45,6 +45,7 @@
             this.RegistrateLabel = new System.Windows.Forms.Label();
             this.BackRegisterButton = new System.Windows.Forms.Button();
             this.LoginPanel = new System.Windows.Forms.Panel();
+            this.loginViewInvalidCredentialsAlert = new System.Windows.Forms.Label();
             this.SaveLogin = new System.Windows.Forms.CheckBox();
             this.BackButtonLogin = new System.Windows.Forms.Button();
             this.InicioLoginButton = new System.Windows.Forms.Button();
@@ -55,9 +56,8 @@
             this.UsernameLabelLogin = new System.Windows.Forms.Label();
             this.SOPTLOGO = new System.Windows.Forms.Label();
             this.FLIXLOGO = new System.Windows.Forms.Label();
-            this.RegistrateButton = new System.Windows.Forms.Button();
             this.IniciarSeccionStartAppButton = new System.Windows.Forms.Button();
-            this.loginViewInvalidCredentialsAlert = new System.Windows.Forms.Label();
+            this.RegistrateButton = new System.Windows.Forms.Button();
             this.StartPanel.SuspendLayout();
             this.RegisterPanel.SuspendLayout();
             this.LoginPanel.SuspendLayout();
@@ -66,18 +66,17 @@
             // StartPanel
             // 
             this.StartPanel.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.StartPanel.Controls.Add(this.EXITbutton);
             this.StartPanel.Controls.Add(this.RegisterPanel);
             this.StartPanel.Controls.Add(this.LoginPanel);
             this.StartPanel.Controls.Add(this.SOPTLOGO);
             this.StartPanel.Controls.Add(this.FLIXLOGO);
             this.StartPanel.Controls.Add(this.IniciarSeccionStartAppButton);
             this.StartPanel.Controls.Add(this.RegistrateButton);
+            this.StartPanel.Controls.Add(this.EXITbutton);
             this.StartPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.StartPanel.Location = new System.Drawing.Point(0, 0);
-            this.StartPanel.Margin = new System.Windows.Forms.Padding(2);
             this.StartPanel.Name = "StartPanel";
-            this.StartPanel.Size = new System.Drawing.Size(534, 292);
+            this.StartPanel.Size = new System.Drawing.Size(1002, 712);
             this.StartPanel.TabIndex = 0;
             this.StartPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.StartPanel_Paint);
             // 
@@ -88,9 +87,8 @@
             this.EXITbutton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.EXITbutton.ForeColor = System.Drawing.Color.Red;
             this.EXITbutton.Location = new System.Drawing.Point(0, 0);
-            this.EXITbutton.Margin = new System.Windows.Forms.Padding(2);
             this.EXITbutton.Name = "EXITbutton";
-            this.EXITbutton.Size = new System.Drawing.Size(24, 23);
+            this.EXITbutton.Size = new System.Drawing.Size(30, 30);
             this.EXITbutton.TabIndex = 2;
             this.EXITbutton.Text = "X";
             this.EXITbutton.UseVisualStyleBackColor = true;
@@ -112,22 +110,23 @@
             this.RegisterPanel.Controls.Add(this.NameLabelRegister);
             this.RegisterPanel.Controls.Add(this.RegistrateLabel);
             this.RegisterPanel.Controls.Add(this.BackRegisterButton);
+            this.RegisterPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.RegisterPanel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RegisterPanel.Location = new System.Drawing.Point(2, 2);
-            this.RegisterPanel.Margin = new System.Windows.Forms.Padding(2);
+            this.RegisterPanel.Location = new System.Drawing.Point(0, 0);
             this.RegisterPanel.Name = "RegisterPanel";
-            this.RegisterPanel.Size = new System.Drawing.Size(533, 292);
+            this.RegisterPanel.Size = new System.Drawing.Size(1002, 712);
             this.RegisterPanel.TabIndex = 1;
             this.RegisterPanel.Visible = false;
             // 
             // Registerbutton
             // 
+            this.Registerbutton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.Registerbutton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.Registerbutton.ForeColor = System.Drawing.Color.Yellow;
-            this.Registerbutton.Location = new System.Drawing.Point(115, 222);
-            this.Registerbutton.Margin = new System.Windows.Forms.Padding(2);
+            this.Registerbutton.Location = new System.Drawing.Point(440, 558);
             this.Registerbutton.Name = "Registerbutton";
-            this.Registerbutton.Size = new System.Drawing.Size(65, 21);
+            this.Registerbutton.Size = new System.Drawing.Size(138, 47);
             this.Registerbutton.TabIndex = 12;
             this.Registerbutton.Text = "Registrate";
             this.Registerbutton.UseVisualStyleBackColor = true;
@@ -135,133 +134,128 @@
             // 
             // PasswordInputRegister
             // 
+            this.PasswordInputRegister.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.PasswordInputRegister.BackColor = System.Drawing.SystemColors.Menu;
             this.PasswordInputRegister.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.PasswordInputRegister.Location = new System.Drawing.Point(84, 188);
-            this.PasswordInputRegister.Margin = new System.Windows.Forms.Padding(2);
+            this.PasswordInputRegister.Location = new System.Drawing.Point(546, 489);
             this.PasswordInputRegister.Name = "PasswordInputRegister";
             this.PasswordInputRegister.PasswordChar = '*';
-            this.PasswordInputRegister.Size = new System.Drawing.Size(123, 16);
+            this.PasswordInputRegister.Size = new System.Drawing.Size(184, 23);
             this.PasswordInputRegister.TabIndex = 11;
             // 
             // MailInputRegister
             // 
+            this.MailInputRegister.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.MailInputRegister.BackColor = System.Drawing.SystemColors.Menu;
             this.MailInputRegister.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.MailInputRegister.Location = new System.Drawing.Point(84, 155);
-            this.MailInputRegister.Margin = new System.Windows.Forms.Padding(2);
+            this.MailInputRegister.Location = new System.Drawing.Point(546, 437);
             this.MailInputRegister.Name = "MailInputRegister";
-            this.MailInputRegister.Size = new System.Drawing.Size(123, 16);
+            this.MailInputRegister.Size = new System.Drawing.Size(184, 23);
             this.MailInputRegister.TabIndex = 10;
             // 
             // UsernameInputRegister
             // 
+            this.UsernameInputRegister.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.UsernameInputRegister.BackColor = System.Drawing.SystemColors.Menu;
             this.UsernameInputRegister.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.UsernameInputRegister.Location = new System.Drawing.Point(84, 123);
-            this.UsernameInputRegister.Margin = new System.Windows.Forms.Padding(2);
+            this.UsernameInputRegister.Location = new System.Drawing.Point(546, 382);
             this.UsernameInputRegister.Name = "UsernameInputRegister";
-            this.UsernameInputRegister.Size = new System.Drawing.Size(123, 16);
+            this.UsernameInputRegister.Size = new System.Drawing.Size(184, 23);
             this.UsernameInputRegister.TabIndex = 9;
             // 
             // LastNameInputRegister
             // 
+            this.LastNameInputRegister.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.LastNameInputRegister.BackColor = System.Drawing.SystemColors.MenuBar;
             this.LastNameInputRegister.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.LastNameInputRegister.Location = new System.Drawing.Point(84, 94);
-            this.LastNameInputRegister.Margin = new System.Windows.Forms.Padding(2);
+            this.LastNameInputRegister.Location = new System.Drawing.Point(546, 328);
             this.LastNameInputRegister.Name = "LastNameInputRegister";
-            this.LastNameInputRegister.Size = new System.Drawing.Size(123, 16);
+            this.LastNameInputRegister.Size = new System.Drawing.Size(184, 23);
             this.LastNameInputRegister.TabIndex = 8;
             // 
             // nameInputRegister
             // 
+            this.nameInputRegister.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.nameInputRegister.BackColor = System.Drawing.SystemColors.Menu;
             this.nameInputRegister.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.nameInputRegister.Location = new System.Drawing.Point(84, 66);
-            this.nameInputRegister.Margin = new System.Windows.Forms.Padding(2);
+            this.nameInputRegister.Location = new System.Drawing.Point(546, 274);
             this.nameInputRegister.Name = "nameInputRegister";
-            this.nameInputRegister.Size = new System.Drawing.Size(123, 16);
+            this.nameInputRegister.Size = new System.Drawing.Size(184, 23);
             this.nameInputRegister.TabIndex = 7;
             // 
             // PasswordLabelRegister
             // 
-            this.PasswordLabelRegister.AutoSize = true;
             this.PasswordLabelRegister.ForeColor = System.Drawing.Color.ForestGreen;
-            this.PasswordLabelRegister.Location = new System.Drawing.Point(4, 187);
-            this.PasswordLabelRegister.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.PasswordLabelRegister.Location = new System.Drawing.Point(344, 489);
             this.PasswordLabelRegister.Name = "PasswordLabelRegister";
-            this.PasswordLabelRegister.Size = new System.Drawing.Size(81, 17);
+            this.PasswordLabelRegister.Size = new System.Drawing.Size(171, 38);
             this.PasswordLabelRegister.TabIndex = 6;
             this.PasswordLabelRegister.Text = "Contraseña";
             // 
             // MailLabelRegister
             // 
-            this.MailLabelRegister.AutoSize = true;
             this.MailLabelRegister.ForeColor = System.Drawing.Color.ForestGreen;
-            this.MailLabelRegister.Location = new System.Drawing.Point(47, 153);
-            this.MailLabelRegister.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.MailLabelRegister.Location = new System.Drawing.Point(347, 437);
             this.MailLabelRegister.Name = "MailLabelRegister";
-            this.MailLabelRegister.Size = new System.Drawing.Size(33, 17);
+            this.MailLabelRegister.Size = new System.Drawing.Size(72, 38);
             this.MailLabelRegister.TabIndex = 5;
             this.MailLabelRegister.Text = "Mail";
             // 
             // UserLabelRegister
             // 
-            this.UserLabelRegister.AutoSize = true;
             this.UserLabelRegister.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.UserLabelRegister.ForeColor = System.Drawing.Color.ForestGreen;
-            this.UserLabelRegister.Location = new System.Drawing.Point(32, 123);
-            this.UserLabelRegister.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.UserLabelRegister.Location = new System.Drawing.Point(345, 384);
             this.UserLabelRegister.Name = "UserLabelRegister";
-            this.UserLabelRegister.Size = new System.Drawing.Size(50, 15);
+            this.UserLabelRegister.Size = new System.Drawing.Size(108, 34);
             this.UserLabelRegister.TabIndex = 4;
             this.UserLabelRegister.Text = "Usuario";
             // 
             // LastNameLabelRegister
             // 
-            this.LastNameLabelRegister.AutoSize = true;
             this.LastNameLabelRegister.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LastNameLabelRegister.ForeColor = System.Drawing.Color.ForestGreen;
-            this.LastNameLabelRegister.Location = new System.Drawing.Point(29, 94);
-            this.LastNameLabelRegister.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.LastNameLabelRegister.Location = new System.Drawing.Point(348, 330);
             this.LastNameLabelRegister.Name = "LastNameLabelRegister";
-            this.LastNameLabelRegister.Size = new System.Drawing.Size(51, 15);
+            this.LastNameLabelRegister.Size = new System.Drawing.Size(111, 34);
             this.LastNameLabelRegister.TabIndex = 3;
             this.LastNameLabelRegister.Text = "Apellido";
             // 
             // NameLabelRegister
             // 
-            this.NameLabelRegister.AutoSize = true;
             this.NameLabelRegister.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NameLabelRegister.ForeColor = System.Drawing.Color.ForestGreen;
-            this.NameLabelRegister.Location = new System.Drawing.Point(30, 66);
-            this.NameLabelRegister.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.NameLabelRegister.Location = new System.Drawing.Point(345, 276);
             this.NameLabelRegister.Name = "NameLabelRegister";
-            this.NameLabelRegister.Size = new System.Drawing.Size(52, 15);
+            this.NameLabelRegister.Size = new System.Drawing.Size(110, 34);
             this.NameLabelRegister.TabIndex = 2;
             this.NameLabelRegister.Text = "Nombre";
             // 
             // RegistrateLabel
             // 
-            this.RegistrateLabel.AutoSize = true;
+            this.RegistrateLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.RegistrateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RegistrateLabel.ForeColor = System.Drawing.Color.Green;
-            this.RegistrateLabel.Location = new System.Drawing.Point(28, 32);
-            this.RegistrateLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.RegistrateLabel.Location = new System.Drawing.Point(433, 125);
             this.RegistrateLabel.Name = "RegistrateLabel";
-            this.RegistrateLabel.Size = new System.Drawing.Size(192, 26);
+            this.RegistrateLabel.Size = new System.Drawing.Size(289, 53);
             this.RegistrateLabel.TabIndex = 0;
             this.RegistrateLabel.Text = "Registrate Gratis";
+            this.RegistrateLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // BackRegisterButton
             // 
             this.BackRegisterButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BackRegisterButton.ForeColor = System.Drawing.Color.ForestGreen;
-            this.BackRegisterButton.Location = new System.Drawing.Point(2, 2);
-            this.BackRegisterButton.Margin = new System.Windows.Forms.Padding(2);
+            this.BackRegisterButton.Location = new System.Drawing.Point(0, 3);
             this.BackRegisterButton.Name = "BackRegisterButton";
-            this.BackRegisterButton.Size = new System.Drawing.Size(25, 21);
+            this.BackRegisterButton.Size = new System.Drawing.Size(38, 32);
             this.BackRegisterButton.TabIndex = 13;
             this.BackRegisterButton.Text = "<";
             this.BackRegisterButton.UseVisualStyleBackColor = true;
@@ -278,22 +272,37 @@
             this.LoginPanel.Controls.Add(this.IniciarseccionLabelLogin);
             this.LoginPanel.Controls.Add(this.PasswordUsernameLabelLogin);
             this.LoginPanel.Controls.Add(this.UsernameLabelLogin);
-            this.LoginPanel.Location = new System.Drawing.Point(1, 0);
-            this.LoginPanel.Margin = new System.Windows.Forms.Padding(2);
+            this.LoginPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LoginPanel.Location = new System.Drawing.Point(0, 0);
             this.LoginPanel.Name = "LoginPanel";
-            this.LoginPanel.Size = new System.Drawing.Size(533, 292);
+            this.LoginPanel.Size = new System.Drawing.Size(1002, 712);
             this.LoginPanel.TabIndex = 14;
             this.LoginPanel.Visible = false;
             // 
+            // loginViewInvalidCredentialsAlert
+            // 
+            this.loginViewInvalidCredentialsAlert.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.loginViewInvalidCredentialsAlert.BackColor = System.Drawing.Color.Black;
+            this.loginViewInvalidCredentialsAlert.ForeColor = System.Drawing.Color.Red;
+            this.loginViewInvalidCredentialsAlert.Location = new System.Drawing.Point(469, 412);
+            this.loginViewInvalidCredentialsAlert.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.loginViewInvalidCredentialsAlert.Name = "loginViewInvalidCredentialsAlert";
+            this.loginViewInvalidCredentialsAlert.Size = new System.Drawing.Size(235, 20);
+            this.loginViewInvalidCredentialsAlert.TabIndex = 8;
+            this.loginViewInvalidCredentialsAlert.Text = "**Credencial de usuario invalida";
+            this.loginViewInvalidCredentialsAlert.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.loginViewInvalidCredentialsAlert.Visible = false;
+            // 
             // SaveLogin
             // 
-            this.SaveLogin.AutoSize = true;
+            this.SaveLogin.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.SaveLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SaveLogin.ForeColor = System.Drawing.Color.Red;
-            this.SaveLogin.Location = new System.Drawing.Point(326, 153);
-            this.SaveLogin.Margin = new System.Windows.Forms.Padding(2);
+            this.SaveLogin.Location = new System.Drawing.Point(473, 447);
             this.SaveLogin.Name = "SaveLogin";
-            this.SaveLogin.Size = new System.Drawing.Size(154, 17);
+            this.SaveLogin.Size = new System.Drawing.Size(259, 28);
             this.SaveLogin.TabIndex = 7;
             this.SaveLogin.Text = "Mantener Inicio de seccion";
             this.SaveLogin.UseVisualStyleBackColor = true;
@@ -302,10 +311,9 @@
             // 
             this.BackButtonLogin.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BackButtonLogin.ForeColor = System.Drawing.Color.Red;
-            this.BackButtonLogin.Location = new System.Drawing.Point(7, 8);
-            this.BackButtonLogin.Margin = new System.Windows.Forms.Padding(2);
+            this.BackButtonLogin.Location = new System.Drawing.Point(10, 12);
             this.BackButtonLogin.Name = "BackButtonLogin";
-            this.BackButtonLogin.Size = new System.Drawing.Size(37, 28);
+            this.BackButtonLogin.Size = new System.Drawing.Size(56, 43);
             this.BackButtonLogin.TabIndex = 6;
             this.BackButtonLogin.Text = "<";
             this.BackButtonLogin.UseVisualStyleBackColor = true;
@@ -313,12 +321,13 @@
             // 
             // InicioLoginButton
             // 
+            this.InicioLoginButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.InicioLoginButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.InicioLoginButton.ForeColor = System.Drawing.Color.DarkRed;
-            this.InicioLoginButton.Location = new System.Drawing.Point(365, 183);
-            this.InicioLoginButton.Margin = new System.Windows.Forms.Padding(2);
+            this.InicioLoginButton.Location = new System.Drawing.Point(473, 499);
             this.InicioLoginButton.Name = "InicioLoginButton";
-            this.InicioLoginButton.Size = new System.Drawing.Size(76, 26);
+            this.InicioLoginButton.Size = new System.Drawing.Size(202, 50);
             this.InicioLoginButton.TabIndex = 5;
             this.InicioLoginButton.Text = "Iniciar Seccion";
             this.InicioLoginButton.UseVisualStyleBackColor = true;
@@ -326,71 +335,74 @@
             // 
             // PasswordInPutLogin
             // 
+            this.PasswordInPutLogin.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.PasswordInPutLogin.BackColor = System.Drawing.SystemColors.Menu;
             this.PasswordInPutLogin.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.PasswordInPutLogin.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.PasswordInPutLogin.Location = new System.Drawing.Point(335, 112);
-            this.PasswordInPutLogin.Margin = new System.Windows.Forms.Padding(2);
+            this.PasswordInPutLogin.Location = new System.Drawing.Point(473, 376);
             this.PasswordInPutLogin.Name = "PasswordInPutLogin";
             this.PasswordInPutLogin.PasswordChar = '*';
-            this.PasswordInPutLogin.Size = new System.Drawing.Size(134, 13);
+            this.PasswordInPutLogin.Size = new System.Drawing.Size(259, 19);
             this.PasswordInPutLogin.TabIndex = 4;
             // 
             // UsernameInPutLogin
             // 
+            this.UsernameInPutLogin.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.UsernameInPutLogin.BackColor = System.Drawing.SystemColors.Menu;
             this.UsernameInPutLogin.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.UsernameInPutLogin.Location = new System.Drawing.Point(335, 81);
-            this.UsernameInPutLogin.Margin = new System.Windows.Forms.Padding(2);
+            this.UsernameInPutLogin.Location = new System.Drawing.Point(473, 286);
             this.UsernameInPutLogin.Name = "UsernameInPutLogin";
-            this.UsernameInPutLogin.Size = new System.Drawing.Size(134, 13);
+            this.UsernameInPutLogin.Size = new System.Drawing.Size(259, 19);
             this.UsernameInPutLogin.TabIndex = 3;
             // 
             // IniciarseccionLabelLogin
             // 
-            this.IniciarseccionLabelLogin.AutoSize = true;
+            this.IniciarseccionLabelLogin.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.IniciarseccionLabelLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.IniciarseccionLabelLogin.ForeColor = System.Drawing.Color.Red;
-            this.IniciarseccionLabelLogin.Location = new System.Drawing.Point(330, 34);
-            this.IniciarseccionLabelLogin.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.IniciarseccionLabelLogin.Location = new System.Drawing.Point(335, 136);
             this.IniciarseccionLabelLogin.Name = "IniciarseccionLabelLogin";
-            this.IniciarseccionLabelLogin.Size = new System.Drawing.Size(163, 26);
+            this.IniciarseccionLabelLogin.Size = new System.Drawing.Size(397, 70);
             this.IniciarseccionLabelLogin.TabIndex = 2;
             this.IniciarseccionLabelLogin.Text = "Inicar Seccion";
+            this.IniciarseccionLabelLogin.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.IniciarseccionLabelLogin.Click += new System.EventHandler(this.IniciarseccionLabelLogin_Click_1);
             // 
             // PasswordUsernameLabelLogin
             // 
-            this.PasswordUsernameLabelLogin.AutoSize = true;
+            this.PasswordUsernameLabelLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PasswordUsernameLabelLogin.ForeColor = System.Drawing.Color.Red;
-            this.PasswordUsernameLabelLogin.Location = new System.Drawing.Point(232, 110);
-            this.PasswordUsernameLabelLogin.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.PasswordUsernameLabelLogin.Location = new System.Drawing.Point(330, 362);
             this.PasswordUsernameLabelLogin.Name = "PasswordUsernameLabelLogin";
-            this.PasswordUsernameLabelLogin.Size = new System.Drawing.Size(61, 13);
+            this.PasswordUsernameLabelLogin.Size = new System.Drawing.Size(137, 45);
             this.PasswordUsernameLabelLogin.TabIndex = 1;
             this.PasswordUsernameLabelLogin.Text = "Contraseña";
+            this.PasswordUsernameLabelLogin.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // UsernameLabelLogin
             // 
-            this.UsernameLabelLogin.AutoSize = true;
+            this.UsernameLabelLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.UsernameLabelLogin.ForeColor = System.Drawing.Color.Red;
-            this.UsernameLabelLogin.Location = new System.Drawing.Point(245, 81);
-            this.UsernameLabelLogin.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.UsernameLabelLogin.Location = new System.Drawing.Point(330, 278);
             this.UsernameLabelLogin.Name = "UsernameLabelLogin";
-            this.UsernameLabelLogin.Size = new System.Drawing.Size(43, 13);
+            this.UsernameLabelLogin.Size = new System.Drawing.Size(102, 33);
             this.UsernameLabelLogin.TabIndex = 0;
             this.UsernameLabelLogin.Text = "Usuario";
+            this.UsernameLabelLogin.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // SOPTLOGO
             // 
-            this.SOPTLOGO.AutoSize = true;
+            this.SOPTLOGO.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.SOPTLOGO.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.SOPTLOGO.Font = new System.Drawing.Font("Castellar", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SOPTLOGO.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.SOPTLOGO.Location = new System.Drawing.Point(187, 49);
-            this.SOPTLOGO.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.SOPTLOGO.Location = new System.Drawing.Point(358, 158);
             this.SOPTLOGO.Name = "SOPTLOGO";
-            this.SOPTLOGO.Size = new System.Drawing.Size(87, 33);
+            this.SOPTLOGO.Size = new System.Drawing.Size(128, 48);
             this.SOPTLOGO.TabIndex = 0;
             this.SOPTLOGO.Text = "SPOT";
             this.SOPTLOGO.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -398,63 +410,53 @@
             // 
             // FLIXLOGO
             // 
-            this.FLIXLOGO.AutoSize = true;
+            this.FLIXLOGO.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.FLIXLOGO.Font = new System.Drawing.Font("Perpetua Titling MT", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FLIXLOGO.ForeColor = System.Drawing.Color.Red;
-            this.FLIXLOGO.Location = new System.Drawing.Point(276, 49);
-            this.FLIXLOGO.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.FLIXLOGO.Location = new System.Drawing.Point(538, 226);
             this.FLIXLOGO.Name = "FLIXLOGO";
-            this.FLIXLOGO.Size = new System.Drawing.Size(71, 32);
+            this.FLIXLOGO.Size = new System.Drawing.Size(101, 47);
             this.FLIXLOGO.TabIndex = 1;
             this.FLIXLOGO.Text = "FLIX";
-            // 
-            // RegistrateButton
-            // 
-            this.RegistrateButton.AutoSize = true;
-            this.RegistrateButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.RegistrateButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.RegistrateButton.ForeColor = System.Drawing.Color.LimeGreen;
-            this.RegistrateButton.Location = new System.Drawing.Point(235, 176);
-            this.RegistrateButton.Margin = new System.Windows.Forms.Padding(2);
-            this.RegistrateButton.Name = "RegistrateButton";
-            this.RegistrateButton.Size = new System.Drawing.Size(65, 23);
-            this.RegistrateButton.TabIndex = 1;
-            this.RegistrateButton.Text = "Registrate";
-            this.RegistrateButton.UseVisualStyleBackColor = true;
-            this.RegistrateButton.Click += new System.EventHandler(this.RegistrateButton_Click);
+            this.FLIXLOGO.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // IniciarSeccionStartAppButton
             // 
+            this.IniciarSeccionStartAppButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.IniciarSeccionStartAppButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.IniciarSeccionStartAppButton.ForeColor = System.Drawing.Color.Red;
-            this.IniciarSeccionStartAppButton.Location = new System.Drawing.Point(223, 122);
-            this.IniciarSeccionStartAppButton.Margin = new System.Windows.Forms.Padding(2);
+            this.IniciarSeccionStartAppButton.Location = new System.Drawing.Point(306, 351);
             this.IniciarSeccionStartAppButton.Name = "IniciarSeccionStartAppButton";
-            this.IniciarSeccionStartAppButton.Size = new System.Drawing.Size(88, 22);
+            this.IniciarSeccionStartAppButton.Size = new System.Drawing.Size(333, 34);
             this.IniciarSeccionStartAppButton.TabIndex = 15;
             this.IniciarSeccionStartAppButton.Text = "Inicar Seccion";
             this.IniciarSeccionStartAppButton.UseVisualStyleBackColor = true;
             this.IniciarSeccionStartAppButton.Click += new System.EventHandler(this.button1_Click);
             // 
-            // loginViewInvalidCredentialsAlert
+            // RegistrateButton
             // 
-            this.loginViewInvalidCredentialsAlert.AutoSize = true;
-            this.loginViewInvalidCredentialsAlert.BackColor = System.Drawing.Color.Black;
-            this.loginViewInvalidCredentialsAlert.ForeColor = System.Drawing.Color.Red;
-            this.loginViewInvalidCredentialsAlert.Location = new System.Drawing.Point(323, 131);
-            this.loginViewInvalidCredentialsAlert.Name = "loginViewInvalidCredentialsAlert";
-            this.loginViewInvalidCredentialsAlert.Size = new System.Drawing.Size(148, 13);
-            this.loginViewInvalidCredentialsAlert.TabIndex = 8;
-            this.loginViewInvalidCredentialsAlert.Text = "Credencial de usuario invalida";
-            this.loginViewInvalidCredentialsAlert.Visible = false;
+            this.RegistrateButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.RegistrateButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.RegistrateButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.RegistrateButton.ForeColor = System.Drawing.Color.LimeGreen;
+            this.RegistrateButton.Location = new System.Drawing.Point(298, 447);
+            this.RegistrateButton.Name = "RegistrateButton";
+            this.RegistrateButton.Size = new System.Drawing.Size(341, 46);
+            this.RegistrateButton.TabIndex = 1;
+            this.RegistrateButton.Text = "Registrate";
+            this.RegistrateButton.UseVisualStyleBackColor = true;
+            this.RegistrateButton.Click += new System.EventHandler(this.RegistrateButton_Click);
             // 
             // AppForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(534, 292);
+            this.ClientSize = new System.Drawing.Size(1002, 712);
             this.Controls.Add(this.StartPanel);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.MinimumSize = new System.Drawing.Size(1024, 768);
             this.Name = "AppForm";
             this.Text = " ";
             this.StartPanel.ResumeLayout(false);
