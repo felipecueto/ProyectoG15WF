@@ -32,8 +32,46 @@ namespace Proyectog15WF
             panels.Add("StartPanel", StartPanel);
             panels.Add("Registerpanel", RegisterPanel);
             panels.Add("LoginPanel", LoginPanel);
+            panels.Add("Mainpanel", MainPanel);
 
 
+        }
+
+        private void coustomdesing()
+        {
+
+
+        }
+        private void HideSubPanel()
+        {
+            if (SubArtistPanel.Visible == true)
+            {
+                SubArtistPanel.Visible = false;
+            }
+            if (SubPlaylistPanel.Visible == true)
+            {
+                SubPlaylistPanel.Visible = false;
+            }
+            if (SubProfilePanel.Visible == true)
+            {
+                SubProfilePanel.Visible = false;
+            }
+            if (SubSerchPanel.Visible == true)
+            {
+                SubSerchPanel.Visible = false;
+            }
+        }
+        private void ShowSubPanel(Panel submenu)
+        {
+            if (submenu.Visible == false)
+            {
+                HideSubPanel();
+                submenu.Visible = true;
+            }
+            else
+            {
+                submenu.Visible = false;
+            }
         }
         private void loginViewButton_Click(object sender, EventArgs e)
         {
@@ -75,6 +113,9 @@ namespace Proyectog15WF
         {
             StartPanel.SendToBack();
             LoginPanel.BringToFront();
+            loginViewInvalidCredentialsAlert.ResetText();
+            loginViewInvalidCredentialsAlert.Visible = false;
+            SaveLogin.ResumeLayout();
             LoginPanel.Visible = true;
         }
 
@@ -122,7 +163,9 @@ namespace Proyectog15WF
                 UsernameInPutLogin.ResetText();
                 PasswordInPutLogin.ResetText();
                 stackPanels.Add(panels["StartPanel"]);
-                ShowLastPanel();
+                MainPanel.Visible = true;
+                MainPanel.BringToFront();
+                //ShowLastPanel();
             }
         }
 
@@ -164,6 +207,7 @@ namespace Proyectog15WF
             string username = UsernameInPutLogin.Text;
             string pass = PasswordInPutLogin.Text;
             OnLoginButtonClicked(username, pass);
+            
         }
 
         private void Registerbutton_Click(object sender, EventArgs e)
@@ -239,5 +283,24 @@ namespace Proyectog15WF
 
         }
 
+        private void SearchButton_Click(object sender, EventArgs e)
+        {
+            ShowSubPanel(SubSerchPanel);
+        }
+
+        private void PlaylistButton_Click(object sender, EventArgs e)
+        {
+            ShowSubPanel(SubPlaylistPanel);
+        }
+
+        private void ArtistModeButton_Click(object sender, EventArgs e)
+        {
+            ShowSubPanel(SubArtistPanel);
+        }
+
+        private void Profilebutton_Click(object sender, EventArgs e)
+        {
+            ShowSubPanel(SubProfilePanel);
+        }
     }
 }
