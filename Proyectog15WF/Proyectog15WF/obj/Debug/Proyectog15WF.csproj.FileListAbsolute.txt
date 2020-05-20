@@ -45,3 +45,9 @@ C:\Users\felij\Desktop\Proyectog15WF\Proyectog15WF\Proyectog15WF\obj\Debug\Inter
 C:\Users\felij\Desktop\Proyectog15WF\Proyectog15WF\Proyectog15WF\obj\Debug\AxInterop.WMPLib.dll
 C:\Users\felij\Desktop\Proyectog15WF\Proyectog15WF\Proyectog15WF\obj\Debug\Proyectog15WF.csproj.ResolveComReference.cache
 C:\Users\felij\Desktop\Proyectog15WF\Proyectog15WF\Proyectog15WF\bin\Debug\FontAwesome.Sharp.dll
+C:\Users\Medicos\Desktop\Trabajo 3\ProyectoG15WF\Proyectog15WF\Proyectog15WF\bin\Debug\FontAwesome.Sharp.dll
+C:\Users\Medicos\Desktop\Trabajo 3\ProyectoG15WF\Proyectog15WF\Proyectog15WF\bin\Debug\Interop.WMPLib.dll
+C:\Users\Medicos\Desktop\Trabajo 3\ProyectoG15WF\Proyectog15WF\Proyectog15WF\bin\Debug\AxInterop.WMPLib.dll
+C:\Users\Medicos\Desktop\Trabajo 3\ProyectoG15WF\Proyectog15WF\Proyectog15WF\obj\Debug\Interop.WMPLib.dll
+C:\Users\Medicos\Desktop\Trabajo 3\ProyectoG15WF\Proyectog15WF\Proyectog15WF\obj\Debug\AxInterop.WMPLib.dll
+C:\Users\Medicos\Desktop\Trabajo 3\ProyectoG15WF\Proyectog15WF\Proyectog15WF\obj\Debug\Proyectog15WF.csproj.ResolveComReference.cache

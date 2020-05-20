@@ -362,5 +362,11 @@ namespace Proyectog15WF
         {
             ShowSubPanel(SubProfilePanel);
         }
+
+        private void LogOutButton_Click(object sender, EventArgs e)
+        {
+            stackPanels.RemoveAt(stackPanels.Count-1);
+            ShowLastPanel();
+        }
     }
 }
