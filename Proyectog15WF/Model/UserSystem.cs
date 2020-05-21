@@ -8,7 +8,7 @@ namespace Model
 {
     class UserSystem
     {
-       
+       /*
         private Dictionary<int, List<User>> registered;
         public UserSystem()
         {
@@ -75,7 +75,7 @@ namespace Model
                 }
             }
             return description;
-        }
+        }*/
 
 
     }

@@ -34,9 +34,6 @@
             this.CloseButtonMain = new BWCMM.MZButtonWindows();
             this.MaximizarButton = new BWCMM.MZButtonWindows();
             this.MinimizarButton = new BWCMM.MZButtonWindows();
-            this.SearchUserPanel = new System.Windows.Forms.Panel();
-            this.mzButtonWindows1 = new BWCMM.MZButtonWindows();
-            this.MainScreenPanel = new System.Windows.Forms.Panel();
             this.ReproduccionPanel = new System.Windows.Forms.Panel();
             this.NextButton = new FontAwesome.Sharp.IconButton();
             this.BackButton = new FontAwesome.Sharp.IconButton();
@@ -68,6 +65,10 @@
             this.LogOutButton = new FontAwesome.Sharp.IconButton();
             this.SetingsButton = new FontAwesome.Sharp.IconButton();
             this.LogoPanel = new System.Windows.Forms.Panel();
+            this.SearchUserPanel = new System.Windows.Forms.Panel();
+            this.SearchUserPaneltextbox = new System.Windows.Forms.TextBox();
+            this.mzButtonWindows1 = new BWCMM.MZButtonWindows();
+            this.MainScreenPanel = new System.Windows.Forms.Panel();
             this.LoginPanel = new System.Windows.Forms.Panel();
             this.CloseAppLogIn = new BWCMM.MZButtonWindows();
             this.loginViewInvalidCredentialsAlert = new System.Windows.Forms.Label();
@@ -99,15 +100,16 @@
             this.IniciarSeccionStartAppButton = new System.Windows.Forms.Button();
             this.RegistrateButton = new System.Windows.Forms.Button();
             this.CloseAppStart = new BWCMM.MZButtonWindows();
+            this.SearchUserPanelResultlistusers = new System.Windows.Forms.ListBox();
             this.StartPanel.SuspendLayout();
             this.MainPanel.SuspendLayout();
-            this.SearchUserPanel.SuspendLayout();
             this.ReproduccionPanel.SuspendLayout();
             this.SideMainPanel.SuspendLayout();
             this.SubProfilePanel.SuspendLayout();
             this.SubArtistPanel.SuspendLayout();
             this.SubPlaylistPanel.SuspendLayout();
             this.SubSerchPanel.SuspendLayout();
+            this.SearchUserPanel.SuspendLayout();
             this.LoginPanel.SuspendLayout();
             this.RegisterPanel.SuspendLayout();
             this.SuspendLayout();
@@ -125,7 +127,7 @@
             this.StartPanel.Controls.Add(this.CloseAppStart);
             this.StartPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.StartPanel.Location = new System.Drawing.Point(0, 0);
-            this.StartPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.StartPanel.Margin = new System.Windows.Forms.Padding(2);
             this.StartPanel.Name = "StartPanel";
             this.StartPanel.Size = new System.Drawing.Size(683, 499);
             this.StartPanel.TabIndex = 0;
@@ -137,13 +139,13 @@
             this.MainPanel.Controls.Add(this.CloseButtonMain);
             this.MainPanel.Controls.Add(this.MaximizarButton);
             this.MainPanel.Controls.Add(this.MinimizarButton);
-            this.MainPanel.Controls.Add(this.SearchUserPanel);
-            this.MainPanel.Controls.Add(this.MainScreenPanel);
             this.MainPanel.Controls.Add(this.ReproduccionPanel);
             this.MainPanel.Controls.Add(this.SideMainPanel);
+            this.MainPanel.Controls.Add(this.SearchUserPanel);
+            this.MainPanel.Controls.Add(this.MainScreenPanel);
             this.MainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MainPanel.Location = new System.Drawing.Point(0, 0);
-            this.MainPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.MainPanel.Margin = new System.Windows.Forms.Padding(2);
             this.MainPanel.Name = "MainPanel";
             this.MainPanel.Size = new System.Drawing.Size(683, 499);
             this.MainPanel.TabIndex = 10;
@@ -158,7 +160,7 @@
             this.CloseButtonMain.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CloseButtonMain.EstiloButton = BWCMM.MZButtonWindows.EstiloDeButton.Windows;
             this.CloseButtonMain.Location = new System.Drawing.Point(643, 0);
-            this.CloseButtonMain.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.CloseButtonMain.Margin = new System.Windows.Forms.Padding(2);
             this.CloseButtonMain.Name = "CloseButtonMain";
             this.CloseButtonMain.ParentControl = this;
             this.CloseButtonMain.Size = new System.Drawing.Size(40, 24);
@@ -174,7 +176,7 @@
             this.MaximizarButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.MaximizarButton.EstiloButton = BWCMM.MZButtonWindows.EstiloDeButton.Windows;
             this.MaximizarButton.Location = new System.Drawing.Point(603, 0);
-            this.MaximizarButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.MaximizarButton.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizarButton.Name = "MaximizarButton";
             this.MaximizarButton.ParentControl = this;
             this.MaximizarButton.Size = new System.Drawing.Size(40, 24);
@@ -190,49 +192,12 @@
             this.MinimizarButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.MinimizarButton.EstiloButton = BWCMM.MZButtonWindows.EstiloDeButton.Windows;
             this.MinimizarButton.Location = new System.Drawing.Point(563, 0);
-            this.MinimizarButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.MinimizarButton.Margin = new System.Windows.Forms.Padding(2);
             this.MinimizarButton.Name = "MinimizarButton";
             this.MinimizarButton.ParentControl = this;
             this.MinimizarButton.Size = new System.Drawing.Size(40, 24);
             this.MinimizarButton.TabIndex = 4;
             this.MinimizarButton.TipoButton = BWCMM.MZButtonWindows.ModeButton.Minimize;
-            // 
-            // SearchUserPanel
-            // 
-            this.SearchUserPanel.BackColor = System.Drawing.Color.DarkRed;
-            this.SearchUserPanel.Controls.Add(this.mzButtonWindows1);
-            this.SearchUserPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SearchUserPanel.Location = new System.Drawing.Point(201, 0);
-            this.SearchUserPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.SearchUserPanel.Name = "SearchUserPanel";
-            this.SearchUserPanel.Size = new System.Drawing.Size(482, 444);
-            this.SearchUserPanel.TabIndex = 6;
-            this.SearchUserPanel.Visible = false;
-            // 
-            // mzButtonWindows1
-            // 
-            this.mzButtonWindows1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.mzButtonWindows1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("mzButtonWindows1.BackgroundImage")));
-            this.mzButtonWindows1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.mzButtonWindows1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.mzButtonWindows1.EstiloButton = BWCMM.MZButtonWindows.EstiloDeButton.Windows;
-            this.mzButtonWindows1.Location = new System.Drawing.Point(643, 0);
-            this.mzButtonWindows1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.mzButtonWindows1.Name = "mzButtonWindows1";
-            this.mzButtonWindows1.ParentControl = this;
-            this.mzButtonWindows1.Size = new System.Drawing.Size(40, 24);
-            this.mzButtonWindows1.TabIndex = 0;
-            this.mzButtonWindows1.TipoButton = BWCMM.MZButtonWindows.ModeButton.Close;
-            // 
-            // MainScreenPanel
-            // 
-            this.MainScreenPanel.BackColor = System.Drawing.Color.Teal;
-            this.MainScreenPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MainScreenPanel.Location = new System.Drawing.Point(201, 0);
-            this.MainScreenPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.MainScreenPanel.Name = "MainScreenPanel";
-            this.MainScreenPanel.Size = new System.Drawing.Size(482, 444);
-            this.MainScreenPanel.TabIndex = 2;
             // 
             // ReproduccionPanel
             // 
@@ -247,7 +212,7 @@
             this.ReproduccionPanel.Controls.Add(this.LikeButton);
             this.ReproduccionPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.ReproduccionPanel.Location = new System.Drawing.Point(201, 444);
-            this.ReproduccionPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ReproduccionPanel.Margin = new System.Windows.Forms.Padding(2);
             this.ReproduccionPanel.Name = "ReproduccionPanel";
             this.ReproduccionPanel.Size = new System.Drawing.Size(482, 55);
             this.ReproduccionPanel.TabIndex = 1;
@@ -260,7 +225,7 @@
             this.NextButton.IconColor = System.Drawing.Color.Black;
             this.NextButton.IconSize = 36;
             this.NextButton.Location = new System.Drawing.Point(268, 10);
-            this.NextButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.NextButton.Margin = new System.Windows.Forms.Padding(2);
             this.NextButton.Name = "NextButton";
             this.NextButton.Rotation = 0D;
             this.NextButton.Size = new System.Drawing.Size(33, 32);
@@ -275,7 +240,7 @@
             this.BackButton.IconColor = System.Drawing.Color.Black;
             this.BackButton.IconSize = 36;
             this.BackButton.Location = new System.Drawing.Point(191, 10);
-            this.BackButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.BackButton.Margin = new System.Windows.Forms.Padding(2);
             this.BackButton.Name = "BackButton";
             this.BackButton.Rotation = 0D;
             this.BackButton.Size = new System.Drawing.Size(33, 32);
@@ -291,7 +256,7 @@
             this.MuteButton.IconColor = System.Drawing.Color.Black;
             this.MuteButton.IconSize = 36;
             this.MuteButton.Location = new System.Drawing.Point(327, 10);
-            this.MuteButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.MuteButton.Margin = new System.Windows.Forms.Padding(2);
             this.MuteButton.Name = "MuteButton";
             this.MuteButton.Rotation = 0D;
             this.MuteButton.Size = new System.Drawing.Size(33, 32);
@@ -306,7 +271,7 @@
             this.QueueButton.IconColor = System.Drawing.Color.Black;
             this.QueueButton.IconSize = 36;
             this.QueueButton.Location = new System.Drawing.Point(9, 10);
-            this.QueueButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.QueueButton.Margin = new System.Windows.Forms.Padding(2);
             this.QueueButton.Name = "QueueButton";
             this.QueueButton.Rotation = 0D;
             this.QueueButton.Size = new System.Drawing.Size(33, 32);
@@ -322,7 +287,7 @@
             this.VolumeLessButton.IconColor = System.Drawing.Color.Black;
             this.VolumeLessButton.IconSize = 36;
             this.VolumeLessButton.Location = new System.Drawing.Point(364, 10);
-            this.VolumeLessButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.VolumeLessButton.Margin = new System.Windows.Forms.Padding(2);
             this.VolumeLessButton.Name = "VolumeLessButton";
             this.VolumeLessButton.Rotation = 0D;
             this.VolumeLessButton.Size = new System.Drawing.Size(33, 32);
@@ -338,7 +303,7 @@
             this.VolumeMoreBurrton.IconColor = System.Drawing.Color.Black;
             this.VolumeMoreBurrton.IconSize = 36;
             this.VolumeMoreBurrton.Location = new System.Drawing.Point(402, 10);
-            this.VolumeMoreBurrton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.VolumeMoreBurrton.Margin = new System.Windows.Forms.Padding(2);
             this.VolumeMoreBurrton.Name = "VolumeMoreBurrton";
             this.VolumeMoreBurrton.Rotation = 0D;
             this.VolumeMoreBurrton.Size = new System.Drawing.Size(33, 32);
@@ -354,7 +319,7 @@
             this.PlayButton.IconColor = System.Drawing.Color.Black;
             this.PlayButton.IconSize = 36;
             this.PlayButton.Location = new System.Drawing.Point(231, 10);
-            this.PlayButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.PlayButton.Margin = new System.Windows.Forms.Padding(2);
             this.PlayButton.Name = "PlayButton";
             this.PlayButton.Rotation = 0D;
             this.PlayButton.Size = new System.Drawing.Size(44, 44);
@@ -370,7 +335,7 @@
             this.LikeButton.IconColor = System.Drawing.Color.Black;
             this.LikeButton.IconSize = 36;
             this.LikeButton.Location = new System.Drawing.Point(439, 10);
-            this.LikeButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.LikeButton.Margin = new System.Windows.Forms.Padding(2);
             this.LikeButton.Name = "LikeButton";
             this.LikeButton.Rotation = 0D;
             this.LikeButton.Size = new System.Drawing.Size(33, 32);
@@ -396,7 +361,7 @@
             this.SideMainPanel.Controls.Add(this.LogoPanel);
             this.SideMainPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.SideMainPanel.Location = new System.Drawing.Point(0, 0);
-            this.SideMainPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.SideMainPanel.Margin = new System.Windows.Forms.Padding(2);
             this.SideMainPanel.Name = "SideMainPanel";
             this.SideMainPanel.Size = new System.Drawing.Size(201, 499);
             this.SideMainPanel.TabIndex = 0;
@@ -407,7 +372,7 @@
             this.SubProfilePanel.Controls.Add(this.EditeProfilebutton);
             this.SubProfilePanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.SubProfilePanel.Location = new System.Drawing.Point(0, 422);
-            this.SubProfilePanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.SubProfilePanel.Margin = new System.Windows.Forms.Padding(2);
             this.SubProfilePanel.Name = "SubProfilePanel";
             this.SubProfilePanel.Size = new System.Drawing.Size(199, 52);
             this.SubProfilePanel.TabIndex = 7;
@@ -420,7 +385,7 @@
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Location = new System.Drawing.Point(0, 26);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(199, 26);
             this.button1.TabIndex = 1;
@@ -434,7 +399,7 @@
             this.EditeProfilebutton.FlatAppearance.BorderSize = 0;
             this.EditeProfilebutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.EditeProfilebutton.Location = new System.Drawing.Point(0, 0);
-            this.EditeProfilebutton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.EditeProfilebutton.Margin = new System.Windows.Forms.Padding(2);
             this.EditeProfilebutton.Name = "EditeProfilebutton";
             this.EditeProfilebutton.Size = new System.Drawing.Size(199, 26);
             this.EditeProfilebutton.TabIndex = 0;
@@ -450,7 +415,7 @@
             this.ProfileButton.IconColor = System.Drawing.Color.Black;
             this.ProfileButton.IconSize = 30;
             this.ProfileButton.Location = new System.Drawing.Point(0, 386);
-            this.ProfileButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ProfileButton.Margin = new System.Windows.Forms.Padding(2);
             this.ProfileButton.Name = "ProfileButton";
             this.ProfileButton.Rotation = 0D;
             this.ProfileButton.Size = new System.Drawing.Size(199, 36);
@@ -468,7 +433,7 @@
             this.SubArtistPanel.Controls.Add(this.UploadSongButton);
             this.SubArtistPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.SubArtistPanel.Location = new System.Drawing.Point(0, 308);
-            this.SubArtistPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.SubArtistPanel.Margin = new System.Windows.Forms.Padding(2);
             this.SubArtistPanel.Name = "SubArtistPanel";
             this.SubArtistPanel.Size = new System.Drawing.Size(199, 78);
             this.SubArtistPanel.TabIndex = 5;
@@ -481,7 +446,7 @@
             this.AlbumButton.FlatAppearance.BorderSize = 0;
             this.AlbumButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AlbumButton.Location = new System.Drawing.Point(0, 52);
-            this.AlbumButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.AlbumButton.Margin = new System.Windows.Forms.Padding(2);
             this.AlbumButton.Name = "AlbumButton";
             this.AlbumButton.Size = new System.Drawing.Size(199, 26);
             this.AlbumButton.TabIndex = 2;
@@ -495,7 +460,7 @@
             this.UploadVideoButton.FlatAppearance.BorderSize = 0;
             this.UploadVideoButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.UploadVideoButton.Location = new System.Drawing.Point(0, 26);
-            this.UploadVideoButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.UploadVideoButton.Margin = new System.Windows.Forms.Padding(2);
             this.UploadVideoButton.Name = "UploadVideoButton";
             this.UploadVideoButton.Size = new System.Drawing.Size(199, 26);
             this.UploadVideoButton.TabIndex = 1;
@@ -509,7 +474,7 @@
             this.UploadSongButton.FlatAppearance.BorderSize = 0;
             this.UploadSongButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.UploadSongButton.Location = new System.Drawing.Point(0, 0);
-            this.UploadSongButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.UploadSongButton.Margin = new System.Windows.Forms.Padding(2);
             this.UploadSongButton.Name = "UploadSongButton";
             this.UploadSongButton.Size = new System.Drawing.Size(199, 26);
             this.UploadSongButton.TabIndex = 0;
@@ -525,7 +490,7 @@
             this.ArtisteModeButton.IconColor = System.Drawing.Color.Black;
             this.ArtisteModeButton.IconSize = 35;
             this.ArtisteModeButton.Location = new System.Drawing.Point(0, 267);
-            this.ArtisteModeButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ArtisteModeButton.Margin = new System.Windows.Forms.Padding(2);
             this.ArtisteModeButton.Name = "ArtisteModeButton";
             this.ArtisteModeButton.Rotation = 0D;
             this.ArtisteModeButton.Size = new System.Drawing.Size(199, 41);
@@ -542,7 +507,7 @@
             this.SubPlaylistPanel.Controls.Add(this.SongButton);
             this.SubPlaylistPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.SubPlaylistPanel.Location = new System.Drawing.Point(0, 215);
-            this.SubPlaylistPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.SubPlaylistPanel.Margin = new System.Windows.Forms.Padding(2);
             this.SubPlaylistPanel.Name = "SubPlaylistPanel";
             this.SubPlaylistPanel.Size = new System.Drawing.Size(199, 52);
             this.SubPlaylistPanel.TabIndex = 4;
@@ -555,7 +520,7 @@
             this.VideoButton.FlatAppearance.BorderSize = 0;
             this.VideoButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.VideoButton.Location = new System.Drawing.Point(0, 26);
-            this.VideoButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.VideoButton.Margin = new System.Windows.Forms.Padding(2);
             this.VideoButton.Name = "VideoButton";
             this.VideoButton.Size = new System.Drawing.Size(199, 26);
             this.VideoButton.TabIndex = 1;
@@ -569,7 +534,7 @@
             this.SongButton.FlatAppearance.BorderSize = 0;
             this.SongButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SongButton.Location = new System.Drawing.Point(0, 0);
-            this.SongButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.SongButton.Margin = new System.Windows.Forms.Padding(2);
             this.SongButton.Name = "SongButton";
             this.SongButton.Size = new System.Drawing.Size(199, 26);
             this.SongButton.TabIndex = 0;
@@ -585,7 +550,7 @@
             this.PlayListButton.IconColor = System.Drawing.Color.Black;
             this.PlayListButton.IconSize = 30;
             this.PlayListButton.Location = new System.Drawing.Point(0, 179);
-            this.PlayListButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.PlayListButton.Margin = new System.Windows.Forms.Padding(2);
             this.PlayListButton.Name = "PlayListButton";
             this.PlayListButton.Rotation = 0D;
             this.PlayListButton.Size = new System.Drawing.Size(199, 36);
@@ -603,7 +568,7 @@
             this.SubSerchPanel.Controls.Add(this.UserSeachButton);
             this.SubSerchPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.SubSerchPanel.Location = new System.Drawing.Point(0, 101);
-            this.SubSerchPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.SubSerchPanel.Margin = new System.Windows.Forms.Padding(2);
             this.SubSerchPanel.Name = "SubSerchPanel";
             this.SubSerchPanel.Size = new System.Drawing.Size(199, 78);
             this.SubSerchPanel.TabIndex = 2;
@@ -616,7 +581,7 @@
             this.MediaSeachButton.FlatAppearance.BorderSize = 0;
             this.MediaSeachButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.MediaSeachButton.Location = new System.Drawing.Point(0, 52);
-            this.MediaSeachButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.MediaSeachButton.Margin = new System.Windows.Forms.Padding(2);
             this.MediaSeachButton.Name = "MediaSeachButton";
             this.MediaSeachButton.Size = new System.Drawing.Size(199, 26);
             this.MediaSeachButton.TabIndex = 2;
@@ -630,7 +595,7 @@
             this.ArtistSeachButton.FlatAppearance.BorderSize = 0;
             this.ArtistSeachButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ArtistSeachButton.Location = new System.Drawing.Point(0, 26);
-            this.ArtistSeachButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ArtistSeachButton.Margin = new System.Windows.Forms.Padding(2);
             this.ArtistSeachButton.Name = "ArtistSeachButton";
             this.ArtistSeachButton.Size = new System.Drawing.Size(199, 26);
             this.ArtistSeachButton.TabIndex = 1;
@@ -644,7 +609,7 @@
             this.UserSeachButton.FlatAppearance.BorderSize = 0;
             this.UserSeachButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.UserSeachButton.Location = new System.Drawing.Point(0, 0);
-            this.UserSeachButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.UserSeachButton.Margin = new System.Windows.Forms.Padding(2);
             this.UserSeachButton.Name = "UserSeachButton";
             this.UserSeachButton.Size = new System.Drawing.Size(199, 26);
             this.UserSeachButton.TabIndex = 0;
@@ -661,7 +626,7 @@
             this.SearchButton.IconColor = System.Drawing.Color.Black;
             this.SearchButton.IconSize = 30;
             this.SearchButton.Location = new System.Drawing.Point(0, 65);
-            this.SearchButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.SearchButton.Margin = new System.Windows.Forms.Padding(2);
             this.SearchButton.Name = "SearchButton";
             this.SearchButton.Rotation = 0D;
             this.SearchButton.Size = new System.Drawing.Size(199, 36);
@@ -680,7 +645,7 @@
             this.LogOutButton.IconColor = System.Drawing.Color.Black;
             this.LogOutButton.IconSize = 36;
             this.LogOutButton.Location = new System.Drawing.Point(0, 464);
-            this.LogOutButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.LogOutButton.Margin = new System.Windows.Forms.Padding(2);
             this.LogOutButton.Name = "LogOutButton";
             this.LogOutButton.Rotation = 0D;
             this.LogOutButton.Size = new System.Drawing.Size(33, 32);
@@ -696,7 +661,7 @@
             this.SetingsButton.IconColor = System.Drawing.Color.Black;
             this.SetingsButton.IconSize = 36;
             this.SetingsButton.Location = new System.Drawing.Point(37, 464);
-            this.SetingsButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.SetingsButton.Margin = new System.Windows.Forms.Padding(2);
             this.SetingsButton.Name = "SetingsButton";
             this.SetingsButton.Rotation = 0D;
             this.SetingsButton.Size = new System.Drawing.Size(33, 32);
@@ -707,10 +672,57 @@
             // 
             this.LogoPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.LogoPanel.Location = new System.Drawing.Point(0, 0);
-            this.LogoPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.LogoPanel.Margin = new System.Windows.Forms.Padding(2);
             this.LogoPanel.Name = "LogoPanel";
             this.LogoPanel.Size = new System.Drawing.Size(199, 65);
             this.LogoPanel.TabIndex = 0;
+            // 
+            // SearchUserPanel
+            // 
+            this.SearchUserPanel.BackColor = System.Drawing.Color.DarkRed;
+            this.SearchUserPanel.Controls.Add(this.SearchUserPanelResultlistusers);
+            this.SearchUserPanel.Controls.Add(this.SearchUserPaneltextbox);
+            this.SearchUserPanel.Controls.Add(this.mzButtonWindows1);
+            this.SearchUserPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SearchUserPanel.Location = new System.Drawing.Point(0, 0);
+            this.SearchUserPanel.Margin = new System.Windows.Forms.Padding(2);
+            this.SearchUserPanel.Name = "SearchUserPanel";
+            this.SearchUserPanel.Size = new System.Drawing.Size(683, 499);
+            this.SearchUserPanel.TabIndex = 6;
+            this.SearchUserPanel.Visible = false;
+            // 
+            // SearchUserPaneltextbox
+            // 
+            this.SearchUserPaneltextbox.Location = new System.Drawing.Point(300, 66);
+            this.SearchUserPaneltextbox.Name = "SearchUserPaneltextbox";
+            this.SearchUserPaneltextbox.Size = new System.Drawing.Size(267, 20);
+            this.SearchUserPaneltextbox.TabIndex = 1;
+            this.SearchUserPaneltextbox.TextChanged += new System.EventHandler(this.SearchUserPaneltextbox_TextChanged);
+            // 
+            // mzButtonWindows1
+            // 
+            this.mzButtonWindows1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.mzButtonWindows1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("mzButtonWindows1.BackgroundImage")));
+            this.mzButtonWindows1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.mzButtonWindows1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.mzButtonWindows1.EstiloButton = BWCMM.MZButtonWindows.EstiloDeButton.Windows;
+            this.mzButtonWindows1.Location = new System.Drawing.Point(643, 0);
+            this.mzButtonWindows1.Margin = new System.Windows.Forms.Padding(2);
+            this.mzButtonWindows1.Name = "mzButtonWindows1";
+            this.mzButtonWindows1.ParentControl = this;
+            this.mzButtonWindows1.Size = new System.Drawing.Size(40, 24);
+            this.mzButtonWindows1.TabIndex = 0;
+            this.mzButtonWindows1.TipoButton = BWCMM.MZButtonWindows.ModeButton.Close;
+            // 
+            // MainScreenPanel
+            // 
+            this.MainScreenPanel.BackColor = System.Drawing.Color.Teal;
+            this.MainScreenPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.MainScreenPanel.Location = new System.Drawing.Point(0, 0);
+            this.MainScreenPanel.Margin = new System.Windows.Forms.Padding(2);
+            this.MainScreenPanel.Name = "MainScreenPanel";
+            this.MainScreenPanel.Size = new System.Drawing.Size(683, 499);
+            this.MainScreenPanel.TabIndex = 2;
             // 
             // LoginPanel
             // 
@@ -726,7 +738,7 @@
             this.LoginPanel.Controls.Add(this.UsernameLabelLogin);
             this.LoginPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.LoginPanel.Location = new System.Drawing.Point(0, 0);
-            this.LoginPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.LoginPanel.Margin = new System.Windows.Forms.Padding(2);
             this.LoginPanel.Name = "LoginPanel";
             this.LoginPanel.Size = new System.Drawing.Size(683, 499);
             this.LoginPanel.TabIndex = 14;
@@ -740,7 +752,7 @@
             this.CloseAppLogIn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CloseAppLogIn.EstiloButton = BWCMM.MZButtonWindows.EstiloDeButton.Windows;
             this.CloseAppLogIn.Location = new System.Drawing.Point(656, 0);
-            this.CloseAppLogIn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.CloseAppLogIn.Margin = new System.Windows.Forms.Padding(2);
             this.CloseAppLogIn.Name = "CloseAppLogIn";
             this.CloseAppLogIn.ParentControl = this;
             this.CloseAppLogIn.Size = new System.Drawing.Size(40, 24);
@@ -768,7 +780,7 @@
             this.SaveLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SaveLogin.ForeColor = System.Drawing.Color.Red;
             this.SaveLogin.Location = new System.Drawing.Point(277, 337);
-            this.SaveLogin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.SaveLogin.Margin = new System.Windows.Forms.Padding(2);
             this.SaveLogin.Name = "SaveLogin";
             this.SaveLogin.Size = new System.Drawing.Size(187, 18);
             this.SaveLogin.TabIndex = 7;
@@ -780,7 +792,7 @@
             this.BackButtonLogin.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BackButtonLogin.ForeColor = System.Drawing.Color.Red;
             this.BackButtonLogin.Location = new System.Drawing.Point(8, 8);
-            this.BackButtonLogin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.BackButtonLogin.Margin = new System.Windows.Forms.Padding(2);
             this.BackButtonLogin.Name = "BackButtonLogin";
             this.BackButtonLogin.Size = new System.Drawing.Size(33, 32);
             this.BackButtonLogin.TabIndex = 6;
@@ -795,7 +807,7 @@
             this.InicioLoginButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.InicioLoginButton.ForeColor = System.Drawing.Color.DarkRed;
             this.InicioLoginButton.Location = new System.Drawing.Point(293, 384);
-            this.InicioLoginButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.InicioLoginButton.Margin = new System.Windows.Forms.Padding(2);
             this.InicioLoginButton.Name = "InicioLoginButton";
             this.InicioLoginButton.Size = new System.Drawing.Size(149, 32);
             this.InicioLoginButton.TabIndex = 5;
@@ -811,7 +823,7 @@
             this.PasswordInPutLogin.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.PasswordInPutLogin.ForeColor = System.Drawing.SystemColors.WindowFrame;
             this.PasswordInPutLogin.Location = new System.Drawing.Point(277, 267);
-            this.PasswordInPutLogin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.PasswordInPutLogin.Margin = new System.Windows.Forms.Padding(2);
             this.PasswordInPutLogin.Name = "PasswordInPutLogin";
             this.PasswordInPutLogin.PasswordChar = '*';
             this.PasswordInPutLogin.Size = new System.Drawing.Size(187, 13);
@@ -824,7 +836,7 @@
             this.UsernameInPutLogin.BackColor = System.Drawing.SystemColors.Menu;
             this.UsernameInPutLogin.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.UsernameInPutLogin.Location = new System.Drawing.Point(277, 212);
-            this.UsernameInPutLogin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.UsernameInPutLogin.Margin = new System.Windows.Forms.Padding(2);
             this.UsernameInPutLogin.Name = "UsernameInPutLogin";
             this.UsernameInPutLogin.Size = new System.Drawing.Size(187, 13);
             this.UsernameInPutLogin.TabIndex = 3;
@@ -888,7 +900,7 @@
             this.RegisterPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.RegisterPanel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RegisterPanel.Location = new System.Drawing.Point(0, 0);
-            this.RegisterPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.RegisterPanel.Margin = new System.Windows.Forms.Padding(2);
             this.RegisterPanel.Name = "RegisterPanel";
             this.RegisterPanel.Size = new System.Drawing.Size(683, 499);
             this.RegisterPanel.TabIndex = 1;
@@ -902,7 +914,7 @@
             this.CloseAppRegister.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CloseAppRegister.EstiloButton = BWCMM.MZButtonWindows.EstiloDeButton.Windows;
             this.CloseAppRegister.Location = new System.Drawing.Point(656, 0);
-            this.CloseAppRegister.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.CloseAppRegister.Margin = new System.Windows.Forms.Padding(2);
             this.CloseAppRegister.Name = "CloseAppRegister";
             this.CloseAppRegister.ParentControl = this;
             this.CloseAppRegister.Size = new System.Drawing.Size(40, 24);
@@ -916,7 +928,7 @@
             this.Registerbutton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.Registerbutton.ForeColor = System.Drawing.Color.Yellow;
             this.Registerbutton.Location = new System.Drawing.Point(334, 357);
-            this.Registerbutton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Registerbutton.Margin = new System.Windows.Forms.Padding(2);
             this.Registerbutton.Name = "Registerbutton";
             this.Registerbutton.Size = new System.Drawing.Size(107, 31);
             this.Registerbutton.TabIndex = 12;
@@ -931,7 +943,7 @@
             this.PasswordInputRegister.BackColor = System.Drawing.SystemColors.Menu;
             this.PasswordInputRegister.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.PasswordInputRegister.Location = new System.Drawing.Point(364, 318);
-            this.PasswordInputRegister.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.PasswordInputRegister.Margin = new System.Windows.Forms.Padding(2);
             this.PasswordInputRegister.Name = "PasswordInputRegister";
             this.PasswordInputRegister.PasswordChar = '*';
             this.PasswordInputRegister.Size = new System.Drawing.Size(137, 16);
@@ -944,7 +956,7 @@
             this.MailInputRegister.BackColor = System.Drawing.SystemColors.Menu;
             this.MailInputRegister.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.MailInputRegister.Location = new System.Drawing.Point(364, 284);
-            this.MailInputRegister.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.MailInputRegister.Margin = new System.Windows.Forms.Padding(2);
             this.MailInputRegister.Name = "MailInputRegister";
             this.MailInputRegister.Size = new System.Drawing.Size(137, 16);
             this.MailInputRegister.TabIndex = 10;
@@ -956,7 +968,7 @@
             this.UsernameInputRegister.BackColor = System.Drawing.SystemColors.Menu;
             this.UsernameInputRegister.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.UsernameInputRegister.Location = new System.Drawing.Point(364, 248);
-            this.UsernameInputRegister.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.UsernameInputRegister.Margin = new System.Windows.Forms.Padding(2);
             this.UsernameInputRegister.Name = "UsernameInputRegister";
             this.UsernameInputRegister.Size = new System.Drawing.Size(137, 16);
             this.UsernameInputRegister.TabIndex = 9;
@@ -968,7 +980,7 @@
             this.LastNameInputRegister.BackColor = System.Drawing.SystemColors.MenuBar;
             this.LastNameInputRegister.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.LastNameInputRegister.Location = new System.Drawing.Point(364, 213);
-            this.LastNameInputRegister.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.LastNameInputRegister.Margin = new System.Windows.Forms.Padding(2);
             this.LastNameInputRegister.Name = "LastNameInputRegister";
             this.LastNameInputRegister.Size = new System.Drawing.Size(137, 16);
             this.LastNameInputRegister.TabIndex = 8;
@@ -980,7 +992,7 @@
             this.nameInputRegister.BackColor = System.Drawing.SystemColors.Menu;
             this.nameInputRegister.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.nameInputRegister.Location = new System.Drawing.Point(364, 178);
-            this.nameInputRegister.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.nameInputRegister.Margin = new System.Windows.Forms.Padding(2);
             this.nameInputRegister.Name = "nameInputRegister";
             this.nameInputRegister.Size = new System.Drawing.Size(137, 16);
             this.nameInputRegister.TabIndex = 7;
@@ -1057,7 +1069,7 @@
             this.BackRegisterButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BackRegisterButton.ForeColor = System.Drawing.Color.ForestGreen;
             this.BackRegisterButton.Location = new System.Drawing.Point(8, 8);
-            this.BackRegisterButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.BackRegisterButton.Margin = new System.Windows.Forms.Padding(2);
             this.BackRegisterButton.Name = "BackRegisterButton";
             this.BackRegisterButton.Size = new System.Drawing.Size(33, 32);
             this.BackRegisterButton.TabIndex = 13;
@@ -1102,7 +1114,7 @@
             this.IniciarSeccionStartAppButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.IniciarSeccionStartAppButton.ForeColor = System.Drawing.Color.Red;
             this.IniciarSeccionStartAppButton.Location = new System.Drawing.Point(300, 243);
-            this.IniciarSeccionStartAppButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.IniciarSeccionStartAppButton.Margin = new System.Windows.Forms.Padding(2);
             this.IniciarSeccionStartAppButton.Name = "IniciarSeccionStartAppButton";
             this.IniciarSeccionStartAppButton.Size = new System.Drawing.Size(108, 50);
             this.IniciarSeccionStartAppButton.TabIndex = 15;
@@ -1118,7 +1130,7 @@
             this.RegistrateButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.RegistrateButton.ForeColor = System.Drawing.Color.LimeGreen;
             this.RegistrateButton.Location = new System.Drawing.Point(300, 297);
-            this.RegistrateButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.RegistrateButton.Margin = new System.Windows.Forms.Padding(2);
             this.RegistrateButton.Name = "RegistrateButton";
             this.RegistrateButton.Size = new System.Drawing.Size(108, 50);
             this.RegistrateButton.TabIndex = 1;
@@ -1134,12 +1146,20 @@
             this.CloseAppStart.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CloseAppStart.EstiloButton = BWCMM.MZButtonWindows.EstiloDeButton.Windows;
             this.CloseAppStart.Location = new System.Drawing.Point(643, 0);
-            this.CloseAppStart.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.CloseAppStart.Margin = new System.Windows.Forms.Padding(2);
             this.CloseAppStart.Name = "CloseAppStart";
             this.CloseAppStart.ParentControl = this;
             this.CloseAppStart.Size = new System.Drawing.Size(40, 24);
             this.CloseAppStart.TabIndex = 14;
             this.CloseAppStart.TipoButton = BWCMM.MZButtonWindows.ModeButton.Close;
+            // 
+            // SearchUserPanelResultlistusers
+            // 
+            this.SearchUserPanelResultlistusers.FormattingEnabled = true;
+            this.SearchUserPanelResultlistusers.Location = new System.Drawing.Point(300, 158);
+            this.SearchUserPanelResultlistusers.Name = "SearchUserPanelResultlistusers";
+            this.SearchUserPanelResultlistusers.Size = new System.Drawing.Size(261, 134);
+            this.SearchUserPanelResultlistusers.TabIndex = 2;
             // 
             // AppForm
             // 
@@ -1148,13 +1168,12 @@
             this.ClientSize = new System.Drawing.Size(683, 499);
             this.Controls.Add(this.StartPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MinimumSize = new System.Drawing.Size(683, 472);
             this.Name = "AppForm";
             this.Text = " ";
             this.StartPanel.ResumeLayout(false);
             this.MainPanel.ResumeLayout(false);
-            this.SearchUserPanel.ResumeLayout(false);
             this.ReproduccionPanel.ResumeLayout(false);
             this.ReproduccionPanel.PerformLayout();
             this.SideMainPanel.ResumeLayout(false);
@@ -1163,6 +1182,8 @@
             this.SubArtistPanel.ResumeLayout(false);
             this.SubPlaylistPanel.ResumeLayout(false);
             this.SubSerchPanel.ResumeLayout(false);
+            this.SearchUserPanel.ResumeLayout(false);
+            this.SearchUserPanel.PerformLayout();
             this.LoginPanel.ResumeLayout(false);
             this.LoginPanel.PerformLayout();
             this.RegisterPanel.ResumeLayout(false);
@@ -1243,6 +1264,8 @@
         private FontAwesome.Sharp.IconButton ArtisteModeButton;
         private FontAwesome.Sharp.IconButton PlayListButton;
         private FontAwesome.Sharp.IconButton SearchButton;
+        private System.Windows.Forms.TextBox SearchUserPaneltextbox;
+        private System.Windows.Forms.ListBox SearchUserPanelResultlistusers;
     }
 }
 

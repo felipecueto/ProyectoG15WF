@@ -15,6 +15,8 @@ namespace Controllers
         List<User> users = new List<User>();
         AppForm view;
 
+        
+
         public UserController(Form view)
         {
             this.view = view as AppForm;
@@ -22,6 +24,7 @@ namespace Controllers
             this.view.UserChecked += OnUserChecked;
             this.view.RegisterButtonClicked += OnRegisterButtonClicked;
             this.view.Checkusernameregister += OncheckUsernameregister;
+            this.view.Searching += OnSearchTextChanged;
         }
 
 
@@ -51,7 +54,7 @@ namespace Controllers
         }
         public bool OnRegisterButtonClicked(object sender, RegisterEventArgs e)
         {
-            users.Add(new User(e.Usernametext, e.Nametext, e.Email, e.Passwordtext));
+            users.Add(new User(e.Usernametext, e.Nametext,e.Lastnametext, e.Email, e.Passwordtext));
             return true;
 
         }
@@ -69,6 +72,21 @@ namespace Controllers
             return result;
 
         }
-        
+        public void OnSearchTextChanged(object sender, SearchEventArgs e)
+        {
+            List<User> resultUsers = new List<User>();
+            List<string> resultString = new List<string>();
+            resultUsers = users.Where(t =>
+               t.Username.ToUpper().Contains(e.SearchText.ToUpper()))
+           .ToList();
+            if (resultUsers.Count > 0)
+            {
+                resultString.Add("-----Usuarios encontrados-----");
+                foreach (User s in resultUsers)
+                    resultString.Add(s.ToString());
+            }
+            view.UpdateResults(resultString);
+        }
+
     }
 }   

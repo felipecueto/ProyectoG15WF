@@ -16,6 +16,7 @@ namespace Proyectog15WF
 
     public partial class AppForm : Form
     {
+        int resultCounter = 0;
         public delegate bool LoginEventHandler(object source, LoginEventArgs args);
         public event LoginEventHandler LoginButtonClicked;
         public event EventHandler<LoginEventArgs> UserChecked;
@@ -23,10 +24,12 @@ namespace Proyectog15WF
         public event RegisterEventHandler RegisterButtonClicked;
         public delegate string CheckusernameEventHandler(object source, RegisterEventArgs args);
         public event CheckusernameEventHandler Checkusernameregister;
+        public event EventHandler<SearchEventArgs> Searching;
 
 
         List<Panel> stackPanels = new List<Panel>();
         Dictionary<string, Panel> panels = new Dictionary<string, Panel>();
+        
         public AppForm()
         {
 
@@ -331,6 +334,7 @@ namespace Proyectog15WF
         {
             MainScreenPanel.Visible = false;
             SearchUserPanel.Visible = true;
+
         }
 
         private void iconPictureBox2_Click(object sender, EventArgs e)
@@ -367,6 +371,51 @@ namespace Proyectog15WF
         {
             stackPanels.RemoveAt(stackPanels.Count-1);
             ShowLastPanel();
+        }
+
+        private void SearchUserPaneltextbox_TextChanged(object sender, EventArgs e)
+        {
+            string searchtext = SearchUserPaneltextbox.Text;
+            List<string> results = new List<string>();
+            if (searchtext.Length >= 3)
+            {
+                CleanSearch();
+                Noresult();
+                if (Searching != null)
+                {
+                    Searching(this, new SearchEventArgs() { SearchText = searchtext });
+                }
+
+            }
+        }
+        private void Noresult()
+        {
+            SearchUserPanelResultlistusers.Items.Add("No results for search criteria");
+        }
+        private void CleanSearch()
+        {
+            resultCounter = 0;
+            SearchUserPanelResultlistusers.Items.Clear();
+        }
+        public void UpdateResults(List<string> results)
+        {
+            if (results.Count > 0)
+            {
+                foreach (string result in results)
+                {
+                    if (resultCounter <= 50)
+                    {
+                        if (SearchUserPanelResultlistusers.Items.Count > 0 && SearchUserPanelResultlistusers.Items[0].Equals("No results for search criteria"))
+                        {
+                            SearchUserPanelResultlistusers.Items.Add(result);
+                            SearchUserPanelResultlistusers.Items.RemoveAt(0);
+                        }
+                        else
+                            SearchUserPanelResultlistusers.Items.Add(result);
+                        resultCounter++;
+                    }
+                }
+            }
         }
     }
 }
