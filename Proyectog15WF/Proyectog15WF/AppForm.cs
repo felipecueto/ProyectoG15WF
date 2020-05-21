@@ -25,6 +25,7 @@ namespace Proyectog15WF
         public delegate string CheckusernameEventHandler(object source, RegisterEventArgs args);
         public event CheckusernameEventHandler Checkusernameregister;
         public event EventHandler<SearchUserEventArgs> Searching;
+        public event EventHandler<SearchingSongorVideo> Searchingnamevideoorsong;
 
 
         List<Panel> stackPanels = new List<Panel>();
@@ -412,6 +413,57 @@ namespace Proyectog15WF
                         }
                         else
                             SearchUserPanelResultlistusers.Items.Add(result);
+                        resultCounter++;
+                    }
+                }
+            }
+        }
+
+        private void MediaSeachButton_Click(object sender, EventArgs e)
+        {
+            MainScreenPanel.Visible = false;
+            SearchUserPanel.Visible = true;
+        }
+        private void Noresultsongorvideo()
+        {
+            SearchMediapanellistBox.Items.Add("No results for search criteria");
+        }
+        private void CleanSearchsongorvideo()
+        {
+            resultCounter = 0;
+            SearchMediapanellistBox.Items.Clear();
+        }
+
+        private void SearchMediatextBox_TextChanged(object sender, EventArgs e)
+        {
+            string searchtext = SearchMediatextBox.Text;
+            List<string> results = new List<string>();
+            if (searchtext.Length >= 1)
+            {
+                Noresultsongorvideo();
+                CleanSearchsongorvideo();
+                if (Searchingnamevideoorsong != null)
+                {
+                    Searchingnamevideoorsong(this, new SearchingSongorVideo() { SearchTextSongVideo = searchtext });
+                }
+
+            }
+        }
+        public void UpdateResultsvideoandsong(List<string> results)
+        {
+            if (results.Count > 0)
+            {
+                foreach (string result in results)
+                {
+                    if (resultCounter <= 50)
+                    {
+                        if (SearchMediapanellistBox.Items.Count > 0 && SearchMediapanellistBox.Items[0].Equals("No results for search criteria"))
+                        {
+                            SearchMediapanellistBox.Items.Add(result);
+                            SearchMediapanellistBox.Items.RemoveAt(0);
+                        }
+                        else
+                            SearchMediapanellistBox.Items.Add(result);
                         resultCounter++;
                     }
                 }

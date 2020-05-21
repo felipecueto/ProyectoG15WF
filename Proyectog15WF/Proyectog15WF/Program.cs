@@ -1,4 +1,5 @@
 ﻿using Controllers;
+using Proyectog15WF.Contollers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,6 +21,8 @@ namespace Proyectog15WF
             Application.SetCompatibleTextRenderingDefault(false);
             AppForm appForm = new AppForm();
             UserController userController = new UserController(appForm);
+            Songcontroller songcontroller = new Songcontroller(appForm);
+            VideoController videoController = new VideoController(appForm);
             Application.Run(appForm);
         }
     }

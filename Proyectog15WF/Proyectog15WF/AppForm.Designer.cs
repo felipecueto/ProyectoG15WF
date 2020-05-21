@@ -66,6 +66,7 @@
             this.SetingsButton = new FontAwesome.Sharp.IconButton();
             this.LogoPanel = new System.Windows.Forms.Panel();
             this.SearchUserPanel = new System.Windows.Forms.Panel();
+            this.SearchUserPanelResultlistusers = new System.Windows.Forms.ListBox();
             this.SearchUserPaneltextbox = new System.Windows.Forms.TextBox();
             this.mzButtonWindows1 = new BWCMM.MZButtonWindows();
             this.MainScreenPanel = new System.Windows.Forms.Panel();
@@ -100,7 +101,9 @@
             this.IniciarSeccionStartAppButton = new System.Windows.Forms.Button();
             this.RegistrateButton = new System.Windows.Forms.Button();
             this.CloseAppStart = new BWCMM.MZButtonWindows();
-            this.SearchUserPanelResultlistusers = new System.Windows.Forms.ListBox();
+            this.SearchMediapanel = new System.Windows.Forms.Panel();
+            this.SearchMediatextBox = new System.Windows.Forms.TextBox();
+            this.SearchMediapanellistBox = new System.Windows.Forms.ListBox();
             this.StartPanel.SuspendLayout();
             this.MainPanel.SuspendLayout();
             this.ReproduccionPanel.SuspendLayout();
@@ -112,6 +115,7 @@
             this.SearchUserPanel.SuspendLayout();
             this.LoginPanel.SuspendLayout();
             this.RegisterPanel.SuspendLayout();
+            this.SearchMediapanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // StartPanel
@@ -587,6 +591,7 @@
             this.MediaSeachButton.TabIndex = 2;
             this.MediaSeachButton.Text = "Media";
             this.MediaSeachButton.UseVisualStyleBackColor = false;
+            this.MediaSeachButton.Click += new System.EventHandler(this.MediaSeachButton_Click);
             // 
             // ArtistSeachButton
             // 
@@ -680,6 +685,7 @@
             // SearchUserPanel
             // 
             this.SearchUserPanel.BackColor = System.Drawing.Color.DarkRed;
+            this.SearchUserPanel.Controls.Add(this.SearchMediapanel);
             this.SearchUserPanel.Controls.Add(this.SearchUserPanelResultlistusers);
             this.SearchUserPanel.Controls.Add(this.SearchUserPaneltextbox);
             this.SearchUserPanel.Controls.Add(this.mzButtonWindows1);
@@ -690,6 +696,14 @@
             this.SearchUserPanel.Size = new System.Drawing.Size(683, 499);
             this.SearchUserPanel.TabIndex = 6;
             this.SearchUserPanel.Visible = false;
+            // 
+            // SearchUserPanelResultlistusers
+            // 
+            this.SearchUserPanelResultlistusers.FormattingEnabled = true;
+            this.SearchUserPanelResultlistusers.Location = new System.Drawing.Point(300, 158);
+            this.SearchUserPanelResultlistusers.Name = "SearchUserPanelResultlistusers";
+            this.SearchUserPanelResultlistusers.Size = new System.Drawing.Size(261, 134);
+            this.SearchUserPanelResultlistusers.TabIndex = 2;
             // 
             // SearchUserPaneltextbox
             // 
@@ -1153,13 +1167,32 @@
             this.CloseAppStart.TabIndex = 14;
             this.CloseAppStart.TipoButton = BWCMM.MZButtonWindows.ModeButton.Close;
             // 
-            // SearchUserPanelResultlistusers
+            // SearchMediapanel
             // 
-            this.SearchUserPanelResultlistusers.FormattingEnabled = true;
-            this.SearchUserPanelResultlistusers.Location = new System.Drawing.Point(300, 158);
-            this.SearchUserPanelResultlistusers.Name = "SearchUserPanelResultlistusers";
-            this.SearchUserPanelResultlistusers.Size = new System.Drawing.Size(261, 134);
-            this.SearchUserPanelResultlistusers.TabIndex = 2;
+            this.SearchMediapanel.BackColor = System.Drawing.Color.Gray;
+            this.SearchMediapanel.Controls.Add(this.SearchMediapanellistBox);
+            this.SearchMediapanel.Controls.Add(this.SearchMediatextBox);
+            this.SearchMediapanel.Location = new System.Drawing.Point(268, 59);
+            this.SearchMediapanel.Name = "SearchMediapanel";
+            this.SearchMediapanel.Size = new System.Drawing.Size(347, 328);
+            this.SearchMediapanel.TabIndex = 3;
+            // 
+            // SearchMediatextBox
+            // 
+            this.SearchMediatextBox.Location = new System.Drawing.Point(80, 43);
+            this.SearchMediatextBox.Name = "SearchMediatextBox";
+            this.SearchMediatextBox.Size = new System.Drawing.Size(187, 20);
+            this.SearchMediatextBox.TabIndex = 0;
+            this.SearchMediatextBox.WordWrap = false;
+            this.SearchMediatextBox.TextChanged += new System.EventHandler(this.SearchMediatextBox_TextChanged);
+            // 
+            // SearchMediapanellistBox
+            // 
+            this.SearchMediapanellistBox.FormattingEnabled = true;
+            this.SearchMediapanellistBox.Location = new System.Drawing.Point(43, 94);
+            this.SearchMediapanellistBox.Name = "SearchMediapanellistBox";
+            this.SearchMediapanellistBox.Size = new System.Drawing.Size(273, 212);
+            this.SearchMediapanellistBox.TabIndex = 1;
             // 
             // AppForm
             // 
@@ -1188,6 +1221,8 @@
             this.LoginPanel.PerformLayout();
             this.RegisterPanel.ResumeLayout(false);
             this.RegisterPanel.PerformLayout();
+            this.SearchMediapanel.ResumeLayout(false);
+            this.SearchMediapanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1266,6 +1301,9 @@
         private FontAwesome.Sharp.IconButton SearchButton;
         private System.Windows.Forms.TextBox SearchUserPaneltextbox;
         private System.Windows.Forms.ListBox SearchUserPanelResultlistusers;
+        private System.Windows.Forms.Panel SearchMediapanel;
+        private System.Windows.Forms.ListBox SearchMediapanellistBox;
+        private System.Windows.Forms.TextBox SearchMediatextBox;
     }
 }
 
