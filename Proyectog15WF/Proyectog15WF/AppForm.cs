@@ -24,7 +24,7 @@ namespace Proyectog15WF
         public event RegisterEventHandler RegisterButtonClicked;
         public delegate string CheckusernameEventHandler(object source, RegisterEventArgs args);
         public event CheckusernameEventHandler Checkusernameregister;
-        public event EventHandler<SearchEventArgs> Searching;
+        public event EventHandler<SearchUserEventArgs> Searching;
 
 
         List<Panel> stackPanels = new List<Panel>();
@@ -383,7 +383,7 @@ namespace Proyectog15WF
                 Noresult();
                 if (Searching != null)
                 {
-                    Searching(this, new SearchEventArgs() { SearchText = searchtext });
+                    Searching(this, new SearchUserEventArgs() { SearchText = searchtext });
                 }
 
             }

@@ -72,7 +72,7 @@ namespace Controllers
             return result;
 
         }
-        public void OnSearchTextChanged(object sender, SearchEventArgs e)
+        public void OnSearchTextChanged(object sender, SearchUserEventArgs e)
         {
             List<User> resultUsers = new List<User>();
             List<string> resultString = new List<string>();

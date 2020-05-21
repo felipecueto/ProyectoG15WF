@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace CustomEventArgs
 {
-    public class SearchEventArgs:EventArgs
+    public class SearchingSongorVideo
     {
-        public string SearchText { get; set; }
+        public string SearchTextSongVideo { get; set; }
     }
 }
