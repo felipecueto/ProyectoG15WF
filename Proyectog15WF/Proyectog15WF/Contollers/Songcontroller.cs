@@ -17,8 +17,8 @@ namespace Proyectog15WF.Contollers
         AppForm view;
 
         public Songcontroller(Form view)
-        {   
-
+        {
+            Chargesong();
             this.view = view as AppForm;
            
         }
