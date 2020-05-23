@@ -353,6 +353,7 @@ namespace Proyectog15WF
             SearchArtistPanel.Visible = false;
             SearchMainPanel.Visible = true;
             SearchUserPanel.Visible = true;
+            
         }
 
         private void iconPictureBox2_Click(object sender, EventArgs e)
@@ -363,6 +364,7 @@ namespace Proyectog15WF
         private void SearchButton_Click_1(object sender, EventArgs e)
         {
             ShowSubPanel(SubSerchPanel);
+            ReproduccionMainPanel.Visible = false;
             PlaylistMainPanel.Visible = false;
             ArtistModeMainPanel.Visible = false;
             ProfileMainPanel.Visible = false;
@@ -392,6 +394,7 @@ namespace Proyectog15WF
             SearchMainPanel.Visible = false;
             ArtistModeMainPanel.Visible = false;
             ProfileMainPanel.Visible = false;
+            ReproduccionMainPanel.Visible = false;
             if (PlaylistMainPanel.Visible)
             {
                 PlaylistMainPanel.Visible = false;
@@ -406,7 +409,7 @@ namespace Proyectog15WF
         private void ArtisteModeButton_Click(object sender, EventArgs e)
         {
             ShowSubPanel(SubArtistPanel);
-
+            ReproduccionMainPanel.Visible = false;
             MainScreenPanel.Visible = true;
             SearchMainPanel.Visible = false;
             PlaylistMainPanel.Visible = false;
@@ -423,6 +426,7 @@ namespace Proyectog15WF
             PlaylistMainPanel.Visible = false;
             ArtistModeMainPanel.Visible = false;
             ProfileMainPanel.Visible = false;
+            ReproduccionMainPanel.Visible = false;
         }
 
         private void LogOutButton_Click(object sender, EventArgs e)
@@ -786,6 +790,37 @@ namespace Proyectog15WF
         private void UsuarioCuentaInput_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void PlayButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void PlayButton_Click_1(object sender, EventArgs e)
+        {
+            if (ReproduccionMainPanel.Visible)
+            {
+                ReproduccionMainPanel.Visible = false;
+            }
+            else
+            {
+                ReproduccionMainPanel.Visible = true;
+
+            }
+        }
+
+        private void QueueButton_Click(object sender, EventArgs e)
+        {
+            if (QueuePanel.Visible)
+            {
+                QueuePanel.Visible = false;
+            }
+            else
+            {
+                QueuePanel.Visible = true;
+
+            }
         }
     }
 }

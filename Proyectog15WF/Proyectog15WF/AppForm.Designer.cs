@@ -274,6 +274,10 @@
             this.RegistrateButton = new System.Windows.Forms.Button();
             this.CloseAppStart = new BWCMM.MZButtonWindows();
             this.SOPTLOGO = new System.Windows.Forms.Label();
+            this.ReproduccionMainPanel = new System.Windows.Forms.Panel();
+            this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
+            this.QueuePanel = new System.Windows.Forms.Panel();
+            this.QueueListBox = new System.Windows.Forms.ListBox();
             this.StartPanel.SuspendLayout();
             this.LoginPanel.SuspendLayout();
             this.MainPanel.SuspendLayout();
@@ -344,6 +348,9 @@
             this.SubPlaylistPanel.SuspendLayout();
             this.SubSerchPanel.SuspendLayout();
             this.RegisterPanel.SuspendLayout();
+            this.ReproduccionMainPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
+            this.QueuePanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // StartPanel
@@ -447,6 +454,7 @@
             // MainScreenPanel
             // 
             this.MainScreenPanel.BackColor = System.Drawing.Color.Teal;
+            this.MainScreenPanel.Controls.Add(this.ReproduccionMainPanel);
             this.MainScreenPanel.Controls.Add(this.ProfileMainPanel);
             this.MainScreenPanel.Controls.Add(this.ArtistModeMainPanel);
             this.MainScreenPanel.Controls.Add(this.PlaylistMainPanel);
@@ -526,7 +534,7 @@
             this.SeguidosListBox.ItemHeight = 20;
             this.SeguidosListBox.Location = new System.Drawing.Point(79, 104);
             this.SeguidosListBox.Name = "SeguidosListBox";
-            this.SeguidosListBox.Size = new System.Drawing.Size(317, 424);
+            this.SeguidosListBox.Size = new System.Drawing.Size(327, 424);
             this.SeguidosListBox.TabIndex = 0;
             // 
             // SeguidoresPanel
@@ -572,7 +580,7 @@
             this.UserNameInfoInput.Location = new System.Drawing.Point(346, 325);
             this.UserNameInfoInput.Name = "UserNameInfoInput";
             this.UserNameInfoInput.ReadOnly = true;
-            this.UserNameInfoInput.Size = new System.Drawing.Size(290, 50);
+            this.UserNameInfoInput.Size = new System.Drawing.Size(547, 50);
             this.UserNameInfoInput.TabIndex = 1;
             // 
             // SideMiInformacionPanel
@@ -706,7 +714,7 @@
             this.AceptarCambioCuenta.Location = new System.Drawing.Point(215, 515);
             this.AceptarCambioCuenta.Name = "AceptarCambioCuenta";
             this.AceptarCambioCuenta.Rotation = 0D;
-            this.AceptarCambioCuenta.Size = new System.Drawing.Size(222, 62);
+            this.AceptarCambioCuenta.Size = new System.Drawing.Size(468, 62);
             this.AceptarCambioCuenta.TabIndex = 17;
             this.AceptarCambioCuenta.Text = "Aceptar ";
             this.AceptarCambioCuenta.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -717,10 +725,10 @@
             // 
             this.MailCuentaInput.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.MailCuentaInput.Location = new System.Drawing.Point(174, 296);
+            this.MailCuentaInput.Location = new System.Drawing.Point(176, 292);
             this.MailCuentaInput.Name = "MailCuentaInput";
             this.MailCuentaInput.ReadOnly = true;
-            this.MailCuentaInput.Size = new System.Drawing.Size(244, 26);
+            this.MailCuentaInput.Size = new System.Drawing.Size(252, 26);
             this.MailCuentaInput.TabIndex = 16;
             // 
             // NombreCuentaImput
@@ -730,7 +738,7 @@
             this.NombreCuentaImput.Location = new System.Drawing.Point(174, 165);
             this.NombreCuentaImput.Name = "NombreCuentaImput";
             this.NombreCuentaImput.ReadOnly = true;
-            this.NombreCuentaImput.Size = new System.Drawing.Size(244, 26);
+            this.NombreCuentaImput.Size = new System.Drawing.Size(252, 26);
             this.NombreCuentaImput.TabIndex = 15;
             // 
             // ApellidoCuentaInput
@@ -740,17 +748,17 @@
             this.ApellidoCuentaInput.Location = new System.Drawing.Point(174, 206);
             this.ApellidoCuentaInput.Name = "ApellidoCuentaInput";
             this.ApellidoCuentaInput.ReadOnly = true;
-            this.ApellidoCuentaInput.Size = new System.Drawing.Size(244, 26);
+            this.ApellidoCuentaInput.Size = new System.Drawing.Size(252, 26);
             this.ApellidoCuentaInput.TabIndex = 14;
             // 
             // UsuarioCuentaInput
             // 
             this.UsuarioCuentaInput.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.UsuarioCuentaInput.Location = new System.Drawing.Point(174, 250);
+            this.UsuarioCuentaInput.Location = new System.Drawing.Point(176, 247);
             this.UsuarioCuentaInput.Name = "UsuarioCuentaInput";
             this.UsuarioCuentaInput.ReadOnly = true;
-            this.UsuarioCuentaInput.Size = new System.Drawing.Size(244, 26);
+            this.UsuarioCuentaInput.Size = new System.Drawing.Size(252, 26);
             this.UsuarioCuentaInput.TabIndex = 13;
             this.UsuarioCuentaInput.TextChanged += new System.EventHandler(this.UsuarioCuentaInput_TextChanged);
             // 
@@ -760,7 +768,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.EdadCuentaInput.Location = new System.Drawing.Point(174, 339);
             this.EdadCuentaInput.Name = "EdadCuentaInput";
-            this.EdadCuentaInput.Size = new System.Drawing.Size(244, 26);
+            this.EdadCuentaInput.Size = new System.Drawing.Size(254, 26);
             this.EdadCuentaInput.TabIndex = 11;
             // 
             // GeneroComboBox
@@ -774,9 +782,9 @@
             "Mujer",
             "Otro",
             "None"});
-            this.GeneroComboBox.Location = new System.Drawing.Point(174, 383);
+            this.GeneroComboBox.Location = new System.Drawing.Point(174, 387);
             this.GeneroComboBox.Name = "GeneroComboBox";
-            this.GeneroComboBox.Size = new System.Drawing.Size(244, 28);
+            this.GeneroComboBox.Size = new System.Drawing.Size(254, 28);
             this.GeneroComboBox.TabIndex = 9;
             this.GeneroComboBox.SelectedIndexChanged += new System.EventHandler(this.GeneroComboBox_SelectedIndexChanged);
             // 
@@ -788,9 +796,9 @@
             this.TipoDeCuentaCombobox.Items.AddRange(new object[] {
             "Free",
             "Premium"});
-            this.TipoDeCuentaCombobox.Location = new System.Drawing.Point(173, 430);
+            this.TipoDeCuentaCombobox.Location = new System.Drawing.Point(176, 430);
             this.TipoDeCuentaCombobox.Name = "TipoDeCuentaCombobox";
-            this.TipoDeCuentaCombobox.Size = new System.Drawing.Size(245, 28);
+            this.TipoDeCuentaCombobox.Size = new System.Drawing.Size(252, 28);
             this.TipoDeCuentaCombobox.TabIndex = 8;
             this.TipoDeCuentaCombobox.SelectedIndexChanged += new System.EventHandler(this.TipoDeCuentaCombobox_SelectedIndexChanged);
             // 
@@ -915,7 +923,7 @@
             this.NuevaContraseñainput.Location = new System.Drawing.Point(206, 165);
             this.NuevaContraseñainput.Name = "NuevaContraseñainput";
             this.NuevaContraseñainput.PasswordChar = '*';
-            this.NuevaContraseñainput.Size = new System.Drawing.Size(232, 26);
+            this.NuevaContraseñainput.Size = new System.Drawing.Size(252, 26);
             this.NuevaContraseñainput.TabIndex = 5;
             // 
             // ContraseñaActualInput
@@ -925,7 +933,7 @@
             this.ContraseñaActualInput.Location = new System.Drawing.Point(206, 112);
             this.ContraseñaActualInput.Name = "ContraseñaActualInput";
             this.ContraseñaActualInput.PasswordChar = '*';
-            this.ContraseñaActualInput.Size = new System.Drawing.Size(232, 26);
+            this.ContraseñaActualInput.Size = new System.Drawing.Size(252, 26);
             this.ContraseñaActualInput.TabIndex = 4;
             // 
             // CambiarContraseñaButton
@@ -1073,7 +1081,6 @@
             this.AlbumArtistPanel.Controls.Add(this.SongsAlbumPanel);
             this.AlbumArtistPanel.Controls.Add(this.SideAlbumPanel);
             this.AlbumArtistPanel.Controls.Add(this.AlbumLabel);
-            this.AlbumArtistPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.AlbumArtistPanel.Location = new System.Drawing.Point(0, 0);
             this.AlbumArtistPanel.Name = "AlbumArtistPanel";
             this.AlbumArtistPanel.Size = new System.Drawing.Size(724, 683);
@@ -1677,7 +1684,7 @@
             this.VideoMasVistosLabel.Font = new System.Drawing.Font("MV Boli", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.VideoMasVistosLabel.Location = new System.Drawing.Point(68, 42);
             this.VideoMasVistosLabel.Name = "VideoMasVistosLabel";
-            this.VideoMasVistosLabel.Size = new System.Drawing.Size(439, 63);
+            this.VideoMasVistosLabel.Size = new System.Drawing.Size(456, 63);
             this.VideoMasVistosLabel.TabIndex = 1;
             this.VideoMasVistosLabel.Text = "Mas Vistos";
             this.VideoMasVistosLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1690,7 +1697,7 @@
             this.VideosMasVistos.ItemHeight = 20;
             this.VideosMasVistos.Location = new System.Drawing.Point(70, 108);
             this.VideosMasVistos.Name = "VideosMasVistos";
-            this.VideosMasVistos.Size = new System.Drawing.Size(341, 504);
+            this.VideosMasVistos.Size = new System.Drawing.Size(350, 504);
             this.VideosMasVistos.TabIndex = 0;
             // 
             // VideoFollowPanel
@@ -1711,7 +1718,7 @@
             this.FollowLabel.Font = new System.Drawing.Font("MV Boli", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FollowLabel.Location = new System.Drawing.Point(70, 42);
             this.FollowLabel.Name = "FollowLabel";
-            this.FollowLabel.Size = new System.Drawing.Size(439, 63);
+            this.FollowLabel.Size = new System.Drawing.Size(456, 63);
             this.FollowLabel.TabIndex = 1;
             this.FollowLabel.Text = "Siguendo";
             this.FollowLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1724,7 +1731,7 @@
             this.FollowVideoListBox.ItemHeight = 20;
             this.FollowVideoListBox.Location = new System.Drawing.Point(70, 108);
             this.FollowVideoListBox.Name = "FollowVideoListBox";
-            this.FollowVideoListBox.Size = new System.Drawing.Size(341, 504);
+            this.FollowVideoListBox.Size = new System.Drawing.Size(350, 504);
             this.FollowVideoListBox.TabIndex = 0;
             // 
             // VideoMyPlaylistPanel
@@ -1745,7 +1752,7 @@
             this.MyVideoPlaylist.Font = new System.Drawing.Font("MV Boli", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MyVideoPlaylist.Location = new System.Drawing.Point(70, 53);
             this.MyVideoPlaylist.Name = "MyVideoPlaylist";
-            this.MyVideoPlaylist.Size = new System.Drawing.Size(439, 52);
+            this.MyVideoPlaylist.Size = new System.Drawing.Size(456, 52);
             this.MyVideoPlaylist.TabIndex = 1;
             this.MyVideoPlaylist.Text = "Mis Playlist";
             this.MyVideoPlaylist.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1758,7 +1765,7 @@
             this.MyVideoListBox.ItemHeight = 20;
             this.MyVideoListBox.Location = new System.Drawing.Point(70, 108);
             this.MyVideoListBox.Name = "MyVideoListBox";
-            this.MyVideoListBox.Size = new System.Drawing.Size(341, 504);
+            this.MyVideoListBox.Size = new System.Drawing.Size(350, 504);
             this.MyVideoListBox.TabIndex = 0;
             // 
             // panel5
@@ -1943,7 +1950,7 @@
             this.MasEscuchadaLabel.Font = new System.Drawing.Font("MV Boli", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MasEscuchadaLabel.Location = new System.Drawing.Point(70, 31);
             this.MasEscuchadaLabel.Name = "MasEscuchadaLabel";
-            this.MasEscuchadaLabel.Size = new System.Drawing.Size(345, 74);
+            this.MasEscuchadaLabel.Size = new System.Drawing.Size(456, 74);
             this.MasEscuchadaLabel.TabIndex = 1;
             this.MasEscuchadaLabel.Text = "Mas Escuchadas";
             this.MasEscuchadaLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1956,7 +1963,7 @@
             this.MasEsuchadaListBox.ItemHeight = 20;
             this.MasEsuchadaListBox.Location = new System.Drawing.Point(70, 108);
             this.MasEsuchadaListBox.Name = "MasEsuchadaListBox";
-            this.MasEsuchadaListBox.Size = new System.Drawing.Size(341, 504);
+            this.MasEsuchadaListBox.Size = new System.Drawing.Size(350, 504);
             this.MasEsuchadaListBox.TabIndex = 0;
             // 
             // FollowPlaylistSongPanel
@@ -1977,7 +1984,7 @@
             this.FollowSongLabel.Font = new System.Drawing.Font("MV Boli", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FollowSongLabel.Location = new System.Drawing.Point(70, 50);
             this.FollowSongLabel.Name = "FollowSongLabel";
-            this.FollowSongLabel.Size = new System.Drawing.Size(223, 56);
+            this.FollowSongLabel.Size = new System.Drawing.Size(456, 56);
             this.FollowSongLabel.TabIndex = 1;
             this.FollowSongLabel.Text = "Seguidas";
             this.FollowSongLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1990,7 +1997,7 @@
             this.FollowPlaylistSongListBox.ItemHeight = 20;
             this.FollowPlaylistSongListBox.Location = new System.Drawing.Point(70, 108);
             this.FollowPlaylistSongListBox.Name = "FollowPlaylistSongListBox";
-            this.FollowPlaylistSongListBox.Size = new System.Drawing.Size(341, 504);
+            this.FollowPlaylistSongListBox.Size = new System.Drawing.Size(350, 504);
             this.FollowPlaylistSongListBox.TabIndex = 0;
             // 
             // PlaylistMySongPanel
@@ -2011,7 +2018,7 @@
             this.MyListLabel.Font = new System.Drawing.Font("MV Boli", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MyListLabel.Location = new System.Drawing.Point(70, 53);
             this.MyListLabel.Name = "MyListLabel";
-            this.MyListLabel.Size = new System.Drawing.Size(298, 56);
+            this.MyListLabel.Size = new System.Drawing.Size(456, 56);
             this.MyListLabel.TabIndex = 1;
             this.MyListLabel.Text = "Mis Playlist";
             this.MyListLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -2024,7 +2031,7 @@
             this.MySongsListBox.ItemHeight = 20;
             this.MySongsListBox.Location = new System.Drawing.Point(70, 108);
             this.MySongsListBox.Name = "MySongsListBox";
-            this.MySongsListBox.Size = new System.Drawing.Size(341, 504);
+            this.MySongsListBox.Size = new System.Drawing.Size(350, 504);
             this.MySongsListBox.TabIndex = 0;
             // 
             // PlaylitsSongLogoMain
@@ -2038,7 +2045,7 @@
             this.PlaylitsSongLogoMain.IconSize = 205;
             this.PlaylitsSongLogoMain.Location = new System.Drawing.Point(373, 246);
             this.PlaylitsSongLogoMain.Name = "PlaylitsSongLogoMain";
-            this.PlaylitsSongLogoMain.Size = new System.Drawing.Size(205, 205);
+            this.PlaylitsSongLogoMain.Size = new System.Drawing.Size(456, 205);
             this.PlaylitsSongLogoMain.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.PlaylitsSongLogoMain.TabIndex = 1;
             this.PlaylitsSongLogoMain.TabStop = false;
@@ -2298,7 +2305,7 @@
             this.SearchUserLogo.Font = new System.Drawing.Font("Microsoft Sans Serif", 26F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SearchUserLogo.Location = new System.Drawing.Point(217, 101);
             this.SearchUserLogo.Name = "SearchUserLogo";
-            this.SearchUserLogo.Size = new System.Drawing.Size(432, 72);
+            this.SearchUserLogo.Size = new System.Drawing.Size(535, 72);
             this.SearchUserLogo.TabIndex = 3;
             this.SearchUserLogo.Text = "Buscar usuario";
             this.SearchUserLogo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2312,7 +2319,7 @@
             this.SearchUserPanelResultlistusers.Location = new System.Drawing.Point(160, 263);
             this.SearchUserPanelResultlistusers.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.SearchUserPanelResultlistusers.Name = "SearchUserPanelResultlistusers";
-            this.SearchUserPanelResultlistusers.Size = new System.Drawing.Size(460, 224);
+            this.SearchUserPanelResultlistusers.Size = new System.Drawing.Size(535, 224);
             this.SearchUserPanelResultlistusers.TabIndex = 2;
             // 
             // SearchUserPaneltextbox
@@ -2322,7 +2329,7 @@
             this.SearchUserPaneltextbox.Location = new System.Drawing.Point(160, 203);
             this.SearchUserPaneltextbox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.SearchUserPaneltextbox.Name = "SearchUserPaneltextbox";
-            this.SearchUserPaneltextbox.Size = new System.Drawing.Size(460, 26);
+            this.SearchUserPaneltextbox.Size = new System.Drawing.Size(535, 26);
             this.SearchUserPaneltextbox.TabIndex = 1;
             this.SearchUserPaneltextbox.TextChanged += new System.EventHandler(this.SearchUserPaneltextbox_TextChanged);
             // 
@@ -2422,7 +2429,7 @@
             this.SearchArtistListBox.ItemHeight = 20;
             this.SearchArtistListBox.Location = new System.Drawing.Point(160, 263);
             this.SearchArtistListBox.Name = "SearchArtistListBox";
-            this.SearchArtistListBox.Size = new System.Drawing.Size(450, 204);
+            this.SearchArtistListBox.Size = new System.Drawing.Size(535, 204);
             this.SearchArtistListBox.TabIndex = 3;
             // 
             // SearchTextBox
@@ -2431,7 +2438,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.SearchTextBox.Location = new System.Drawing.Point(160, 203);
             this.SearchTextBox.Name = "SearchTextBox";
-            this.SearchTextBox.Size = new System.Drawing.Size(450, 26);
+            this.SearchTextBox.Size = new System.Drawing.Size(535, 26);
             this.SearchTextBox.TabIndex = 2;
             // 
             // IconSearchLogo
@@ -2454,7 +2461,7 @@
             this.SearchArtistLogo.Font = new System.Drawing.Font("Microsoft Sans Serif", 28F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SearchArtistLogo.Location = new System.Drawing.Point(233, 101);
             this.SearchArtistLogo.Name = "SearchArtistLogo";
-            this.SearchArtistLogo.Size = new System.Drawing.Size(426, 69);
+            this.SearchArtistLogo.Size = new System.Drawing.Size(535, 69);
             this.SearchArtistLogo.TabIndex = 0;
             this.SearchArtistLogo.Text = "Buscar Artista";
             this.SearchArtistLogo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2642,7 +2649,7 @@
             this.SearchLogo.Font = new System.Drawing.Font("Microsoft Sans Serif", 26F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SearchLogo.Location = new System.Drawing.Point(231, 100);
             this.SearchLogo.Name = "SearchLogo";
-            this.SearchLogo.Size = new System.Drawing.Size(497, 74);
+            this.SearchLogo.Size = new System.Drawing.Size(535, 74);
             this.SearchLogo.TabIndex = 2;
             this.SearchLogo.Text = "Buscar Media";
             this.SearchLogo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2656,7 +2663,7 @@
             this.SearchMediapanellistBox.Location = new System.Drawing.Point(160, 263);
             this.SearchMediapanellistBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.SearchMediapanellistBox.Name = "SearchMediapanellistBox";
-            this.SearchMediapanellistBox.Size = new System.Drawing.Size(497, 244);
+            this.SearchMediapanellistBox.Size = new System.Drawing.Size(535, 244);
             this.SearchMediapanellistBox.TabIndex = 1;
             // 
             // SearchMediatextBox
@@ -2666,7 +2673,7 @@
             this.SearchMediatextBox.Location = new System.Drawing.Point(160, 203);
             this.SearchMediatextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.SearchMediatextBox.Name = "SearchMediatextBox";
-            this.SearchMediatextBox.Size = new System.Drawing.Size(497, 26);
+            this.SearchMediatextBox.Size = new System.Drawing.Size(535, 26);
             this.SearchMediatextBox.TabIndex = 0;
             this.SearchMediatextBox.WordWrap = false;
             this.SearchMediatextBox.TextChanged += new System.EventHandler(this.SearchMediatextBox_TextChanged);
@@ -2756,6 +2763,7 @@
             this.QueueButton.Size = new System.Drawing.Size(50, 49);
             this.QueueButton.TabIndex = 4;
             this.QueueButton.UseVisualStyleBackColor = true;
+            this.QueueButton.Click += new System.EventHandler(this.QueueButton_Click);
             // 
             // VolumeLessButton
             // 
@@ -2801,6 +2809,7 @@
             this.PlayButton.Size = new System.Drawing.Size(50, 49);
             this.PlayButton.TabIndex = 1;
             this.PlayButton.UseVisualStyleBackColor = true;
+            this.PlayButton.Click += new System.EventHandler(this.PlayButton_Click_1);
             // 
             // LikeButton
             // 
@@ -3504,6 +3513,50 @@
             this.SOPTLOGO.Text = "SPOT";
             this.SOPTLOGO.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // ReproduccionMainPanel
+            // 
+            this.ReproduccionMainPanel.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.ReproduccionMainPanel.Controls.Add(this.QueuePanel);
+            this.ReproduccionMainPanel.Controls.Add(this.axWindowsMediaPlayer1);
+            this.ReproduccionMainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ReproduccionMainPanel.Location = new System.Drawing.Point(0, 0);
+            this.ReproduccionMainPanel.Name = "ReproduccionMainPanel";
+            this.ReproduccionMainPanel.Size = new System.Drawing.Size(724, 683);
+            this.ReproduccionMainPanel.TabIndex = 13;
+            this.ReproduccionMainPanel.Visible = false;
+            // 
+            // axWindowsMediaPlayer1
+            // 
+            this.axWindowsMediaPlayer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.axWindowsMediaPlayer1.Enabled = true;
+            this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(0, 0);
+            this.axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
+            this.axWindowsMediaPlayer1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer1.OcxState")));
+            this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(724, 683);
+            this.axWindowsMediaPlayer1.TabIndex = 0;
+            // 
+            // QueuePanel
+            // 
+            this.QueuePanel.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.QueuePanel.Controls.Add(this.QueueListBox);
+            this.QueuePanel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.QueuePanel.Location = new System.Drawing.Point(0, 567);
+            this.QueuePanel.Name = "QueuePanel";
+            this.QueuePanel.Size = new System.Drawing.Size(724, 116);
+            this.QueuePanel.TabIndex = 1;
+            this.QueuePanel.Visible = false;
+            // 
+            // QueueListBox
+            // 
+            this.QueueListBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.QueueListBox.FormattingEnabled = true;
+            this.QueueListBox.ItemHeight = 20;
+            this.QueueListBox.Location = new System.Drawing.Point(25, 25);
+            this.QueueListBox.Name = "QueueListBox";
+            this.QueueListBox.Size = new System.Drawing.Size(670, 84);
+            this.QueueListBox.TabIndex = 0;
+            // 
             // AppForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -3600,6 +3653,9 @@
             this.SubSerchPanel.ResumeLayout(false);
             this.RegisterPanel.ResumeLayout(false);
             this.RegisterPanel.PerformLayout();
+            this.ReproduccionMainPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).EndInit();
+            this.QueuePanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -3851,6 +3907,10 @@
         private FontAwesome.Sharp.IconButton DejarDeSeguirButton1;
         private System.Windows.Forms.Label SeguidosLabel;
         private System.Windows.Forms.ListBox SeguidosListBox;
+        private System.Windows.Forms.Panel ReproduccionMainPanel;
+        private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer1;
+        private System.Windows.Forms.Panel QueuePanel;
+        private System.Windows.Forms.ListBox QueueListBox;
     }
 }
 
