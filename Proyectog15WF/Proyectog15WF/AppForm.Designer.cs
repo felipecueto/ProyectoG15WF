@@ -37,7 +37,39 @@
             this.MinimizarButton = new BWCMM.MZButtonWindows();
             this.MainScreenPanel = new System.Windows.Forms.Panel();
             this.ProfileMainPanel = new System.Windows.Forms.Panel();
+            this.MiInformacionPanel = new System.Windows.Forms.Panel();
+            this.SeguidosPanel = new System.Windows.Forms.Panel();
+            this.DejarDeSeguirButton1 = new FontAwesome.Sharp.IconButton();
+            this.SeguidosLabel = new System.Windows.Forms.Label();
+            this.SeguidosListBox = new System.Windows.Forms.ListBox();
+            this.SeguidoresPanel = new System.Windows.Forms.Panel();
+            this.SeguidoresLabel = new System.Windows.Forms.Label();
+            this.SeguidoreslistBox = new System.Windows.Forms.ListBox();
+            this.UserNameInfoInput = new System.Windows.Forms.TextBox();
+            this.SideMiInformacionPanel = new System.Windows.Forms.Panel();
+            this.FollowButton = new FontAwesome.Sharp.IconButton();
+            this.FollowersButton = new FontAwesome.Sharp.IconButton();
+            this.MiInformacionLogoPanel = new System.Windows.Forms.Panel();
+            this.iconPictureBox2 = new FontAwesome.Sharp.IconPictureBox();
             this.EditeProfilePanel = new System.Windows.Forms.Panel();
+            this.CuentaPanel = new System.Windows.Forms.Panel();
+            this.InfomacionCuentaCambiadaLabel = new System.Windows.Forms.Label();
+            this.AceptarCambioCuenta = new FontAwesome.Sharp.IconButton();
+            this.MailCuentaInput = new System.Windows.Forms.TextBox();
+            this.NombreCuentaImput = new System.Windows.Forms.TextBox();
+            this.ApellidoCuentaInput = new System.Windows.Forms.TextBox();
+            this.UsuarioCuentaInput = new System.Windows.Forms.TextBox();
+            this.EdadCuentaInput = new System.Windows.Forms.TextBox();
+            this.GeneroComboBox = new System.Windows.Forms.ComboBox();
+            this.TipoDeCuentaCombobox = new System.Windows.Forms.ComboBox();
+            this.GeneroCuentaLabel = new System.Windows.Forms.Label();
+            this.EdadCuentaLabel = new System.Windows.Forms.Label();
+            this.TipoDeCuentaLabel = new System.Windows.Forms.Label();
+            this.UsuarioCuentaLabel = new System.Windows.Forms.Label();
+            this.ApellidoCuentaLabel = new System.Windows.Forms.Label();
+            this.NombreCuentaLabel = new System.Windows.Forms.Label();
+            this.MailCuentaLabel = new System.Windows.Forms.Label();
+            this.CuentaLabel = new System.Windows.Forms.Label();
             this.CambiarContraseñaPanel = new System.Windows.Forms.Panel();
             this.ContraseñaCambiadaConExxtit = new System.Windows.Forms.Label();
             this.CambioContraseñaLabel = new System.Windows.Forms.Label();
@@ -49,7 +81,6 @@
             this.ContraseñaActualLabel = new System.Windows.Forms.Label();
             this.SideProfilePanel = new System.Windows.Forms.Panel();
             this.CambiarFotoButton = new FontAwesome.Sharp.IconButton();
-            this.PrivacidadButton = new FontAwesome.Sharp.IconButton();
             this.CuentaButton = new FontAwesome.Sharp.IconButton();
             this.ChangePasswordButton = new FontAwesome.Sharp.IconButton();
             this.LogoProfilePanel = new System.Windows.Forms.Panel();
@@ -243,21 +274,19 @@
             this.RegistrateButton = new System.Windows.Forms.Button();
             this.CloseAppStart = new BWCMM.MZButtonWindows();
             this.SOPTLOGO = new System.Windows.Forms.Label();
-            this.CuentaPanel = new System.Windows.Forms.Panel();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.CuentaLabel = new System.Windows.Forms.Label();
             this.StartPanel.SuspendLayout();
             this.LoginPanel.SuspendLayout();
             this.MainPanel.SuspendLayout();
             this.MainScreenPanel.SuspendLayout();
             this.ProfileMainPanel.SuspendLayout();
+            this.MiInformacionPanel.SuspendLayout();
+            this.SeguidosPanel.SuspendLayout();
+            this.SeguidoresPanel.SuspendLayout();
+            this.SideMiInformacionPanel.SuspendLayout();
+            this.MiInformacionLogoPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox2)).BeginInit();
             this.EditeProfilePanel.SuspendLayout();
+            this.CuentaPanel.SuspendLayout();
             this.CambiarContraseñaPanel.SuspendLayout();
             this.SideProfilePanel.SuspendLayout();
             this.LogoProfilePanel.SuspendLayout();
@@ -315,7 +344,6 @@
             this.SubPlaylistPanel.SuspendLayout();
             this.SubSerchPanel.SuspendLayout();
             this.RegisterPanel.SuspendLayout();
-            this.CuentaPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // StartPanel
@@ -433,6 +461,7 @@
             // ProfileMainPanel
             // 
             this.ProfileMainPanel.BackColor = System.Drawing.Color.Lime;
+            this.ProfileMainPanel.Controls.Add(this.MiInformacionPanel);
             this.ProfileMainPanel.Controls.Add(this.EditeProfilePanel);
             this.ProfileMainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ProfileMainPanel.Location = new System.Drawing.Point(0, 0);
@@ -440,6 +469,180 @@
             this.ProfileMainPanel.Size = new System.Drawing.Size(724, 683);
             this.ProfileMainPanel.TabIndex = 12;
             this.ProfileMainPanel.Visible = false;
+            // 
+            // MiInformacionPanel
+            // 
+            this.MiInformacionPanel.Controls.Add(this.SeguidosPanel);
+            this.MiInformacionPanel.Controls.Add(this.SeguidoresPanel);
+            this.MiInformacionPanel.Controls.Add(this.UserNameInfoInput);
+            this.MiInformacionPanel.Controls.Add(this.SideMiInformacionPanel);
+            this.MiInformacionPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.MiInformacionPanel.Location = new System.Drawing.Point(0, 0);
+            this.MiInformacionPanel.Name = "MiInformacionPanel";
+            this.MiInformacionPanel.Size = new System.Drawing.Size(724, 683);
+            this.MiInformacionPanel.TabIndex = 1;
+            // 
+            // SeguidosPanel
+            // 
+            this.SeguidosPanel.Controls.Add(this.DejarDeSeguirButton1);
+            this.SeguidosPanel.Controls.Add(this.SeguidosLabel);
+            this.SeguidosPanel.Controls.Add(this.SeguidosListBox);
+            this.SeguidosPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SeguidosPanel.Location = new System.Drawing.Point(256, 0);
+            this.SeguidosPanel.Name = "SeguidosPanel";
+            this.SeguidosPanel.Size = new System.Drawing.Size(468, 683);
+            this.SeguidosPanel.TabIndex = 3;
+            this.SeguidosPanel.Visible = false;
+            // 
+            // DejarDeSeguirButton1
+            // 
+            this.DejarDeSeguirButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.DejarDeSeguirButton1.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.DejarDeSeguirButton1.IconChar = FontAwesome.Sharp.IconChar.UserMinus;
+            this.DejarDeSeguirButton1.IconColor = System.Drawing.Color.Black;
+            this.DejarDeSeguirButton1.IconSize = 36;
+            this.DejarDeSeguirButton1.Location = new System.Drawing.Point(403, 104);
+            this.DejarDeSeguirButton1.Name = "DejarDeSeguirButton1";
+            this.DejarDeSeguirButton1.Rotation = 0D;
+            this.DejarDeSeguirButton1.Size = new System.Drawing.Size(55, 55);
+            this.DejarDeSeguirButton1.TabIndex = 2;
+            this.DejarDeSeguirButton1.UseVisualStyleBackColor = true;
+            // 
+            // SeguidosLabel
+            // 
+            this.SeguidosLabel.AutoSize = true;
+            this.SeguidosLabel.Font = new System.Drawing.Font("MV Boli", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SeguidosLabel.Location = new System.Drawing.Point(81, 53);
+            this.SeguidosLabel.Name = "SeguidosLabel";
+            this.SeguidosLabel.Size = new System.Drawing.Size(178, 52);
+            this.SeguidosLabel.TabIndex = 1;
+            this.SeguidosLabel.Text = "Seguidos";
+            // 
+            // SeguidosListBox
+            // 
+            this.SeguidosListBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.SeguidosListBox.FormattingEnabled = true;
+            this.SeguidosListBox.ItemHeight = 20;
+            this.SeguidosListBox.Location = new System.Drawing.Point(79, 104);
+            this.SeguidosListBox.Name = "SeguidosListBox";
+            this.SeguidosListBox.Size = new System.Drawing.Size(317, 424);
+            this.SeguidosListBox.TabIndex = 0;
+            // 
+            // SeguidoresPanel
+            // 
+            this.SeguidoresPanel.Controls.Add(this.SeguidoresLabel);
+            this.SeguidoresPanel.Controls.Add(this.SeguidoreslistBox);
+            this.SeguidoresPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SeguidoresPanel.Location = new System.Drawing.Point(256, 0);
+            this.SeguidoresPanel.Name = "SeguidoresPanel";
+            this.SeguidoresPanel.Size = new System.Drawing.Size(468, 683);
+            this.SeguidoresPanel.TabIndex = 2;
+            this.SeguidoresPanel.Visible = false;
+            // 
+            // SeguidoresLabel
+            // 
+            this.SeguidoresLabel.AutoSize = true;
+            this.SeguidoresLabel.Font = new System.Drawing.Font("MV Boli", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SeguidoresLabel.Location = new System.Drawing.Point(70, 52);
+            this.SeguidoresLabel.Name = "SeguidoresLabel";
+            this.SeguidoresLabel.Size = new System.Drawing.Size(215, 52);
+            this.SeguidoresLabel.TabIndex = 1;
+            this.SeguidoresLabel.Text = "Seguidores";
+            this.SeguidoresLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // SeguidoreslistBox
+            // 
+            this.SeguidoreslistBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.SeguidoreslistBox.FormattingEnabled = true;
+            this.SeguidoreslistBox.ItemHeight = 20;
+            this.SeguidoreslistBox.Location = new System.Drawing.Point(71, 104);
+            this.SeguidoreslistBox.Name = "SeguidoreslistBox";
+            this.SeguidoreslistBox.Size = new System.Drawing.Size(327, 424);
+            this.SeguidoreslistBox.TabIndex = 0;
+            // 
+            // UserNameInfoInput
+            // 
+            this.UserNameInfoInput.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.UserNameInfoInput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.UserNameInfoInput.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.UserNameInfoInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UserNameInfoInput.Location = new System.Drawing.Point(346, 325);
+            this.UserNameInfoInput.Name = "UserNameInfoInput";
+            this.UserNameInfoInput.ReadOnly = true;
+            this.UserNameInfoInput.Size = new System.Drawing.Size(290, 50);
+            this.UserNameInfoInput.TabIndex = 1;
+            // 
+            // SideMiInformacionPanel
+            // 
+            this.SideMiInformacionPanel.Controls.Add(this.FollowButton);
+            this.SideMiInformacionPanel.Controls.Add(this.FollowersButton);
+            this.SideMiInformacionPanel.Controls.Add(this.MiInformacionLogoPanel);
+            this.SideMiInformacionPanel.Dock = System.Windows.Forms.DockStyle.Left;
+            this.SideMiInformacionPanel.Location = new System.Drawing.Point(0, 0);
+            this.SideMiInformacionPanel.Name = "SideMiInformacionPanel";
+            this.SideMiInformacionPanel.Size = new System.Drawing.Size(256, 683);
+            this.SideMiInformacionPanel.TabIndex = 0;
+            // 
+            // FollowButton
+            // 
+            this.FollowButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.FollowButton.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.FollowButton.IconChar = FontAwesome.Sharp.IconChar.UserPlus;
+            this.FollowButton.IconColor = System.Drawing.Color.Black;
+            this.FollowButton.IconSize = 36;
+            this.FollowButton.Location = new System.Drawing.Point(0, 159);
+            this.FollowButton.Name = "FollowButton";
+            this.FollowButton.Rotation = 0D;
+            this.FollowButton.Size = new System.Drawing.Size(256, 55);
+            this.FollowButton.TabIndex = 2;
+            this.FollowButton.Text = "Seguidos";
+            this.FollowButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.FollowButton.UseVisualStyleBackColor = true;
+            this.FollowButton.Click += new System.EventHandler(this.FollowButton_Click);
+            // 
+            // FollowersButton
+            // 
+            this.FollowersButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.FollowersButton.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.FollowersButton.IconChar = FontAwesome.Sharp.IconChar.Users;
+            this.FollowersButton.IconColor = System.Drawing.Color.Black;
+            this.FollowersButton.IconSize = 36;
+            this.FollowersButton.Location = new System.Drawing.Point(0, 104);
+            this.FollowersButton.Name = "FollowersButton";
+            this.FollowersButton.Rotation = 0D;
+            this.FollowersButton.Size = new System.Drawing.Size(256, 55);
+            this.FollowersButton.TabIndex = 1;
+            this.FollowersButton.Text = "Seguidores";
+            this.FollowersButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.FollowersButton.UseVisualStyleBackColor = true;
+            this.FollowersButton.Click += new System.EventHandler(this.FollowersButton_Click);
+            // 
+            // MiInformacionLogoPanel
+            // 
+            this.MiInformacionLogoPanel.Controls.Add(this.iconPictureBox2);
+            this.MiInformacionLogoPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.MiInformacionLogoPanel.Location = new System.Drawing.Point(0, 0);
+            this.MiInformacionLogoPanel.Name = "MiInformacionLogoPanel";
+            this.MiInformacionLogoPanel.Size = new System.Drawing.Size(256, 104);
+            this.MiInformacionLogoPanel.TabIndex = 0;
+            // 
+            // iconPictureBox2
+            // 
+            this.iconPictureBox2.BackColor = System.Drawing.Color.Lime;
+            this.iconPictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.iconPictureBox2.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.iconPictureBox2.IconChar = FontAwesome.Sharp.IconChar.User;
+            this.iconPictureBox2.IconColor = System.Drawing.SystemColors.ControlText;
+            this.iconPictureBox2.IconSize = 104;
+            this.iconPictureBox2.Location = new System.Drawing.Point(0, 0);
+            this.iconPictureBox2.Name = "iconPictureBox2";
+            this.iconPictureBox2.Size = new System.Drawing.Size(256, 104);
+            this.iconPictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.iconPictureBox2.TabIndex = 0;
+            this.iconPictureBox2.TabStop = false;
             // 
             // EditeProfilePanel
             // 
@@ -451,6 +654,219 @@
             this.EditeProfilePanel.Name = "EditeProfilePanel";
             this.EditeProfilePanel.Size = new System.Drawing.Size(724, 683);
             this.EditeProfilePanel.TabIndex = 0;
+            // 
+            // CuentaPanel
+            // 
+            this.CuentaPanel.Controls.Add(this.GeneroComboBox);
+            this.CuentaPanel.Controls.Add(this.InfomacionCuentaCambiadaLabel);
+            this.CuentaPanel.Controls.Add(this.AceptarCambioCuenta);
+            this.CuentaPanel.Controls.Add(this.MailCuentaInput);
+            this.CuentaPanel.Controls.Add(this.NombreCuentaImput);
+            this.CuentaPanel.Controls.Add(this.ApellidoCuentaInput);
+            this.CuentaPanel.Controls.Add(this.UsuarioCuentaInput);
+            this.CuentaPanel.Controls.Add(this.EdadCuentaInput);
+            this.CuentaPanel.Controls.Add(this.TipoDeCuentaCombobox);
+            this.CuentaPanel.Controls.Add(this.GeneroCuentaLabel);
+            this.CuentaPanel.Controls.Add(this.EdadCuentaLabel);
+            this.CuentaPanel.Controls.Add(this.TipoDeCuentaLabel);
+            this.CuentaPanel.Controls.Add(this.UsuarioCuentaLabel);
+            this.CuentaPanel.Controls.Add(this.ApellidoCuentaLabel);
+            this.CuentaPanel.Controls.Add(this.NombreCuentaLabel);
+            this.CuentaPanel.Controls.Add(this.MailCuentaLabel);
+            this.CuentaPanel.Controls.Add(this.CuentaLabel);
+            this.CuentaPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CuentaPanel.Location = new System.Drawing.Point(256, 0);
+            this.CuentaPanel.Name = "CuentaPanel";
+            this.CuentaPanel.Size = new System.Drawing.Size(468, 683);
+            this.CuentaPanel.TabIndex = 3;
+            this.CuentaPanel.Visible = false;
+            // 
+            // InfomacionCuentaCambiadaLabel
+            // 
+            this.InfomacionCuentaCambiadaLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.InfomacionCuentaCambiadaLabel.AutoSize = true;
+            this.InfomacionCuentaCambiadaLabel.Location = new System.Drawing.Point(231, 485);
+            this.InfomacionCuentaCambiadaLabel.Name = "InfomacionCuentaCambiadaLabel";
+            this.InfomacionCuentaCambiadaLabel.Size = new System.Drawing.Size(145, 20);
+            this.InfomacionCuentaCambiadaLabel.TabIndex = 18;
+            this.InfomacionCuentaCambiadaLabel.Text = "Cuenta Actuaizada";
+            this.InfomacionCuentaCambiadaLabel.Visible = false;
+            // 
+            // AceptarCambioCuenta
+            // 
+            this.AceptarCambioCuenta.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.AceptarCambioCuenta.FlatAppearance.BorderSize = 0;
+            this.AceptarCambioCuenta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AceptarCambioCuenta.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.AceptarCambioCuenta.IconChar = FontAwesome.Sharp.IconChar.Edit;
+            this.AceptarCambioCuenta.IconColor = System.Drawing.Color.Black;
+            this.AceptarCambioCuenta.IconSize = 36;
+            this.AceptarCambioCuenta.Location = new System.Drawing.Point(215, 515);
+            this.AceptarCambioCuenta.Name = "AceptarCambioCuenta";
+            this.AceptarCambioCuenta.Rotation = 0D;
+            this.AceptarCambioCuenta.Size = new System.Drawing.Size(222, 62);
+            this.AceptarCambioCuenta.TabIndex = 17;
+            this.AceptarCambioCuenta.Text = "Aceptar ";
+            this.AceptarCambioCuenta.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.AceptarCambioCuenta.UseVisualStyleBackColor = true;
+            this.AceptarCambioCuenta.Click += new System.EventHandler(this.AceptarCambioCuenta_Click);
+            // 
+            // MailCuentaInput
+            // 
+            this.MailCuentaInput.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.MailCuentaInput.Location = new System.Drawing.Point(174, 296);
+            this.MailCuentaInput.Name = "MailCuentaInput";
+            this.MailCuentaInput.ReadOnly = true;
+            this.MailCuentaInput.Size = new System.Drawing.Size(244, 26);
+            this.MailCuentaInput.TabIndex = 16;
+            // 
+            // NombreCuentaImput
+            // 
+            this.NombreCuentaImput.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.NombreCuentaImput.Location = new System.Drawing.Point(174, 165);
+            this.NombreCuentaImput.Name = "NombreCuentaImput";
+            this.NombreCuentaImput.ReadOnly = true;
+            this.NombreCuentaImput.Size = new System.Drawing.Size(244, 26);
+            this.NombreCuentaImput.TabIndex = 15;
+            // 
+            // ApellidoCuentaInput
+            // 
+            this.ApellidoCuentaInput.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ApellidoCuentaInput.Location = new System.Drawing.Point(174, 206);
+            this.ApellidoCuentaInput.Name = "ApellidoCuentaInput";
+            this.ApellidoCuentaInput.ReadOnly = true;
+            this.ApellidoCuentaInput.Size = new System.Drawing.Size(244, 26);
+            this.ApellidoCuentaInput.TabIndex = 14;
+            // 
+            // UsuarioCuentaInput
+            // 
+            this.UsuarioCuentaInput.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.UsuarioCuentaInput.Location = new System.Drawing.Point(174, 250);
+            this.UsuarioCuentaInput.Name = "UsuarioCuentaInput";
+            this.UsuarioCuentaInput.ReadOnly = true;
+            this.UsuarioCuentaInput.Size = new System.Drawing.Size(244, 26);
+            this.UsuarioCuentaInput.TabIndex = 13;
+            this.UsuarioCuentaInput.TextChanged += new System.EventHandler(this.UsuarioCuentaInput_TextChanged);
+            // 
+            // EdadCuentaInput
+            // 
+            this.EdadCuentaInput.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.EdadCuentaInput.Location = new System.Drawing.Point(174, 339);
+            this.EdadCuentaInput.Name = "EdadCuentaInput";
+            this.EdadCuentaInput.Size = new System.Drawing.Size(244, 26);
+            this.EdadCuentaInput.TabIndex = 11;
+            // 
+            // GeneroComboBox
+            // 
+            this.GeneroComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.GeneroComboBox.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.GeneroComboBox.FormattingEnabled = true;
+            this.GeneroComboBox.Items.AddRange(new object[] {
+            "Hombre",
+            "Mujer",
+            "Otro",
+            "None"});
+            this.GeneroComboBox.Location = new System.Drawing.Point(174, 383);
+            this.GeneroComboBox.Name = "GeneroComboBox";
+            this.GeneroComboBox.Size = new System.Drawing.Size(244, 28);
+            this.GeneroComboBox.TabIndex = 9;
+            this.GeneroComboBox.SelectedIndexChanged += new System.EventHandler(this.GeneroComboBox_SelectedIndexChanged);
+            // 
+            // TipoDeCuentaCombobox
+            // 
+            this.TipoDeCuentaCombobox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.TipoDeCuentaCombobox.FormattingEnabled = true;
+            this.TipoDeCuentaCombobox.Items.AddRange(new object[] {
+            "Free",
+            "Premium"});
+            this.TipoDeCuentaCombobox.Location = new System.Drawing.Point(173, 430);
+            this.TipoDeCuentaCombobox.Name = "TipoDeCuentaCombobox";
+            this.TipoDeCuentaCombobox.Size = new System.Drawing.Size(245, 28);
+            this.TipoDeCuentaCombobox.TabIndex = 8;
+            this.TipoDeCuentaCombobox.SelectedIndexChanged += new System.EventHandler(this.TipoDeCuentaCombobox_SelectedIndexChanged);
+            // 
+            // GeneroCuentaLabel
+            // 
+            this.GeneroCuentaLabel.Location = new System.Drawing.Point(49, 371);
+            this.GeneroCuentaLabel.Name = "GeneroCuentaLabel";
+            this.GeneroCuentaLabel.Size = new System.Drawing.Size(126, 51);
+            this.GeneroCuentaLabel.TabIndex = 7;
+            this.GeneroCuentaLabel.Text = "Genero";
+            this.GeneroCuentaLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // EdadCuentaLabel
+            // 
+            this.EdadCuentaLabel.Location = new System.Drawing.Point(67, 335);
+            this.EdadCuentaLabel.Name = "EdadCuentaLabel";
+            this.EdadCuentaLabel.Size = new System.Drawing.Size(108, 41);
+            this.EdadCuentaLabel.TabIndex = 6;
+            this.EdadCuentaLabel.Text = "Edad";
+            this.EdadCuentaLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // TipoDeCuentaLabel
+            // 
+            this.TipoDeCuentaLabel.Location = new System.Drawing.Point(86, 422);
+            this.TipoDeCuentaLabel.Name = "TipoDeCuentaLabel";
+            this.TipoDeCuentaLabel.Size = new System.Drawing.Size(81, 51);
+            this.TipoDeCuentaLabel.TabIndex = 5;
+            this.TipoDeCuentaLabel.Text = "Tipo";
+            this.TipoDeCuentaLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // UsuarioCuentaLabel
+            // 
+            this.UsuarioCuentaLabel.Location = new System.Drawing.Point(41, 237);
+            this.UsuarioCuentaLabel.Name = "UsuarioCuentaLabel";
+            this.UsuarioCuentaLabel.Size = new System.Drawing.Size(147, 60);
+            this.UsuarioCuentaLabel.TabIndex = 4;
+            this.UsuarioCuentaLabel.Text = "Usuario";
+            this.UsuarioCuentaLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // ApellidoCuentaLabel
+            // 
+            this.ApellidoCuentaLabel.Location = new System.Drawing.Point(42, 187);
+            this.ApellidoCuentaLabel.Name = "ApellidoCuentaLabel";
+            this.ApellidoCuentaLabel.Size = new System.Drawing.Size(147, 64);
+            this.ApellidoCuentaLabel.TabIndex = 3;
+            this.ApellidoCuentaLabel.Text = "Apellido";
+            this.ApellidoCuentaLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // NombreCuentaLabel
+            // 
+            this.NombreCuentaLabel.Location = new System.Drawing.Point(51, 146);
+            this.NombreCuentaLabel.Name = "NombreCuentaLabel";
+            this.NombreCuentaLabel.Size = new System.Drawing.Size(126, 64);
+            this.NombreCuentaLabel.TabIndex = 2;
+            this.NombreCuentaLabel.Text = "Nombre";
+            this.NombreCuentaLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // MailCuentaLabel
+            // 
+            this.MailCuentaLabel.Location = new System.Drawing.Point(62, 285);
+            this.MailCuentaLabel.Name = "MailCuentaLabel";
+            this.MailCuentaLabel.Size = new System.Drawing.Size(126, 50);
+            this.MailCuentaLabel.TabIndex = 1;
+            this.MailCuentaLabel.Text = "Mail";
+            this.MailCuentaLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // CuentaLabel
+            // 
+            this.CuentaLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.CuentaLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CuentaLabel.Location = new System.Drawing.Point(50, 60);
+            this.CuentaLabel.Name = "CuentaLabel";
+            this.CuentaLabel.Size = new System.Drawing.Size(468, 46);
+            this.CuentaLabel.TabIndex = 0;
+            this.CuentaLabel.Text = "Informacion Cuenta";
             // 
             // CambiarContraseñaPanel
             // 
@@ -496,20 +912,20 @@
             // 
             this.NuevaContraseñainput.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.NuevaContraseñainput.Location = new System.Drawing.Point(206, 170);
+            this.NuevaContraseñainput.Location = new System.Drawing.Point(206, 165);
             this.NuevaContraseñainput.Name = "NuevaContraseñainput";
             this.NuevaContraseñainput.PasswordChar = '*';
-            this.NuevaContraseñainput.Size = new System.Drawing.Size(231, 26);
+            this.NuevaContraseñainput.Size = new System.Drawing.Size(232, 26);
             this.NuevaContraseñainput.TabIndex = 5;
             // 
             // ContraseñaActualInput
             // 
             this.ContraseñaActualInput.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.ContraseñaActualInput.Location = new System.Drawing.Point(206, 115);
+            this.ContraseñaActualInput.Location = new System.Drawing.Point(206, 112);
             this.ContraseñaActualInput.Name = "ContraseñaActualInput";
             this.ContraseñaActualInput.PasswordChar = '*';
-            this.ContraseñaActualInput.Size = new System.Drawing.Size(231, 26);
+            this.ContraseñaActualInput.Size = new System.Drawing.Size(232, 26);
             this.ContraseñaActualInput.TabIndex = 4;
             // 
             // CambiarContraseñaButton
@@ -554,7 +970,6 @@
             // SideProfilePanel
             // 
             this.SideProfilePanel.Controls.Add(this.CambiarFotoButton);
-            this.SideProfilePanel.Controls.Add(this.PrivacidadButton);
             this.SideProfilePanel.Controls.Add(this.CuentaButton);
             this.SideProfilePanel.Controls.Add(this.ChangePasswordButton);
             this.SideProfilePanel.Controls.Add(this.LogoProfilePanel);
@@ -571,7 +986,7 @@
             this.CambiarFotoButton.IconChar = FontAwesome.Sharp.IconChar.Image;
             this.CambiarFotoButton.IconColor = System.Drawing.Color.Black;
             this.CambiarFotoButton.IconSize = 36;
-            this.CambiarFotoButton.Location = new System.Drawing.Point(0, 269);
+            this.CambiarFotoButton.Location = new System.Drawing.Point(0, 214);
             this.CambiarFotoButton.Name = "CambiarFotoButton";
             this.CambiarFotoButton.Rotation = 0D;
             this.CambiarFotoButton.Size = new System.Drawing.Size(256, 55);
@@ -580,23 +995,6 @@
             this.CambiarFotoButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.CambiarFotoButton.UseVisualStyleBackColor = true;
             this.CambiarFotoButton.Click += new System.EventHandler(this.CambiarFotoButton_Click);
-            // 
-            // PrivacidadButton
-            // 
-            this.PrivacidadButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.PrivacidadButton.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.PrivacidadButton.IconChar = FontAwesome.Sharp.IconChar.Lock;
-            this.PrivacidadButton.IconColor = System.Drawing.Color.Black;
-            this.PrivacidadButton.IconSize = 36;
-            this.PrivacidadButton.Location = new System.Drawing.Point(0, 214);
-            this.PrivacidadButton.Name = "PrivacidadButton";
-            this.PrivacidadButton.Rotation = 0D;
-            this.PrivacidadButton.Size = new System.Drawing.Size(256, 55);
-            this.PrivacidadButton.TabIndex = 3;
-            this.PrivacidadButton.Text = "Privacidad";
-            this.PrivacidadButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.PrivacidadButton.UseVisualStyleBackColor = true;
-            this.PrivacidadButton.Click += new System.EventHandler(this.PrivacidadButton_Click);
             // 
             // CuentaButton
             // 
@@ -2710,7 +3108,7 @@
             this.LogOutButton.IconChar = FontAwesome.Sharp.IconChar.SignOutAlt;
             this.LogOutButton.IconColor = System.Drawing.Color.Black;
             this.LogOutButton.IconSize = 36;
-            this.LogOutButton.Location = new System.Drawing.Point(-1, 744);
+            this.LogOutButton.Location = new System.Drawing.Point(0, 718);
             this.LogOutButton.Name = "LogOutButton";
             this.LogOutButton.Rotation = 0D;
             this.LogOutButton.Size = new System.Drawing.Size(50, 49);
@@ -3105,90 +3503,6 @@
             this.SOPTLOGO.TabIndex = 0;
             this.SOPTLOGO.Text = "SPOT";
             this.SOPTLOGO.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.SOPTLOGO.Click += new System.EventHandler(this.SOPTLOGO_Click);
-            // 
-            // CuentaPanel
-            // 
-            this.CuentaPanel.Controls.Add(this.label8);
-            this.CuentaPanel.Controls.Add(this.label7);
-            this.CuentaPanel.Controls.Add(this.label6);
-            this.CuentaPanel.Controls.Add(this.label5);
-            this.CuentaPanel.Controls.Add(this.label4);
-            this.CuentaPanel.Controls.Add(this.label3);
-            this.CuentaPanel.Controls.Add(this.label2);
-            this.CuentaPanel.Controls.Add(this.CuentaLabel);
-            this.CuentaPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.CuentaPanel.Location = new System.Drawing.Point(256, 0);
-            this.CuentaPanel.Name = "CuentaPanel";
-            this.CuentaPanel.Size = new System.Drawing.Size(468, 683);
-            this.CuentaPanel.TabIndex = 3;
-            this.CuentaPanel.Visible = false;
-            // 
-            // label8
-            // 
-            this.label8.Location = new System.Drawing.Point(49, 316);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(74, 27);
-            this.label8.TabIndex = 7;
-            this.label8.Text = "Genero";
-            // 
-            // label7
-            // 
-            this.label7.Location = new System.Drawing.Point(63, 281);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(51, 20);
-            this.label7.TabIndex = 6;
-            this.label7.Text = "Edad";
-            // 
-            // label6
-            // 
-            this.label6.Location = new System.Drawing.Point(6, 356);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(126, 27);
-            this.label6.TabIndex = 5;
-            this.label6.Text = "Tipo de cuenta";
-            // 
-            // label5
-            // 
-            this.label5.Location = new System.Drawing.Point(51, 208);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(74, 20);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "Usuario";
-            // 
-            // label4
-            // 
-            this.label4.Location = new System.Drawing.Point(49, 167);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(68, 35);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Apellido";
-            // 
-            // label3
-            // 
-            this.label3.Location = new System.Drawing.Point(49, 127);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(65, 29);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Nombre";
-            // 
-            // label2
-            // 
-            this.label2.Location = new System.Drawing.Point(71, 244);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(43, 24);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Mail";
-            // 
-            // CuentaLabel
-            // 
-            this.CuentaLabel.AutoSize = true;
-            this.CuentaLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CuentaLabel.Location = new System.Drawing.Point(58, 58);
-            this.CuentaLabel.Name = "CuentaLabel";
-            this.CuentaLabel.Size = new System.Drawing.Size(148, 46);
-            this.CuentaLabel.TabIndex = 0;
-            this.CuentaLabel.Text = "Cuenta";
             // 
             // AppForm
             // 
@@ -3207,7 +3521,18 @@
             this.MainPanel.ResumeLayout(false);
             this.MainScreenPanel.ResumeLayout(false);
             this.ProfileMainPanel.ResumeLayout(false);
+            this.MiInformacionPanel.ResumeLayout(false);
+            this.MiInformacionPanel.PerformLayout();
+            this.SeguidosPanel.ResumeLayout(false);
+            this.SeguidosPanel.PerformLayout();
+            this.SeguidoresPanel.ResumeLayout(false);
+            this.SeguidoresPanel.PerformLayout();
+            this.SideMiInformacionPanel.ResumeLayout(false);
+            this.MiInformacionLogoPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox2)).EndInit();
             this.EditeProfilePanel.ResumeLayout(false);
+            this.CuentaPanel.ResumeLayout(false);
+            this.CuentaPanel.PerformLayout();
             this.CambiarContraseñaPanel.ResumeLayout(false);
             this.CambiarContraseñaPanel.PerformLayout();
             this.SideProfilePanel.ResumeLayout(false);
@@ -3275,8 +3600,6 @@
             this.SubSerchPanel.ResumeLayout(false);
             this.RegisterPanel.ResumeLayout(false);
             this.RegisterPanel.PerformLayout();
-            this.CuentaPanel.ResumeLayout(false);
-            this.CuentaPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -3484,7 +3807,6 @@
         private System.Windows.Forms.Panel SideProfilePanel;
         private System.Windows.Forms.Panel LogoProfilePanel;
         private FontAwesome.Sharp.IconPictureBox EditeUserIcon;
-        private FontAwesome.Sharp.IconButton PrivacidadButton;
         private FontAwesome.Sharp.IconButton CuentaButton;
         private FontAwesome.Sharp.IconButton ChangePasswordButton;
         private FontAwesome.Sharp.IconButton CambiarFotoButton;
@@ -3498,14 +3820,37 @@
         private System.Windows.Forms.Label ErrorContraseñaActual;
         private System.Windows.Forms.Label ContraseñaActualLabel;
         private System.Windows.Forms.Panel CuentaPanel;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label GeneroCuentaLabel;
+        private System.Windows.Forms.Label EdadCuentaLabel;
+        private System.Windows.Forms.Label TipoDeCuentaLabel;
+        private System.Windows.Forms.Label UsuarioCuentaLabel;
+        private System.Windows.Forms.Label ApellidoCuentaLabel;
+        private System.Windows.Forms.Label NombreCuentaLabel;
+        private System.Windows.Forms.Label MailCuentaLabel;
         private System.Windows.Forms.Label CuentaLabel;
+        private System.Windows.Forms.ComboBox TipoDeCuentaCombobox;
+        private System.Windows.Forms.ComboBox GeneroComboBox;
+        private System.Windows.Forms.Label InfomacionCuentaCambiadaLabel;
+        private FontAwesome.Sharp.IconButton AceptarCambioCuenta;
+        private System.Windows.Forms.TextBox MailCuentaInput;
+        private System.Windows.Forms.TextBox NombreCuentaImput;
+        private System.Windows.Forms.TextBox ApellidoCuentaInput;
+        private System.Windows.Forms.TextBox UsuarioCuentaInput;
+        private System.Windows.Forms.TextBox EdadCuentaInput;
+        private System.Windows.Forms.Panel MiInformacionPanel;
+        private System.Windows.Forms.Panel SideMiInformacionPanel;
+        private FontAwesome.Sharp.IconButton FollowButton;
+        private FontAwesome.Sharp.IconButton FollowersButton;
+        private System.Windows.Forms.Panel MiInformacionLogoPanel;
+        private FontAwesome.Sharp.IconPictureBox iconPictureBox2;
+        private System.Windows.Forms.TextBox UserNameInfoInput;
+        private System.Windows.Forms.Panel SeguidoresPanel;
+        private System.Windows.Forms.Label SeguidoresLabel;
+        private System.Windows.Forms.ListBox SeguidoreslistBox;
+        private System.Windows.Forms.Panel SeguidosPanel;
+        private FontAwesome.Sharp.IconButton DejarDeSeguirButton1;
+        private System.Windows.Forms.Label SeguidosLabel;
+        private System.Windows.Forms.ListBox SeguidosListBox;
     }
 }
 

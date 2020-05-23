@@ -79,16 +79,7 @@ namespace Proyectog15WF
                 submenu.Visible = false;
             }
         }
-        private void loginViewButton_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void SOPTLOGO_Click(object sender, EventArgs e)
-        {
-
-        }
-
+      
         private void EXITbutton_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -155,6 +146,29 @@ namespace Proyectog15WF
                 }
                 else
                 {
+
+                    //if (gender=="hombre")
+                    {
+                       // GeneroComboBox.SelectedIndex = 0;//(Hombre0,mujer1,otro2)
+                    }
+                    //else
+                    {
+                        GeneroComboBox.SelectedIndex = 3;
+                    }
+                    bool TypeAcount = false;
+
+                    if (TypeAcount)
+                    {
+                        TipoDeCuentaCombobox.SelectedIndex = 1;
+                        //ArtisteModeButton.Visible = true;
+                    }
+                    else
+                    {
+                        TipoDeCuentaCombobox.SelectedIndex = 0;
+                        //ArtisteModeButton.Visible = false;
+                    }
+                       
+                    
                     loginViewInvalidCredentialsAlert.ResetText();
                     loginViewInvalidCredentialsAlert.Visible = false;
                     OnUserChecked(username, pass);
@@ -171,6 +185,7 @@ namespace Proyectog15WF
                 stackPanels.Add(panels["StartPanel"]);
                 MainPanel.Visible = true;
                 MainPanel.BringToFront();
+                
                 //ShowLastPanel();
             }
         }
@@ -391,6 +406,7 @@ namespace Proyectog15WF
         private void ArtisteModeButton_Click(object sender, EventArgs e)
         {
             ShowSubPanel(SubArtistPanel);
+
             MainScreenPanel.Visible = true;
             SearchMainPanel.Visible = false;
             PlaylistMainPanel.Visible = false;
@@ -680,6 +696,7 @@ namespace Proyectog15WF
             EditeProfilePanel.Visible = true;
             CambiarContraseñaPanel.Visible = false;
            CuentaPanel.Visible = false;
+            MiInformacionPanel.Visible = false;
 
         }
 
@@ -687,18 +704,25 @@ namespace Proyectog15WF
         {
             ProfileMainPanel.Visible = true;
             EditeProfilePanel.Visible = false;
+            MiInformacionPanel.Visible = true;
+            UserNameInfoInput.Text = UsernameInPutLogin.Text;
+            SeguidoresPanel.Visible = false;
+            SeguidosPanel.Visible = false;
         }
 
         private void ChangePasswordButton_Click(object sender, EventArgs e)
         {
             CambiarContraseñaPanel.Visible = true;
             CuentaPanel.Visible = false;
+
         }
 
         private void CuentaButton_Click(object sender, EventArgs e)
         {
             CambiarContraseñaPanel.Visible = false;
             CuentaPanel.Visible = true;
+            InfomacionCuentaCambiadaLabel.Visible = false;
+            ShowUserInfo();
         }
 
         private void PrivacidadButton_Click(object sender, EventArgs e)
@@ -713,6 +737,55 @@ namespace Proyectog15WF
             CuentaPanel.Visible = false;
         }
 
-       
+        private void TipoDeCuentaCombobox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void GeneroComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void AceptarCambioCuenta_Click(object sender, EventArgs e)
+        {
+            string typeAccounte = this.TipoDeCuentaCombobox.SelectedItem.ToString();
+            InfomacionCuentaCambiadaLabel.Visible = true;
+            if (typeAccounte == "Premium")
+            {
+                //ArtisteModeButton.Visible = true;
+            }
+            else
+            {
+                //ArtisteModeButton.Visible = false;
+            }
+            string GenderAccounte = this.GeneroComboBox.SelectedItem.ToString();
+            string ageAcctounte = this.EdadCuentaInput.SelectedText;
+        }
+        private void ShowUserInfo()
+        {
+            NombreCuentaImput.Text = nameInputRegister.Text;
+            ApellidoCuentaInput.Text = LastNameInputRegister.Text;
+            UsuarioCuentaInput.Text = UsernameInPutLogin.Text;
+            MailCuentaInput.Text = MailInputRegister.Text;
+            EdadCuentaInput.Text = null;
+        }
+
+        private void FollowersButton_Click(object sender, EventArgs e)
+        {
+            SeguidoresPanel.Visible = true;
+            SeguidosPanel.Visible = false;
+        }
+
+        private void FollowButton_Click(object sender, EventArgs e)
+        {
+            SeguidoresPanel.Visible = false;
+            SeguidosPanel.Visible = true;
+        }
+
+        private void UsuarioCuentaInput_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

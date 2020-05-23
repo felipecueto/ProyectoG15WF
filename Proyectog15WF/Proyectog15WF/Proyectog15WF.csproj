@@ -58,7 +58,6 @@
     <Compile Include="AppForm.Designer.cs">
       <DependentUpon>AppForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Contollers\PlaylistController.cs" />
     <Compile Include="Contollers\Songcontroller.cs" />
     <Compile Include="Contollers\Usercontroller.cs" />
     <Compile Include="Contollers\VideoController.cs" />
