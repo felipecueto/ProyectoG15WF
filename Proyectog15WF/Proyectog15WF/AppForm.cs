@@ -26,10 +26,12 @@ namespace Proyectog15WF
         public event CheckusernameEventHandler Checkusernameregister;
         public event EventHandler<SearchUserEventArgs> Searching;
         public event EventHandler<SearchingSongorVideo> Searchingnamevideoorsong;
-
-
         List<Panel> stackPanels = new List<Panel>();
         Dictionary<string, Panel> panels = new Dictionary<string, Panel>();
+        string userlog = "";
+        string namelog = "";
+        string lastNameLog = "";
+        string mailLog = "";
 
         public AppForm()
         {
@@ -227,6 +229,7 @@ namespace Proyectog15WF
         {
             string username = UsernameInPutLogin.Text;
             string pass = PasswordInPutLogin.Text;
+            userlog = username;
             OnLoginButtonClicked(username, pass);
 
         }
@@ -234,9 +237,12 @@ namespace Proyectog15WF
         private void Registerbutton_Click(object sender, EventArgs e)
         {
             string nameInputuser = null;
+            namelog = nameInputuser;
             string lastNameInputuser = null;
+            lastNameLog = lastNameInputuser;
             string usernameInputuser = null;
             string mailInputuser = null;
+            mailLog = mailInputuser;
             string passwordInputUser = null;
             int count = 0;
             if (count == 0)
@@ -709,7 +715,7 @@ namespace Proyectog15WF
             ProfileMainPanel.Visible = true;
             EditeProfilePanel.Visible = false;
             MiInformacionPanel.Visible = true;
-            UserNameInfoInput.Text = UsernameInPutLogin.Text;
+            UserNameInfoInput.Text = userlog;
             SeguidoresPanel.Visible = false;
             SeguidosPanel.Visible = false;
         }
@@ -768,10 +774,10 @@ namespace Proyectog15WF
         }
         private void ShowUserInfo()
         {
-            NombreCuentaImput.Text = nameInputRegister.Text;
-            ApellidoCuentaInput.Text = LastNameInputRegister.Text;
-            UsuarioCuentaInput.Text = UsernameInPutLogin.Text;
-            MailCuentaInput.Text = MailInputRegister.Text;
+            NombreCuentaImput.Text = namelog;
+            ApellidoCuentaInput.Text = lastNameLog;
+            UsuarioCuentaInput.Text = userlog;
+            MailCuentaInput.Text = mailLog;
             EdadCuentaInput.Text = null;
         }
 
@@ -799,6 +805,7 @@ namespace Proyectog15WF
 
         private void PlayButton_Click_1(object sender, EventArgs e)
         {
+            CalificacionComboBox.SelectedIndex = 0;
             if (ReproduccionMainPanel.Visible)
             {
                 ReproduccionMainPanel.Visible = false;
@@ -819,8 +826,10 @@ namespace Proyectog15WF
             else
             {
                 QueuePanel.Visible = true;
-
+                
             }
         }
+
+     
     }
 }

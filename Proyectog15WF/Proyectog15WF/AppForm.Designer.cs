@@ -36,6 +36,10 @@
             this.MaximizarButton = new BWCMM.MZButtonWindows();
             this.MinimizarButton = new BWCMM.MZButtonWindows();
             this.MainScreenPanel = new System.Windows.Forms.Panel();
+            this.ReproduccionMainPanel = new System.Windows.Forms.Panel();
+            this.QueuePanel = new System.Windows.Forms.Panel();
+            this.QueueListBox = new System.Windows.Forms.ListBox();
+            this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
             this.ProfileMainPanel = new System.Windows.Forms.Panel();
             this.MiInformacionPanel = new System.Windows.Forms.Panel();
             this.SeguidosPanel = new System.Windows.Forms.Panel();
@@ -53,6 +57,7 @@
             this.iconPictureBox2 = new FontAwesome.Sharp.IconPictureBox();
             this.EditeProfilePanel = new System.Windows.Forms.Panel();
             this.CuentaPanel = new System.Windows.Forms.Panel();
+            this.GeneroComboBox = new System.Windows.Forms.ComboBox();
             this.InfomacionCuentaCambiadaLabel = new System.Windows.Forms.Label();
             this.AceptarCambioCuenta = new FontAwesome.Sharp.IconButton();
             this.MailCuentaInput = new System.Windows.Forms.TextBox();
@@ -60,7 +65,6 @@
             this.ApellidoCuentaInput = new System.Windows.Forms.TextBox();
             this.UsuarioCuentaInput = new System.Windows.Forms.TextBox();
             this.EdadCuentaInput = new System.Windows.Forms.TextBox();
-            this.GeneroComboBox = new System.Windows.Forms.ComboBox();
             this.TipoDeCuentaCombobox = new System.Windows.Forms.ComboBox();
             this.GeneroCuentaLabel = new System.Windows.Forms.Label();
             this.EdadCuentaLabel = new System.Windows.Forms.Label();
@@ -215,6 +219,7 @@
             this.SearchMediatextBox = new System.Windows.Forms.TextBox();
             this.SPOTFLIXlOGO = new System.Windows.Forms.Label();
             this.ReproduccionPanel = new System.Windows.Forms.Panel();
+            this.StopButton = new FontAwesome.Sharp.IconButton();
             this.NextButton = new FontAwesome.Sharp.IconButton();
             this.BackButton = new FontAwesome.Sharp.IconButton();
             this.MuteButton = new FontAwesome.Sharp.IconButton();
@@ -274,14 +279,15 @@
             this.RegistrateButton = new System.Windows.Forms.Button();
             this.CloseAppStart = new BWCMM.MZButtonWindows();
             this.SOPTLOGO = new System.Windows.Forms.Label();
-            this.ReproduccionMainPanel = new System.Windows.Forms.Panel();
-            this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
-            this.QueuePanel = new System.Windows.Forms.Panel();
-            this.QueueListBox = new System.Windows.Forms.ListBox();
+            this.CalificacionComboBox = new System.Windows.Forms.ComboBox();
+            this.CalsificacionButton = new FontAwesome.Sharp.IconButton();
             this.StartPanel.SuspendLayout();
             this.LoginPanel.SuspendLayout();
             this.MainPanel.SuspendLayout();
             this.MainScreenPanel.SuspendLayout();
+            this.ReproduccionMainPanel.SuspendLayout();
+            this.QueuePanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
             this.ProfileMainPanel.SuspendLayout();
             this.MiInformacionPanel.SuspendLayout();
             this.SeguidosPanel.SuspendLayout();
@@ -348,9 +354,6 @@
             this.SubPlaylistPanel.SuspendLayout();
             this.SubSerchPanel.SuspendLayout();
             this.RegisterPanel.SuspendLayout();
-            this.ReproduccionMainPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
-            this.QueuePanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // StartPanel
@@ -466,6 +469,50 @@
             this.MainScreenPanel.Size = new System.Drawing.Size(724, 683);
             this.MainScreenPanel.TabIndex = 2;
             // 
+            // ReproduccionMainPanel
+            // 
+            this.ReproduccionMainPanel.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.ReproduccionMainPanel.Controls.Add(this.QueuePanel);
+            this.ReproduccionMainPanel.Controls.Add(this.axWindowsMediaPlayer1);
+            this.ReproduccionMainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ReproduccionMainPanel.Location = new System.Drawing.Point(0, 0);
+            this.ReproduccionMainPanel.Name = "ReproduccionMainPanel";
+            this.ReproduccionMainPanel.Size = new System.Drawing.Size(724, 683);
+            this.ReproduccionMainPanel.TabIndex = 13;
+            this.ReproduccionMainPanel.Visible = false;
+            // 
+            // QueuePanel
+            // 
+            this.QueuePanel.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.QueuePanel.Controls.Add(this.QueueListBox);
+            this.QueuePanel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.QueuePanel.Location = new System.Drawing.Point(0, 567);
+            this.QueuePanel.Name = "QueuePanel";
+            this.QueuePanel.Size = new System.Drawing.Size(724, 116);
+            this.QueuePanel.TabIndex = 1;
+            this.QueuePanel.Visible = false;
+            // 
+            // QueueListBox
+            // 
+            this.QueueListBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.QueueListBox.FormattingEnabled = true;
+            this.QueueListBox.ItemHeight = 20;
+            this.QueueListBox.Location = new System.Drawing.Point(25, 25);
+            this.QueueListBox.Name = "QueueListBox";
+            this.QueueListBox.Size = new System.Drawing.Size(670, 84);
+            this.QueueListBox.TabIndex = 0;
+            // 
+            // axWindowsMediaPlayer1
+            // 
+            this.axWindowsMediaPlayer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.axWindowsMediaPlayer1.Enabled = true;
+            this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(0, 0);
+            this.axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
+            this.axWindowsMediaPlayer1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer1.OcxState")));
+            this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(724, 683);
+            this.axWindowsMediaPlayer1.TabIndex = 0;
+            // 
             // ProfileMainPanel
             // 
             this.ProfileMainPanel.BackColor = System.Drawing.Color.Lime;
@@ -574,13 +621,13 @@
             // 
             this.UserNameInfoInput.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.UserNameInfoInput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.UserNameInfoInput.BackColor = System.Drawing.Color.Lime;
             this.UserNameInfoInput.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.UserNameInfoInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UserNameInfoInput.Location = new System.Drawing.Point(346, 325);
+            this.UserNameInfoInput.Location = new System.Drawing.Point(300, 325);
             this.UserNameInfoInput.Name = "UserNameInfoInput";
             this.UserNameInfoInput.ReadOnly = true;
-            this.UserNameInfoInput.Size = new System.Drawing.Size(547, 50);
+            this.UserNameInfoInput.Size = new System.Drawing.Size(350, 50);
             this.UserNameInfoInput.TabIndex = 1;
             // 
             // SideMiInformacionPanel
@@ -689,6 +736,23 @@
             this.CuentaPanel.TabIndex = 3;
             this.CuentaPanel.Visible = false;
             // 
+            // GeneroComboBox
+            // 
+            this.GeneroComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.GeneroComboBox.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.GeneroComboBox.FormattingEnabled = true;
+            this.GeneroComboBox.Items.AddRange(new object[] {
+            "Hombre",
+            "Mujer",
+            "Otro",
+            "None"});
+            this.GeneroComboBox.Location = new System.Drawing.Point(174, 387);
+            this.GeneroComboBox.Name = "GeneroComboBox";
+            this.GeneroComboBox.Size = new System.Drawing.Size(254, 28);
+            this.GeneroComboBox.TabIndex = 9;
+            this.GeneroComboBox.SelectedIndexChanged += new System.EventHandler(this.GeneroComboBox_SelectedIndexChanged);
+            // 
             // InfomacionCuentaCambiadaLabel
             // 
             this.InfomacionCuentaCambiadaLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -770,23 +834,6 @@
             this.EdadCuentaInput.Name = "EdadCuentaInput";
             this.EdadCuentaInput.Size = new System.Drawing.Size(254, 26);
             this.EdadCuentaInput.TabIndex = 11;
-            // 
-            // GeneroComboBox
-            // 
-            this.GeneroComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.GeneroComboBox.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.GeneroComboBox.FormattingEnabled = true;
-            this.GeneroComboBox.Items.AddRange(new object[] {
-            "Hombre",
-            "Mujer",
-            "Otro",
-            "None"});
-            this.GeneroComboBox.Location = new System.Drawing.Point(174, 387);
-            this.GeneroComboBox.Name = "GeneroComboBox";
-            this.GeneroComboBox.Size = new System.Drawing.Size(254, 28);
-            this.GeneroComboBox.TabIndex = 9;
-            this.GeneroComboBox.SelectedIndexChanged += new System.EventHandler(this.GeneroComboBox_SelectedIndexChanged);
             // 
             // TipoDeCuentaCombobox
             // 
@@ -2693,6 +2740,9 @@
             // ReproduccionPanel
             // 
             this.ReproduccionPanel.BackColor = System.Drawing.Color.DimGray;
+            this.ReproduccionPanel.Controls.Add(this.CalsificacionButton);
+            this.ReproduccionPanel.Controls.Add(this.CalificacionComboBox);
+            this.ReproduccionPanel.Controls.Add(this.StopButton);
             this.ReproduccionPanel.Controls.Add(this.NextButton);
             this.ReproduccionPanel.Controls.Add(this.BackButton);
             this.ReproduccionPanel.Controls.Add(this.MuteButton);
@@ -2706,6 +2756,21 @@
             this.ReproduccionPanel.Name = "ReproduccionPanel";
             this.ReproduccionPanel.Size = new System.Drawing.Size(724, 85);
             this.ReproduccionPanel.TabIndex = 1;
+            // 
+            // StopButton
+            // 
+            this.StopButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.StopButton.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.StopButton.IconChar = FontAwesome.Sharp.IconChar.Pause;
+            this.StopButton.IconColor = System.Drawing.Color.Black;
+            this.StopButton.IconSize = 36;
+            this.StopButton.Location = new System.Drawing.Point(288, 15);
+            this.StopButton.Name = "StopButton";
+            this.StopButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.StopButton.Rotation = 0D;
+            this.StopButton.Size = new System.Drawing.Size(50, 50);
+            this.StopButton.TabIndex = 7;
+            this.StopButton.UseVisualStyleBackColor = true;
             // 
             // NextButton
             // 
@@ -2728,7 +2793,7 @@
             this.BackButton.IconChar = FontAwesome.Sharp.IconChar.StepBackward;
             this.BackButton.IconColor = System.Drawing.Color.Black;
             this.BackButton.IconSize = 36;
-            this.BackButton.Location = new System.Drawing.Point(286, 15);
+            this.BackButton.Location = new System.Drawing.Point(232, 15);
             this.BackButton.Name = "BackButton";
             this.BackButton.Rotation = 0D;
             this.BackButton.Size = new System.Drawing.Size(50, 49);
@@ -3513,49 +3578,38 @@
             this.SOPTLOGO.Text = "SPOT";
             this.SOPTLOGO.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // ReproduccionMainPanel
+            // CalificacionComboBox
             // 
-            this.ReproduccionMainPanel.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.ReproduccionMainPanel.Controls.Add(this.QueuePanel);
-            this.ReproduccionMainPanel.Controls.Add(this.axWindowsMediaPlayer1);
-            this.ReproduccionMainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ReproduccionMainPanel.Location = new System.Drawing.Point(0, 0);
-            this.ReproduccionMainPanel.Name = "ReproduccionMainPanel";
-            this.ReproduccionMainPanel.Size = new System.Drawing.Size(724, 683);
-            this.ReproduccionMainPanel.TabIndex = 13;
-            this.ReproduccionMainPanel.Visible = false;
+            this.CalificacionComboBox.FormattingEnabled = true;
+            this.CalificacionComboBox.Items.AddRange(new object[] {
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10"});
+            this.CalificacionComboBox.Location = new System.Drawing.Point(97, 15);
+            this.CalificacionComboBox.Name = "CalificacionComboBox";
+            this.CalificacionComboBox.Size = new System.Drawing.Size(113, 28);
+            this.CalificacionComboBox.TabIndex = 8;
             // 
-            // axWindowsMediaPlayer1
+            // CalsificacionButton
             // 
-            this.axWindowsMediaPlayer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.axWindowsMediaPlayer1.Enabled = true;
-            this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(0, 0);
-            this.axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
-            this.axWindowsMediaPlayer1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer1.OcxState")));
-            this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(724, 683);
-            this.axWindowsMediaPlayer1.TabIndex = 0;
-            // 
-            // QueuePanel
-            // 
-            this.QueuePanel.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.QueuePanel.Controls.Add(this.QueueListBox);
-            this.QueuePanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.QueuePanel.Location = new System.Drawing.Point(0, 567);
-            this.QueuePanel.Name = "QueuePanel";
-            this.QueuePanel.Size = new System.Drawing.Size(724, 116);
-            this.QueuePanel.TabIndex = 1;
-            this.QueuePanel.Visible = false;
-            // 
-            // QueueListBox
-            // 
-            this.QueueListBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.QueueListBox.FormattingEnabled = true;
-            this.QueueListBox.ItemHeight = 20;
-            this.QueueListBox.Location = new System.Drawing.Point(25, 25);
-            this.QueueListBox.Name = "QueueListBox";
-            this.QueueListBox.Size = new System.Drawing.Size(670, 84);
-            this.QueueListBox.TabIndex = 0;
+            this.CalsificacionButton.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.CalsificacionButton.IconChar = FontAwesome.Sharp.IconChar.Tasks;
+            this.CalsificacionButton.IconColor = System.Drawing.Color.Brown;
+            this.CalsificacionButton.IconSize = 25;
+            this.CalsificacionButton.Location = new System.Drawing.Point(113, 49);
+            this.CalsificacionButton.Name = "CalsificacionButton";
+            this.CalsificacionButton.Rotation = 0D;
+            this.CalsificacionButton.Size = new System.Drawing.Size(82, 33);
+            this.CalsificacionButton.TabIndex = 9;
+            this.CalsificacionButton.UseVisualStyleBackColor = true;
             // 
             // AppForm
             // 
@@ -3573,6 +3627,9 @@
             this.LoginPanel.PerformLayout();
             this.MainPanel.ResumeLayout(false);
             this.MainScreenPanel.ResumeLayout(false);
+            this.ReproduccionMainPanel.ResumeLayout(false);
+            this.QueuePanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).EndInit();
             this.ProfileMainPanel.ResumeLayout(false);
             this.MiInformacionPanel.ResumeLayout(false);
             this.MiInformacionPanel.PerformLayout();
@@ -3653,9 +3710,6 @@
             this.SubSerchPanel.ResumeLayout(false);
             this.RegisterPanel.ResumeLayout(false);
             this.RegisterPanel.PerformLayout();
-            this.ReproduccionMainPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).EndInit();
-            this.QueuePanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -3911,6 +3965,9 @@
         private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer1;
         private System.Windows.Forms.Panel QueuePanel;
         private System.Windows.Forms.ListBox QueueListBox;
+        private FontAwesome.Sharp.IconButton StopButton;
+        private System.Windows.Forms.ComboBox CalificacionComboBox;
+        private FontAwesome.Sharp.IconButton CalsificacionButton;
     }
 }
 
