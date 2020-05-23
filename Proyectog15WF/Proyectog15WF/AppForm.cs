@@ -554,6 +554,9 @@ namespace Proyectog15WF
 
         private void MySongplaylistButton_Click(object sender, EventArgs e)
         {
+            PlaylistMySongPanel.Visible = true;
+            MasEsuchadaPanel.Visible = false;
+            FollowPlaylistSongPanel.Visible = false;
             if (SubMyPlaylistPanel.Visible)
             {
                 SubMyPlaylistPanel.Visible = false;
@@ -566,12 +569,15 @@ namespace Proyectog15WF
 
         private void FollowingPlaylist_Click(object sender, EventArgs e)
         {
-
+            FollowPlaylistSongPanel.Visible = true;
+            PlaylistMySongPanel.Visible = false;
         }
 
         private void MostLisentSonButton_Click(object sender, EventArgs e)
         {
-
+            MasEsuchadaPanel.Visible = true;
+            FollowPlaylistSongPanel.Visible = false;
+            PlaylistMySongPanel.Visible = false;
         }
 
         private void SongButton_Click(object sender, EventArgs e)
@@ -579,6 +585,9 @@ namespace Proyectog15WF
             PlaylistMainPanel.Visible = true;
             PlaylistSongPanel.Visible = true;
             PlaylistVideoPanel.Visible = false;
+            PlaylistMySongPanel.Visible = false;
+            FollowPlaylistSongPanel.Visible = false;
+            MasEsuchadaPanel.Visible = false;
         }
 
         private void VideoButton_Click(object sender, EventArgs e)
@@ -586,11 +595,17 @@ namespace Proyectog15WF
             PlaylistSongPanel.Visible = false;
             PlaylistMainPanel.Visible = true;
             PlaylistVideoPanel.Visible = true;
+            VideoFollowPanel.Visible = false;
+            MasVistosPanel.Visible = false;
+            VideoMyPlaylistPanel.Visible = false;
 
         }
 
         private void MyVideoPlaylistButton_Click(object sender, EventArgs e)
         {
+            VideoMyPlaylistPanel.Visible = true;
+            VideoFollowPanel.Visible = false;
+            MasVistosPanel.Visible = false;
             if (SubVideoPlaylistPanel.Visible)
             {
                 SubVideoPlaylistPanel.Visible = false;
@@ -634,6 +649,21 @@ namespace Proyectog15WF
             SongUploadPanel.Visible = false;
             SongsAlbumPanel.Visible = false;
             VideoAlbumPanel.Visible = false;
+        }
+
+
+        private void MasVistoButton_Click(object sender, EventArgs e)
+        {
+            MasVistosPanel.Visible = true;
+            VideoMyPlaylistPanel.Visible = false;
+            VideoFollowPanel.Visible = false;
+        }
+
+        private void FolloweVideoButton_Click(object sender, EventArgs e)
+        {
+            VideoFollowPanel.Visible = true;
+            MasVistosPanel.Visible = false;
+            VideoMyPlaylistPanel.Visible = false;
         }
     }
 }

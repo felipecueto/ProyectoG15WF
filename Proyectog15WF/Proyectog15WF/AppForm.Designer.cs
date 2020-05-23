@@ -88,9 +88,18 @@
             this.UploadSongLogo = new System.Windows.Forms.Label();
             this.PlaylistMainPanel = new System.Windows.Forms.Panel();
             this.PlaylistVideoPanel = new System.Windows.Forms.Panel();
+            this.MasVistosPanel = new System.Windows.Forms.Panel();
+            this.VideoMasVistosLabel = new System.Windows.Forms.Label();
+            this.VideosMasVistos = new System.Windows.Forms.ListBox();
+            this.VideoFollowPanel = new System.Windows.Forms.Panel();
+            this.FollowLabel = new System.Windows.Forms.Label();
+            this.FollowVideoListBox = new System.Windows.Forms.ListBox();
+            this.VideoMyPlaylistPanel = new System.Windows.Forms.Panel();
+            this.MyVideoPlaylist = new System.Windows.Forms.Label();
+            this.MyVideoListBox = new System.Windows.Forms.ListBox();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.iconButton2 = new FontAwesome.Sharp.IconButton();
-            this.iconButton1 = new FontAwesome.Sharp.IconButton();
+            this.MasVistoButton = new FontAwesome.Sharp.IconButton();
+            this.FolloweVideoButton = new FontAwesome.Sharp.IconButton();
             this.SubVideoPlaylistPanel = new System.Windows.Forms.Panel();
             this.DeleteVideoPlaylistButton = new FontAwesome.Sharp.IconButton();
             this.AddPlaylistVideoButton = new FontAwesome.Sharp.IconButton();
@@ -205,6 +214,17 @@
             this.RegistrateButton = new System.Windows.Forms.Button();
             this.CloseAppStart = new BWCMM.MZButtonWindows();
             this.SOPTLOGO = new System.Windows.Forms.Label();
+            this.PlaylistVideoLogoMain = new FontAwesome.Sharp.IconPictureBox();
+            this.PlaylitsSongLogoMain = new FontAwesome.Sharp.IconPictureBox();
+            this.PlaylistMySongPanel = new System.Windows.Forms.Panel();
+            this.MySongsListBox = new System.Windows.Forms.ListBox();
+            this.MyListLabel = new System.Windows.Forms.Label();
+            this.FollowPlaylistSongPanel = new System.Windows.Forms.Panel();
+            this.FollowPlaylistSongListBox = new System.Windows.Forms.ListBox();
+            this.FollowSongLabel = new System.Windows.Forms.Label();
+            this.MasEsuchadaPanel = new System.Windows.Forms.Panel();
+            this.MasEsuchadaListBox = new System.Windows.Forms.ListBox();
+            this.MasEscuchadaLabel = new System.Windows.Forms.Label();
             this.StartPanel.SuspendLayout();
             this.LoginPanel.SuspendLayout();
             this.MainPanel.SuspendLayout();
@@ -222,6 +242,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.UploadSongIcon)).BeginInit();
             this.PlaylistMainPanel.SuspendLayout();
             this.PlaylistVideoPanel.SuspendLayout();
+            this.MasVistosPanel.SuspendLayout();
+            this.VideoFollowPanel.SuspendLayout();
+            this.VideoMyPlaylistPanel.SuspendLayout();
             this.panel5.SuspendLayout();
             this.SubVideoPlaylistPanel.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -254,6 +277,11 @@
             this.SubPlaylistPanel.SuspendLayout();
             this.SubSerchPanel.SuspendLayout();
             this.RegisterPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PlaylistVideoLogoMain)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PlaylitsSongLogoMain)).BeginInit();
+            this.PlaylistMySongPanel.SuspendLayout();
+            this.FollowPlaylistSongPanel.SuspendLayout();
+            this.MasEsuchadaPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // StartPanel
@@ -410,7 +438,7 @@
             this.VideoAlbumLabel.Font = new System.Drawing.Font("MV Boli", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.VideoAlbumLabel.Location = new System.Drawing.Point(145, 36);
             this.VideoAlbumLabel.Name = "VideoAlbumLabel";
-            this.VideoAlbumLabel.Size = new System.Drawing.Size(216, 52);
+            this.VideoAlbumLabel.Size = new System.Drawing.Size(363, 52);
             this.VideoAlbumLabel.TabIndex = 1;
             this.VideoAlbumLabel.Text = "Videos";
             // 
@@ -443,7 +471,7 @@
             this.SongsAlbumLabel.Font = new System.Drawing.Font("MV Boli", 26F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SongsAlbumLabel.Location = new System.Drawing.Point(145, 36);
             this.SongsAlbumLabel.Name = "SongsAlbumLabel";
-            this.SongsAlbumLabel.Size = new System.Drawing.Size(332, 68);
+            this.SongsAlbumLabel.Size = new System.Drawing.Size(363, 68);
             this.SongsAlbumLabel.TabIndex = 1;
             this.SongsAlbumLabel.Text = "Canciones";
             // 
@@ -534,7 +562,7 @@
             this.AlbumLabel.Font = new System.Drawing.Font("MV Boli", 26F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AlbumLabel.Location = new System.Drawing.Point(302, 297);
             this.AlbumLabel.Name = "AlbumLabel";
-            this.AlbumLabel.Size = new System.Drawing.Size(357, 145);
+            this.AlbumLabel.Size = new System.Drawing.Size(363, 145);
             this.AlbumLabel.TabIndex = 3;
             this.AlbumLabel.Text = "Album";
             this.AlbumLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -623,7 +651,7 @@
             this.SubirVideoButton.Location = new System.Drawing.Point(311, 520);
             this.SubirVideoButton.Name = "SubirVideoButton";
             this.SubirVideoButton.Rotation = 0D;
-            this.SubirVideoButton.Size = new System.Drawing.Size(126, 66);
+            this.SubirVideoButton.Size = new System.Drawing.Size(363, 66);
             this.SubirVideoButton.TabIndex = 49;
             this.SubirVideoButton.Text = "Subir";
             this.SubirVideoButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -740,7 +768,7 @@
             this.UpLoadVideoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.UpLoadVideoLabel.Location = new System.Drawing.Point(262, 98);
             this.UpLoadVideoLabel.Name = "UpLoadVideoLabel";
-            this.UpLoadVideoLabel.Size = new System.Drawing.Size(265, 64);
+            this.UpLoadVideoLabel.Size = new System.Drawing.Size(363, 64);
             this.UpLoadVideoLabel.TabIndex = 35;
             this.UpLoadVideoLabel.Text = "Subir Video";
             this.UpLoadVideoLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -808,7 +836,7 @@
             this.SubirCancionButton.Location = new System.Drawing.Point(311, 520);
             this.SubirCancionButton.Name = "SubirCancionButton";
             this.SubirCancionButton.Rotation = 0D;
-            this.SubirCancionButton.Size = new System.Drawing.Size(126, 66);
+            this.SubirCancionButton.Size = new System.Drawing.Size(363, 66);
             this.SubirCancionButton.TabIndex = 33;
             this.SubirCancionButton.Text = "Subir";
             this.SubirCancionButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -942,7 +970,7 @@
             this.UploadSongLogo.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.UploadSongLogo.Location = new System.Drawing.Point(233, 100);
             this.UploadSongLogo.Name = "UploadSongLogo";
-            this.UploadSongLogo.Size = new System.Drawing.Size(346, 58);
+            this.UploadSongLogo.Size = new System.Drawing.Size(363, 58);
             this.UploadSongLogo.TabIndex = 17;
             this.UploadSongLogo.Text = "Subir Cancion";
             this.UploadSongLogo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -961,17 +989,123 @@
             // 
             // PlaylistVideoPanel
             // 
+            this.PlaylistVideoPanel.Controls.Add(this.MasVistosPanel);
+            this.PlaylistVideoPanel.Controls.Add(this.VideoFollowPanel);
+            this.PlaylistVideoPanel.Controls.Add(this.VideoMyPlaylistPanel);
             this.PlaylistVideoPanel.Controls.Add(this.panel5);
+            this.PlaylistVideoPanel.Controls.Add(this.PlaylistVideoLogoMain);
             this.PlaylistVideoPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PlaylistVideoPanel.Location = new System.Drawing.Point(0, 0);
             this.PlaylistVideoPanel.Name = "PlaylistVideoPanel";
             this.PlaylistVideoPanel.Size = new System.Drawing.Size(724, 683);
             this.PlaylistVideoPanel.TabIndex = 1;
             // 
+            // MasVistosPanel
+            // 
+            this.MasVistosPanel.Controls.Add(this.VideoMasVistosLabel);
+            this.MasVistosPanel.Controls.Add(this.VideosMasVistos);
+            this.MasVistosPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.MasVistosPanel.Location = new System.Drawing.Point(232, 0);
+            this.MasVistosPanel.Name = "MasVistosPanel";
+            this.MasVistosPanel.Size = new System.Drawing.Size(492, 683);
+            this.MasVistosPanel.TabIndex = 3;
+            this.MasVistosPanel.Visible = false;
+            // 
+            // VideoMasVistosLabel
+            // 
+            this.VideoMasVistosLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.VideoMasVistosLabel.Font = new System.Drawing.Font("MV Boli", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.VideoMasVistosLabel.Location = new System.Drawing.Point(68, 42);
+            this.VideoMasVistosLabel.Name = "VideoMasVistosLabel";
+            this.VideoMasVistosLabel.Size = new System.Drawing.Size(439, 63);
+            this.VideoMasVistosLabel.TabIndex = 1;
+            this.VideoMasVistosLabel.Text = "Mas Vistos";
+            this.VideoMasVistosLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // VideosMasVistos
+            // 
+            this.VideosMasVistos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.VideosMasVistos.FormattingEnabled = true;
+            this.VideosMasVistos.ItemHeight = 20;
+            this.VideosMasVistos.Location = new System.Drawing.Point(70, 108);
+            this.VideosMasVistos.Name = "VideosMasVistos";
+            this.VideosMasVistos.Size = new System.Drawing.Size(341, 504);
+            this.VideosMasVistos.TabIndex = 0;
+            // 
+            // VideoFollowPanel
+            // 
+            this.VideoFollowPanel.Controls.Add(this.FollowLabel);
+            this.VideoFollowPanel.Controls.Add(this.FollowVideoListBox);
+            this.VideoFollowPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.VideoFollowPanel.Location = new System.Drawing.Point(232, 0);
+            this.VideoFollowPanel.Name = "VideoFollowPanel";
+            this.VideoFollowPanel.Size = new System.Drawing.Size(492, 683);
+            this.VideoFollowPanel.TabIndex = 2;
+            this.VideoFollowPanel.Visible = false;
+            // 
+            // FollowLabel
+            // 
+            this.FollowLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.FollowLabel.Font = new System.Drawing.Font("MV Boli", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FollowLabel.Location = new System.Drawing.Point(70, 42);
+            this.FollowLabel.Name = "FollowLabel";
+            this.FollowLabel.Size = new System.Drawing.Size(439, 63);
+            this.FollowLabel.TabIndex = 1;
+            this.FollowLabel.Text = "Siguendo";
+            this.FollowLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // FollowVideoListBox
+            // 
+            this.FollowVideoListBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.FollowVideoListBox.FormattingEnabled = true;
+            this.FollowVideoListBox.ItemHeight = 20;
+            this.FollowVideoListBox.Location = new System.Drawing.Point(70, 108);
+            this.FollowVideoListBox.Name = "FollowVideoListBox";
+            this.FollowVideoListBox.Size = new System.Drawing.Size(341, 504);
+            this.FollowVideoListBox.TabIndex = 0;
+            // 
+            // VideoMyPlaylistPanel
+            // 
+            this.VideoMyPlaylistPanel.Controls.Add(this.MyVideoPlaylist);
+            this.VideoMyPlaylistPanel.Controls.Add(this.MyVideoListBox);
+            this.VideoMyPlaylistPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.VideoMyPlaylistPanel.Location = new System.Drawing.Point(232, 0);
+            this.VideoMyPlaylistPanel.Name = "VideoMyPlaylistPanel";
+            this.VideoMyPlaylistPanel.Size = new System.Drawing.Size(492, 683);
+            this.VideoMyPlaylistPanel.TabIndex = 1;
+            this.VideoMyPlaylistPanel.Visible = false;
+            // 
+            // MyVideoPlaylist
+            // 
+            this.MyVideoPlaylist.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.MyVideoPlaylist.Font = new System.Drawing.Font("MV Boli", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MyVideoPlaylist.Location = new System.Drawing.Point(70, 53);
+            this.MyVideoPlaylist.Name = "MyVideoPlaylist";
+            this.MyVideoPlaylist.Size = new System.Drawing.Size(439, 52);
+            this.MyVideoPlaylist.TabIndex = 1;
+            this.MyVideoPlaylist.Text = "Mis Playlist";
+            this.MyVideoPlaylist.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // MyVideoListBox
+            // 
+            this.MyVideoListBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.MyVideoListBox.FormattingEnabled = true;
+            this.MyVideoListBox.ItemHeight = 20;
+            this.MyVideoListBox.Location = new System.Drawing.Point(70, 108);
+            this.MyVideoListBox.Name = "MyVideoListBox";
+            this.MyVideoListBox.Size = new System.Drawing.Size(341, 504);
+            this.MyVideoListBox.TabIndex = 0;
+            // 
             // panel5
             // 
-            this.panel5.Controls.Add(this.iconButton2);
-            this.panel5.Controls.Add(this.iconButton1);
+            this.panel5.Controls.Add(this.MasVistoButton);
+            this.panel5.Controls.Add(this.FolloweVideoButton);
             this.panel5.Controls.Add(this.SubVideoPlaylistPanel);
             this.panel5.Controls.Add(this.MyVideoPlaylistButton);
             this.panel5.Controls.Add(this.panel6);
@@ -981,37 +1115,39 @@
             this.panel5.Size = new System.Drawing.Size(232, 683);
             this.panel5.TabIndex = 0;
             // 
-            // iconButton2
+            // MasVistoButton
             // 
-            this.iconButton2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.iconButton2.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.Eye;
-            this.iconButton2.IconColor = System.Drawing.Color.Black;
-            this.iconButton2.IconSize = 36;
-            this.iconButton2.Location = new System.Drawing.Point(0, 302);
-            this.iconButton2.Name = "iconButton2";
-            this.iconButton2.Rotation = 0D;
-            this.iconButton2.Size = new System.Drawing.Size(232, 55);
-            this.iconButton2.TabIndex = 4;
-            this.iconButton2.Text = "Mas Vistos";
-            this.iconButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButton2.UseVisualStyleBackColor = true;
+            this.MasVistoButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.MasVistoButton.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.MasVistoButton.IconChar = FontAwesome.Sharp.IconChar.Eye;
+            this.MasVistoButton.IconColor = System.Drawing.Color.Black;
+            this.MasVistoButton.IconSize = 36;
+            this.MasVistoButton.Location = new System.Drawing.Point(0, 302);
+            this.MasVistoButton.Name = "MasVistoButton";
+            this.MasVistoButton.Rotation = 0D;
+            this.MasVistoButton.Size = new System.Drawing.Size(232, 55);
+            this.MasVistoButton.TabIndex = 4;
+            this.MasVistoButton.Text = "Mas Vistos";
+            this.MasVistoButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.MasVistoButton.UseVisualStyleBackColor = true;
+            this.MasVistoButton.Click += new System.EventHandler(this.MasVistoButton_Click);
             // 
-            // iconButton1
+            // FolloweVideoButton
             // 
-            this.iconButton1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.iconButton1.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.Star;
-            this.iconButton1.IconColor = System.Drawing.Color.Black;
-            this.iconButton1.IconSize = 36;
-            this.iconButton1.Location = new System.Drawing.Point(0, 247);
-            this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Rotation = 0D;
-            this.iconButton1.Size = new System.Drawing.Size(232, 55);
-            this.iconButton1.TabIndex = 3;
-            this.iconButton1.Text = "Seguidas";
-            this.iconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButton1.UseVisualStyleBackColor = true;
+            this.FolloweVideoButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.FolloweVideoButton.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.FolloweVideoButton.IconChar = FontAwesome.Sharp.IconChar.Star;
+            this.FolloweVideoButton.IconColor = System.Drawing.Color.Black;
+            this.FolloweVideoButton.IconSize = 36;
+            this.FolloweVideoButton.Location = new System.Drawing.Point(0, 247);
+            this.FolloweVideoButton.Name = "FolloweVideoButton";
+            this.FolloweVideoButton.Rotation = 0D;
+            this.FolloweVideoButton.Size = new System.Drawing.Size(232, 55);
+            this.FolloweVideoButton.TabIndex = 3;
+            this.FolloweVideoButton.Text = "Seguidas";
+            this.FolloweVideoButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.FolloweVideoButton.UseVisualStyleBackColor = true;
+            this.FolloweVideoButton.Click += new System.EventHandler(this.FolloweVideoButton_Click);
             // 
             // SubVideoPlaylistPanel
             // 
@@ -1104,6 +1240,10 @@
             // PlaylistSongPanel
             // 
             this.PlaylistSongPanel.BackColor = System.Drawing.Color.LightCoral;
+            this.PlaylistSongPanel.Controls.Add(this.MasEsuchadaPanel);
+            this.PlaylistSongPanel.Controls.Add(this.FollowPlaylistSongPanel);
+            this.PlaylistSongPanel.Controls.Add(this.PlaylistMySongPanel);
+            this.PlaylistSongPanel.Controls.Add(this.PlaylitsSongLogoMain);
             this.PlaylistSongPanel.Controls.Add(this.SideSongPlaylistPanel);
             this.PlaylistSongPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PlaylistSongPanel.Location = new System.Drawing.Point(0, 0);
@@ -2572,6 +2712,138 @@
             this.SOPTLOGO.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.SOPTLOGO.Click += new System.EventHandler(this.SOPTLOGO_Click);
             // 
+            // PlaylistVideoLogoMain
+            // 
+            this.PlaylistVideoLogoMain.BackColor = System.Drawing.Color.LightCoral;
+            this.PlaylistVideoLogoMain.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.PlaylistVideoLogoMain.IconChar = FontAwesome.Sharp.IconChar.ListAlt;
+            this.PlaylistVideoLogoMain.IconColor = System.Drawing.SystemColors.ControlText;
+            this.PlaylistVideoLogoMain.IconSize = 205;
+            this.PlaylistVideoLogoMain.Location = new System.Drawing.Point(373, 246);
+            this.PlaylistVideoLogoMain.Name = "PlaylistVideoLogoMain";
+            this.PlaylistVideoLogoMain.Size = new System.Drawing.Size(205, 205);
+            this.PlaylistVideoLogoMain.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.PlaylistVideoLogoMain.TabIndex = 4;
+            this.PlaylistVideoLogoMain.TabStop = false;
+            // 
+            // PlaylitsSongLogoMain
+            // 
+            this.PlaylitsSongLogoMain.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.PlaylitsSongLogoMain.BackColor = System.Drawing.Color.LightCoral;
+            this.PlaylitsSongLogoMain.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.PlaylitsSongLogoMain.IconChar = FontAwesome.Sharp.IconChar.ListAlt;
+            this.PlaylitsSongLogoMain.IconColor = System.Drawing.SystemColors.ControlText;
+            this.PlaylitsSongLogoMain.IconSize = 205;
+            this.PlaylitsSongLogoMain.Location = new System.Drawing.Point(373, 246);
+            this.PlaylitsSongLogoMain.Name = "PlaylitsSongLogoMain";
+            this.PlaylitsSongLogoMain.Size = new System.Drawing.Size(205, 205);
+            this.PlaylitsSongLogoMain.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.PlaylitsSongLogoMain.TabIndex = 1;
+            this.PlaylitsSongLogoMain.TabStop = false;
+            // 
+            // PlaylistMySongPanel
+            // 
+            this.PlaylistMySongPanel.Controls.Add(this.MyListLabel);
+            this.PlaylistMySongPanel.Controls.Add(this.MySongsListBox);
+            this.PlaylistMySongPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PlaylistMySongPanel.Location = new System.Drawing.Point(232, 0);
+            this.PlaylistMySongPanel.Name = "PlaylistMySongPanel";
+            this.PlaylistMySongPanel.Size = new System.Drawing.Size(492, 683);
+            this.PlaylistMySongPanel.TabIndex = 2;
+            this.PlaylistMySongPanel.Visible = false;
+            // 
+            // MySongsListBox
+            // 
+            this.MySongsListBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.MySongsListBox.FormattingEnabled = true;
+            this.MySongsListBox.ItemHeight = 20;
+            this.MySongsListBox.Location = new System.Drawing.Point(70, 108);
+            this.MySongsListBox.Name = "MySongsListBox";
+            this.MySongsListBox.Size = new System.Drawing.Size(341, 504);
+            this.MySongsListBox.TabIndex = 0;
+            // 
+            // MyListLabel
+            // 
+            this.MyListLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.MyListLabel.Font = new System.Drawing.Font("MV Boli", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MyListLabel.Location = new System.Drawing.Point(70, 53);
+            this.MyListLabel.Name = "MyListLabel";
+            this.MyListLabel.Size = new System.Drawing.Size(298, 56);
+            this.MyListLabel.TabIndex = 1;
+            this.MyListLabel.Text = "Mis Playlist";
+            this.MyListLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // FollowPlaylistSongPanel
+            // 
+            this.FollowPlaylistSongPanel.Controls.Add(this.FollowSongLabel);
+            this.FollowPlaylistSongPanel.Controls.Add(this.FollowPlaylistSongListBox);
+            this.FollowPlaylistSongPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.FollowPlaylistSongPanel.Location = new System.Drawing.Point(232, 0);
+            this.FollowPlaylistSongPanel.Name = "FollowPlaylistSongPanel";
+            this.FollowPlaylistSongPanel.Size = new System.Drawing.Size(492, 683);
+            this.FollowPlaylistSongPanel.TabIndex = 3;
+            this.FollowPlaylistSongPanel.Visible = false;
+            // 
+            // FollowPlaylistSongListBox
+            // 
+            this.FollowPlaylistSongListBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.FollowPlaylistSongListBox.FormattingEnabled = true;
+            this.FollowPlaylistSongListBox.ItemHeight = 20;
+            this.FollowPlaylistSongListBox.Location = new System.Drawing.Point(70, 108);
+            this.FollowPlaylistSongListBox.Name = "FollowPlaylistSongListBox";
+            this.FollowPlaylistSongListBox.Size = new System.Drawing.Size(341, 504);
+            this.FollowPlaylistSongListBox.TabIndex = 0;
+            // 
+            // FollowSongLabel
+            // 
+            this.FollowSongLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.FollowSongLabel.Font = new System.Drawing.Font("MV Boli", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FollowSongLabel.Location = new System.Drawing.Point(70, 50);
+            this.FollowSongLabel.Name = "FollowSongLabel";
+            this.FollowSongLabel.Size = new System.Drawing.Size(223, 56);
+            this.FollowSongLabel.TabIndex = 1;
+            this.FollowSongLabel.Text = "Seguidas";
+            this.FollowSongLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // MasEsuchadaPanel
+            // 
+            this.MasEsuchadaPanel.Controls.Add(this.MasEscuchadaLabel);
+            this.MasEsuchadaPanel.Controls.Add(this.MasEsuchadaListBox);
+            this.MasEsuchadaPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.MasEsuchadaPanel.Location = new System.Drawing.Point(232, 0);
+            this.MasEsuchadaPanel.Name = "MasEsuchadaPanel";
+            this.MasEsuchadaPanel.Size = new System.Drawing.Size(492, 683);
+            this.MasEsuchadaPanel.TabIndex = 4;
+            this.MasEsuchadaPanel.Visible = false;
+            // 
+            // MasEsuchadaListBox
+            // 
+            this.MasEsuchadaListBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.MasEsuchadaListBox.FormattingEnabled = true;
+            this.MasEsuchadaListBox.ItemHeight = 20;
+            this.MasEsuchadaListBox.Location = new System.Drawing.Point(70, 108);
+            this.MasEsuchadaListBox.Name = "MasEsuchadaListBox";
+            this.MasEsuchadaListBox.Size = new System.Drawing.Size(341, 504);
+            this.MasEsuchadaListBox.TabIndex = 0;
+            // 
+            // MasEscuchadaLabel
+            // 
+            this.MasEscuchadaLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.MasEscuchadaLabel.Font = new System.Drawing.Font("MV Boli", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MasEscuchadaLabel.Location = new System.Drawing.Point(70, 31);
+            this.MasEscuchadaLabel.Name = "MasEscuchadaLabel";
+            this.MasEscuchadaLabel.Size = new System.Drawing.Size(345, 74);
+            this.MasEscuchadaLabel.TabIndex = 1;
+            this.MasEscuchadaLabel.Text = "Mas Escuchadas";
+            this.MasEscuchadaLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // AppForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -2603,6 +2875,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.UploadSongIcon)).EndInit();
             this.PlaylistMainPanel.ResumeLayout(false);
             this.PlaylistVideoPanel.ResumeLayout(false);
+            this.MasVistosPanel.ResumeLayout(false);
+            this.VideoFollowPanel.ResumeLayout(false);
+            this.VideoMyPlaylistPanel.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.SubVideoPlaylistPanel.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
@@ -2642,6 +2917,11 @@
             this.SubSerchPanel.ResumeLayout(false);
             this.RegisterPanel.ResumeLayout(false);
             this.RegisterPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PlaylistVideoLogoMain)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PlaylitsSongLogoMain)).EndInit();
+            this.PlaylistMySongPanel.ResumeLayout(false);
+            this.FollowPlaylistSongPanel.ResumeLayout(false);
+            this.MasEsuchadaPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -2754,8 +3034,8 @@
         private FontAwesome.Sharp.IconPictureBox PlaylistLogoIcon;
         private System.Windows.Forms.Panel PlaylistVideoPanel;
         private System.Windows.Forms.Panel panel5;
-        private FontAwesome.Sharp.IconButton iconButton2;
-        private FontAwesome.Sharp.IconButton iconButton1;
+        private FontAwesome.Sharp.IconButton MasVistoButton;
+        private FontAwesome.Sharp.IconButton FolloweVideoButton;
         private System.Windows.Forms.Panel SubVideoPlaylistPanel;
         private FontAwesome.Sharp.IconButton DeleteVideoPlaylistButton;
         private FontAwesome.Sharp.IconButton AddPlaylistVideoButton;
@@ -2824,6 +3104,26 @@
         private System.Windows.Forms.Panel VideoAlbumPanel;
         private System.Windows.Forms.Label VideoAlbumLabel;
         private System.Windows.Forms.ListBox VideoAlbumListBox;
+        private System.Windows.Forms.Panel MasVistosPanel;
+        private System.Windows.Forms.Label VideoMasVistosLabel;
+        private System.Windows.Forms.ListBox VideosMasVistos;
+        private System.Windows.Forms.Panel VideoFollowPanel;
+        private System.Windows.Forms.Label FollowLabel;
+        private System.Windows.Forms.ListBox FollowVideoListBox;
+        private System.Windows.Forms.Panel VideoMyPlaylistPanel;
+        private System.Windows.Forms.Label MyVideoPlaylist;
+        private System.Windows.Forms.ListBox MyVideoListBox;
+        private FontAwesome.Sharp.IconPictureBox PlaylistVideoLogoMain;
+        private System.Windows.Forms.Panel FollowPlaylistSongPanel;
+        private System.Windows.Forms.Panel PlaylistMySongPanel;
+        private System.Windows.Forms.Label MyListLabel;
+        private System.Windows.Forms.ListBox MySongsListBox;
+        private FontAwesome.Sharp.IconPictureBox PlaylitsSongLogoMain;
+        private System.Windows.Forms.Label FollowSongLabel;
+        private System.Windows.Forms.ListBox FollowPlaylistSongListBox;
+        private System.Windows.Forms.Panel MasEsuchadaPanel;
+        private System.Windows.Forms.Label MasEscuchadaLabel;
+        private System.Windows.Forms.ListBox MasEsuchadaListBox;
     }
 }
 
