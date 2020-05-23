@@ -36,6 +36,24 @@
             this.MaximizarButton = new BWCMM.MZButtonWindows();
             this.MinimizarButton = new BWCMM.MZButtonWindows();
             this.MainScreenPanel = new System.Windows.Forms.Panel();
+            this.ProfileMainPanel = new System.Windows.Forms.Panel();
+            this.EditeProfilePanel = new System.Windows.Forms.Panel();
+            this.CambiarContraseñaPanel = new System.Windows.Forms.Panel();
+            this.ContraseñaCambiadaConExxtit = new System.Windows.Forms.Label();
+            this.CambioContraseñaLabel = new System.Windows.Forms.Label();
+            this.NuevaContraseñainput = new System.Windows.Forms.TextBox();
+            this.ContraseñaActualInput = new System.Windows.Forms.TextBox();
+            this.CambiarContraseñaButton = new System.Windows.Forms.Button();
+            this.ContraseñaNuevaLabel = new System.Windows.Forms.Label();
+            this.ErrorContraseñaActual = new System.Windows.Forms.Label();
+            this.ContraseñaActualLabel = new System.Windows.Forms.Label();
+            this.SideProfilePanel = new System.Windows.Forms.Panel();
+            this.CambiarFotoButton = new FontAwesome.Sharp.IconButton();
+            this.PrivacidadButton = new FontAwesome.Sharp.IconButton();
+            this.CuentaButton = new FontAwesome.Sharp.IconButton();
+            this.ChangePasswordButton = new FontAwesome.Sharp.IconButton();
+            this.LogoProfilePanel = new System.Windows.Forms.Panel();
+            this.EditeUserIcon = new FontAwesome.Sharp.IconPictureBox();
             this.ArtistModeMainPanel = new System.Windows.Forms.Panel();
             this.AlbumArtistPanel = new System.Windows.Forms.Panel();
             this.VideoAlbumPanel = new System.Windows.Forms.Panel();
@@ -106,7 +124,18 @@
             this.MyVideoPlaylistButton = new FontAwesome.Sharp.IconButton();
             this.panel6 = new System.Windows.Forms.Panel();
             this.iconPictureBox4 = new FontAwesome.Sharp.IconPictureBox();
+            this.PlaylistVideoLogoMain = new FontAwesome.Sharp.IconPictureBox();
             this.PlaylistSongPanel = new System.Windows.Forms.Panel();
+            this.MasEsuchadaPanel = new System.Windows.Forms.Panel();
+            this.MasEscuchadaLabel = new System.Windows.Forms.Label();
+            this.MasEsuchadaListBox = new System.Windows.Forms.ListBox();
+            this.FollowPlaylistSongPanel = new System.Windows.Forms.Panel();
+            this.FollowSongLabel = new System.Windows.Forms.Label();
+            this.FollowPlaylistSongListBox = new System.Windows.Forms.ListBox();
+            this.PlaylistMySongPanel = new System.Windows.Forms.Panel();
+            this.MyListLabel = new System.Windows.Forms.Label();
+            this.MySongsListBox = new System.Windows.Forms.ListBox();
+            this.PlaylitsSongLogoMain = new FontAwesome.Sharp.IconPictureBox();
             this.SideSongPlaylistPanel = new System.Windows.Forms.Panel();
             this.MostLisentSonButton = new FontAwesome.Sharp.IconButton();
             this.FollowingPlaylist = new FontAwesome.Sharp.IconButton();
@@ -165,7 +194,7 @@
             this.LikeButton = new FontAwesome.Sharp.IconButton();
             this.SideMainPanel = new System.Windows.Forms.Panel();
             this.SubProfilePanel = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.InfoProfileButton = new System.Windows.Forms.Button();
             this.EditeProfilebutton = new System.Windows.Forms.Button();
             this.ProfileButton = new FontAwesome.Sharp.IconButton();
             this.SubArtistPanel = new System.Windows.Forms.Panel();
@@ -214,21 +243,25 @@
             this.RegistrateButton = new System.Windows.Forms.Button();
             this.CloseAppStart = new BWCMM.MZButtonWindows();
             this.SOPTLOGO = new System.Windows.Forms.Label();
-            this.PlaylistVideoLogoMain = new FontAwesome.Sharp.IconPictureBox();
-            this.PlaylitsSongLogoMain = new FontAwesome.Sharp.IconPictureBox();
-            this.PlaylistMySongPanel = new System.Windows.Forms.Panel();
-            this.MySongsListBox = new System.Windows.Forms.ListBox();
-            this.MyListLabel = new System.Windows.Forms.Label();
-            this.FollowPlaylistSongPanel = new System.Windows.Forms.Panel();
-            this.FollowPlaylistSongListBox = new System.Windows.Forms.ListBox();
-            this.FollowSongLabel = new System.Windows.Forms.Label();
-            this.MasEsuchadaPanel = new System.Windows.Forms.Panel();
-            this.MasEsuchadaListBox = new System.Windows.Forms.ListBox();
-            this.MasEscuchadaLabel = new System.Windows.Forms.Label();
+            this.CuentaLabel = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.CuentaPanel = new System.Windows.Forms.Panel();
             this.StartPanel.SuspendLayout();
             this.LoginPanel.SuspendLayout();
             this.MainPanel.SuspendLayout();
             this.MainScreenPanel.SuspendLayout();
+            this.ProfileMainPanel.SuspendLayout();
+            this.EditeProfilePanel.SuspendLayout();
+            this.CambiarContraseñaPanel.SuspendLayout();
+            this.SideProfilePanel.SuspendLayout();
+            this.LogoProfilePanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.EditeUserIcon)).BeginInit();
             this.ArtistModeMainPanel.SuspendLayout();
             this.AlbumArtistPanel.SuspendLayout();
             this.VideoAlbumPanel.SuspendLayout();
@@ -249,7 +282,12 @@
             this.SubVideoPlaylistPanel.SuspendLayout();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PlaylistVideoLogoMain)).BeginInit();
             this.PlaylistSongPanel.SuspendLayout();
+            this.MasEsuchadaPanel.SuspendLayout();
+            this.FollowPlaylistSongPanel.SuspendLayout();
+            this.PlaylistMySongPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PlaylitsSongLogoMain)).BeginInit();
             this.SideSongPlaylistPanel.SuspendLayout();
             this.SubMyPlaylistPanel.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -277,11 +315,7 @@
             this.SubPlaylistPanel.SuspendLayout();
             this.SubSerchPanel.SuspendLayout();
             this.RegisterPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PlaylistVideoLogoMain)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PlaylitsSongLogoMain)).BeginInit();
-            this.PlaylistMySongPanel.SuspendLayout();
-            this.FollowPlaylistSongPanel.SuspendLayout();
-            this.MasEsuchadaPanel.SuspendLayout();
+            this.CuentaPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // StartPanel
@@ -385,6 +419,7 @@
             // MainScreenPanel
             // 
             this.MainScreenPanel.BackColor = System.Drawing.Color.Teal;
+            this.MainScreenPanel.Controls.Add(this.ProfileMainPanel);
             this.MainScreenPanel.Controls.Add(this.ArtistModeMainPanel);
             this.MainScreenPanel.Controls.Add(this.PlaylistMainPanel);
             this.MainScreenPanel.Controls.Add(this.SearchMainPanel);
@@ -394,6 +429,232 @@
             this.MainScreenPanel.Name = "MainScreenPanel";
             this.MainScreenPanel.Size = new System.Drawing.Size(724, 683);
             this.MainScreenPanel.TabIndex = 2;
+            // 
+            // ProfileMainPanel
+            // 
+            this.ProfileMainPanel.BackColor = System.Drawing.Color.Lime;
+            this.ProfileMainPanel.Controls.Add(this.EditeProfilePanel);
+            this.ProfileMainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ProfileMainPanel.Location = new System.Drawing.Point(0, 0);
+            this.ProfileMainPanel.Name = "ProfileMainPanel";
+            this.ProfileMainPanel.Size = new System.Drawing.Size(724, 683);
+            this.ProfileMainPanel.TabIndex = 12;
+            this.ProfileMainPanel.Visible = false;
+            // 
+            // EditeProfilePanel
+            // 
+            this.EditeProfilePanel.Controls.Add(this.CuentaPanel);
+            this.EditeProfilePanel.Controls.Add(this.CambiarContraseñaPanel);
+            this.EditeProfilePanel.Controls.Add(this.SideProfilePanel);
+            this.EditeProfilePanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.EditeProfilePanel.Location = new System.Drawing.Point(0, 0);
+            this.EditeProfilePanel.Name = "EditeProfilePanel";
+            this.EditeProfilePanel.Size = new System.Drawing.Size(724, 683);
+            this.EditeProfilePanel.TabIndex = 0;
+            // 
+            // CambiarContraseñaPanel
+            // 
+            this.CambiarContraseñaPanel.Controls.Add(this.ContraseñaCambiadaConExxtit);
+            this.CambiarContraseñaPanel.Controls.Add(this.CambioContraseñaLabel);
+            this.CambiarContraseñaPanel.Controls.Add(this.NuevaContraseñainput);
+            this.CambiarContraseñaPanel.Controls.Add(this.ContraseñaActualInput);
+            this.CambiarContraseñaPanel.Controls.Add(this.CambiarContraseñaButton);
+            this.CambiarContraseñaPanel.Controls.Add(this.ContraseñaNuevaLabel);
+            this.CambiarContraseñaPanel.Controls.Add(this.ErrorContraseñaActual);
+            this.CambiarContraseñaPanel.Controls.Add(this.ContraseñaActualLabel);
+            this.CambiarContraseñaPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CambiarContraseñaPanel.Location = new System.Drawing.Point(256, 0);
+            this.CambiarContraseñaPanel.Name = "CambiarContraseñaPanel";
+            this.CambiarContraseñaPanel.Size = new System.Drawing.Size(468, 683);
+            this.CambiarContraseñaPanel.TabIndex = 1;
+            this.CambiarContraseñaPanel.Visible = false;
+            // 
+            // ContraseñaCambiadaConExxtit
+            // 
+            this.ContraseñaCambiadaConExxtit.AutoSize = true;
+            this.ContraseñaCambiadaConExxtit.ForeColor = System.Drawing.Color.MediumOrchid;
+            this.ContraseñaCambiadaConExxtit.Location = new System.Drawing.Point(235, 311);
+            this.ContraseñaCambiadaConExxtit.Name = "ContraseñaCambiadaConExxtit";
+            this.ContraseñaCambiadaConExxtit.Size = new System.Drawing.Size(168, 20);
+            this.ContraseñaCambiadaConExxtit.TabIndex = 8;
+            this.ContraseñaCambiadaConExxtit.Text = "Contraseña Cambiada";
+            this.ContraseñaCambiadaConExxtit.Visible = false;
+            // 
+            // CambioContraseñaLabel
+            // 
+            this.CambioContraseñaLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.CambioContraseñaLabel.AutoSize = true;
+            this.CambioContraseñaLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CambioContraseñaLabel.Location = new System.Drawing.Point(50, 48);
+            this.CambioContraseñaLabel.Name = "CambioContraseñaLabel";
+            this.CambioContraseñaLabel.Size = new System.Drawing.Size(387, 46);
+            this.CambioContraseñaLabel.TabIndex = 7;
+            this.CambioContraseñaLabel.Text = "Cambiar Contraseña";
+            // 
+            // NuevaContraseñainput
+            // 
+            this.NuevaContraseñainput.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.NuevaContraseñainput.Location = new System.Drawing.Point(206, 170);
+            this.NuevaContraseñainput.Name = "NuevaContraseñainput";
+            this.NuevaContraseñainput.PasswordChar = '*';
+            this.NuevaContraseñainput.Size = new System.Drawing.Size(231, 26);
+            this.NuevaContraseñainput.TabIndex = 5;
+            // 
+            // ContraseñaActualInput
+            // 
+            this.ContraseñaActualInput.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ContraseñaActualInput.Location = new System.Drawing.Point(206, 115);
+            this.ContraseñaActualInput.Name = "ContraseñaActualInput";
+            this.ContraseñaActualInput.PasswordChar = '*';
+            this.ContraseñaActualInput.Size = new System.Drawing.Size(231, 26);
+            this.ContraseñaActualInput.TabIndex = 4;
+            // 
+            // CambiarContraseñaButton
+            // 
+            this.CambiarContraseñaButton.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.CambiarContraseñaButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CambiarContraseñaButton.Location = new System.Drawing.Point(249, 236);
+            this.CambiarContraseñaButton.Name = "CambiarContraseñaButton";
+            this.CambiarContraseñaButton.Size = new System.Drawing.Size(138, 65);
+            this.CambiarContraseñaButton.TabIndex = 3;
+            this.CambiarContraseñaButton.Text = "Aceptar";
+            this.CambiarContraseñaButton.UseVisualStyleBackColor = false;
+            // 
+            // ContraseñaNuevaLabel
+            // 
+            this.ContraseñaNuevaLabel.Location = new System.Drawing.Point(26, 173);
+            this.ContraseñaNuevaLabel.Name = "ContraseñaNuevaLabel";
+            this.ContraseñaNuevaLabel.Size = new System.Drawing.Size(170, 34);
+            this.ContraseñaNuevaLabel.TabIndex = 2;
+            this.ContraseñaNuevaLabel.Text = "Nueva Contraseña";
+            // 
+            // ErrorContraseñaActual
+            // 
+            this.ErrorContraseñaActual.AutoSize = true;
+            this.ErrorContraseñaActual.ForeColor = System.Drawing.Color.Red;
+            this.ErrorContraseñaActual.Location = new System.Drawing.Point(185, 208);
+            this.ErrorContraseñaActual.Name = "ErrorContraseñaActual";
+            this.ErrorContraseñaActual.Size = new System.Drawing.Size(271, 20);
+            this.ErrorContraseñaActual.TabIndex = 1;
+            this.ErrorContraseñaActual.Text = "*Error Contraseña actual no es valida";
+            this.ErrorContraseñaActual.Visible = false;
+            // 
+            // ContraseñaActualLabel
+            // 
+            this.ContraseñaActualLabel.Location = new System.Drawing.Point(26, 109);
+            this.ContraseñaActualLabel.Name = "ContraseñaActualLabel";
+            this.ContraseñaActualLabel.Size = new System.Drawing.Size(151, 44);
+            this.ContraseñaActualLabel.TabIndex = 0;
+            this.ContraseñaActualLabel.Text = "Contraseña Actual";
+            this.ContraseñaActualLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // SideProfilePanel
+            // 
+            this.SideProfilePanel.Controls.Add(this.CambiarFotoButton);
+            this.SideProfilePanel.Controls.Add(this.PrivacidadButton);
+            this.SideProfilePanel.Controls.Add(this.CuentaButton);
+            this.SideProfilePanel.Controls.Add(this.ChangePasswordButton);
+            this.SideProfilePanel.Controls.Add(this.LogoProfilePanel);
+            this.SideProfilePanel.Dock = System.Windows.Forms.DockStyle.Left;
+            this.SideProfilePanel.Location = new System.Drawing.Point(0, 0);
+            this.SideProfilePanel.Name = "SideProfilePanel";
+            this.SideProfilePanel.Size = new System.Drawing.Size(256, 683);
+            this.SideProfilePanel.TabIndex = 0;
+            // 
+            // CambiarFotoButton
+            // 
+            this.CambiarFotoButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.CambiarFotoButton.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.CambiarFotoButton.IconChar = FontAwesome.Sharp.IconChar.Image;
+            this.CambiarFotoButton.IconColor = System.Drawing.Color.Black;
+            this.CambiarFotoButton.IconSize = 36;
+            this.CambiarFotoButton.Location = new System.Drawing.Point(0, 269);
+            this.CambiarFotoButton.Name = "CambiarFotoButton";
+            this.CambiarFotoButton.Rotation = 0D;
+            this.CambiarFotoButton.Size = new System.Drawing.Size(256, 55);
+            this.CambiarFotoButton.TabIndex = 4;
+            this.CambiarFotoButton.Text = "Cambiar Foto";
+            this.CambiarFotoButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.CambiarFotoButton.UseVisualStyleBackColor = true;
+            this.CambiarFotoButton.Click += new System.EventHandler(this.CambiarFotoButton_Click);
+            // 
+            // PrivacidadButton
+            // 
+            this.PrivacidadButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PrivacidadButton.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.PrivacidadButton.IconChar = FontAwesome.Sharp.IconChar.Lock;
+            this.PrivacidadButton.IconColor = System.Drawing.Color.Black;
+            this.PrivacidadButton.IconSize = 36;
+            this.PrivacidadButton.Location = new System.Drawing.Point(0, 214);
+            this.PrivacidadButton.Name = "PrivacidadButton";
+            this.PrivacidadButton.Rotation = 0D;
+            this.PrivacidadButton.Size = new System.Drawing.Size(256, 55);
+            this.PrivacidadButton.TabIndex = 3;
+            this.PrivacidadButton.Text = "Privacidad";
+            this.PrivacidadButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.PrivacidadButton.UseVisualStyleBackColor = true;
+            this.PrivacidadButton.Click += new System.EventHandler(this.PrivacidadButton_Click);
+            // 
+            // CuentaButton
+            // 
+            this.CuentaButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.CuentaButton.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.CuentaButton.IconChar = FontAwesome.Sharp.IconChar.AddressCard;
+            this.CuentaButton.IconColor = System.Drawing.Color.Black;
+            this.CuentaButton.IconSize = 36;
+            this.CuentaButton.Location = new System.Drawing.Point(0, 159);
+            this.CuentaButton.Name = "CuentaButton";
+            this.CuentaButton.Rotation = 0D;
+            this.CuentaButton.Size = new System.Drawing.Size(256, 55);
+            this.CuentaButton.TabIndex = 2;
+            this.CuentaButton.Text = "Cuenta";
+            this.CuentaButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.CuentaButton.UseVisualStyleBackColor = true;
+            this.CuentaButton.Click += new System.EventHandler(this.CuentaButton_Click);
+            // 
+            // ChangePasswordButton
+            // 
+            this.ChangePasswordButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ChangePasswordButton.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.ChangePasswordButton.IconChar = FontAwesome.Sharp.IconChar.Key;
+            this.ChangePasswordButton.IconColor = System.Drawing.Color.Black;
+            this.ChangePasswordButton.IconSize = 36;
+            this.ChangePasswordButton.Location = new System.Drawing.Point(0, 104);
+            this.ChangePasswordButton.Name = "ChangePasswordButton";
+            this.ChangePasswordButton.Rotation = 0D;
+            this.ChangePasswordButton.Size = new System.Drawing.Size(256, 55);
+            this.ChangePasswordButton.TabIndex = 1;
+            this.ChangePasswordButton.Text = "Cambiar contraseña";
+            this.ChangePasswordButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.ChangePasswordButton.UseVisualStyleBackColor = true;
+            this.ChangePasswordButton.Click += new System.EventHandler(this.ChangePasswordButton_Click);
+            // 
+            // LogoProfilePanel
+            // 
+            this.LogoProfilePanel.Controls.Add(this.EditeUserIcon);
+            this.LogoProfilePanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.LogoProfilePanel.Location = new System.Drawing.Point(0, 0);
+            this.LogoProfilePanel.Name = "LogoProfilePanel";
+            this.LogoProfilePanel.Size = new System.Drawing.Size(256, 104);
+            this.LogoProfilePanel.TabIndex = 0;
+            // 
+            // EditeUserIcon
+            // 
+            this.EditeUserIcon.BackColor = System.Drawing.Color.Lime;
+            this.EditeUserIcon.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.EditeUserIcon.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.EditeUserIcon.IconChar = FontAwesome.Sharp.IconChar.UserEdit;
+            this.EditeUserIcon.IconColor = System.Drawing.SystemColors.ControlText;
+            this.EditeUserIcon.IconSize = 104;
+            this.EditeUserIcon.Location = new System.Drawing.Point(0, 0);
+            this.EditeUserIcon.Name = "EditeUserIcon";
+            this.EditeUserIcon.Size = new System.Drawing.Size(256, 104);
+            this.EditeUserIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.EditeUserIcon.TabIndex = 0;
+            this.EditeUserIcon.TabStop = false;
             // 
             // ArtistModeMainPanel
             // 
@@ -1237,6 +1498,20 @@
             this.iconPictureBox4.TabIndex = 0;
             this.iconPictureBox4.TabStop = false;
             // 
+            // PlaylistVideoLogoMain
+            // 
+            this.PlaylistVideoLogoMain.BackColor = System.Drawing.Color.LightCoral;
+            this.PlaylistVideoLogoMain.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.PlaylistVideoLogoMain.IconChar = FontAwesome.Sharp.IconChar.ListAlt;
+            this.PlaylistVideoLogoMain.IconColor = System.Drawing.SystemColors.ControlText;
+            this.PlaylistVideoLogoMain.IconSize = 205;
+            this.PlaylistVideoLogoMain.Location = new System.Drawing.Point(373, 246);
+            this.PlaylistVideoLogoMain.Name = "PlaylistVideoLogoMain";
+            this.PlaylistVideoLogoMain.Size = new System.Drawing.Size(205, 205);
+            this.PlaylistVideoLogoMain.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.PlaylistVideoLogoMain.TabIndex = 4;
+            this.PlaylistVideoLogoMain.TabStop = false;
+            // 
             // PlaylistSongPanel
             // 
             this.PlaylistSongPanel.BackColor = System.Drawing.Color.LightCoral;
@@ -1251,6 +1526,124 @@
             this.PlaylistSongPanel.Size = new System.Drawing.Size(724, 683);
             this.PlaylistSongPanel.TabIndex = 0;
             this.PlaylistSongPanel.Visible = false;
+            // 
+            // MasEsuchadaPanel
+            // 
+            this.MasEsuchadaPanel.Controls.Add(this.MasEscuchadaLabel);
+            this.MasEsuchadaPanel.Controls.Add(this.MasEsuchadaListBox);
+            this.MasEsuchadaPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.MasEsuchadaPanel.Location = new System.Drawing.Point(232, 0);
+            this.MasEsuchadaPanel.Name = "MasEsuchadaPanel";
+            this.MasEsuchadaPanel.Size = new System.Drawing.Size(492, 683);
+            this.MasEsuchadaPanel.TabIndex = 4;
+            this.MasEsuchadaPanel.Visible = false;
+            // 
+            // MasEscuchadaLabel
+            // 
+            this.MasEscuchadaLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.MasEscuchadaLabel.Font = new System.Drawing.Font("MV Boli", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MasEscuchadaLabel.Location = new System.Drawing.Point(70, 31);
+            this.MasEscuchadaLabel.Name = "MasEscuchadaLabel";
+            this.MasEscuchadaLabel.Size = new System.Drawing.Size(345, 74);
+            this.MasEscuchadaLabel.TabIndex = 1;
+            this.MasEscuchadaLabel.Text = "Mas Escuchadas";
+            this.MasEscuchadaLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // MasEsuchadaListBox
+            // 
+            this.MasEsuchadaListBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.MasEsuchadaListBox.FormattingEnabled = true;
+            this.MasEsuchadaListBox.ItemHeight = 20;
+            this.MasEsuchadaListBox.Location = new System.Drawing.Point(70, 108);
+            this.MasEsuchadaListBox.Name = "MasEsuchadaListBox";
+            this.MasEsuchadaListBox.Size = new System.Drawing.Size(341, 504);
+            this.MasEsuchadaListBox.TabIndex = 0;
+            // 
+            // FollowPlaylistSongPanel
+            // 
+            this.FollowPlaylistSongPanel.Controls.Add(this.FollowSongLabel);
+            this.FollowPlaylistSongPanel.Controls.Add(this.FollowPlaylistSongListBox);
+            this.FollowPlaylistSongPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.FollowPlaylistSongPanel.Location = new System.Drawing.Point(232, 0);
+            this.FollowPlaylistSongPanel.Name = "FollowPlaylistSongPanel";
+            this.FollowPlaylistSongPanel.Size = new System.Drawing.Size(492, 683);
+            this.FollowPlaylistSongPanel.TabIndex = 3;
+            this.FollowPlaylistSongPanel.Visible = false;
+            // 
+            // FollowSongLabel
+            // 
+            this.FollowSongLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.FollowSongLabel.Font = new System.Drawing.Font("MV Boli", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FollowSongLabel.Location = new System.Drawing.Point(70, 50);
+            this.FollowSongLabel.Name = "FollowSongLabel";
+            this.FollowSongLabel.Size = new System.Drawing.Size(223, 56);
+            this.FollowSongLabel.TabIndex = 1;
+            this.FollowSongLabel.Text = "Seguidas";
+            this.FollowSongLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // FollowPlaylistSongListBox
+            // 
+            this.FollowPlaylistSongListBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.FollowPlaylistSongListBox.FormattingEnabled = true;
+            this.FollowPlaylistSongListBox.ItemHeight = 20;
+            this.FollowPlaylistSongListBox.Location = new System.Drawing.Point(70, 108);
+            this.FollowPlaylistSongListBox.Name = "FollowPlaylistSongListBox";
+            this.FollowPlaylistSongListBox.Size = new System.Drawing.Size(341, 504);
+            this.FollowPlaylistSongListBox.TabIndex = 0;
+            // 
+            // PlaylistMySongPanel
+            // 
+            this.PlaylistMySongPanel.Controls.Add(this.MyListLabel);
+            this.PlaylistMySongPanel.Controls.Add(this.MySongsListBox);
+            this.PlaylistMySongPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PlaylistMySongPanel.Location = new System.Drawing.Point(232, 0);
+            this.PlaylistMySongPanel.Name = "PlaylistMySongPanel";
+            this.PlaylistMySongPanel.Size = new System.Drawing.Size(492, 683);
+            this.PlaylistMySongPanel.TabIndex = 2;
+            this.PlaylistMySongPanel.Visible = false;
+            // 
+            // MyListLabel
+            // 
+            this.MyListLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.MyListLabel.Font = new System.Drawing.Font("MV Boli", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MyListLabel.Location = new System.Drawing.Point(70, 53);
+            this.MyListLabel.Name = "MyListLabel";
+            this.MyListLabel.Size = new System.Drawing.Size(298, 56);
+            this.MyListLabel.TabIndex = 1;
+            this.MyListLabel.Text = "Mis Playlist";
+            this.MyListLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // MySongsListBox
+            // 
+            this.MySongsListBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.MySongsListBox.FormattingEnabled = true;
+            this.MySongsListBox.ItemHeight = 20;
+            this.MySongsListBox.Location = new System.Drawing.Point(70, 108);
+            this.MySongsListBox.Name = "MySongsListBox";
+            this.MySongsListBox.Size = new System.Drawing.Size(341, 504);
+            this.MySongsListBox.TabIndex = 0;
+            // 
+            // PlaylitsSongLogoMain
+            // 
+            this.PlaylitsSongLogoMain.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.PlaylitsSongLogoMain.BackColor = System.Drawing.Color.LightCoral;
+            this.PlaylitsSongLogoMain.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.PlaylitsSongLogoMain.IconChar = FontAwesome.Sharp.IconChar.ListAlt;
+            this.PlaylitsSongLogoMain.IconColor = System.Drawing.SystemColors.ControlText;
+            this.PlaylitsSongLogoMain.IconSize = 205;
+            this.PlaylitsSongLogoMain.Location = new System.Drawing.Point(373, 246);
+            this.PlaylitsSongLogoMain.Name = "PlaylitsSongLogoMain";
+            this.PlaylitsSongLogoMain.Size = new System.Drawing.Size(205, 205);
+            this.PlaylitsSongLogoMain.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.PlaylitsSongLogoMain.TabIndex = 1;
+            this.PlaylitsSongLogoMain.TabStop = false;
             // 
             // SideSongPlaylistPanel
             // 
@@ -2050,7 +2443,7 @@
             // 
             // SubProfilePanel
             // 
-            this.SubProfilePanel.Controls.Add(this.button1);
+            this.SubProfilePanel.Controls.Add(this.InfoProfileButton);
             this.SubProfilePanel.Controls.Add(this.EditeProfilebutton);
             this.SubProfilePanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.SubProfilePanel.Location = new System.Drawing.Point(0, 640);
@@ -2059,18 +2452,19 @@
             this.SubProfilePanel.TabIndex = 7;
             this.SubProfilePanel.Visible = false;
             // 
-            // button1
+            // InfoProfileButton
             // 
-            this.button1.BackColor = System.Drawing.Color.Lime;
-            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(0, 40);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(298, 40);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Mi Informacion";
-            this.button1.UseVisualStyleBackColor = false;
+            this.InfoProfileButton.BackColor = System.Drawing.Color.Lime;
+            this.InfoProfileButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.InfoProfileButton.FlatAppearance.BorderSize = 0;
+            this.InfoProfileButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.InfoProfileButton.Location = new System.Drawing.Point(0, 40);
+            this.InfoProfileButton.Name = "InfoProfileButton";
+            this.InfoProfileButton.Size = new System.Drawing.Size(298, 40);
+            this.InfoProfileButton.TabIndex = 1;
+            this.InfoProfileButton.Text = "Mi Informacion";
+            this.InfoProfileButton.UseVisualStyleBackColor = false;
+            this.InfoProfileButton.Click += new System.EventHandler(this.InfoProfileButton_Click);
             // 
             // EditeProfilebutton
             // 
@@ -2084,6 +2478,7 @@
             this.EditeProfilebutton.TabIndex = 0;
             this.EditeProfilebutton.Text = "Editar";
             this.EditeProfilebutton.UseVisualStyleBackColor = false;
+            this.EditeProfilebutton.Click += new System.EventHandler(this.EditeProfilebutton_Click);
             // 
             // ProfileButton
             // 
@@ -2712,137 +3107,88 @@
             this.SOPTLOGO.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.SOPTLOGO.Click += new System.EventHandler(this.SOPTLOGO_Click);
             // 
-            // PlaylistVideoLogoMain
+            // CuentaLabel
             // 
-            this.PlaylistVideoLogoMain.BackColor = System.Drawing.Color.LightCoral;
-            this.PlaylistVideoLogoMain.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.PlaylistVideoLogoMain.IconChar = FontAwesome.Sharp.IconChar.ListAlt;
-            this.PlaylistVideoLogoMain.IconColor = System.Drawing.SystemColors.ControlText;
-            this.PlaylistVideoLogoMain.IconSize = 205;
-            this.PlaylistVideoLogoMain.Location = new System.Drawing.Point(373, 246);
-            this.PlaylistVideoLogoMain.Name = "PlaylistVideoLogoMain";
-            this.PlaylistVideoLogoMain.Size = new System.Drawing.Size(205, 205);
-            this.PlaylistVideoLogoMain.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.PlaylistVideoLogoMain.TabIndex = 4;
-            this.PlaylistVideoLogoMain.TabStop = false;
+            this.CuentaLabel.AutoSize = true;
+            this.CuentaLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CuentaLabel.Location = new System.Drawing.Point(58, 58);
+            this.CuentaLabel.Name = "CuentaLabel";
+            this.CuentaLabel.Size = new System.Drawing.Size(148, 46);
+            this.CuentaLabel.TabIndex = 0;
+            this.CuentaLabel.Text = "Cuenta";
             // 
-            // PlaylitsSongLogoMain
+            // label2
             // 
-            this.PlaylitsSongLogoMain.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.PlaylitsSongLogoMain.BackColor = System.Drawing.Color.LightCoral;
-            this.PlaylitsSongLogoMain.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.PlaylitsSongLogoMain.IconChar = FontAwesome.Sharp.IconChar.ListAlt;
-            this.PlaylitsSongLogoMain.IconColor = System.Drawing.SystemColors.ControlText;
-            this.PlaylitsSongLogoMain.IconSize = 205;
-            this.PlaylitsSongLogoMain.Location = new System.Drawing.Point(373, 246);
-            this.PlaylitsSongLogoMain.Name = "PlaylitsSongLogoMain";
-            this.PlaylitsSongLogoMain.Size = new System.Drawing.Size(205, 205);
-            this.PlaylitsSongLogoMain.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.PlaylitsSongLogoMain.TabIndex = 1;
-            this.PlaylitsSongLogoMain.TabStop = false;
+            this.label2.Location = new System.Drawing.Point(71, 244);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(43, 24);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Mail";
             // 
-            // PlaylistMySongPanel
+            // label3
             // 
-            this.PlaylistMySongPanel.Controls.Add(this.MyListLabel);
-            this.PlaylistMySongPanel.Controls.Add(this.MySongsListBox);
-            this.PlaylistMySongPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PlaylistMySongPanel.Location = new System.Drawing.Point(232, 0);
-            this.PlaylistMySongPanel.Name = "PlaylistMySongPanel";
-            this.PlaylistMySongPanel.Size = new System.Drawing.Size(492, 683);
-            this.PlaylistMySongPanel.TabIndex = 2;
-            this.PlaylistMySongPanel.Visible = false;
+            this.label3.Location = new System.Drawing.Point(49, 127);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(65, 29);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Nombre";
             // 
-            // MySongsListBox
+            // label4
             // 
-            this.MySongsListBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.MySongsListBox.FormattingEnabled = true;
-            this.MySongsListBox.ItemHeight = 20;
-            this.MySongsListBox.Location = new System.Drawing.Point(70, 108);
-            this.MySongsListBox.Name = "MySongsListBox";
-            this.MySongsListBox.Size = new System.Drawing.Size(341, 504);
-            this.MySongsListBox.TabIndex = 0;
+            this.label4.Location = new System.Drawing.Point(49, 167);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(68, 35);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "Apellido";
             // 
-            // MyListLabel
+            // label5
             // 
-            this.MyListLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.MyListLabel.Font = new System.Drawing.Font("MV Boli", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MyListLabel.Location = new System.Drawing.Point(70, 53);
-            this.MyListLabel.Name = "MyListLabel";
-            this.MyListLabel.Size = new System.Drawing.Size(298, 56);
-            this.MyListLabel.TabIndex = 1;
-            this.MyListLabel.Text = "Mis Playlist";
-            this.MyListLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label5.Location = new System.Drawing.Point(51, 208);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(74, 20);
+            this.label5.TabIndex = 4;
+            this.label5.Text = "Usuario";
             // 
-            // FollowPlaylistSongPanel
+            // label6
             // 
-            this.FollowPlaylistSongPanel.Controls.Add(this.FollowSongLabel);
-            this.FollowPlaylistSongPanel.Controls.Add(this.FollowPlaylistSongListBox);
-            this.FollowPlaylistSongPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.FollowPlaylistSongPanel.Location = new System.Drawing.Point(232, 0);
-            this.FollowPlaylistSongPanel.Name = "FollowPlaylistSongPanel";
-            this.FollowPlaylistSongPanel.Size = new System.Drawing.Size(492, 683);
-            this.FollowPlaylistSongPanel.TabIndex = 3;
-            this.FollowPlaylistSongPanel.Visible = false;
+            this.label6.Location = new System.Drawing.Point(6, 356);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(126, 27);
+            this.label6.TabIndex = 5;
+            this.label6.Text = "Tipo de cuenta";
             // 
-            // FollowPlaylistSongListBox
+            // label7
             // 
-            this.FollowPlaylistSongListBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.FollowPlaylistSongListBox.FormattingEnabled = true;
-            this.FollowPlaylistSongListBox.ItemHeight = 20;
-            this.FollowPlaylistSongListBox.Location = new System.Drawing.Point(70, 108);
-            this.FollowPlaylistSongListBox.Name = "FollowPlaylistSongListBox";
-            this.FollowPlaylistSongListBox.Size = new System.Drawing.Size(341, 504);
-            this.FollowPlaylistSongListBox.TabIndex = 0;
+            this.label7.Location = new System.Drawing.Point(63, 281);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(51, 20);
+            this.label7.TabIndex = 6;
+            this.label7.Text = "Edad";
             // 
-            // FollowSongLabel
+            // label8
             // 
-            this.FollowSongLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.FollowSongLabel.Font = new System.Drawing.Font("MV Boli", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FollowSongLabel.Location = new System.Drawing.Point(70, 50);
-            this.FollowSongLabel.Name = "FollowSongLabel";
-            this.FollowSongLabel.Size = new System.Drawing.Size(223, 56);
-            this.FollowSongLabel.TabIndex = 1;
-            this.FollowSongLabel.Text = "Seguidas";
-            this.FollowSongLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label8.Location = new System.Drawing.Point(49, 316);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(74, 27);
+            this.label8.TabIndex = 7;
+            this.label8.Text = "Genero";
             // 
-            // MasEsuchadaPanel
+            // CuentaPanel
             // 
-            this.MasEsuchadaPanel.Controls.Add(this.MasEscuchadaLabel);
-            this.MasEsuchadaPanel.Controls.Add(this.MasEsuchadaListBox);
-            this.MasEsuchadaPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MasEsuchadaPanel.Location = new System.Drawing.Point(232, 0);
-            this.MasEsuchadaPanel.Name = "MasEsuchadaPanel";
-            this.MasEsuchadaPanel.Size = new System.Drawing.Size(492, 683);
-            this.MasEsuchadaPanel.TabIndex = 4;
-            this.MasEsuchadaPanel.Visible = false;
-            // 
-            // MasEsuchadaListBox
-            // 
-            this.MasEsuchadaListBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.MasEsuchadaListBox.FormattingEnabled = true;
-            this.MasEsuchadaListBox.ItemHeight = 20;
-            this.MasEsuchadaListBox.Location = new System.Drawing.Point(70, 108);
-            this.MasEsuchadaListBox.Name = "MasEsuchadaListBox";
-            this.MasEsuchadaListBox.Size = new System.Drawing.Size(341, 504);
-            this.MasEsuchadaListBox.TabIndex = 0;
-            // 
-            // MasEscuchadaLabel
-            // 
-            this.MasEscuchadaLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.MasEscuchadaLabel.Font = new System.Drawing.Font("MV Boli", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MasEscuchadaLabel.Location = new System.Drawing.Point(70, 31);
-            this.MasEscuchadaLabel.Name = "MasEscuchadaLabel";
-            this.MasEscuchadaLabel.Size = new System.Drawing.Size(345, 74);
-            this.MasEscuchadaLabel.TabIndex = 1;
-            this.MasEscuchadaLabel.Text = "Mas Escuchadas";
-            this.MasEscuchadaLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.CuentaPanel.Controls.Add(this.label8);
+            this.CuentaPanel.Controls.Add(this.label7);
+            this.CuentaPanel.Controls.Add(this.label6);
+            this.CuentaPanel.Controls.Add(this.label5);
+            this.CuentaPanel.Controls.Add(this.label4);
+            this.CuentaPanel.Controls.Add(this.label3);
+            this.CuentaPanel.Controls.Add(this.label2);
+            this.CuentaPanel.Controls.Add(this.CuentaLabel);
+            this.CuentaPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CuentaPanel.Location = new System.Drawing.Point(256, 0);
+            this.CuentaPanel.Name = "CuentaPanel";
+            this.CuentaPanel.Size = new System.Drawing.Size(468, 683);
+            this.CuentaPanel.TabIndex = 2;
+            this.CuentaPanel.Visible = false;
             // 
             // AppForm
             // 
@@ -2860,6 +3206,13 @@
             this.LoginPanel.PerformLayout();
             this.MainPanel.ResumeLayout(false);
             this.MainScreenPanel.ResumeLayout(false);
+            this.ProfileMainPanel.ResumeLayout(false);
+            this.EditeProfilePanel.ResumeLayout(false);
+            this.CambiarContraseñaPanel.ResumeLayout(false);
+            this.CambiarContraseñaPanel.PerformLayout();
+            this.SideProfilePanel.ResumeLayout(false);
+            this.LogoProfilePanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.EditeUserIcon)).EndInit();
             this.ArtistModeMainPanel.ResumeLayout(false);
             this.AlbumArtistPanel.ResumeLayout(false);
             this.VideoAlbumPanel.ResumeLayout(false);
@@ -2882,7 +3235,12 @@
             this.SubVideoPlaylistPanel.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PlaylistVideoLogoMain)).EndInit();
             this.PlaylistSongPanel.ResumeLayout(false);
+            this.MasEsuchadaPanel.ResumeLayout(false);
+            this.FollowPlaylistSongPanel.ResumeLayout(false);
+            this.PlaylistMySongPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.PlaylitsSongLogoMain)).EndInit();
             this.SideSongPlaylistPanel.ResumeLayout(false);
             this.SubMyPlaylistPanel.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
@@ -2917,11 +3275,8 @@
             this.SubSerchPanel.ResumeLayout(false);
             this.RegisterPanel.ResumeLayout(false);
             this.RegisterPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PlaylistVideoLogoMain)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PlaylitsSongLogoMain)).EndInit();
-            this.PlaylistMySongPanel.ResumeLayout(false);
-            this.FollowPlaylistSongPanel.ResumeLayout(false);
-            this.MasEsuchadaPanel.ResumeLayout(false);
+            this.CuentaPanel.ResumeLayout(false);
+            this.CuentaPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -2954,7 +3309,7 @@
         private System.Windows.Forms.Panel MainPanel;
         private System.Windows.Forms.Panel SideMainPanel;
         private System.Windows.Forms.Panel SubProfilePanel;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button InfoProfileButton;
         private System.Windows.Forms.Button EditeProfilebutton;
         private System.Windows.Forms.Panel SubArtistPanel;
         private System.Windows.Forms.Button AlbumButton;
@@ -3124,6 +3479,33 @@
         private System.Windows.Forms.Panel MasEsuchadaPanel;
         private System.Windows.Forms.Label MasEscuchadaLabel;
         private System.Windows.Forms.ListBox MasEsuchadaListBox;
+        private System.Windows.Forms.Panel ProfileMainPanel;
+        private System.Windows.Forms.Panel EditeProfilePanel;
+        private System.Windows.Forms.Panel SideProfilePanel;
+        private System.Windows.Forms.Panel LogoProfilePanel;
+        private FontAwesome.Sharp.IconPictureBox EditeUserIcon;
+        private FontAwesome.Sharp.IconButton PrivacidadButton;
+        private FontAwesome.Sharp.IconButton CuentaButton;
+        private FontAwesome.Sharp.IconButton ChangePasswordButton;
+        private FontAwesome.Sharp.IconButton CambiarFotoButton;
+        private System.Windows.Forms.Panel CambiarContraseñaPanel;
+        private System.Windows.Forms.Label ContraseñaCambiadaConExxtit;
+        private System.Windows.Forms.Label CambioContraseñaLabel;
+        private System.Windows.Forms.TextBox NuevaContraseñainput;
+        private System.Windows.Forms.TextBox ContraseñaActualInput;
+        private System.Windows.Forms.Button CambiarContraseñaButton;
+        private System.Windows.Forms.Label ContraseñaNuevaLabel;
+        private System.Windows.Forms.Label ErrorContraseñaActual;
+        private System.Windows.Forms.Label ContraseñaActualLabel;
+        private System.Windows.Forms.Panel CuentaPanel;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label CuentaLabel;
     }
 }
 

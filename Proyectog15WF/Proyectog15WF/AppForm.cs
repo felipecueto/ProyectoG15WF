@@ -350,6 +350,7 @@ namespace Proyectog15WF
             ShowSubPanel(SubSerchPanel);
             PlaylistMainPanel.Visible = false;
             ArtistModeMainPanel.Visible = false;
+            ProfileMainPanel.Visible = false;
 
             if (SearchMainPanel.Visible)
             {
@@ -375,6 +376,7 @@ namespace Proyectog15WF
             MainScreenPanel.Visible = true;
             SearchMainPanel.Visible = false;
             ArtistModeMainPanel.Visible = false;
+            ProfileMainPanel.Visible = false;
             if (PlaylistMainPanel.Visible)
             {
                 PlaylistMainPanel.Visible = false;
@@ -393,12 +395,18 @@ namespace Proyectog15WF
             SearchMainPanel.Visible = false;
             PlaylistMainPanel.Visible = false;
             ArtistModeMainPanel.Visible = false;
+            ProfileMainPanel.Visible = false;
 
         }
 
         private void ProfileButton_Click_1(object sender, EventArgs e)
         {
             ShowSubPanel(SubProfilePanel);
+            MainScreenPanel.Visible = true;
+            SearchMainPanel.Visible = false;
+            PlaylistMainPanel.Visible = false;
+            ArtistModeMainPanel.Visible = false;
+            ProfileMainPanel.Visible = false;
         }
 
         private void LogOutButton_Click(object sender, EventArgs e)
@@ -665,5 +673,46 @@ namespace Proyectog15WF
             MasVistosPanel.Visible = false;
             VideoMyPlaylistPanel.Visible = false;
         }
+
+        private void EditeProfilebutton_Click(object sender, EventArgs e)
+        {
+            ProfileMainPanel.Visible = true;
+            EditeProfilePanel.Visible = true;
+            CambiarContraseñaPanel.Visible = false;
+            CuentaPanel.Visible = false;
+
+        }
+
+        private void InfoProfileButton_Click(object sender, EventArgs e)
+        {
+            ProfileMainPanel.Visible = true;
+            EditeProfilePanel.Visible = false;
+        }
+
+        private void ChangePasswordButton_Click(object sender, EventArgs e)
+        {
+            CambiarContraseñaPanel.Visible = true;
+            CuentaPanel.Visible = false;
+        }
+
+        private void CuentaButton_Click(object sender, EventArgs e)
+        {
+            CambiarContraseñaPanel.Visible = false;
+            CuentaPanel.Visible = true;
+        }
+
+        private void PrivacidadButton_Click(object sender, EventArgs e)
+        {
+            CambiarContraseñaPanel.Visible = false;
+            CuentaPanel.Visible = false;
+        }
+
+        private void CambiarFotoButton_Click(object sender, EventArgs e)
+        {
+            CambiarContraseñaPanel.Visible = false;
+            CuentaPanel.Visible = false;
+        }
+
+       
     }
 }
