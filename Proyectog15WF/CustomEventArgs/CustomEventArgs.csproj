@@ -47,6 +47,8 @@
     <Compile Include="RegisterEventArgs.cs" />
     <Compile Include="SearchingSongorVideo.cs" />
     <Compile Include="SearchUserEventArgs.cs" />
+    <Compile Include="SelectSongEventArgs.cs" />
+    <Compile Include="SelectVideoEventArgs.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -7,6 +7,7 @@ using Model;
 using Proyectog15WF;
 using System.Windows.Forms;
 using CustomEventArgs;
+using System.IO;
 
 
 namespace Proyectog15WF.Contollers
@@ -15,18 +16,20 @@ namespace Proyectog15WF.Contollers
     {
         List<Song> songs = new List<Song>();
         AppForm view;
+        string curDir = Directory.GetCurrentDirectory();
 
         public Songcontroller(Form view)
         {
             Chargesong();
             this.view = view as AppForm;
             this.view.Searchingnamevideoorsong += OnSearchTextChanged;
+            this.view.Reproducesong += OnSelectedSongVideoEventArgs;
         }
 
         public void Chargesong()
         {
 
-            songs.Add(new Song("Ella me levanto", "Hip-Hop", "Dadddy Yankee", "El cartel: The big Boss", "Cartel Records", new DateTime(2007, 4, 24), "Tu me dejaste caer pero ella me levanto llamale poca mujer..", 4, "Reggaeton", 0, 0, "Masculino", "30"));
+            songs.Add(new Song("Tusa.mp3", "Hip-Hop", "Dadddy Yankee", "El cartel: The big Boss", "Cartel Records", new DateTime(2007, 4, 24), "Tu me dejaste caer pero ella me levanto llamale poca mujer..", 4, "Reggaeton", 0, 0, "Masculino", "30"));
 
         }
         public void OnSearchTextChanged(object sender, SearchingSongorVideo e)
@@ -56,7 +59,20 @@ namespace Proyectog15WF.Contollers
             }
             view.UpdateResultsvideoandsong(resultString);
         }
+        public string OnSelectedSongVideoEventArgs(object sender, SelectSongEventArgs e)
+        {
+            string reproduce = "";
+            foreach (Song song in songs)
+            {
+                if (e.Selectedsong.Contains(song.Namesong))
+                {
+                    reproduce = curDir + @"\" + song.Namesong;
+                }
+            }
+            return reproduce;
 
+
+        }
 
 
     }

@@ -17,6 +17,8 @@ namespace Proyectog15WF
     public partial class AppForm : Form
     {
         int resultCounter = 0;
+        string namevideo = "";
+        string namesong = "";
         public delegate bool LoginEventHandler(object source, LoginEventArgs args);
         public event LoginEventHandler LoginButtonClicked;
         public event EventHandler<LoginEventArgs> UserChecked;
@@ -26,6 +28,12 @@ namespace Proyectog15WF
         public event CheckusernameEventHandler Checkusernameregister;
         public event EventHandler<SearchUserEventArgs> Searching;
         public event EventHandler<SearchingSongorVideo> Searchingnamevideoorsong;
+
+        public delegate string SelectedVideoEventHandler(object source, SelectVideoEventArgs args);
+        public event SelectedVideoEventHandler Reproducevideo;
+        public delegate string SelectedSongEventHandler(object source, SelectSongEventArgs args);
+        public event SelectedSongEventHandler Reproducesong;
+
         List<Panel> stackPanels = new List<Panel>();
         Dictionary<string, Panel> panels = new Dictionary<string, Panel>();
         string userlog = "";
@@ -81,7 +89,7 @@ namespace Proyectog15WF
                 submenu.Visible = false;
             }
         }
-      
+
         private void EXITbutton_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -151,7 +159,7 @@ namespace Proyectog15WF
 
                     //if (gender=="hombre")
                     {
-                       // GeneroComboBox.SelectedIndex = 0;//(Hombre0,mujer1,otro2)
+                        // GeneroComboBox.SelectedIndex = 0;//(Hombre0,mujer1,otro2)
                     }
                     //else
                     {
@@ -169,8 +177,8 @@ namespace Proyectog15WF
                         TipoDeCuentaCombobox.SelectedIndex = 0;
                         //ArtisteModeButton.Visible = false;
                     }
-                       
-                    
+
+
                     loginViewInvalidCredentialsAlert.ResetText();
                     loginViewInvalidCredentialsAlert.Visible = false;
                     OnUserChecked(username, pass);
@@ -187,7 +195,7 @@ namespace Proyectog15WF
                 stackPanels.Add(panels["StartPanel"]);
                 MainPanel.Visible = true;
                 MainPanel.BringToFront();
-                
+
                 //ShowLastPanel();
             }
         }
@@ -359,7 +367,7 @@ namespace Proyectog15WF
             SearchArtistPanel.Visible = false;
             SearchMainPanel.Visible = true;
             SearchUserPanel.Visible = true;
-            
+
         }
 
         private void iconPictureBox2_Click(object sender, EventArgs e)
@@ -437,7 +445,7 @@ namespace Proyectog15WF
 
         private void LogOutButton_Click(object sender, EventArgs e)
         {
-            stackPanels.RemoveAt(stackPanels.Count-1);
+            stackPanels.RemoveAt(stackPanels.Count - 1);
             ShowLastPanel();
         }
 
@@ -578,7 +586,7 @@ namespace Proyectog15WF
 
         private void ArtistSeachButton_Click(object sender, EventArgs e)
         {
-           // MainScreenPanel.Visible = false;
+            // MainScreenPanel.Visible = false;
             SearchUserPanel.Visible = false;
             SearchMediapanel.Visible = false;
             SearchArtistPanel.Visible = true;
@@ -705,7 +713,7 @@ namespace Proyectog15WF
             ProfileMainPanel.Visible = true;
             EditeProfilePanel.Visible = true;
             CambiarContraseñaPanel.Visible = false;
-           CuentaPanel.Visible = false;
+            CuentaPanel.Visible = false;
             MiInformacionPanel.Visible = false;
 
         }
@@ -738,7 +746,7 @@ namespace Proyectog15WF
         private void PrivacidadButton_Click(object sender, EventArgs e)
         {
             CambiarContraseñaPanel.Visible = false;
-           CuentaPanel.Visible = false;
+            CuentaPanel.Visible = false;
         }
 
         private void CambiarFotoButton_Click(object sender, EventArgs e)
@@ -749,12 +757,12 @@ namespace Proyectog15WF
 
         private void TipoDeCuentaCombobox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void GeneroComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-           
+
         }
 
         private void AceptarCambioCuenta_Click(object sender, EventArgs e)
@@ -809,10 +817,30 @@ namespace Proyectog15WF
             if (ReproduccionMainPanel.Visible)
             {
                 ReproduccionMainPanel.Visible = false;
+                
             }
             else
             {
                 ReproduccionMainPanel.Visible = true;
+                if (namesong != "" && namevideo == "")
+                {
+
+                    axWindowsMediaPlayer1.URL = namesong;
+                    axWindowsMediaPlayer1.Ctlcontrols.play();
+                    namesong = "";
+                    namevideo = "";
+
+
+
+                }
+                else if (namesong == "" && namevideo != "")
+                {
+                    axWindowsMediaPlayer1.URL = namevideo;
+                    axWindowsMediaPlayer1.Ctlcontrols.play();
+                    namesong = "";
+                    namevideo = "";
+
+                }
 
             }
         }
@@ -826,10 +854,35 @@ namespace Proyectog15WF
             else
             {
                 QueuePanel.Visible = true;
-                
+
             }
         }
 
-     
-    }
+        private void SearchMediapanellistBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+                if (Reproducevideo != null)
+                {
+                    if (!SearchMediapanellistBox.SelectedItem.Equals("No results for search criteria"))
+                    {
+
+
+                        namevideo = Reproducevideo(this, new SelectVideoEventArgs() { Selectedvideo = Convert.ToString(SearchMediapanellistBox.SelectedItem) });
+
+
+
+                    }
+                }
+                if (Reproducesong != null)
+                {
+                    if (!SearchMediapanellistBox.SelectedItem.Equals("No results for search criteria"))
+                    {
+                        namesong = Reproducesong(this, new SelectSongEventArgs() { Selectedsong = Convert.ToString(SearchMediapanellistBox.SelectedItem) });
+                    }
+
+                }
+
+            
+        }
+    }    
 }

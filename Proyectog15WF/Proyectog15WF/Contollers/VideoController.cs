@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Model;
 using System.Windows.Forms;
 using CustomEventArgs;
+using System.IO;
 
 namespace Proyectog15WF.Contollers
 {
@@ -13,17 +14,20 @@ namespace Proyectog15WF.Contollers
     {
         List<Video> videos = new List<Video>();
         AppForm view;
+        string curDir= Directory.GetCurrentDirectory();
+
         public VideoController(Form view)
         {
             ChargeVideos();
             this.view = view as AppForm;
             this.view.Searchingnamevideoorsong += OnSearchTextChanged;
+            this.view.Reproducevideo += OnSelectedSongVideoEventArgs;
 
         }
         public void ChargeVideos() 
         {
 
-            videos.Add(new Video("Joker", "Drama", "Crimen", "Joaquin Phoenix", "Todd Phillips", "WarnerBros", new DateTime(2019, 5, 12), "Muy buena", 122, 0, 0, "Masculino", "54", 720));
+            videos.Add(new Video("Joker.wmv", "Drama", "Crimen", "Joaquin Phoenix", "Todd Phillips", "WarnerBros", new DateTime(2019, 5, 12), "Muy buena", 122, 0, 0, "Masculino", "54", 720));
 
         }
         public void OnSearchTextChanged(object sender, SearchingSongorVideo e)
@@ -54,7 +58,20 @@ namespace Proyectog15WF.Contollers
             }
             view.UpdateResultsvideoandsong(resultString);
         }
+        public string OnSelectedSongVideoEventArgs(object sender, SelectVideoEventArgs e)
+        {
+            string reproduce = "";
+            foreach (Video video in videos)
+            {
+                if (e.Selectedvideo.Contains(video.VideoName))
+                {
+                    reproduce = curDir + @"\" + video.VideoName;
+                }
+            }
+            return reproduce;
 
+
+        }
 
 
 
