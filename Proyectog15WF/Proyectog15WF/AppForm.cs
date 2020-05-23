@@ -30,7 +30,7 @@ namespace Proyectog15WF
 
         List<Panel> stackPanels = new List<Panel>();
         Dictionary<string, Panel> panels = new Dictionary<string, Panel>();
-        
+
         public AppForm()
         {
 
@@ -213,7 +213,7 @@ namespace Proyectog15WF
             string username = UsernameInPutLogin.Text;
             string pass = PasswordInPutLogin.Text;
             OnLoginButtonClicked(username, pass);
-            
+
         }
 
         private void Registerbutton_Click(object sender, EventArgs e)
@@ -312,30 +312,32 @@ namespace Proyectog15WF
 
         private void SearchButton_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         private void PlaylistButton_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         private void ArtistModeButton_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void Profilebutton_Click(object sender, EventArgs e)
         {
-            
-            
+
+
         }
 
         private void UserSeachButton_Click(object sender, EventArgs e)
         {
-            MainScreenPanel.Visible = false;
+            //MainScreenPanel.Visible = false;
+            SearchMediapanel.Visible = false;
+            SearchArtistPanel.Visible = false;
+            SearchMainPanel.Visible = true;
             SearchUserPanel.Visible = true;
-
         }
 
         private void iconPictureBox2_Click(object sender, EventArgs e)
@@ -346,21 +348,52 @@ namespace Proyectog15WF
         private void SearchButton_Click_1(object sender, EventArgs e)
         {
             ShowSubPanel(SubSerchPanel);
-            if (SearchUserPanel.Visible == true)
+            PlaylistMainPanel.Visible = false;
+            ArtistModeMainPanel.Visible = false;
+
+            if (SearchMainPanel.Visible)
             {
                 MainScreenPanel.Visible = true;
                 SearchUserPanel.Visible = false;
+                SearchMediapanel.Visible = false;
+                SearchArtistPanel.Visible = false;
+                SearchMainPanel.Visible = false;
+            }
+            else
+            {
+                //SearchMainPanel.Visible = true;
+                //SearchMediapanel.Visible = true;
+                // SearchUserPanel.Visible = false;
+                //ArtistSearchPanel.Visible = false;
+                //SearchMediapanel.Visible = false;
             }
         }
 
         private void PlayListButton_Click_1(object sender, EventArgs e)
         {
             ShowSubPanel(SubPlaylistPanel);
+            MainScreenPanel.Visible = true;
+            SearchMainPanel.Visible = false;
+            ArtistModeMainPanel.Visible = false;
+            if (PlaylistMainPanel.Visible)
+            {
+                PlaylistMainPanel.Visible = false;
+            }
+            else
+            {
+                PlaylistMainPanel.Visible = false;
+            }
+
         }
 
         private void ArtisteModeButton_Click(object sender, EventArgs e)
         {
             ShowSubPanel(SubArtistPanel);
+            MainScreenPanel.Visible = true;
+            SearchMainPanel.Visible = false;
+            PlaylistMainPanel.Visible = false;
+            ArtistModeMainPanel.Visible = false;
+
         }
 
         private void ProfileButton_Click_1(object sender, EventArgs e)
@@ -421,8 +454,20 @@ namespace Proyectog15WF
 
         private void MediaSeachButton_Click(object sender, EventArgs e)
         {
-            MainScreenPanel.Visible = false;
-            SearchUserPanel.Visible = true;
+            //MainScreenPanel.Visible = false;
+            SubFiltersPanel.Visible = false;
+            SearchUserPanel.Visible = false;
+            SearchArtistPanel.Visible = false;
+            SearchMainPanel.Visible = true;
+            if (SearchMediapanel.Visible)
+            {
+                SearchMediapanel.Visible = true;
+                FilterONlable.ResetText();
+            }
+            else
+            {
+                SearchMediapanel.Visible = true;
+            }
         }
         private void Noresultsongorvideo()
         {
@@ -468,6 +513,127 @@ namespace Proyectog15WF
                     }
                 }
             }
+        }
+
+        private void UploadSongButton_Click(object sender, EventArgs e)
+        {
+            UploadVideoPanel.Visible = false;
+            SongUploadPanel.Visible = true;
+            ArtistModeMainPanel.Visible = true;
+            AlbumArtistPanel.Visible = false;
+        }
+
+        private void FiltersButton_Click(object sender, EventArgs e)
+        {
+            FilterONlable.ResetText();
+            if (SubFiltersPanel.Visible)
+            {
+                SubFiltersPanel.Visible = false;
+            }
+            else
+            {
+                SubFiltersPanel.Visible = true;
+            }
+        }
+        private void FilterButton_Click(object sender, EventArgs e)
+        {
+            Button button = (Button)sender;
+            FilterONlable.ResetText();
+            FilterONlable.Text = button.Text;
+        }
+
+        private void ArtistSeachButton_Click(object sender, EventArgs e)
+        {
+           // MainScreenPanel.Visible = false;
+            SearchUserPanel.Visible = false;
+            SearchMediapanel.Visible = false;
+            SearchArtistPanel.Visible = true;
+            SearchMainPanel.Visible = true;
+
+        }
+
+        private void MySongplaylistButton_Click(object sender, EventArgs e)
+        {
+            if (SubMyPlaylistPanel.Visible)
+            {
+                SubMyPlaylistPanel.Visible = false;
+            }
+            else
+            {
+                SubMyPlaylistPanel.Visible = true;
+            }
+        }
+
+        private void FollowingPlaylist_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MostLisentSonButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SongButton_Click(object sender, EventArgs e)
+        {
+            PlaylistMainPanel.Visible = true;
+            PlaylistSongPanel.Visible = true;
+            PlaylistVideoPanel.Visible = false;
+        }
+
+        private void VideoButton_Click(object sender, EventArgs e)
+        {
+            PlaylistSongPanel.Visible = false;
+            PlaylistMainPanel.Visible = true;
+            PlaylistVideoPanel.Visible = true;
+
+        }
+
+        private void MyVideoPlaylistButton_Click(object sender, EventArgs e)
+        {
+            if (SubVideoPlaylistPanel.Visible)
+            {
+                SubVideoPlaylistPanel.Visible = false;
+            }
+            else
+            {
+                SubVideoPlaylistPanel.Visible = true;
+            }
+        }
+
+        private void UploadVideoButton_Click(object sender, EventArgs e)
+        {
+            ArtistModeMainPanel.Visible = true;
+            UploadVideoPanel.Visible = true;
+            SongUploadPanel.Visible = false;
+            AlbumArtistPanel.Visible = false;
+        }
+
+        private void DescripcionVideo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SongAlbumButton_Click(object sender, EventArgs e)
+        {
+            SongsAlbumPanel.Visible = true;
+            VideoAlbumPanel.Visible = false;
+        }
+
+        private void VideosAlbumButton_Click(object sender, EventArgs e)
+        {
+            SongsAlbumPanel.Visible = false;
+            VideoAlbumPanel.Visible = true;
+        }
+
+        private void AlbumButton_Click(object sender, EventArgs e)
+        {
+            AlbumArtistPanel.Visible = true;
+            ArtistModeMainPanel.Visible = true;
+            UploadVideoPanel.Visible = false;
+            SongUploadPanel.Visible = false;
+            SongsAlbumPanel.Visible = false;
+            VideoAlbumPanel.Visible = false;
         }
     }
 }
