@@ -243,15 +243,15 @@
             this.RegistrateButton = new System.Windows.Forms.Button();
             this.CloseAppStart = new BWCMM.MZButtonWindows();
             this.SOPTLOGO = new System.Windows.Forms.Label();
-            this.CuentaLabel = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.CuentaPanel = new System.Windows.Forms.Panel();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.CuentaLabel = new System.Windows.Forms.Label();
             this.StartPanel.SuspendLayout();
             this.LoginPanel.SuspendLayout();
             this.MainPanel.SuspendLayout();
@@ -3107,72 +3107,6 @@
             this.SOPTLOGO.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.SOPTLOGO.Click += new System.EventHandler(this.SOPTLOGO_Click);
             // 
-            // CuentaLabel
-            // 
-            this.CuentaLabel.AutoSize = true;
-            this.CuentaLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CuentaLabel.Location = new System.Drawing.Point(58, 58);
-            this.CuentaLabel.Name = "CuentaLabel";
-            this.CuentaLabel.Size = new System.Drawing.Size(148, 46);
-            this.CuentaLabel.TabIndex = 0;
-            this.CuentaLabel.Text = "Cuenta";
-            // 
-            // label2
-            // 
-            this.label2.Location = new System.Drawing.Point(71, 244);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(43, 24);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Mail";
-            // 
-            // label3
-            // 
-            this.label3.Location = new System.Drawing.Point(49, 127);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(65, 29);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Nombre";
-            // 
-            // label4
-            // 
-            this.label4.Location = new System.Drawing.Point(49, 167);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(68, 35);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Apellido";
-            // 
-            // label5
-            // 
-            this.label5.Location = new System.Drawing.Point(51, 208);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(74, 20);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "Usuario";
-            // 
-            // label6
-            // 
-            this.label6.Location = new System.Drawing.Point(6, 356);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(126, 27);
-            this.label6.TabIndex = 5;
-            this.label6.Text = "Tipo de cuenta";
-            // 
-            // label7
-            // 
-            this.label7.Location = new System.Drawing.Point(63, 281);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(51, 20);
-            this.label7.TabIndex = 6;
-            this.label7.Text = "Edad";
-            // 
-            // label8
-            // 
-            this.label8.Location = new System.Drawing.Point(49, 316);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(74, 27);
-            this.label8.TabIndex = 7;
-            this.label8.Text = "Genero";
-            // 
             // CuentaPanel
             // 
             this.CuentaPanel.Controls.Add(this.label8);
@@ -3187,8 +3121,74 @@
             this.CuentaPanel.Location = new System.Drawing.Point(256, 0);
             this.CuentaPanel.Name = "CuentaPanel";
             this.CuentaPanel.Size = new System.Drawing.Size(468, 683);
-            this.CuentaPanel.TabIndex = 2;
+            this.CuentaPanel.TabIndex = 3;
             this.CuentaPanel.Visible = false;
+            // 
+            // label8
+            // 
+            this.label8.Location = new System.Drawing.Point(49, 316);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(74, 27);
+            this.label8.TabIndex = 7;
+            this.label8.Text = "Genero";
+            // 
+            // label7
+            // 
+            this.label7.Location = new System.Drawing.Point(63, 281);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(51, 20);
+            this.label7.TabIndex = 6;
+            this.label7.Text = "Edad";
+            // 
+            // label6
+            // 
+            this.label6.Location = new System.Drawing.Point(6, 356);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(126, 27);
+            this.label6.TabIndex = 5;
+            this.label6.Text = "Tipo de cuenta";
+            // 
+            // label5
+            // 
+            this.label5.Location = new System.Drawing.Point(51, 208);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(74, 20);
+            this.label5.TabIndex = 4;
+            this.label5.Text = "Usuario";
+            // 
+            // label4
+            // 
+            this.label4.Location = new System.Drawing.Point(49, 167);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(68, 35);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "Apellido";
+            // 
+            // label3
+            // 
+            this.label3.Location = new System.Drawing.Point(49, 127);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(65, 29);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Nombre";
+            // 
+            // label2
+            // 
+            this.label2.Location = new System.Drawing.Point(71, 244);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(43, 24);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Mail";
+            // 
+            // CuentaLabel
+            // 
+            this.CuentaLabel.AutoSize = true;
+            this.CuentaLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CuentaLabel.Location = new System.Drawing.Point(58, 58);
+            this.CuentaLabel.Name = "CuentaLabel";
+            this.CuentaLabel.Size = new System.Drawing.Size(148, 46);
+            this.CuentaLabel.TabIndex = 0;
+            this.CuentaLabel.Text = "Cuenta";
             // 
             // AppForm
             // 

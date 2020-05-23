@@ -679,7 +679,7 @@ namespace Proyectog15WF
             ProfileMainPanel.Visible = true;
             EditeProfilePanel.Visible = true;
             CambiarContraseñaPanel.Visible = false;
-            CuentaPanel.Visible = false;
+           CuentaPanel.Visible = false;
 
         }
 
@@ -704,7 +704,7 @@ namespace Proyectog15WF
         private void PrivacidadButton_Click(object sender, EventArgs e)
         {
             CambiarContraseñaPanel.Visible = false;
-            CuentaPanel.Visible = false;
+           CuentaPanel.Visible = false;
         }
 
         private void CambiarFotoButton_Click(object sender, EventArgs e)
