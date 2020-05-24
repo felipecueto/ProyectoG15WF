@@ -562,6 +562,8 @@ namespace Proyectog15WF
             MasEsuchadaPanel.Visible = false;
             FollowPlaylistSongPanel.Visible = false;
             SongsInMyPlaylistPanel.Visible = false;
+            SongSeguidasPlaylistPanel.Visible = false;
+            CrearSongPlaylistPanel.Visible = false;
             if (SubMyPlaylistPanel.Visible)
             {
                 SubMyPlaylistPanel.Visible = false;
@@ -578,6 +580,7 @@ namespace Proyectog15WF
         {
             FollowPlaylistSongPanel.Visible = true;
             PlaylistMySongPanel.Visible = false;
+            CrearSongPlaylistPanel.Visible = false;
         }
 
         private void MostLisentSonButton_Click(object sender, EventArgs e)
@@ -585,6 +588,7 @@ namespace Proyectog15WF
             MasEsuchadaPanel.Visible = true;
             FollowPlaylistSongPanel.Visible = false;
             PlaylistMySongPanel.Visible = false;
+            CrearSongPlaylistPanel.Visible = false;
         }
 
         private void SongButton_Click(object sender, EventArgs e)
@@ -976,12 +980,73 @@ namespace Proyectog15WF
 
         private void AddPlaylistButton_Click(object sender, EventArgs e)
         {
-
+            CrearSongPlaylistPanel.Visible = true;
+            ErrorCuentaPrivadaPlaylistSong.Visible = false;
+            ErrorExisteSongPlaylisteNombre.Visible = false;
+            PlaylistSongCreada.Visible = false;
         }
-
+          
         private void DeletePlaylistButton_Click(object sender, EventArgs e)
         {
 
+        }
+        private void VerCancionesEnMisPlaylistButton_Click(object sender, EventArgs e)
+        {
+            SongsInMyPlaylistPanel.Visible = true;
+        }
+        private void BackMyPlaylistSong_Click(object sender, EventArgs e)
+        {
+            SongsInMyPlaylistPanel.Visible = false;
+        }
+
+        private void SongInMyPlaylistListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void VerCancionesPlaylistSeguidas_Click(object sender, EventArgs e)
+        {
+            SongSeguidasPlaylistPanel.Visible = true;
+        }
+
+        private void BackPlaylistSeguidas_Click(object sender, EventArgs e)
+        {
+            SongSeguidasPlaylistPanel.Visible = false;
+        }
+
+        private void SongsInFollowPlaylistListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AddSongMyPlaylists_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BorrarCancionMyplaylist_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CrearSongPlaylistButton_Click(object sender, EventArgs e)
+        {
+            string nameplaylist = PlaylistSongNameInput.Text;
+            string privacidad = NewSongPrivacidadComboBox.SelectedItem.ToString();
+            bool UserNotPublic = false;
+            bool NamePlaylistExist = false;
+            if (UserNotPublic)
+            {
+                ErrorCuentaPrivadaPlaylistSong.Visible = true;
+            }
+            if (NamePlaylistExist)
+            {
+                ErrorExisteSongPlaylisteNombre.Visible = true;
+            }
+            else
+            {
+                PlaylistSongCreada.Visible = true;
+            }
         }
 
         //Search-----------------------------------------------------------------------------------------------------//
@@ -1008,18 +1073,7 @@ namespace Proyectog15WF
             string qual = CalificacionComboBox.SelectedItem.ToString();
         }
 
-        private void VerCancionesEnMisPlaylistButton_Click(object sender, EventArgs e)
-        {
-            SongsInMyPlaylistPanel.Visible = true;
-        }
-        private void BackMyPlaylistSong_Click(object sender, EventArgs e)
-        {
-            SongsInMyPlaylistPanel.Visible = false;
-        }
-        private void SongInMyPlaylistListBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
+      
 
        
     }    

@@ -165,10 +165,27 @@
             this.MasEscuchadaLabel = new System.Windows.Forms.Label();
             this.MasEsuchadaListBox = new System.Windows.Forms.ListBox();
             this.FollowPlaylistSongPanel = new System.Windows.Forms.Panel();
+            this.SongSeguidasPlaylistPanel = new System.Windows.Forms.Panel();
+            this.BackPlaylistSeguidas = new FontAwesome.Sharp.IconButton();
+            this.NombrePlaylistSeguidaLabel = new System.Windows.Forms.Label();
+            this.SongsInFollowPlaylistListBox = new System.Windows.Forms.ListBox();
             this.FollowSongLabel = new System.Windows.Forms.Label();
             this.FollowPlaylistSongListBox = new System.Windows.Forms.ListBox();
+            this.VerCancionesPlaylistSeguidas = new FontAwesome.Sharp.IconButton();
             this.PlaylistMySongPanel = new System.Windows.Forms.Panel();
+            this.CrearSongPlaylistPanel = new System.Windows.Forms.Panel();
+            this.PlaylistSongCreada = new System.Windows.Forms.Label();
+            this.ErrorExisteSongPlaylisteNombre = new System.Windows.Forms.Label();
+            this.ErrorCuentaPrivadaPlaylistSong = new System.Windows.Forms.Label();
+            this.CrearSongPlaylistButton = new FontAwesome.Sharp.IconButton();
+            this.CrearPlaylistSongLabel = new System.Windows.Forms.Label();
+            this.NewSongPrivacidadComboBox = new System.Windows.Forms.ComboBox();
+            this.PlaylistSongNameInput = new System.Windows.Forms.TextBox();
+            this.NewSongPlaylistPrivacidad = new System.Windows.Forms.Label();
+            this.NewPlaylistNameLabel = new System.Windows.Forms.Label();
             this.SongsInMyPlaylistPanel = new System.Windows.Forms.Panel();
+            this.BorrarCancionMyplaylist = new FontAwesome.Sharp.IconButton();
+            this.AddSongMyPlaylists = new FontAwesome.Sharp.IconButton();
             this.BackMyPlaylistSong = new FontAwesome.Sharp.IconButton();
             this.NombreMyplaylistSonglabel = new System.Windows.Forms.Label();
             this.SongInMyPlaylistListBox = new System.Windows.Forms.ListBox();
@@ -330,7 +347,9 @@
             this.PlaylistSongPanel.SuspendLayout();
             this.MasEsuchadaPanel.SuspendLayout();
             this.FollowPlaylistSongPanel.SuspendLayout();
+            this.SongSeguidasPlaylistPanel.SuspendLayout();
             this.PlaylistMySongPanel.SuspendLayout();
+            this.CrearSongPlaylistPanel.SuspendLayout();
             this.SongsInMyPlaylistPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PlaylitsSongLogoMain)).BeginInit();
             this.SideSongPlaylistPanel.SuspendLayout();
@@ -2036,14 +2055,65 @@
             // 
             // FollowPlaylistSongPanel
             // 
+            this.FollowPlaylistSongPanel.Controls.Add(this.SongSeguidasPlaylistPanel);
             this.FollowPlaylistSongPanel.Controls.Add(this.FollowSongLabel);
             this.FollowPlaylistSongPanel.Controls.Add(this.FollowPlaylistSongListBox);
+            this.FollowPlaylistSongPanel.Controls.Add(this.VerCancionesPlaylistSeguidas);
             this.FollowPlaylistSongPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.FollowPlaylistSongPanel.Location = new System.Drawing.Point(232, 0);
             this.FollowPlaylistSongPanel.Name = "FollowPlaylistSongPanel";
             this.FollowPlaylistSongPanel.Size = new System.Drawing.Size(492, 683);
             this.FollowPlaylistSongPanel.TabIndex = 3;
             this.FollowPlaylistSongPanel.Visible = false;
+            // 
+            // SongSeguidasPlaylistPanel
+            // 
+            this.SongSeguidasPlaylistPanel.BackColor = System.Drawing.Color.LightCoral;
+            this.SongSeguidasPlaylistPanel.Controls.Add(this.BackPlaylistSeguidas);
+            this.SongSeguidasPlaylistPanel.Controls.Add(this.NombrePlaylistSeguidaLabel);
+            this.SongSeguidasPlaylistPanel.Controls.Add(this.SongsInFollowPlaylistListBox);
+            this.SongSeguidasPlaylistPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SongSeguidasPlaylistPanel.Location = new System.Drawing.Point(0, 0);
+            this.SongSeguidasPlaylistPanel.Name = "SongSeguidasPlaylistPanel";
+            this.SongSeguidasPlaylistPanel.Size = new System.Drawing.Size(492, 683);
+            this.SongSeguidasPlaylistPanel.TabIndex = 2;
+            this.SongSeguidasPlaylistPanel.Visible = false;
+            // 
+            // BackPlaylistSeguidas
+            // 
+            this.BackPlaylistSeguidas.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.BackPlaylistSeguidas.IconChar = FontAwesome.Sharp.IconChar.ArrowCircleRight;
+            this.BackPlaylistSeguidas.IconColor = System.Drawing.Color.Black;
+            this.BackPlaylistSeguidas.IconSize = 36;
+            this.BackPlaylistSeguidas.Location = new System.Drawing.Point(428, 108);
+            this.BackPlaylistSeguidas.Name = "BackPlaylistSeguidas";
+            this.BackPlaylistSeguidas.Rotation = 0D;
+            this.BackPlaylistSeguidas.Size = new System.Drawing.Size(55, 55);
+            this.BackPlaylistSeguidas.TabIndex = 2;
+            this.BackPlaylistSeguidas.UseVisualStyleBackColor = true;
+            this.BackPlaylistSeguidas.Click += new System.EventHandler(this.BackPlaylistSeguidas_Click);
+            // 
+            // NombrePlaylistSeguidaLabel
+            // 
+            this.NombrePlaylistSeguidaLabel.AutoSize = true;
+            this.NombrePlaylistSeguidaLabel.Font = new System.Drawing.Font("MV Boli", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NombrePlaylistSeguidaLabel.Location = new System.Drawing.Point(68, 53);
+            this.NombrePlaylistSeguidaLabel.Name = "NombrePlaylistSeguidaLabel";
+            this.NombrePlaylistSeguidaLabel.Size = new System.Drawing.Size(341, 52);
+            this.NombrePlaylistSeguidaLabel.TabIndex = 1;
+            this.NombrePlaylistSeguidaLabel.Text = "NombrePlaylistS";
+            // 
+            // SongsInFollowPlaylistListBox
+            // 
+            this.SongsInFollowPlaylistListBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.SongsInFollowPlaylistListBox.FormattingEnabled = true;
+            this.SongsInFollowPlaylistListBox.ItemHeight = 20;
+            this.SongsInFollowPlaylistListBox.Location = new System.Drawing.Point(70, 108);
+            this.SongsInFollowPlaylistListBox.Name = "SongsInFollowPlaylistListBox";
+            this.SongsInFollowPlaylistListBox.Size = new System.Drawing.Size(351, 504);
+            this.SongsInFollowPlaylistListBox.TabIndex = 0;
+            this.SongsInFollowPlaylistListBox.SelectedIndexChanged += new System.EventHandler(this.SongsInFollowPlaylistListBox_SelectedIndexChanged);
             // 
             // FollowSongLabel
             // 
@@ -2067,8 +2137,23 @@
             this.FollowPlaylistSongListBox.TabIndex = 0;
             this.FollowPlaylistSongListBox.SelectedIndexChanged += new System.EventHandler(this.FollowPlaylistSongListBox_SelectedIndexChanged);
             // 
+            // VerCancionesPlaylistSeguidas
+            // 
+            this.VerCancionesPlaylistSeguidas.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.VerCancionesPlaylistSeguidas.IconChar = FontAwesome.Sharp.IconChar.Music;
+            this.VerCancionesPlaylistSeguidas.IconColor = System.Drawing.Color.Black;
+            this.VerCancionesPlaylistSeguidas.IconSize = 36;
+            this.VerCancionesPlaylistSeguidas.Location = new System.Drawing.Point(428, 108);
+            this.VerCancionesPlaylistSeguidas.Name = "VerCancionesPlaylistSeguidas";
+            this.VerCancionesPlaylistSeguidas.Rotation = 0D;
+            this.VerCancionesPlaylistSeguidas.Size = new System.Drawing.Size(55, 55);
+            this.VerCancionesPlaylistSeguidas.TabIndex = 4;
+            this.VerCancionesPlaylistSeguidas.UseVisualStyleBackColor = true;
+            this.VerCancionesPlaylistSeguidas.Click += new System.EventHandler(this.VerCancionesPlaylistSeguidas_Click);
+            // 
             // PlaylistMySongPanel
             // 
+            this.PlaylistMySongPanel.Controls.Add(this.CrearSongPlaylistPanel);
             this.PlaylistMySongPanel.Controls.Add(this.SongsInMyPlaylistPanel);
             this.PlaylistMySongPanel.Controls.Add(this.VerCancionesEnMisPlaylistButton);
             this.PlaylistMySongPanel.Controls.Add(this.MyListLabel);
@@ -2080,9 +2165,136 @@
             this.PlaylistMySongPanel.TabIndex = 2;
             this.PlaylistMySongPanel.Visible = false;
             // 
+            // CrearSongPlaylistPanel
+            // 
+            this.CrearSongPlaylistPanel.BackColor = System.Drawing.Color.LightCoral;
+            this.CrearSongPlaylistPanel.Controls.Add(this.PlaylistSongCreada);
+            this.CrearSongPlaylistPanel.Controls.Add(this.ErrorExisteSongPlaylisteNombre);
+            this.CrearSongPlaylistPanel.Controls.Add(this.ErrorCuentaPrivadaPlaylistSong);
+            this.CrearSongPlaylistPanel.Controls.Add(this.CrearSongPlaylistButton);
+            this.CrearSongPlaylistPanel.Controls.Add(this.CrearPlaylistSongLabel);
+            this.CrearSongPlaylistPanel.Controls.Add(this.NewSongPrivacidadComboBox);
+            this.CrearSongPlaylistPanel.Controls.Add(this.PlaylistSongNameInput);
+            this.CrearSongPlaylistPanel.Controls.Add(this.NewSongPlaylistPrivacidad);
+            this.CrearSongPlaylistPanel.Controls.Add(this.NewPlaylistNameLabel);
+            this.CrearSongPlaylistPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CrearSongPlaylistPanel.Location = new System.Drawing.Point(0, 0);
+            this.CrearSongPlaylistPanel.Name = "CrearSongPlaylistPanel";
+            this.CrearSongPlaylistPanel.Size = new System.Drawing.Size(492, 683);
+            this.CrearSongPlaylistPanel.TabIndex = 4;
+            this.CrearSongPlaylistPanel.Visible = false;
+            // 
+            // PlaylistSongCreada
+            // 
+            this.PlaylistSongCreada.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.PlaylistSongCreada.Location = new System.Drawing.Point(188, 256);
+            this.PlaylistSongCreada.Name = "PlaylistSongCreada";
+            this.PlaylistSongCreada.Size = new System.Drawing.Size(177, 20);
+            this.PlaylistSongCreada.TabIndex = 8;
+            this.PlaylistSongCreada.Text = "Playlist creada con exito";
+            this.PlaylistSongCreada.Visible = false;
+            // 
+            // ErrorExisteSongPlaylisteNombre
+            // 
+            this.ErrorExisteSongPlaylisteNombre.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ErrorExisteSongPlaylisteNombre.ForeColor = System.Drawing.Color.Red;
+            this.ErrorExisteSongPlaylisteNombre.Location = new System.Drawing.Point(147, 391);
+            this.ErrorExisteSongPlaylisteNombre.Name = "ErrorExisteSongPlaylisteNombre";
+            this.ErrorExisteSongPlaylisteNombre.Size = new System.Drawing.Size(279, 20);
+            this.ErrorExisteSongPlaylisteNombre.TabIndex = 7;
+            this.ErrorExisteSongPlaylisteNombre.Text = "Ya existe una playlist con este nombre";
+            this.ErrorExisteSongPlaylisteNombre.Visible = false;
+            // 
+            // ErrorCuentaPrivadaPlaylistSong
+            // 
+            this.ErrorCuentaPrivadaPlaylistSong.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ErrorCuentaPrivadaPlaylistSong.BackColor = System.Drawing.Color.Transparent;
+            this.ErrorCuentaPrivadaPlaylistSong.ForeColor = System.Drawing.Color.Red;
+            this.ErrorCuentaPrivadaPlaylistSong.Location = new System.Drawing.Point(92, 354);
+            this.ErrorCuentaPrivadaPlaylistSong.Name = "ErrorCuentaPrivadaPlaylistSong";
+            this.ErrorCuentaPrivadaPlaylistSong.Size = new System.Drawing.Size(369, 20);
+            this.ErrorCuentaPrivadaPlaylistSong.TabIndex = 6;
+            this.ErrorCuentaPrivadaPlaylistSong.Text = "No puedes crear una cuenta publica si eres privado";
+            this.ErrorCuentaPrivadaPlaylistSong.Visible = false;
+            // 
+            // CrearSongPlaylistButton
+            // 
+            this.CrearSongPlaylistButton.FlatAppearance.BorderSize = 0;
+            this.CrearSongPlaylistButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CrearSongPlaylistButton.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.CrearSongPlaylistButton.IconChar = FontAwesome.Sharp.IconChar.Plus;
+            this.CrearSongPlaylistButton.IconColor = System.Drawing.Color.Black;
+            this.CrearSongPlaylistButton.IconSize = 36;
+            this.CrearSongPlaylistButton.Location = new System.Drawing.Point(219, 284);
+            this.CrearSongPlaylistButton.Name = "CrearSongPlaylistButton";
+            this.CrearSongPlaylistButton.Rotation = 0D;
+            this.CrearSongPlaylistButton.Size = new System.Drawing.Size(129, 59);
+            this.CrearSongPlaylistButton.TabIndex = 5;
+            this.CrearSongPlaylistButton.Text = "Crear";
+            this.CrearSongPlaylistButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.CrearSongPlaylistButton.UseVisualStyleBackColor = true;
+            this.CrearSongPlaylistButton.Click += new System.EventHandler(this.CrearSongPlaylistButton_Click);
+            // 
+            // CrearPlaylistSongLabel
+            // 
+            this.CrearPlaylistSongLabel.AutoSize = true;
+            this.CrearPlaylistSongLabel.Font = new System.Drawing.Font("MV Boli", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CrearPlaylistSongLabel.Location = new System.Drawing.Point(142, 65);
+            this.CrearPlaylistSongLabel.Name = "CrearPlaylistSongLabel";
+            this.CrearPlaylistSongLabel.Size = new System.Drawing.Size(288, 52);
+            this.CrearPlaylistSongLabel.TabIndex = 4;
+            this.CrearPlaylistSongLabel.Text = "Crear Playlist";
+            // 
+            // NewSongPrivacidadComboBox
+            // 
+            this.NewSongPrivacidadComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.NewSongPrivacidadComboBox.FormattingEnabled = true;
+            this.NewSongPrivacidadComboBox.Items.AddRange(new object[] {
+            "Publica",
+            "Privada",
+            "",
+            ""});
+            this.NewSongPrivacidadComboBox.Location = new System.Drawing.Point(151, 219);
+            this.NewSongPrivacidadComboBox.Name = "NewSongPrivacidadComboBox";
+            this.NewSongPrivacidadComboBox.Size = new System.Drawing.Size(248, 28);
+            this.NewSongPrivacidadComboBox.TabIndex = 3;
+            // 
+            // PlaylistSongNameInput
+            // 
+            this.PlaylistSongNameInput.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.PlaylistSongNameInput.Location = new System.Drawing.Point(151, 149);
+            this.PlaylistSongNameInput.Name = "PlaylistSongNameInput";
+            this.PlaylistSongNameInput.Size = new System.Drawing.Size(248, 26);
+            this.PlaylistSongNameInput.TabIndex = 2;
+            // 
+            // NewSongPlaylistPrivacidad
+            // 
+            this.NewSongPlaylistPrivacidad.Location = new System.Drawing.Point(50, 215);
+            this.NewSongPlaylistPrivacidad.Name = "NewSongPlaylistPrivacidad";
+            this.NewSongPlaylistPrivacidad.Size = new System.Drawing.Size(104, 34);
+            this.NewSongPlaylistPrivacidad.TabIndex = 1;
+            this.NewSongPlaylistPrivacidad.Text = "Privacidad";
+            this.NewSongPlaylistPrivacidad.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // NewPlaylistNameLabel
+            // 
+            this.NewPlaylistNameLabel.Location = new System.Drawing.Point(53, 149);
+            this.NewPlaylistNameLabel.Name = "NewPlaylistNameLabel";
+            this.NewPlaylistNameLabel.Size = new System.Drawing.Size(92, 26);
+            this.NewPlaylistNameLabel.TabIndex = 0;
+            this.NewPlaylistNameLabel.Text = "Nombre";
+            this.NewPlaylistNameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // SongsInMyPlaylistPanel
             // 
             this.SongsInMyPlaylistPanel.BackColor = System.Drawing.Color.LightCoral;
+            this.SongsInMyPlaylistPanel.Controls.Add(this.BorrarCancionMyplaylist);
+            this.SongsInMyPlaylistPanel.Controls.Add(this.AddSongMyPlaylists);
             this.SongsInMyPlaylistPanel.Controls.Add(this.BackMyPlaylistSong);
             this.SongsInMyPlaylistPanel.Controls.Add(this.NombreMyplaylistSonglabel);
             this.SongsInMyPlaylistPanel.Controls.Add(this.SongInMyPlaylistListBox);
@@ -2092,6 +2304,36 @@
             this.SongsInMyPlaylistPanel.Size = new System.Drawing.Size(492, 683);
             this.SongsInMyPlaylistPanel.TabIndex = 3;
             this.SongsInMyPlaylistPanel.Visible = false;
+            // 
+            // BorrarCancionMyplaylist
+            // 
+            this.BorrarCancionMyplaylist.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.BorrarCancionMyplaylist.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.BorrarCancionMyplaylist.IconChar = FontAwesome.Sharp.IconChar.Minus;
+            this.BorrarCancionMyplaylist.IconColor = System.Drawing.Color.Black;
+            this.BorrarCancionMyplaylist.IconSize = 36;
+            this.BorrarCancionMyplaylist.Location = new System.Drawing.Point(428, 226);
+            this.BorrarCancionMyplaylist.Name = "BorrarCancionMyplaylist";
+            this.BorrarCancionMyplaylist.Rotation = 0D;
+            this.BorrarCancionMyplaylist.Size = new System.Drawing.Size(55, 57);
+            this.BorrarCancionMyplaylist.TabIndex = 4;
+            this.BorrarCancionMyplaylist.UseVisualStyleBackColor = true;
+            this.BorrarCancionMyplaylist.Click += new System.EventHandler(this.BorrarCancionMyplaylist_Click);
+            // 
+            // AddSongMyPlaylists
+            // 
+            this.AddSongMyPlaylists.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.AddSongMyPlaylists.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.AddSongMyPlaylists.IconChar = FontAwesome.Sharp.IconChar.Plus;
+            this.AddSongMyPlaylists.IconColor = System.Drawing.Color.Black;
+            this.AddSongMyPlaylists.IconSize = 36;
+            this.AddSongMyPlaylists.Location = new System.Drawing.Point(428, 165);
+            this.AddSongMyPlaylists.Name = "AddSongMyPlaylists";
+            this.AddSongMyPlaylists.Rotation = 0D;
+            this.AddSongMyPlaylists.Size = new System.Drawing.Size(55, 55);
+            this.AddSongMyPlaylists.TabIndex = 3;
+            this.AddSongMyPlaylists.UseVisualStyleBackColor = true;
+            this.AddSongMyPlaylists.Click += new System.EventHandler(this.AddSongMyPlaylists_Click);
             // 
             // BackMyPlaylistSong
             // 
@@ -3769,7 +4011,11 @@
             this.PlaylistSongPanel.ResumeLayout(false);
             this.MasEsuchadaPanel.ResumeLayout(false);
             this.FollowPlaylistSongPanel.ResumeLayout(false);
+            this.SongSeguidasPlaylistPanel.ResumeLayout(false);
+            this.SongSeguidasPlaylistPanel.PerformLayout();
             this.PlaylistMySongPanel.ResumeLayout(false);
+            this.CrearSongPlaylistPanel.ResumeLayout(false);
+            this.CrearSongPlaylistPanel.PerformLayout();
             this.SongsInMyPlaylistPanel.ResumeLayout(false);
             this.SongsInMyPlaylistPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PlaylitsSongLogoMain)).EndInit();
@@ -4070,6 +4316,23 @@
         private System.Windows.Forms.Label NombreMyplaylistSonglabel;
         private System.Windows.Forms.ListBox SongInMyPlaylistListBox;
         private FontAwesome.Sharp.IconButton BackMyPlaylistSong;
+        private System.Windows.Forms.Panel SongSeguidasPlaylistPanel;
+        private FontAwesome.Sharp.IconButton BackPlaylistSeguidas;
+        private System.Windows.Forms.Label NombrePlaylistSeguidaLabel;
+        private System.Windows.Forms.ListBox SongsInFollowPlaylistListBox;
+        private FontAwesome.Sharp.IconButton VerCancionesPlaylistSeguidas;
+        private FontAwesome.Sharp.IconButton BorrarCancionMyplaylist;
+        private FontAwesome.Sharp.IconButton AddSongMyPlaylists;
+        private System.Windows.Forms.Panel CrearSongPlaylistPanel;
+        private FontAwesome.Sharp.IconButton CrearSongPlaylistButton;
+        private System.Windows.Forms.Label CrearPlaylistSongLabel;
+        private System.Windows.Forms.ComboBox NewSongPrivacidadComboBox;
+        private System.Windows.Forms.TextBox PlaylistSongNameInput;
+        private System.Windows.Forms.Label NewSongPlaylistPrivacidad;
+        private System.Windows.Forms.Label NewPlaylistNameLabel;
+        private System.Windows.Forms.Label ErrorExisteSongPlaylisteNombre;
+        private System.Windows.Forms.Label ErrorCuentaPrivadaPlaylistSong;
+        private System.Windows.Forms.Label PlaylistSongCreada;
     }
 }
 
