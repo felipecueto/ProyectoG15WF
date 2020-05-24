@@ -14,10 +14,5 @@ namespace CustomEventArgs
         public string Usernametext { get; set; }
         public string Email { get; set; }
         public string Passwordtext { get; set; }
-
-
-
-
-
     }
 }

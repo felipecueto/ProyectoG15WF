@@ -54,11 +54,6 @@ namespace Proyectog15WF
 
         }
 
-        private void coustomdesing()
-        {
-
-
-        }
         private void HideSubPanel()
         {
             if (SubArtistPanel.Visible == true)
@@ -96,12 +91,7 @@ namespace Proyectog15WF
             this.Close();
         }
 
-        private void StartPanel_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-
+    
         private void RegistrateButton_Click(object sender, EventArgs e)
         {
             StartPanel.SendToBack();
@@ -134,15 +124,7 @@ namespace Proyectog15WF
             RegisterPanel.Visible = false;
         }
 
-        private void IniciarseccionLabelLogin_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void IniciarseccionLabelLogin_Click_1(object sender, EventArgs e)
-        {
-
-        }
+    
         private void OnLoginButtonClicked(string username, string pass)
         {
             if (LoginButtonClicked != null)
@@ -341,27 +323,7 @@ namespace Proyectog15WF
 
         }
 
-        private void SearchButton_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void PlaylistButton_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ArtistModeButton_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Profilebutton_Click(object sender, EventArgs e)
-        {
-
-
-        }
-
+     
         private void UserSeachButton_Click(object sender, EventArgs e)
         {
             //MainScreenPanel.Visible = false;
@@ -369,11 +331,6 @@ namespace Proyectog15WF
             SearchArtistPanel.Visible = false;
             SearchMainPanel.Visible = true;
             SearchUserPanel.Visible = true;
-
-        }
-
-        private void iconPictureBox2_Click(object sender, EventArgs e)
-        {
 
         }
 
@@ -565,6 +522,9 @@ namespace Proyectog15WF
             SongUploadPanel.Visible = true;
             ArtistModeMainPanel.Visible = true;
             AlbumArtistPanel.Visible = false;
+            CancionSubidaConExito.Visible = false;
+            
+           
         }
 
         private void FiltersButton_Click(object sender, EventArgs e)
@@ -644,7 +604,8 @@ namespace Proyectog15WF
             VideoFollowPanel.Visible = false;
             MasVistosPanel.Visible = false;
             VideoMyPlaylistPanel.Visible = false;
-
+            VideoSubidoConExito.Visible = false;
+            ErrorVideo.Visible = false;
         }
 
         private void MyVideoPlaylistButton_Click(object sender, EventArgs e)
@@ -739,6 +700,7 @@ namespace Proyectog15WF
 
         }
 
+    
         private void CuentaButton_Click(object sender, EventArgs e)
         {
             CambiarContraseñaPanel.Visible = false;
@@ -746,13 +708,6 @@ namespace Proyectog15WF
             InfomacionCuentaCambiadaLabel.Visible = false;
             ShowUserInfo();
         }
-
-        private void PrivacidadButton_Click(object sender, EventArgs e)
-        {
-            CambiarContraseñaPanel.Visible = false;
-            CuentaPanel.Visible = false;
-        }
-
         private void CambiarFotoButton_Click(object sender, EventArgs e)
         {
             CambiarContraseñaPanel.Visible = false;
@@ -893,5 +848,165 @@ namespace Proyectog15WF
         {
             axWindowsMediaPlayer1.Ctlcontrols.stop();
         }
+        //Profile---------------------------------------------------------------------------------------------------//
+        
+        //Cambio contraseña:
+        private void ChangePasswordAcepted(object sender, EventArgs e)
+        {
+            string pass = ContraseñaActualInput.Text;
+            string newpass = NuevaContraseñainput.Text;
+
+        }
+
+        //Mi Informacion
+        private void SeguidosListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DejarDeSeguirButton1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SeguidoreslistBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        //Modo Artista ----------------------------------------------------------------------------------//
+        //AlbumVideo
+        private void VideoAlbumListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+        //AlbumCancion
+        private void AlbumCanciones_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        //Subir Video
+        private void SubirVideoButton_Click(object sender, EventArgs e)
+        {
+            string videoName = VideoNombreTextBox.Text;
+            string videoCategoria = VideoCategoriaTextbox.Text;
+            string videoGender = VideoGeneroTextBox.Text;
+            string videoDescripcion = VideoDescripcionTextBox.Text;
+            string videoResolucion = ResolucionVideo.Text;
+            string videoEtudio = VideoEstudiTextbox.Text;
+
+            bool exist = false;
+
+            if (exist)
+            {
+                ErrorVideo.Visible = true;
+            }
+            else
+            {
+                VideoSubidoConExito.Visible = true; //Mensaje Video subido 
+            }
+        }
+
+        // Subir cancion
+        private void SubiCancionButton_Click(object sender, EventArgs e)
+        {
+            string songName = SongNameInput.Text;
+            string songCategoria = SongCategoriaInput.Text;
+            string songGender = SongGenderInput.Text;
+            string songDiscorafia = SongDiscografiaInput.Text;
+            string songLetra = SongLetraInput.Text;
+            string songEtudio =SongStudioInput.Text;
+
+            bool exist = false;
+
+            if (exist)
+            {
+                //Falta error
+            }
+            else
+            {
+               CancionSubidaConExito.Visible = true; //Mensaje Video subido 
+            }
+        }
+
+        //Playlist------------------------------------------------------------------------------------------------/
+
+        //Videos
+        private void MyVideoListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FollowVideoListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void VideosMasVistos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AddPlaylistVideoButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DeleteVideoPlaylistButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        //Canciones
+        private void MySongsListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FollowPlaylistSongListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+        private void MasEscuchadaListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AddPlaylistButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DeletePlaylistButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        //Search-----------------------------------------------------------------------------------------------------//
+
+        private void SearchUserPanelResultlistusers_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SearchArtistListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SearchTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+
+        //Reproducion------------------------------------------------------------------------------------------------//
+        private void CalsificacionButton_Click(object sender, EventArgs e)
+        {
+            string qual = CalificacionComboBox.SelectedItem.ToString();
+        }
+
+       
     }    
 }
