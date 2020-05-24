@@ -168,6 +168,11 @@
             this.FollowSongLabel = new System.Windows.Forms.Label();
             this.FollowPlaylistSongListBox = new System.Windows.Forms.ListBox();
             this.PlaylistMySongPanel = new System.Windows.Forms.Panel();
+            this.SongsInMyPlaylistPanel = new System.Windows.Forms.Panel();
+            this.BackMyPlaylistSong = new FontAwesome.Sharp.IconButton();
+            this.NombreMyplaylistSonglabel = new System.Windows.Forms.Label();
+            this.SongInMyPlaylistListBox = new System.Windows.Forms.ListBox();
+            this.VerCancionesEnMisPlaylistButton = new FontAwesome.Sharp.IconButton();
             this.MyListLabel = new System.Windows.Forms.Label();
             this.MySongsListBox = new System.Windows.Forms.ListBox();
             this.PlaylitsSongLogoMain = new FontAwesome.Sharp.IconPictureBox();
@@ -326,6 +331,7 @@
             this.MasEsuchadaPanel.SuspendLayout();
             this.FollowPlaylistSongPanel.SuspendLayout();
             this.PlaylistMySongPanel.SuspendLayout();
+            this.SongsInMyPlaylistPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PlaylitsSongLogoMain)).BeginInit();
             this.SideSongPlaylistPanel.SuspendLayout();
             this.SubMyPlaylistPanel.SuspendLayout();
@@ -1727,7 +1733,6 @@
             // 
             this.MasVistosPanel.Controls.Add(this.VideoMasVistosLabel);
             this.MasVistosPanel.Controls.Add(this.VideosMasVistos);
-            this.MasVistosPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MasVistosPanel.Location = new System.Drawing.Point(232, 0);
             this.MasVistosPanel.Name = "MasVistosPanel";
             this.MasVistosPanel.Size = new System.Drawing.Size(492, 683);
@@ -2064,6 +2069,8 @@
             // 
             // PlaylistMySongPanel
             // 
+            this.PlaylistMySongPanel.Controls.Add(this.SongsInMyPlaylistPanel);
+            this.PlaylistMySongPanel.Controls.Add(this.VerCancionesEnMisPlaylistButton);
             this.PlaylistMySongPanel.Controls.Add(this.MyListLabel);
             this.PlaylistMySongPanel.Controls.Add(this.MySongsListBox);
             this.PlaylistMySongPanel.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -2072,6 +2079,71 @@
             this.PlaylistMySongPanel.Size = new System.Drawing.Size(492, 683);
             this.PlaylistMySongPanel.TabIndex = 2;
             this.PlaylistMySongPanel.Visible = false;
+            // 
+            // SongsInMyPlaylistPanel
+            // 
+            this.SongsInMyPlaylistPanel.BackColor = System.Drawing.Color.LightCoral;
+            this.SongsInMyPlaylistPanel.Controls.Add(this.BackMyPlaylistSong);
+            this.SongsInMyPlaylistPanel.Controls.Add(this.NombreMyplaylistSonglabel);
+            this.SongsInMyPlaylistPanel.Controls.Add(this.SongInMyPlaylistListBox);
+            this.SongsInMyPlaylistPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SongsInMyPlaylistPanel.Location = new System.Drawing.Point(0, 0);
+            this.SongsInMyPlaylistPanel.Name = "SongsInMyPlaylistPanel";
+            this.SongsInMyPlaylistPanel.Size = new System.Drawing.Size(492, 683);
+            this.SongsInMyPlaylistPanel.TabIndex = 3;
+            this.SongsInMyPlaylistPanel.Visible = false;
+            // 
+            // BackMyPlaylistSong
+            // 
+            this.BackMyPlaylistSong.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.BackMyPlaylistSong.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.BackMyPlaylistSong.IconChar = FontAwesome.Sharp.IconChar.ArrowCircleRight;
+            this.BackMyPlaylistSong.IconColor = System.Drawing.Color.Black;
+            this.BackMyPlaylistSong.IconSize = 36;
+            this.BackMyPlaylistSong.Location = new System.Drawing.Point(428, 108);
+            this.BackMyPlaylistSong.Name = "BackMyPlaylistSong";
+            this.BackMyPlaylistSong.Rotation = 0D;
+            this.BackMyPlaylistSong.Size = new System.Drawing.Size(55, 55);
+            this.BackMyPlaylistSong.TabIndex = 2;
+            this.BackMyPlaylistSong.UseVisualStyleBackColor = true;
+            this.BackMyPlaylistSong.Click += new System.EventHandler(this.BackMyPlaylistSong_Click);
+            // 
+            // NombreMyplaylistSonglabel
+            // 
+            this.NombreMyplaylistSonglabel.AutoSize = true;
+            this.NombreMyplaylistSonglabel.Font = new System.Drawing.Font("MV Boli", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NombreMyplaylistSonglabel.Location = new System.Drawing.Point(70, 55);
+            this.NombreMyplaylistSonglabel.Name = "NombreMyplaylistSonglabel";
+            this.NombreMyplaylistSonglabel.Size = new System.Drawing.Size(316, 52);
+            this.NombreMyplaylistSonglabel.TabIndex = 1;
+            this.NombreMyplaylistSonglabel.Text = "NombrePlaylist";
+            // 
+            // SongInMyPlaylistListBox
+            // 
+            this.SongInMyPlaylistListBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.SongInMyPlaylistListBox.FormattingEnabled = true;
+            this.SongInMyPlaylistListBox.ItemHeight = 20;
+            this.SongInMyPlaylistListBox.Location = new System.Drawing.Point(70, 108);
+            this.SongInMyPlaylistListBox.Name = "SongInMyPlaylistListBox";
+            this.SongInMyPlaylistListBox.Size = new System.Drawing.Size(351, 504);
+            this.SongInMyPlaylistListBox.TabIndex = 0;
+            this.SongInMyPlaylistListBox.SelectedIndexChanged += new System.EventHandler(this.SongInMyPlaylistListBox_SelectedIndexChanged);
+            // 
+            // VerCancionesEnMisPlaylistButton
+            // 
+            this.VerCancionesEnMisPlaylistButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.VerCancionesEnMisPlaylistButton.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.VerCancionesEnMisPlaylistButton.IconChar = FontAwesome.Sharp.IconChar.Music;
+            this.VerCancionesEnMisPlaylistButton.IconColor = System.Drawing.Color.Black;
+            this.VerCancionesEnMisPlaylistButton.IconSize = 36;
+            this.VerCancionesEnMisPlaylistButton.Location = new System.Drawing.Point(428, 108);
+            this.VerCancionesEnMisPlaylistButton.Name = "VerCancionesEnMisPlaylistButton";
+            this.VerCancionesEnMisPlaylistButton.Rotation = 0D;
+            this.VerCancionesEnMisPlaylistButton.Size = new System.Drawing.Size(62, 51);
+            this.VerCancionesEnMisPlaylistButton.TabIndex = 2;
+            this.VerCancionesEnMisPlaylistButton.UseVisualStyleBackColor = true;
+            this.VerCancionesEnMisPlaylistButton.Click += new System.EventHandler(this.VerCancionesEnMisPlaylistButton_Click);
             // 
             // MyListLabel
             // 
@@ -2108,7 +2180,7 @@
             this.PlaylitsSongLogoMain.IconSize = 205;
             this.PlaylitsSongLogoMain.Location = new System.Drawing.Point(374, 246);
             this.PlaylitsSongLogoMain.Name = "PlaylitsSongLogoMain";
-            this.PlaylitsSongLogoMain.Size = new System.Drawing.Size(455, 205);
+            this.PlaylitsSongLogoMain.Size = new System.Drawing.Size(205, 205);
             this.PlaylitsSongLogoMain.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.PlaylitsSongLogoMain.TabIndex = 1;
             this.PlaylitsSongLogoMain.TabStop = false;
@@ -3698,6 +3770,8 @@
             this.MasEsuchadaPanel.ResumeLayout(false);
             this.FollowPlaylistSongPanel.ResumeLayout(false);
             this.PlaylistMySongPanel.ResumeLayout(false);
+            this.SongsInMyPlaylistPanel.ResumeLayout(false);
+            this.SongsInMyPlaylistPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PlaylitsSongLogoMain)).EndInit();
             this.SideSongPlaylistPanel.ResumeLayout(false);
             this.SubMyPlaylistPanel.ResumeLayout(false);
@@ -3991,6 +4065,11 @@
         private FontAwesome.Sharp.IconButton StopButton;
         private System.Windows.Forms.ComboBox CalificacionComboBox;
         private FontAwesome.Sharp.IconButton CalsificacionButton;
+        private FontAwesome.Sharp.IconButton VerCancionesEnMisPlaylistButton;
+        private System.Windows.Forms.Panel SongsInMyPlaylistPanel;
+        private System.Windows.Forms.Label NombreMyplaylistSonglabel;
+        private System.Windows.Forms.ListBox SongInMyPlaylistListBox;
+        private FontAwesome.Sharp.IconButton BackMyPlaylistSong;
     }
 }
 

@@ -561,6 +561,7 @@ namespace Proyectog15WF
             PlaylistMySongPanel.Visible = true;
             MasEsuchadaPanel.Visible = false;
             FollowPlaylistSongPanel.Visible = false;
+            SongsInMyPlaylistPanel.Visible = false;
             if (SubMyPlaylistPanel.Visible)
             {
                 SubMyPlaylistPanel.Visible = false;
@@ -1005,6 +1006,19 @@ namespace Proyectog15WF
         private void CalsificacionButton_Click(object sender, EventArgs e)
         {
             string qual = CalificacionComboBox.SelectedItem.ToString();
+        }
+
+        private void VerCancionesEnMisPlaylistButton_Click(object sender, EventArgs e)
+        {
+            SongsInMyPlaylistPanel.Visible = true;
+        }
+        private void BackMyPlaylistSong_Click(object sender, EventArgs e)
+        {
+            SongsInMyPlaylistPanel.Visible = false;
+        }
+        private void SongInMyPlaylistListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
 
        
