@@ -36,11 +36,15 @@ namespace Proyectog15WF
         public event SendingPlaylistHandler Sendingplaylist;
         public delegate bool SendingActualPlaylistHandler(object source, GetUserPlaylistEventsArgs args);
         public event SendingActualPlaylistHandler Userselectedplaylist;
-
+        //Evnetos de reproduccion
         public delegate string SelectedVideoEventHandler(object source, SelectVideoEventArgs args);
         public event SelectedVideoEventHandler Reproducevideo;
         public delegate string SelectedSongEventHandler(object source, SelectSongEventArgs args);
         public event SelectedSongEventHandler Reproducesong;
+
+        //Evento cambiar contraseña
+        public delegate bool ChangepasswordEvnetHandler(object source, ChangePasswordEventArgs args);
+        public event ChangepasswordEvnetHandler Changingpassword;
 
         List<Panel> stackPanels = new List<Panel>();
         Dictionary<string, Panel> panels = new Dictionary<string, Panel>();
@@ -880,6 +884,18 @@ namespace Proyectog15WF
         {
             string pass = ContraseñaActualInput.Text;
             string newpass = NuevaContraseñainput.Text;
+            if (Changingpassword != null)
+            {
+                bool result = Changingpassword(this, new ChangePasswordEventArgs() { Usertext = nameuser, Passwordtext = pass, NewPasswordtext = newpass });
+                if (result)
+                {
+                    MessageBox.Show("Contraseña cambiada");
+                }
+                else
+                {
+                    MessageBox.Show("Error al escribir la contraseña");
+                }
+            }
 
         }
 

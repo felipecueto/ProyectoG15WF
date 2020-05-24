@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace CustomEventArgs
 {
-    class ChangePasswordEventArgs
+    public class ChangePasswordEventArgs
     {
         public string Passwordtext { get; set; }
         public string NewPasswordtext { get; set; }
+        public string Usertext { get; set; }
 
     }
 }
