@@ -2972,6 +2972,7 @@
             this.StopButton.Size = new System.Drawing.Size(33, 32);
             this.StopButton.TabIndex = 7;
             this.StopButton.UseVisualStyleBackColor = true;
+            this.StopButton.Click += new System.EventHandler(this.StopButton_Click);
             // 
             // NextButton
             // 

@@ -19,6 +19,7 @@ namespace Proyectog15WF
         int resultCounter = 0;
         string namevideo = "";
         string namesong = "";
+        string nameuser = ""; //ESTE ES EL NO,BRE DEL USUARIO
         public delegate bool LoginEventHandler(object source, LoginEventArgs args);
         public event LoginEventHandler LoginButtonClicked;
         public event EventHandler<LoginEventArgs> UserChecked;
@@ -192,6 +193,7 @@ namespace Proyectog15WF
                 UserChecked(this, new LoginEventArgs() { UsernameText = username, PasswordText = password });
                 UsernameInPutLogin.ResetText();
                 PasswordInPutLogin.ResetText();
+                nameuser = username; //AQUI OBTENGO EL USUARIO QUE HACE LOGIN
                 stackPanels.Add(panels["StartPanel"]);
                 MainPanel.Visible = true;
                 MainPanel.BringToFront();
@@ -606,6 +608,8 @@ namespace Proyectog15WF
             else
             {
                 SubMyPlaylistPanel.Visible = true;
+                MySongsListBox.Items.Add("--Favorites Songs--"); // con esto accedo al listbox de playlistsong y obtengo las playlist
+                MySongsListBox.Items.Add(nameuser); //Aqui esta el nombre del usuario (lo puse aqui para comprobar si esta tomando el usuario cada vez que hago log in
             }
         }
 
@@ -883,6 +887,11 @@ namespace Proyectog15WF
                 }
 
             
+        }
+
+        private void StopButton_Click(object sender, EventArgs e)
+        {
+            axWindowsMediaPlayer1.Ctlcontrols.stop();
         }
     }    
 }
