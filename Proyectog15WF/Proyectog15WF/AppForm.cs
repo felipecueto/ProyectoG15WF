@@ -623,11 +623,16 @@ namespace Proyectog15WF
             PlaylistMySongPanel.Visible = false;
             FollowPlaylistSongPanel.Visible = false;
             MasEsuchadaPanel.Visible = false;
+            SubMyPlaylistPanel.Visible = false;
+
+
+
         }
 
         private void VideoButton_Click(object sender, EventArgs e)
         {
             PlaylistSongPanel.Visible = false;
+            SubVideoPlaylistPanel.Visible = false;
             PlaylistMainPanel.Visible = true;
             PlaylistVideoPanel.Visible = true;
             VideoFollowPanel.Visible = false;
@@ -642,6 +647,8 @@ namespace Proyectog15WF
             VideoMyPlaylistPanel.Visible = true;
             VideoFollowPanel.Visible = false;
             MasVistosPanel.Visible = false;
+            MyVideoPlaylistPanel.Visible = false;
+            CrearVideoPlaylistpanel.Visible = false;
             if (SubVideoPlaylistPanel.Visible)
             {
                 SubVideoPlaylistPanel.Visible = false;
@@ -693,6 +700,7 @@ namespace Proyectog15WF
             MasVistosPanel.Visible = true;
             VideoMyPlaylistPanel.Visible = false;
             VideoFollowPanel.Visible = false;
+            MyVideoPlaylistPanel.Visible = false;
         }
 
         private void FolloweVideoButton_Click(object sender, EventArgs e)
@@ -700,6 +708,8 @@ namespace Proyectog15WF
             VideoFollowPanel.Visible = true;
             MasVistosPanel.Visible = false;
             VideoMyPlaylistPanel.Visible = false;
+            MyVideoPlaylistPanel.Visible = false;
+            VideosInFollowingPlaylistPanel.Visible = false;
         }
 
         private void EditeProfilebutton_Click(object sender, EventArgs e)
@@ -991,8 +1001,12 @@ namespace Proyectog15WF
 
         private void AddPlaylistVideoButton_Click(object sender, EventArgs e)
         {
-
+            Errorplaylistvideo.Visible = false;
+            NombrePlaylistExiste.Visible = false;
+            VideoPlaylistCreadaConExitoLabel.Visible =false;
+            CrearVideoPlaylistpanel.Visible = true;
         }
+        
 
         private void DeleteVideoPlaylistButton_Click(object sender, EventArgs e)
         {
@@ -1116,8 +1130,47 @@ namespace Proyectog15WF
             string qual = CalificacionComboBox.SelectedItem.ToString();
         }
 
-      
+        private void VideoInMyplaylistButton_Click(object sender, EventArgs e)
+        {
+            MyVideoPlaylistPanel.Visible = true;
+        }
 
-       
+        private void BackMyVideoPlaylistButton_Click(object sender, EventArgs e)
+        {
+            MyVideoPlaylistPanel.Visible = false;
+        }
+
+        private void CrearVideoPlaylist_Click(object sender, EventArgs e)
+        {
+            string nameVideo = NombreVideoPlalistInput.Text;
+            string privacidad = PrivacidadVideoPlaylist.SelectedItem.ToString();
+            bool UserNotPublic = false;
+            bool NamePlaylistExist = false;
+            if (UserNotPublic)
+            {
+                Errorplaylistvideo.Visible = true;
+            }
+            if (NamePlaylistExist)
+            {
+                NombrePlaylistExiste.Visible = true;
+            }
+            else
+            {
+                VideoPlaylistCreadaConExitoLabel.Visible = true;
+            }
+
+        }
+
+        private void BackFollowingPlaylist_Click(object sender, EventArgs e)
+        {
+            VideosInFollowingPlaylistPanel.Visible = false;
+        }
+
+        private void VideosInFollowingPlaylistButton_Click(object sender, EventArgs e)
+        {
+            VideosInFollowingPlaylistPanel.Visible = true;
+        }
+
+     
     }    
 }
