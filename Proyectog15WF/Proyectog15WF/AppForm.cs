@@ -466,11 +466,11 @@ namespace Proyectog15WF
 
         private void MediaSeachButton_Click(object sender, EventArgs e)
         {
-            //MainScreenPanel.Visible = false;
             SubFiltersPanel.Visible = false;
             SearchUserPanel.Visible = false;
             SearchArtistPanel.Visible = false;
             SearchMainPanel.Visible = true;
+            SubMediaSearchPanel.Visible = false;
             if (SearchMediapanel.Visible)
             {
                 SearchMediapanel.Visible = true;
@@ -605,6 +605,7 @@ namespace Proyectog15WF
             FollowPlaylistSongPanel.Visible = true;
             PlaylistMySongPanel.Visible = false;
             CrearSongPlaylistPanel.Visible = false;
+            SubMyPlaylistPanel.Visible = false;
         }
 
         private void MostLisentSonButton_Click(object sender, EventArgs e)
@@ -613,6 +614,7 @@ namespace Proyectog15WF
             FollowPlaylistSongPanel.Visible = false;
             PlaylistMySongPanel.Visible = false;
             CrearSongPlaylistPanel.Visible = false;
+            SubMyPlaylistPanel.Visible = false;
         }
 
         private void SongButton_Click(object sender, EventArgs e)
@@ -667,11 +669,6 @@ namespace Proyectog15WF
             AlbumArtistPanel.Visible = false;
         }
 
-        private void DescripcionVideo_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void SongAlbumButton_Click(object sender, EventArgs e)
         {
             SongsAlbumPanel.Visible = true;
@@ -701,6 +698,7 @@ namespace Proyectog15WF
             VideoMyPlaylistPanel.Visible = false;
             VideoFollowPanel.Visible = false;
             MyVideoPlaylistPanel.Visible = false;
+            SubVideoPlaylistPanel.Visible = false;
         }
 
         private void FolloweVideoButton_Click(object sender, EventArgs e)
@@ -710,6 +708,7 @@ namespace Proyectog15WF
             VideoMyPlaylistPanel.Visible = false;
             MyVideoPlaylistPanel.Visible = false;
             VideosInFollowingPlaylistPanel.Visible = false;
+            SubVideoPlaylistPanel.Visible = false;
         }
 
         private void EditeProfilebutton_Click(object sender, EventArgs e)
@@ -1144,8 +1143,10 @@ namespace Proyectog15WF
         {
             string nameVideo = NombreVideoPlalistInput.Text;
             string privacidad = PrivacidadVideoPlaylist.SelectedItem.ToString();
+
             bool UserNotPublic = false;
             bool NamePlaylistExist = false;
+
             if (UserNotPublic)
             {
                 Errorplaylistvideo.Visible = true;
@@ -1177,6 +1178,37 @@ namespace Proyectog15WF
         }
 
         private void MisVideoMyPlaylist_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AddMediaButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        //Este metodo es para que apareca el panel del playlist
+
+        private void AddToPlaylistButton_Click(object sender, EventArgs e)
+        {
+           if(SubMediaSearchPanel.Visible)
+            {
+                SubMediaSearchPanel.Visible = false;
+            }
+            else
+            { 
+             SubMediaSearchPanel.Visible = true; 
+            }
+
+        }
+
+
+        private void PlaylistListBoxAdd_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AgregarMediaPlaylistButton_Click(object sender, EventArgs e)
         {
 
         }

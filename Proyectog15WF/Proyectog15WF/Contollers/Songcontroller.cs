@@ -29,7 +29,7 @@ namespace Proyectog15WF.Contollers
         public void Chargesong()
         {
 
-            songs.Add(new Song("Tusa.mp3", "Hip-Hop", "Dadddy Yankee", "El cartel: The big Boss", "Cartel Records", new DateTime(2007, 4, 24), "Tu me dejaste caer pero ella me levanto llamale poca mujer..", 4, "Reggaeton", 0, 0, "Masculino", "30"));
+            songs.Add(new Song("UNITED.mp3", "Hip-Hop", "Dadddy Yankee", "El cartel: The big Boss", "Cartel Records", new DateTime(2007, 4, 24), "Tu me dejaste caer pero ella me levanto llamale poca mujer..", 4, "Reggaeton", 0, 0, "Masculino", "30"));
 
         }
         public void OnSearchTextChanged(object sender, SearchingSongorVideo e)
