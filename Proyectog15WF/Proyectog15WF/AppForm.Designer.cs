@@ -1868,6 +1868,7 @@
             this.VideosInFollowingPlaylistListbox.Name = "VideosInFollowingPlaylistListbox";
             this.VideosInFollowingPlaylistListbox.Size = new System.Drawing.Size(351, 504);
             this.VideosInFollowingPlaylistListbox.TabIndex = 0;
+            this.VideosInFollowingPlaylistListbox.SelectedIndexChanged += new System.EventHandler(this.VideosInFollowingPlaylistListbox_SelectedIndexChanged);
             // 
             // VideosInFollowingPlaylistButton
             // 
@@ -1915,6 +1916,7 @@
             this.VideoMyPlaylistPanel.Controls.Add(this.MyVideoPlaylist);
             this.VideoMyPlaylistPanel.Controls.Add(this.MyVideoListBox);
             this.VideoMyPlaylistPanel.Controls.Add(this.VideoInMyplaylistButton);
+            this.VideoMyPlaylistPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.VideoMyPlaylistPanel.Location = new System.Drawing.Point(232, 0);
             this.VideoMyPlaylistPanel.Name = "VideoMyPlaylistPanel";
             this.VideoMyPlaylistPanel.Size = new System.Drawing.Size(492, 683);
@@ -2116,6 +2118,7 @@
             this.MisVideoMyPlaylist.Name = "MisVideoMyPlaylist";
             this.MisVideoMyPlaylist.Size = new System.Drawing.Size(351, 504);
             this.MisVideoMyPlaylist.TabIndex = 0;
+            this.MisVideoMyPlaylist.SelectedIndexChanged += new System.EventHandler(this.MisVideoMyPlaylist_SelectedIndexChanged);
             // 
             // MyVideoPlaylist
             // 

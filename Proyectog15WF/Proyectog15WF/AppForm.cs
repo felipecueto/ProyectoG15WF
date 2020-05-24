@@ -1171,6 +1171,14 @@ namespace Proyectog15WF
             VideosInFollowingPlaylistPanel.Visible = true;
         }
 
-     
+        private void VideosInFollowingPlaylistListbox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MisVideoMyPlaylist_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }    
 }
