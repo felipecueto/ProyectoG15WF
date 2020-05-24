@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    class Queue
+    public class SongQueue
     {
-        List<string> queue; // Quizas hacer la lista de objetos Song
+        List<Song> queue;
 
-        public Queue()
+        public SongQueue()
         {
-            this.queue = new List<string>();
+            this.queue = new List<Song>();
         }
 
 
@@ -25,9 +25,9 @@ namespace Model
             return false;
         }
 
-        public bool AddToQueue(string songName)
+        public bool AddToQueue(Song song)
         {
-            queue.Add(songName);
+            queue.Add(song);
             return true; // Se agrega cancion a la queue
         }
 
@@ -35,16 +35,21 @@ namespace Model
         {
             if (0 < queue.Count())
             {
-                foreach (string value in queue)
+                foreach (Song value in queue)
                 {
-                    if (value == songName)
+                    if (value.Namesong == songName)
                     {
-                        queue.Remove(songName);
+                        queue.Remove(value);
                         return true; // Cancion agregada
                     }
                 }
             }
             return false; // No se elimino la cancion o no hay canciones en queue
+        }
+        public bool ClearQueue()
+        {
+            queue.Clear();
+            return true; // Queue Cleared
         }
     }
 }

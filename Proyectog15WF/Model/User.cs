@@ -13,6 +13,8 @@ namespace Model
         string name;
         string lastname;
         string mail;
+        List<PlaylistSong> musicplaylist = new List<PlaylistSong>();
+        List<PlaylistVideo> videoplaylist = new List<PlaylistVideo>();
 
 
         public User()
@@ -29,6 +31,8 @@ namespace Model
             this.password = password;
             this.mail = email;
             this.lastname = lastname;
+            AddMusicPlaylist("Musica Favorita");
+            AddVideoPlaylist("Videos Favoritos");
         }
 
         public string Name { get => name; set => name = value; }
@@ -48,6 +52,63 @@ namespace Model
         {
             return "Usuario: " + this.Username + " ";
         }
+
+        //Playlist Methods
+        public bool AddMusicPlaylist(string playlistname)
+        {
+            foreach (PlaylistSong playlist in musicplaylist)
+            {
+                if (playlist.GetPlaylistName() == playlistname)
+                {
+                    return false; // No se agrego la playlist
+                }
+            }
+            musicplaylist.Add(new PlaylistSong(playlistname));
+            return true; // Se agrega la playlist
+        }
+
+        public bool RemoveMusicPlaylist(string playlistname)
+        {
+            foreach (PlaylistSong playlist in musicplaylist)
+            {
+                if (playlist.GetPlaylistName() == playlistname)
+                {
+                    musicplaylist.Remove(playlist);
+                    return true; //elimina la playlist
+                }
+            }
+            return false; //No elimina nada
+        }
+
+        public bool AddVideoPlaylist(string playlistname)
+        {
+            foreach (PlaylistVideo playlist in videoplaylist)
+            {
+                if (playlist.GetPlaylistName() == playlistname)
+                {
+                    return false; // No se agrego la playlist
+                }
+            }
+            videoplaylist.Add(new PlaylistVideo(playlistname));
+            return true; // Se agrega la playlist
+        }
+
+        public void RemoveVideoPlaylist(string playlistname)
+        {
+            foreach (PlaylistVideo playlist in videoplaylist)
+            {
+                if (playlist.GetPlaylistName() == playlistname)
+                {
+                    videoplaylist.Remove(playlist);
+                }
+            }
+        }
+
+        public List<PlaylistSong> GetPlaylistSongs()
+        {
+            return musicplaylist;
+        }
+        //
 
     }
 }

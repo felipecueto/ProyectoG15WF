@@ -15,7 +15,7 @@ namespace Controllers
         List<User> users = new List<User>();
         AppForm view;
 
-        
+
 
         public UserController(Form view)
         {
@@ -25,6 +25,8 @@ namespace Controllers
             this.view.RegisterButtonClicked += OnRegisterButtonClicked;
             this.view.Checkusernameregister += OncheckUsernameregister;
             this.view.Searching += OnSearchTextChanged;
+            this.view.Sendingplaylist += OnShowSongPlaylist;
+            this.view.Userselectedplaylist += OnRemovePlaylist;
         }
 
 
@@ -54,7 +56,7 @@ namespace Controllers
         }
         public bool OnRegisterButtonClicked(object sender, RegisterEventArgs e)
         {
-            users.Add(new User(e.Usernametext, e.Nametext,e.Lastnametext, e.Email, e.Passwordtext));
+            users.Add(new User(e.Usernametext, e.Nametext, e.Lastnametext, e.Email, e.Passwordtext));
             return true;
 
         }
@@ -86,6 +88,42 @@ namespace Controllers
                     resultString.Add(s.ToString());
             }
             view.UpdateResults(resultString);
+        }
+
+        public List<PlaylistSong> OnShowSongPlaylist(object sender, GetUserPlaylistEventsArgs e)
+        {
+            foreach (User usuario in users)
+            {
+                if (usuario.Username.ToUpper() == e.ActualLoggedUsername.ToUpper())
+                {
+                    return usuario.GetPlaylistSongs();
+                }
+            }
+            return new List<PlaylistSong>() { new PlaylistSong("Sin Playlist") };
+        }
+
+        public void OnAddMusicPlaylist(object sender, GetUserPlaylistEventsArgs e)
+        {
+            foreach (User usuario in users)
+            {
+                if (usuario.Username.ToUpper() == e.ActualLoggedUsername.ToUpper())
+                {
+                    usuario.AddMusicPlaylist(e.PlaylistNameText);
+                }
+            }
+        }
+
+        public bool OnRemovePlaylist(object sender, GetUserPlaylistEventsArgs e)
+        {
+            foreach (User usuario in users)
+            {
+                if (usuario.Username.ToUpper() == e.ActualLoggedUsername.ToUpper())
+                {
+                    usuario.RemoveMusicPlaylist(e.ActualPlaylistSelected);
+                    return true; // Elimina la playlist
+                }
+            }
+            return false; //no elimina nada
         }
 
     }

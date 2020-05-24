@@ -1,5 +1,6 @@
 ﻿
 using CustomEventArgs;
+using Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -29,6 +30,12 @@ namespace Proyectog15WF
         public event CheckusernameEventHandler Checkusernameregister;
         public event EventHandler<SearchUserEventArgs> Searching;
         public event EventHandler<SearchingSongorVideo> Searchingnamevideoorsong;
+
+        // Eventos playlist
+        public delegate List<PlaylistSong> SendingPlaylistHandler(object source, GetUserPlaylistEventsArgs args);
+        public event SendingPlaylistHandler Sendingplaylist;
+        public delegate bool SendingActualPlaylistHandler(object source, GetUserPlaylistEventsArgs args);
+        public event SendingActualPlaylistHandler Userselectedplaylist;
 
         public delegate string SelectedVideoEventHandler(object source, SelectVideoEventArgs args);
         public event SelectedVideoEventHandler Reproducevideo;
@@ -562,8 +569,6 @@ namespace Proyectog15WF
             MasEsuchadaPanel.Visible = false;
             FollowPlaylistSongPanel.Visible = false;
             SongsInMyPlaylistPanel.Visible = false;
-            SongSeguidasPlaylistPanel.Visible = false;
-            CrearSongPlaylistPanel.Visible = false;
             if (SubMyPlaylistPanel.Visible)
             {
                 SubMyPlaylistPanel.Visible = false;
@@ -571,9 +576,22 @@ namespace Proyectog15WF
             else
             {
                 SubMyPlaylistPanel.Visible = true;
-                MySongsListBox.Items.Add("--Favorites Songs--"); // con esto accedo al listbox de playlistsong y obtengo las playlist
-                MySongsListBox.Items.Add(nameuser); //Aqui esta el nombre del usuario (lo puse aqui para comprobar si esta tomando el usuario cada vez que hago log in
+                foreach (PlaylistSong playlist in OnReciveUsernamePlaylist())
+                {
+                    MySongsListBox.Items.Add(playlist.GetPlaylistName()); // con esto accedo al listbox de playlistsong y obtengo las playlist
+                    //MySongsListBox.Items.Add(nameuser); //Aqui esta el nombre del usuario (lo puse aqui para comprobar si esta tomando el usuario cada vez que hago log in
+                }
             }
+        }
+
+        public List<PlaylistSong> OnReciveUsernamePlaylist()
+        {
+            if (Sendingplaylist != null)
+            {
+                List<PlaylistSong> Userplaylist = Sendingplaylist(this, new GetUserPlaylistEventsArgs() { ActualLoggedUsername = nameuser });
+                return Userplaylist;
+            }
+            return null;
         }
 
         private void FollowingPlaylist_Click(object sender, EventArgs e)
@@ -966,7 +984,7 @@ namespace Proyectog15WF
         //Canciones
         private void MySongsListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            DeletePlaylistButton_Click(sender, e);
         }
 
         private void FollowPlaylistSongListBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -988,7 +1006,14 @@ namespace Proyectog15WF
           
         private void DeletePlaylistButton_Click(object sender, EventArgs e)
         {
-
+            if (Userselectedplaylist != null)
+            {
+                string playlistname = SongInMyPlaylistListBox.Text.ToString();
+                if (Userselectedplaylist(this, new GetUserPlaylistEventsArgs { ActualPlaylistSelected = playlistname, ActualLoggedUsername = nameuser }) == true)
+                {
+                    MySongsListBox.Items.Remove(playlistname);
+                }
+            }
         }
         private void VerCancionesEnMisPlaylistButton_Click(object sender, EventArgs e)
         {

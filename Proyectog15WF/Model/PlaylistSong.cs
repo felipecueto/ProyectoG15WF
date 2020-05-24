@@ -6,24 +6,17 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    public class Playlist
+    public class PlaylistSong
     {
-        List<string> songs; // Quizas hacer una lista de objetos Song
-        List<string> random; // Quizas hacer una lista de objetos Song
+        List<Song> songs;
+        List<Song> random;
         List<bool> preferences;
         string name;
 
-
-        // Dictionary<string, List<string>> followedplaylist = new Dictionary<string, List<string>>(); aplicar en user
-        //private Dictionary<int, string> queuelist; aplicar en user
-
-        // string lastPlayed;aplicar en user
-        // string nowPlaying;aplicar en user
-
-        public Playlist(string playlistname)
+        public PlaylistSong(string playlistname)
         {
-            this.songs = new List<string>();
-            this.random = new List<string>();
+            this.songs = new List<Song>();
+            this.random = new List<Song>();
             this.preferences = new List<bool>() { false, false }; //privacy, download
             this.name = playlistname;
         }
@@ -41,7 +34,7 @@ namespace Model
         {
             return name;
         }
-        public List<string> GetPlaylistAllSongs()
+        public List<Song> GetPlaylistAllSongs()
         {
             return songs;
         }
@@ -84,26 +77,27 @@ namespace Model
             }
         }
 
-        public bool AddSong(string songname)
+        public bool AddSong(Song song)
         {
-            foreach (string value in songs)
+            foreach (Song value in songs)
             {
-                if (value == songname)
+                if (value.Namesong == song.Namesong)
                 {
                     return false; // no agrega la cancion porque ya está
                 }
             }
 
-            songs.Add(songname);
+            songs.Add(song);
             return true; // si agrego la cancion
         }
 
-        public bool RemoveSong(string songname)
+        public bool RemoveSong(Song song)
         {
-            foreach (string value in songs)
+            foreach (Song value in songs)
             {
-                if (value == songname)
+                if (value.Namesong == song.Namesong)
                 {
+                    songs.Remove(song);
                     return true; // La cancion es eliminada
                 }
             }
@@ -116,12 +110,12 @@ namespace Model
             return random.Next(min, max); // Devuelve un numero random
         }
 
-        public List<string> RandomPlaylistOrder()
+        public List<Song> RandomPlaylistOrder()
         {
             random.Clear();
             int counter = songs.Count();
 
-            foreach (string value in this.songs)
+            foreach (Song value in this.songs)
             {
                 random.Add(songs[RandomNumber(1, counter + 1)]);
                 counter--;
