@@ -569,6 +569,8 @@ namespace Proyectog15WF
             MasEsuchadaPanel.Visible = false;
             FollowPlaylistSongPanel.Visible = false;
             SongsInMyPlaylistPanel.Visible = false;
+            SongSeguidasPlaylistPanel.Visible = false;
+            CrearSongPlaylistPanel.Visible = false;
             if (SubMyPlaylistPanel.Visible)
             {
                 SubMyPlaylistPanel.Visible = false;
