@@ -22,6 +22,8 @@ namespace Proyectog15WF
         string namesong = "";
         string nameuser = ""; //ESTE ES EL NO,BRE DEL USUARIO
         bool buttonClickdelete = false;
+        Song variablecancion = null; //CANCION SELECCIONADA
+        List<Song> cancionesdelusuario = new List<Song>(); //LISTA DE CANCIONES DEL USUARIO
         public delegate bool LoginEventHandler(object source, LoginEventArgs args);
         public event LoginEventHandler LoginButtonClicked;
         public event EventHandler<LoginEventArgs> UserChecked;
@@ -47,6 +49,9 @@ namespace Proyectog15WF
         //Evento cambiar contraseña
         public delegate bool ChangepasswordEvnetHandler(object source, ChangePasswordEventArgs args);
         public event ChangepasswordEvnetHandler Changingpassword;
+        //Evento para agregar cacnion a la playlist
+        public delegate Song ReceiveSongEventHandler(object source, ReturnsongEventArgs args);
+        public event ReceiveSongEventHandler Recivingsong;
 
         List<Panel> stackPanels = new List<Panel>();
         Dictionary<string, Panel> panels = new Dictionary<string, Panel>();
@@ -871,17 +876,29 @@ namespace Proyectog15WF
 
 
                         namevideo = Reproducevideo(this, new SelectVideoEventArgs() { Selectedvideo = Convert.ToString(SearchMediapanellistBox.SelectedItem) });
-
+                        
 
 
                     }
                 }
-                if (Reproducesong != null)
+                if (Reproducesong != null )
                 {
                     if (!SearchMediapanellistBox.SelectedItem.Equals("No results for search criteria"))
                     {
                         namesong = Reproducesong(this, new SelectSongEventArgs() { Selectedsong = Convert.ToString(SearchMediapanellistBox.SelectedItem) });
+                        
+                        
                     }
+
+                }
+                if (Recivingsong != null)
+                {
+                      if (!SearchMediapanellistBox.SelectedItem.Equals("No results for search criteria"))
+                      {
+                            variablecancion  = Recivingsong(this, new ReturnsongEventArgs() { Verifysonginsongofuser = Convert.ToString(SearchMediapanellistBox.SelectedItem) });
+                            cancionesdelusuario.Add(variablecancion);
+
+                      }
 
                 }
 
@@ -1030,6 +1047,20 @@ namespace Proyectog15WF
                     MySongsListBox.Items.Remove(playlist_seleccionada);
                 }
             }
+            foreach(PlaylistSong playsofsongs in OnReciveUsernamePlaylist()) 
+            {
+                if (playsofsongs.GetPlaylistName() == playlist_seleccionada)
+                {
+                    foreach(Song canciones in playsofsongs.GetPlaylistAllSongs())
+                    {
+                        SongInMyPlaylistListBox.Items.Add(canciones.Namesong);
+                    }
+                }
+            
+            }
+
+
+
         }
 
         private void FollowPlaylistSongListBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -1056,6 +1087,10 @@ namespace Proyectog15WF
         private void VerCancionesEnMisPlaylistButton_Click(object sender, EventArgs e)
         {
             SongsInMyPlaylistPanel.Visible = true;
+
+
+
+
         }
         private void BackMyPlaylistSong_Click(object sender, EventArgs e)
         {
@@ -1203,25 +1238,56 @@ namespace Proyectog15WF
         private void AddToPlaylistButton_Click(object sender, EventArgs e)
         {
            if(SubMediaSearchPanel.Visible)
-            {
+           {
                 SubMediaSearchPanel.Visible = false;
-            }
+           }
             else
             { 
-             SubMediaSearchPanel.Visible = true; 
+             SubMediaSearchPanel.Visible = true;
+                foreach (PlaylistSong playlist in OnReciveUsernamePlaylist())
+                {
+                    if (!PlaylistListBoxAdd.Items.Contains(playlist.GetPlaylistName()))
+                    {
+                        PlaylistListBoxAdd.Items.Add(playlist.GetPlaylistName());// con esto accedo al listbox de playlistsong y obtengo las playlist
+                        
+                    }
+
+
+                }
+
             }
 
         }
 
-
         private void PlaylistListBoxAdd_SelectedIndexChanged(object sender, EventArgs e)
-        {
+        {   
+            if (!PlaylistListBoxAdd.SelectedItem.Equals("No results for search criteria") && botonparaagregaralaplaylist)
+            {
+               List< PlaylistSong> playlistSong = OnReciveUsernamePlaylist();
+                
+                foreach(PlaylistSong cancionesinplaylistsong in playlistSong)
+                {
+                    if (cancionesinplaylistsong.GetPlaylistName() == Convert.ToString(PlaylistListBoxAdd.SelectedItem))
+                    {
+                        foreach (Song song in cancionesdelusuario)
+                        {
+                            if (SearchMediapanellistBox.SelectedItem.Equals(song.Namesong))
+                            {
+                                cancionesinplaylistsong.AddSong(song);
+                            }
+                        }
+                    }
+                    
+                }
 
+            }
         }
-
+        
+        bool botonparaagregaralaplaylist = false; //boton que agrega a la playlist
         private void AgregarMediaPlaylistButton_Click(object sender, EventArgs e)
         {
-
+            botonparaagregaralaplaylist = true;
         }
+       
     }    
 }

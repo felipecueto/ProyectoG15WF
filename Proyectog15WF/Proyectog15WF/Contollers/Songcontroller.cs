@@ -24,6 +24,7 @@ namespace Proyectog15WF.Contollers
             this.view = view as AppForm;
             this.view.Searchingnamevideoorsong += OnSearchTextChanged;
             this.view.Reproducesong += OnSelectedSongVideoEventArgs;
+            this.view.Recivingsong += OnverifySong;
         }
 
         public void Chargesong()
@@ -58,6 +59,7 @@ namespace Proyectog15WF.Contollers
                     resultString.Add(s.ToString());
             }
             view.UpdateResultsvideoandsong(resultString);
+            
         }
         public string OnSelectedSongVideoEventArgs(object sender, SelectSongEventArgs e)
         {
@@ -72,6 +74,17 @@ namespace Proyectog15WF.Contollers
             return reproduce;
 
 
+        }
+        public Song OnverifySong(object sender, ReturnsongEventArgs e)
+        {   
+            foreach(Song cancion  in songs)
+            {
+                if (e.Verifysonginsongofuser.Contains(cancion.Namesong))
+                {
+                    return cancion;
+                }
+            }
+            return null;
         }
 
 
