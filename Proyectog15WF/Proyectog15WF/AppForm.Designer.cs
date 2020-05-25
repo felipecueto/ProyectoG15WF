@@ -145,11 +145,32 @@
             this.VideoMasVistosLabel = new System.Windows.Forms.Label();
             this.VideosMasVistos = new System.Windows.Forms.ListBox();
             this.VideoFollowPanel = new System.Windows.Forms.Panel();
+            this.VideosInFollowingPlaylistPanel = new System.Windows.Forms.Panel();
+            this.VideoFollowingPlaylistName = new System.Windows.Forms.Label();
+            this.BackFollowingPlaylist = new FontAwesome.Sharp.IconButton();
+            this.VideosInFollowingPlaylistListbox = new System.Windows.Forms.ListBox();
+            this.VideosInFollowingPlaylistButton = new FontAwesome.Sharp.IconButton();
             this.FollowLabel = new System.Windows.Forms.Label();
             this.FollowVideoListBox = new System.Windows.Forms.ListBox();
             this.VideoMyPlaylistPanel = new System.Windows.Forms.Panel();
+            this.CrearVideoPlaylistpanel = new System.Windows.Forms.Panel();
+            this.Errorplaylistvideo = new System.Windows.Forms.Label();
+            this.NombrePlaylistExiste = new System.Windows.Forms.Label();
+            this.VideoPlaylistCreadaConExitoLabel = new System.Windows.Forms.Label();
+            this.CrearVideoPlaylist = new FontAwesome.Sharp.IconButton();
+            this.PrivacidadVideoPlaylist = new System.Windows.Forms.ComboBox();
+            this.NombreVideoPlalistInput = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.PriviacidadVideoLabel = new System.Windows.Forms.Label();
+            this.NombreVideoPlaylistLabel = new System.Windows.Forms.Label();
+            this.MyVideoPlaylistPanel = new System.Windows.Forms.Panel();
+            this.DeleteVideoButton = new FontAwesome.Sharp.IconButton();
+            this.BackMyVideoPlaylistButton = new FontAwesome.Sharp.IconButton();
+            this.MyVideoPlaylistNameLabel = new System.Windows.Forms.Label();
+            this.MisVideoMyPlaylist = new System.Windows.Forms.ListBox();
             this.MyVideoPlaylist = new System.Windows.Forms.Label();
             this.MyVideoListBox = new System.Windows.Forms.ListBox();
+            this.VideoInMyplaylistButton = new FontAwesome.Sharp.IconButton();
             this.panel5 = new System.Windows.Forms.Panel();
             this.MasVistoButton = new FontAwesome.Sharp.IconButton();
             this.FolloweVideoButton = new FontAwesome.Sharp.IconButton();
@@ -185,7 +206,6 @@
             this.NewPlaylistNameLabel = new System.Windows.Forms.Label();
             this.SongsInMyPlaylistPanel = new System.Windows.Forms.Panel();
             this.BorrarCancionMyplaylist = new FontAwesome.Sharp.IconButton();
-            this.AddSongMyPlaylists = new FontAwesome.Sharp.IconButton();
             this.BackMyPlaylistSong = new FontAwesome.Sharp.IconButton();
             this.NombreMyplaylistSonglabel = new System.Windows.Forms.Label();
             this.SongInMyPlaylistListBox = new System.Windows.Forms.ListBox();
@@ -224,8 +244,12 @@
             this.IconSearchLogo = new FontAwesome.Sharp.IconPictureBox();
             this.SearchArtistLogo = new System.Windows.Forms.Label();
             this.SearchMediapanel = new System.Windows.Forms.Panel();
+            this.SubMediaSearchPanel = new System.Windows.Forms.Panel();
+            this.AgregarMediaPlaylistButton = new FontAwesome.Sharp.IconButton();
+            this.PlaylistListBoxAdd = new System.Windows.Forms.ListBox();
             this.SearchMediapanellistBox = new System.Windows.Forms.ListBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.AddToPlaylistButton = new FontAwesome.Sharp.IconButton();
             this.SubFiltersPanel = new System.Windows.Forms.Panel();
             this.ResolucionButton = new System.Windows.Forms.Button();
             this.CategoriaButton = new System.Windows.Forms.Button();
@@ -338,7 +362,10 @@
             this.PlaylistVideoPanel.SuspendLayout();
             this.MasVistosPanel.SuspendLayout();
             this.VideoFollowPanel.SuspendLayout();
+            this.VideosInFollowingPlaylistPanel.SuspendLayout();
             this.VideoMyPlaylistPanel.SuspendLayout();
+            this.CrearVideoPlaylistpanel.SuspendLayout();
+            this.MyVideoPlaylistPanel.SuspendLayout();
             this.panel5.SuspendLayout();
             this.SubVideoPlaylistPanel.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -368,6 +395,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.IconSearchUserLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.IconSearchLogo)).BeginInit();
             this.SearchMediapanel.SuspendLayout();
+            this.SubMediaSearchPanel.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SubFiltersPanel.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -1225,11 +1253,11 @@
             // 
             this.VideoAlbumPanel.Controls.Add(this.VideoAlbumLabel);
             this.VideoAlbumPanel.Controls.Add(this.VideoAlbumListBox);
-            this.VideoAlbumPanel.Dock = System.Windows.Forms.DockStyle.Left;
+            this.VideoAlbumPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.VideoAlbumPanel.Location = new System.Drawing.Point(130, 0);
             this.VideoAlbumPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.VideoAlbumPanel.Name = "VideoAlbumPanel";
-            this.VideoAlbumPanel.Size = new System.Drawing.Size(349, 444);
+            this.VideoAlbumPanel.Size = new System.Drawing.Size(352, 444);
             this.VideoAlbumPanel.TabIndex = 2;
             this.VideoAlbumPanel.Visible = false;
             // 
@@ -1241,7 +1269,7 @@
             this.VideoAlbumLabel.Location = new System.Drawing.Point(97, 23);
             this.VideoAlbumLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.VideoAlbumLabel.Name = "VideoAlbumLabel";
-            this.VideoAlbumLabel.Size = new System.Drawing.Size(238, 34);
+            this.VideoAlbumLabel.Size = new System.Drawing.Size(240, 34);
             this.VideoAlbumLabel.TabIndex = 1;
             this.VideoAlbumLabel.Text = "Videos";
             // 
@@ -1253,7 +1281,7 @@
             this.VideoAlbumListBox.Location = new System.Drawing.Point(50, 70);
             this.VideoAlbumListBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.VideoAlbumListBox.Name = "VideoAlbumListBox";
-            this.VideoAlbumListBox.Size = new System.Drawing.Size(257, 329);
+            this.VideoAlbumListBox.Size = new System.Drawing.Size(260, 329);
             this.VideoAlbumListBox.TabIndex = 0;
             this.VideoAlbumListBox.SelectedIndexChanged += new System.EventHandler(this.VideoAlbumListBox_SelectedIndexChanged);
             // 
@@ -1673,7 +1701,7 @@
             this.SubirCancionButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.SubirCancionButton.Name = "SubirCancionButton";
             this.SubirCancionButton.Rotation = 0D;
-            this.SubirCancionButton.Size = new System.Drawing.Size(199, 43);
+            this.SubirCancionButton.Size = new System.Drawing.Size(198, 43);
             this.SubirCancionButton.TabIndex = 33;
             this.SubirCancionButton.Text = "Subir";
             this.SubirCancionButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -1857,10 +1885,11 @@
             // 
             this.MasVistosPanel.Controls.Add(this.VideoMasVistosLabel);
             this.MasVistosPanel.Controls.Add(this.VideosMasVistos);
+            this.MasVistosPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MasVistosPanel.Location = new System.Drawing.Point(155, 0);
             this.MasVistosPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.MasVistosPanel.Name = "MasVistosPanel";
-            this.MasVistosPanel.Size = new System.Drawing.Size(328, 444);
+            this.MasVistosPanel.Size = new System.Drawing.Size(327, 444);
             this.MasVistosPanel.TabIndex = 3;
             this.MasVistosPanel.Visible = false;
             // 
@@ -1872,7 +1901,7 @@
             this.VideoMasVistosLabel.Location = new System.Drawing.Point(45, 27);
             this.VideoMasVistosLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.VideoMasVistosLabel.Name = "VideoMasVistosLabel";
-            this.VideoMasVistosLabel.Size = new System.Drawing.Size(304, 41);
+            this.VideoMasVistosLabel.Size = new System.Drawing.Size(303, 41);
             this.VideoMasVistosLabel.TabIndex = 1;
             this.VideoMasVistosLabel.Text = "Mas Vistos";
             this.VideoMasVistosLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1885,12 +1914,14 @@
             this.VideosMasVistos.Location = new System.Drawing.Point(47, 70);
             this.VideosMasVistos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.VideosMasVistos.Name = "VideosMasVistos";
-            this.VideosMasVistos.Size = new System.Drawing.Size(235, 329);
+            this.VideosMasVistos.Size = new System.Drawing.Size(234, 329);
             this.VideosMasVistos.TabIndex = 0;
             this.VideosMasVistos.SelectedIndexChanged += new System.EventHandler(this.VideosMasVistos_SelectedIndexChanged);
             // 
             // VideoFollowPanel
             // 
+            this.VideoFollowPanel.Controls.Add(this.VideosInFollowingPlaylistPanel);
+            this.VideoFollowPanel.Controls.Add(this.VideosInFollowingPlaylistButton);
             this.VideoFollowPanel.Controls.Add(this.FollowLabel);
             this.VideoFollowPanel.Controls.Add(this.FollowVideoListBox);
             this.VideoFollowPanel.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -1900,6 +1931,74 @@
             this.VideoFollowPanel.Size = new System.Drawing.Size(327, 444);
             this.VideoFollowPanel.TabIndex = 2;
             this.VideoFollowPanel.Visible = false;
+            // 
+            // VideosInFollowingPlaylistPanel
+            // 
+            this.VideosInFollowingPlaylistPanel.Controls.Add(this.VideoFollowingPlaylistName);
+            this.VideosInFollowingPlaylistPanel.Controls.Add(this.BackFollowingPlaylist);
+            this.VideosInFollowingPlaylistPanel.Controls.Add(this.VideosInFollowingPlaylistListbox);
+            this.VideosInFollowingPlaylistPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.VideosInFollowingPlaylistPanel.Location = new System.Drawing.Point(0, 0);
+            this.VideosInFollowingPlaylistPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.VideosInFollowingPlaylistPanel.Name = "VideosInFollowingPlaylistPanel";
+            this.VideosInFollowingPlaylistPanel.Size = new System.Drawing.Size(327, 444);
+            this.VideosInFollowingPlaylistPanel.TabIndex = 3;
+            this.VideosInFollowingPlaylistPanel.Visible = false;
+            // 
+            // VideoFollowingPlaylistName
+            // 
+            this.VideoFollowingPlaylistName.AutoSize = true;
+            this.VideoFollowingPlaylistName.Font = new System.Drawing.Font("MV Boli", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.VideoFollowingPlaylistName.Location = new System.Drawing.Point(47, 34);
+            this.VideoFollowingPlaylistName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.VideoFollowingPlaylistName.Name = "VideoFollowingPlaylistName";
+            this.VideoFollowingPlaylistName.Size = new System.Drawing.Size(217, 34);
+            this.VideoFollowingPlaylistName.TabIndex = 2;
+            this.VideoFollowingPlaylistName.Text = "NombrePlaylist";
+            // 
+            // BackFollowingPlaylist
+            // 
+            this.BackFollowingPlaylist.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.BackFollowingPlaylist.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.BackFollowingPlaylist.IconChar = FontAwesome.Sharp.IconChar.ArrowAltCircleRight;
+            this.BackFollowingPlaylist.IconColor = System.Drawing.Color.Black;
+            this.BackFollowingPlaylist.IconSize = 36;
+            this.BackFollowingPlaylist.Location = new System.Drawing.Point(285, 70);
+            this.BackFollowingPlaylist.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.BackFollowingPlaylist.Name = "BackFollowingPlaylist";
+            this.BackFollowingPlaylist.Rotation = 0D;
+            this.BackFollowingPlaylist.Size = new System.Drawing.Size(37, 36);
+            this.BackFollowingPlaylist.TabIndex = 1;
+            this.BackFollowingPlaylist.UseVisualStyleBackColor = true;
+            this.BackFollowingPlaylist.Click += new System.EventHandler(this.BackFollowingPlaylist_Click);
+            // 
+            // VideosInFollowingPlaylistListbox
+            // 
+            this.VideosInFollowingPlaylistListbox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.VideosInFollowingPlaylistListbox.FormattingEnabled = true;
+            this.VideosInFollowingPlaylistListbox.Location = new System.Drawing.Point(47, 70);
+            this.VideosInFollowingPlaylistListbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.VideosInFollowingPlaylistListbox.Name = "VideosInFollowingPlaylistListbox";
+            this.VideosInFollowingPlaylistListbox.Size = new System.Drawing.Size(234, 329);
+            this.VideosInFollowingPlaylistListbox.TabIndex = 0;
+            this.VideosInFollowingPlaylistListbox.SelectedIndexChanged += new System.EventHandler(this.VideosInFollowingPlaylistListbox_SelectedIndexChanged);
+            // 
+            // VideosInFollowingPlaylistButton
+            // 
+            this.VideosInFollowingPlaylistButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.VideosInFollowingPlaylistButton.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.VideosInFollowingPlaylistButton.IconChar = FontAwesome.Sharp.IconChar.Film;
+            this.VideosInFollowingPlaylistButton.IconColor = System.Drawing.Color.Black;
+            this.VideosInFollowingPlaylistButton.IconSize = 36;
+            this.VideosInFollowingPlaylistButton.Location = new System.Drawing.Point(285, 70);
+            this.VideosInFollowingPlaylistButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.VideosInFollowingPlaylistButton.Name = "VideosInFollowingPlaylistButton";
+            this.VideosInFollowingPlaylistButton.Rotation = 0D;
+            this.VideosInFollowingPlaylistButton.Size = new System.Drawing.Size(37, 36);
+            this.VideosInFollowingPlaylistButton.TabIndex = 2;
+            this.VideosInFollowingPlaylistButton.UseVisualStyleBackColor = true;
+            this.VideosInFollowingPlaylistButton.Click += new System.EventHandler(this.VideosInFollowingPlaylistButton_Click);
             // 
             // FollowLabel
             // 
@@ -1928,8 +2027,11 @@
             // 
             // VideoMyPlaylistPanel
             // 
+            this.VideoMyPlaylistPanel.Controls.Add(this.CrearVideoPlaylistpanel);
+            this.VideoMyPlaylistPanel.Controls.Add(this.MyVideoPlaylistPanel);
             this.VideoMyPlaylistPanel.Controls.Add(this.MyVideoPlaylist);
             this.VideoMyPlaylistPanel.Controls.Add(this.MyVideoListBox);
+            this.VideoMyPlaylistPanel.Controls.Add(this.VideoInMyplaylistButton);
             this.VideoMyPlaylistPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.VideoMyPlaylistPanel.Location = new System.Drawing.Point(155, 0);
             this.VideoMyPlaylistPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
@@ -1937,6 +2039,207 @@
             this.VideoMyPlaylistPanel.Size = new System.Drawing.Size(327, 444);
             this.VideoMyPlaylistPanel.TabIndex = 1;
             this.VideoMyPlaylistPanel.Visible = false;
+            // 
+            // CrearVideoPlaylistpanel
+            // 
+            this.CrearVideoPlaylistpanel.Controls.Add(this.Errorplaylistvideo);
+            this.CrearVideoPlaylistpanel.Controls.Add(this.NombrePlaylistExiste);
+            this.CrearVideoPlaylistpanel.Controls.Add(this.VideoPlaylistCreadaConExitoLabel);
+            this.CrearVideoPlaylistpanel.Controls.Add(this.CrearVideoPlaylist);
+            this.CrearVideoPlaylistpanel.Controls.Add(this.PrivacidadVideoPlaylist);
+            this.CrearVideoPlaylistpanel.Controls.Add(this.NombreVideoPlalistInput);
+            this.CrearVideoPlaylistpanel.Controls.Add(this.label4);
+            this.CrearVideoPlaylistpanel.Controls.Add(this.PriviacidadVideoLabel);
+            this.CrearVideoPlaylistpanel.Controls.Add(this.NombreVideoPlaylistLabel);
+            this.CrearVideoPlaylistpanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CrearVideoPlaylistpanel.Location = new System.Drawing.Point(0, 0);
+            this.CrearVideoPlaylistpanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.CrearVideoPlaylistpanel.Name = "CrearVideoPlaylistpanel";
+            this.CrearVideoPlaylistpanel.Size = new System.Drawing.Size(327, 444);
+            this.CrearVideoPlaylistpanel.TabIndex = 4;
+            this.CrearVideoPlaylistpanel.Visible = false;
+            // 
+            // Errorplaylistvideo
+            // 
+            this.Errorplaylistvideo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Errorplaylistvideo.ForeColor = System.Drawing.Color.Red;
+            this.Errorplaylistvideo.Location = new System.Drawing.Point(73, 233);
+            this.Errorplaylistvideo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.Errorplaylistvideo.Name = "Errorplaylistvideo";
+            this.Errorplaylistvideo.Size = new System.Drawing.Size(239, 24);
+            this.Errorplaylistvideo.TabIndex = 8;
+            this.Errorplaylistvideo.Text = "No puedes crear una playlist publica si eres privado";
+            this.Errorplaylistvideo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Errorplaylistvideo.Visible = false;
+            // 
+            // NombrePlaylistExiste
+            // 
+            this.NombrePlaylistExiste.ForeColor = System.Drawing.Color.Red;
+            this.NombrePlaylistExiste.Location = new System.Drawing.Point(119, 205);
+            this.NombrePlaylistExiste.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.NombrePlaylistExiste.Name = "NombrePlaylistExiste";
+            this.NombrePlaylistExiste.Size = new System.Drawing.Size(142, 23);
+            this.NombrePlaylistExiste.TabIndex = 7;
+            this.NombrePlaylistExiste.Text = "Nombre playlist ya existe";
+            this.NombrePlaylistExiste.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.NombrePlaylistExiste.Visible = false;
+            // 
+            // VideoPlaylistCreadaConExitoLabel
+            // 
+            this.VideoPlaylistCreadaConExitoLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.VideoPlaylistCreadaConExitoLabel.Location = new System.Drawing.Point(133, 146);
+            this.VideoPlaylistCreadaConExitoLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.VideoPlaylistCreadaConExitoLabel.Name = "VideoPlaylistCreadaConExitoLabel";
+            this.VideoPlaylistCreadaConExitoLabel.Size = new System.Drawing.Size(117, 13);
+            this.VideoPlaylistCreadaConExitoLabel.TabIndex = 6;
+            this.VideoPlaylistCreadaConExitoLabel.Text = "Playlist creada con exito";
+            this.VideoPlaylistCreadaConExitoLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.VideoPlaylistCreadaConExitoLabel.Visible = false;
+            // 
+            // CrearVideoPlaylist
+            // 
+            this.CrearVideoPlaylist.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.CrearVideoPlaylist.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.CrearVideoPlaylist.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CrearVideoPlaylist.IconChar = FontAwesome.Sharp.IconChar.Plus;
+            this.CrearVideoPlaylist.IconColor = System.Drawing.Color.Black;
+            this.CrearVideoPlaylist.IconSize = 30;
+            this.CrearVideoPlaylist.Location = new System.Drawing.Point(133, 166);
+            this.CrearVideoPlaylist.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.CrearVideoPlaylist.Name = "CrearVideoPlaylist";
+            this.CrearVideoPlaylist.Rotation = 0D;
+            this.CrearVideoPlaylist.Size = new System.Drawing.Size(114, 37);
+            this.CrearVideoPlaylist.TabIndex = 5;
+            this.CrearVideoPlaylist.Text = "Crear";
+            this.CrearVideoPlaylist.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.CrearVideoPlaylist.UseVisualStyleBackColor = true;
+            this.CrearVideoPlaylist.Click += new System.EventHandler(this.CrearVideoPlaylist_Click);
+            // 
+            // PrivacidadVideoPlaylist
+            // 
+            this.PrivacidadVideoPlaylist.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.PrivacidadVideoPlaylist.FormattingEnabled = true;
+            this.PrivacidadVideoPlaylist.Items.AddRange(new object[] {
+            "Publico",
+            "Privada",
+            ""});
+            this.PrivacidadVideoPlaylist.Location = new System.Drawing.Point(83, 116);
+            this.PrivacidadVideoPlaylist.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.PrivacidadVideoPlaylist.Name = "PrivacidadVideoPlaylist";
+            this.PrivacidadVideoPlaylist.Size = new System.Drawing.Size(208, 21);
+            this.PrivacidadVideoPlaylist.TabIndex = 4;
+            // 
+            // NombreVideoPlalistInput
+            // 
+            this.NombreVideoPlalistInput.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.NombreVideoPlalistInput.Location = new System.Drawing.Point(83, 78);
+            this.NombreVideoPlalistInput.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.NombreVideoPlalistInput.Name = "NombreVideoPlalistInput";
+            this.NombreVideoPlalistInput.Size = new System.Drawing.Size(208, 20);
+            this.NombreVideoPlalistInput.TabIndex = 3;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("MV Boli", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(82, 34);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(199, 34);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "Crear Playlist";
+            // 
+            // PriviacidadVideoLabel
+            // 
+            this.PriviacidadVideoLabel.Location = new System.Drawing.Point(11, 114);
+            this.PriviacidadVideoLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.PriviacidadVideoLabel.Name = "PriviacidadVideoLabel";
+            this.PriviacidadVideoLabel.Size = new System.Drawing.Size(58, 24);
+            this.PriviacidadVideoLabel.TabIndex = 1;
+            this.PriviacidadVideoLabel.Text = "Privacidad";
+            this.PriviacidadVideoLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // NombreVideoPlaylistLabel
+            // 
+            this.NombreVideoPlaylistLabel.Location = new System.Drawing.Point(11, 78);
+            this.NombreVideoPlaylistLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.NombreVideoPlaylistLabel.Name = "NombreVideoPlaylistLabel";
+            this.NombreVideoPlaylistLabel.Size = new System.Drawing.Size(69, 18);
+            this.NombreVideoPlaylistLabel.TabIndex = 0;
+            this.NombreVideoPlaylistLabel.Text = "Nombre";
+            this.NombreVideoPlaylistLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // MyVideoPlaylistPanel
+            // 
+            this.MyVideoPlaylistPanel.Controls.Add(this.DeleteVideoButton);
+            this.MyVideoPlaylistPanel.Controls.Add(this.BackMyVideoPlaylistButton);
+            this.MyVideoPlaylistPanel.Controls.Add(this.MyVideoPlaylistNameLabel);
+            this.MyVideoPlaylistPanel.Controls.Add(this.MisVideoMyPlaylist);
+            this.MyVideoPlaylistPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.MyVideoPlaylistPanel.Location = new System.Drawing.Point(0, 0);
+            this.MyVideoPlaylistPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.MyVideoPlaylistPanel.Name = "MyVideoPlaylistPanel";
+            this.MyVideoPlaylistPanel.Size = new System.Drawing.Size(327, 444);
+            this.MyVideoPlaylistPanel.TabIndex = 2;
+            // 
+            // DeleteVideoButton
+            // 
+            this.DeleteVideoButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.DeleteVideoButton.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.DeleteVideoButton.IconChar = FontAwesome.Sharp.IconChar.Minus;
+            this.DeleteVideoButton.IconColor = System.Drawing.Color.Black;
+            this.DeleteVideoButton.IconSize = 36;
+            this.DeleteVideoButton.Location = new System.Drawing.Point(285, 112);
+            this.DeleteVideoButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.DeleteVideoButton.Name = "DeleteVideoButton";
+            this.DeleteVideoButton.Rotation = 0D;
+            this.DeleteVideoButton.Size = new System.Drawing.Size(37, 36);
+            this.DeleteVideoButton.TabIndex = 4;
+            this.DeleteVideoButton.UseVisualStyleBackColor = true;
+            // 
+            // BackMyVideoPlaylistButton
+            // 
+            this.BackMyVideoPlaylistButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.BackMyVideoPlaylistButton.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.BackMyVideoPlaylistButton.IconChar = FontAwesome.Sharp.IconChar.ArrowAltCircleRight;
+            this.BackMyVideoPlaylistButton.IconColor = System.Drawing.Color.Black;
+            this.BackMyVideoPlaylistButton.IconSize = 36;
+            this.BackMyVideoPlaylistButton.Location = new System.Drawing.Point(285, 70);
+            this.BackMyVideoPlaylistButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.BackMyVideoPlaylistButton.Name = "BackMyVideoPlaylistButton";
+            this.BackMyVideoPlaylistButton.Rotation = 0D;
+            this.BackMyVideoPlaylistButton.Size = new System.Drawing.Size(37, 36);
+            this.BackMyVideoPlaylistButton.TabIndex = 2;
+            this.BackMyVideoPlaylistButton.UseVisualStyleBackColor = true;
+            this.BackMyVideoPlaylistButton.Click += new System.EventHandler(this.BackMyVideoPlaylistButton_Click);
+            // 
+            // MyVideoPlaylistNameLabel
+            // 
+            this.MyVideoPlaylistNameLabel.AutoSize = true;
+            this.MyVideoPlaylistNameLabel.Font = new System.Drawing.Font("MV Boli", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MyVideoPlaylistNameLabel.Location = new System.Drawing.Point(47, 34);
+            this.MyVideoPlaylistNameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.MyVideoPlaylistNameLabel.Name = "MyVideoPlaylistNameLabel";
+            this.MyVideoPlaylistNameLabel.Size = new System.Drawing.Size(203, 34);
+            this.MyVideoPlaylistNameLabel.TabIndex = 1;
+            this.MyVideoPlaylistNameLabel.Text = "NombrePlaylist";
+            // 
+            // MisVideoMyPlaylist
+            // 
+            this.MisVideoMyPlaylist.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.MisVideoMyPlaylist.FormattingEnabled = true;
+            this.MisVideoMyPlaylist.Location = new System.Drawing.Point(47, 70);
+            this.MisVideoMyPlaylist.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.MisVideoMyPlaylist.Name = "MisVideoMyPlaylist";
+            this.MisVideoMyPlaylist.Size = new System.Drawing.Size(234, 329);
+            this.MisVideoMyPlaylist.TabIndex = 0;
+            this.MisVideoMyPlaylist.SelectedIndexChanged += new System.EventHandler(this.MisVideoMyPlaylist_SelectedIndexChanged);
             // 
             // MyVideoPlaylist
             // 
@@ -1962,6 +2265,22 @@
             this.MyVideoListBox.Size = new System.Drawing.Size(234, 329);
             this.MyVideoListBox.TabIndex = 0;
             this.MyVideoListBox.SelectedIndexChanged += new System.EventHandler(this.MyVideoListBox_SelectedIndexChanged);
+            // 
+            // VideoInMyplaylistButton
+            // 
+            this.VideoInMyplaylistButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.VideoInMyplaylistButton.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.VideoInMyplaylistButton.IconChar = FontAwesome.Sharp.IconChar.Film;
+            this.VideoInMyplaylistButton.IconColor = System.Drawing.Color.Black;
+            this.VideoInMyplaylistButton.IconSize = 36;
+            this.VideoInMyplaylistButton.Location = new System.Drawing.Point(285, 70);
+            this.VideoInMyplaylistButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.VideoInMyplaylistButton.Name = "VideoInMyplaylistButton";
+            this.VideoInMyplaylistButton.Rotation = 0D;
+            this.VideoInMyplaylistButton.Size = new System.Drawing.Size(37, 36);
+            this.VideoInMyplaylistButton.TabIndex = 3;
+            this.VideoInMyplaylistButton.UseVisualStyleBackColor = true;
+            this.VideoInMyplaylistButton.Click += new System.EventHandler(this.VideoInMyplaylistButton_Click);
             // 
             // panel5
             // 
@@ -2207,11 +2526,12 @@
             // 
             // BackPlaylistSeguidas
             // 
+            this.BackPlaylistSeguidas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.BackPlaylistSeguidas.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
             this.BackPlaylistSeguidas.IconChar = FontAwesome.Sharp.IconChar.ArrowCircleRight;
             this.BackPlaylistSeguidas.IconColor = System.Drawing.Color.Black;
             this.BackPlaylistSeguidas.IconSize = 36;
-            this.BackPlaylistSeguidas.Location = new System.Drawing.Point(285, 70);
+            this.BackPlaylistSeguidas.Location = new System.Drawing.Point(284, 70);
             this.BackPlaylistSeguidas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.BackPlaylistSeguidas.Name = "BackPlaylistSeguidas";
             this.BackPlaylistSeguidas.Rotation = 0D;
@@ -2268,11 +2588,12 @@
             // 
             // VerCancionesPlaylistSeguidas
             // 
+            this.VerCancionesPlaylistSeguidas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.VerCancionesPlaylistSeguidas.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
             this.VerCancionesPlaylistSeguidas.IconChar = FontAwesome.Sharp.IconChar.Music;
             this.VerCancionesPlaylistSeguidas.IconColor = System.Drawing.Color.Black;
             this.VerCancionesPlaylistSeguidas.IconSize = 36;
-            this.VerCancionesPlaylistSeguidas.Location = new System.Drawing.Point(285, 70);
+            this.VerCancionesPlaylistSeguidas.Location = new System.Drawing.Point(284, 70);
             this.VerCancionesPlaylistSeguidas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.VerCancionesPlaylistSeguidas.Name = "VerCancionesPlaylistSeguidas";
             this.VerCancionesPlaylistSeguidas.Rotation = 0D;
@@ -2320,10 +2641,10 @@
             // 
             this.PlaylistSongCreada.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.PlaylistSongCreada.Location = new System.Drawing.Point(125, 166);
+            this.PlaylistSongCreada.Location = new System.Drawing.Point(125, 171);
             this.PlaylistSongCreada.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.PlaylistSongCreada.Name = "PlaylistSongCreada";
-            this.PlaylistSongCreada.Size = new System.Drawing.Size(117, 13);
+            this.PlaylistSongCreada.Size = new System.Drawing.Size(118, 13);
             this.PlaylistSongCreada.TabIndex = 8;
             this.PlaylistSongCreada.Text = "Playlist creada con exito";
             this.PlaylistSongCreada.Visible = false;
@@ -2333,10 +2654,10 @@
             this.ErrorExisteSongPlaylisteNombre.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ErrorExisteSongPlaylisteNombre.ForeColor = System.Drawing.Color.Red;
-            this.ErrorExisteSongPlaylisteNombre.Location = new System.Drawing.Point(98, 254);
+            this.ErrorExisteSongPlaylisteNombre.Location = new System.Drawing.Point(93, 273);
             this.ErrorExisteSongPlaylisteNombre.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.ErrorExisteSongPlaylisteNombre.Name = "ErrorExisteSongPlaylisteNombre";
-            this.ErrorExisteSongPlaylisteNombre.Size = new System.Drawing.Size(185, 13);
+            this.ErrorExisteSongPlaylisteNombre.Size = new System.Drawing.Size(186, 13);
             this.ErrorExisteSongPlaylisteNombre.TabIndex = 7;
             this.ErrorExisteSongPlaylisteNombre.Text = "Ya existe una playlist con este nombre";
             this.ErrorExisteSongPlaylisteNombre.Visible = false;
@@ -2347,27 +2668,29 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ErrorCuentaPrivadaPlaylistSong.BackColor = System.Drawing.Color.Transparent;
             this.ErrorCuentaPrivadaPlaylistSong.ForeColor = System.Drawing.Color.Red;
-            this.ErrorCuentaPrivadaPlaylistSong.Location = new System.Drawing.Point(61, 230);
+            this.ErrorCuentaPrivadaPlaylistSong.Location = new System.Drawing.Point(61, 243);
             this.ErrorCuentaPrivadaPlaylistSong.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.ErrorCuentaPrivadaPlaylistSong.Name = "ErrorCuentaPrivadaPlaylistSong";
-            this.ErrorCuentaPrivadaPlaylistSong.Size = new System.Drawing.Size(245, 13);
+            this.ErrorCuentaPrivadaPlaylistSong.Size = new System.Drawing.Size(246, 13);
             this.ErrorCuentaPrivadaPlaylistSong.TabIndex = 6;
             this.ErrorCuentaPrivadaPlaylistSong.Text = "No puedes crear una cuenta publica si eres privado";
             this.ErrorCuentaPrivadaPlaylistSong.Visible = false;
             // 
             // CrearSongPlaylistButton
             // 
+            this.CrearSongPlaylistButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.CrearSongPlaylistButton.FlatAppearance.BorderSize = 0;
             this.CrearSongPlaylistButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CrearSongPlaylistButton.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
             this.CrearSongPlaylistButton.IconChar = FontAwesome.Sharp.IconChar.Plus;
             this.CrearSongPlaylistButton.IconColor = System.Drawing.Color.Black;
             this.CrearSongPlaylistButton.IconSize = 36;
-            this.CrearSongPlaylistButton.Location = new System.Drawing.Point(146, 185);
+            this.CrearSongPlaylistButton.Location = new System.Drawing.Point(146, 197);
             this.CrearSongPlaylistButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.CrearSongPlaylistButton.Name = "CrearSongPlaylistButton";
             this.CrearSongPlaylistButton.Rotation = 0D;
-            this.CrearSongPlaylistButton.Size = new System.Drawing.Size(86, 38);
+            this.CrearSongPlaylistButton.Size = new System.Drawing.Size(85, 38);
             this.CrearSongPlaylistButton.TabIndex = 5;
             this.CrearSongPlaylistButton.Text = "Crear";
             this.CrearSongPlaylistButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -2413,20 +2736,20 @@
             // 
             // NewSongPlaylistPrivacidad
             // 
-            this.NewSongPlaylistPrivacidad.Location = new System.Drawing.Point(33, 140);
+            this.NewSongPlaylistPrivacidad.Location = new System.Drawing.Point(23, 139);
             this.NewSongPlaylistPrivacidad.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.NewSongPlaylistPrivacidad.Name = "NewSongPlaylistPrivacidad";
-            this.NewSongPlaylistPrivacidad.Size = new System.Drawing.Size(69, 22);
+            this.NewSongPlaylistPrivacidad.Size = new System.Drawing.Size(86, 22);
             this.NewSongPlaylistPrivacidad.TabIndex = 1;
             this.NewSongPlaylistPrivacidad.Text = "Privacidad";
             this.NewSongPlaylistPrivacidad.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // NewPlaylistNameLabel
             // 
-            this.NewPlaylistNameLabel.Location = new System.Drawing.Point(35, 97);
+            this.NewPlaylistNameLabel.Location = new System.Drawing.Point(25, 97);
             this.NewPlaylistNameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.NewPlaylistNameLabel.Name = "NewPlaylistNameLabel";
-            this.NewPlaylistNameLabel.Size = new System.Drawing.Size(61, 17);
+            this.NewPlaylistNameLabel.Size = new System.Drawing.Size(73, 17);
             this.NewPlaylistNameLabel.TabIndex = 0;
             this.NewPlaylistNameLabel.Text = "Nombre";
             this.NewPlaylistNameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -2435,7 +2758,6 @@
             // 
             this.SongsInMyPlaylistPanel.BackColor = System.Drawing.Color.LightCoral;
             this.SongsInMyPlaylistPanel.Controls.Add(this.BorrarCancionMyplaylist);
-            this.SongsInMyPlaylistPanel.Controls.Add(this.AddSongMyPlaylists);
             this.SongsInMyPlaylistPanel.Controls.Add(this.BackMyPlaylistSong);
             this.SongsInMyPlaylistPanel.Controls.Add(this.NombreMyplaylistSonglabel);
             this.SongsInMyPlaylistPanel.Controls.Add(this.SongInMyPlaylistListBox);
@@ -2454,7 +2776,7 @@
             this.BorrarCancionMyplaylist.IconChar = FontAwesome.Sharp.IconChar.Minus;
             this.BorrarCancionMyplaylist.IconColor = System.Drawing.Color.Black;
             this.BorrarCancionMyplaylist.IconSize = 36;
-            this.BorrarCancionMyplaylist.Location = new System.Drawing.Point(284, 147);
+            this.BorrarCancionMyplaylist.Location = new System.Drawing.Point(284, 114);
             this.BorrarCancionMyplaylist.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.BorrarCancionMyplaylist.Name = "BorrarCancionMyplaylist";
             this.BorrarCancionMyplaylist.Rotation = 0D;
@@ -2462,22 +2784,6 @@
             this.BorrarCancionMyplaylist.TabIndex = 4;
             this.BorrarCancionMyplaylist.UseVisualStyleBackColor = true;
             this.BorrarCancionMyplaylist.Click += new System.EventHandler(this.BorrarCancionMyplaylist_Click);
-            // 
-            // AddSongMyPlaylists
-            // 
-            this.AddSongMyPlaylists.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.AddSongMyPlaylists.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.AddSongMyPlaylists.IconChar = FontAwesome.Sharp.IconChar.Plus;
-            this.AddSongMyPlaylists.IconColor = System.Drawing.Color.Black;
-            this.AddSongMyPlaylists.IconSize = 36;
-            this.AddSongMyPlaylists.Location = new System.Drawing.Point(284, 107);
-            this.AddSongMyPlaylists.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.AddSongMyPlaylists.Name = "AddSongMyPlaylists";
-            this.AddSongMyPlaylists.Rotation = 0D;
-            this.AddSongMyPlaylists.Size = new System.Drawing.Size(37, 36);
-            this.AddSongMyPlaylists.TabIndex = 3;
-            this.AddSongMyPlaylists.UseVisualStyleBackColor = true;
-            this.AddSongMyPlaylists.Click += new System.EventHandler(this.AddSongMyPlaylists_Click);
             // 
             // BackMyPlaylistSong
             // 
@@ -3024,6 +3330,7 @@
             // SearchMediapanel
             // 
             this.SearchMediapanel.BackColor = System.Drawing.Color.DarkRed;
+            this.SearchMediapanel.Controls.Add(this.SubMediaSearchPanel);
             this.SearchMediapanel.Controls.Add(this.SearchMediapanellistBox);
             this.SearchMediapanel.Controls.Add(this.panel1);
             this.SearchMediapanel.Controls.Add(this.SearchMediaIcon);
@@ -3035,6 +3342,47 @@
             this.SearchMediapanel.Size = new System.Drawing.Size(482, 444);
             this.SearchMediapanel.TabIndex = 3;
             this.SearchMediapanel.Visible = false;
+            // 
+            // SubMediaSearchPanel
+            // 
+            this.SubMediaSearchPanel.Controls.Add(this.AgregarMediaPlaylistButton);
+            this.SubMediaSearchPanel.Controls.Add(this.PlaylistListBoxAdd);
+            this.SubMediaSearchPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.SubMediaSearchPanel.Location = new System.Drawing.Point(102, 348);
+            this.SubMediaSearchPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.SubMediaSearchPanel.Name = "SubMediaSearchPanel";
+            this.SubMediaSearchPanel.Size = new System.Drawing.Size(380, 96);
+            this.SubMediaSearchPanel.TabIndex = 5;
+            this.SubMediaSearchPanel.Visible = false;
+            // 
+            // AgregarMediaPlaylistButton
+            // 
+            this.AgregarMediaPlaylistButton.Dock = System.Windows.Forms.DockStyle.Right;
+            this.AgregarMediaPlaylistButton.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.AgregarMediaPlaylistButton.IconChar = FontAwesome.Sharp.IconChar.Heart;
+            this.AgregarMediaPlaylistButton.IconColor = System.Drawing.Color.Black;
+            this.AgregarMediaPlaylistButton.IconSize = 36;
+            this.AgregarMediaPlaylistButton.Location = new System.Drawing.Point(274, 69);
+            this.AgregarMediaPlaylistButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.AgregarMediaPlaylistButton.Name = "AgregarMediaPlaylistButton";
+            this.AgregarMediaPlaylistButton.Rotation = 0D;
+            this.AgregarMediaPlaylistButton.Size = new System.Drawing.Size(106, 27);
+            this.AgregarMediaPlaylistButton.TabIndex = 1;
+            this.AgregarMediaPlaylistButton.Text = "Agregar";
+            this.AgregarMediaPlaylistButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.AgregarMediaPlaylistButton.UseVisualStyleBackColor = true;
+            this.AgregarMediaPlaylistButton.Click += new System.EventHandler(this.AgregarMediaPlaylistButton_Click);
+            // 
+            // PlaylistListBoxAdd
+            // 
+            this.PlaylistListBoxAdd.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PlaylistListBoxAdd.FormattingEnabled = true;
+            this.PlaylistListBoxAdd.Location = new System.Drawing.Point(0, 0);
+            this.PlaylistListBoxAdd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.PlaylistListBoxAdd.Name = "PlaylistListBoxAdd";
+            this.PlaylistListBoxAdd.Size = new System.Drawing.Size(380, 69);
+            this.PlaylistListBoxAdd.TabIndex = 0;
+            this.PlaylistListBoxAdd.SelectedIndexChanged += new System.EventHandler(this.PlaylistListBoxAdd_SelectedIndexChanged);
             // 
             // SearchMediapanellistBox
             // 
@@ -3049,6 +3397,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.AddToPlaylistButton);
             this.panel1.Controls.Add(this.SubFiltersPanel);
             this.panel1.Controls.Add(this.FiltersButton);
             this.panel1.Controls.Add(this.panel2);
@@ -3058,6 +3407,24 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(102, 444);
             this.panel1.TabIndex = 4;
+            // 
+            // AddToPlaylistButton
+            // 
+            this.AddToPlaylistButton.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.AddToPlaylistButton.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.AddToPlaylistButton.IconChar = FontAwesome.Sharp.IconChar.List;
+            this.AddToPlaylistButton.IconColor = System.Drawing.Color.Black;
+            this.AddToPlaylistButton.IconSize = 36;
+            this.AddToPlaylistButton.Location = new System.Drawing.Point(0, 414);
+            this.AddToPlaylistButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.AddToPlaylistButton.Name = "AddToPlaylistButton";
+            this.AddToPlaylistButton.Rotation = 0D;
+            this.AddToPlaylistButton.Size = new System.Drawing.Size(102, 30);
+            this.AddToPlaylistButton.TabIndex = 4;
+            this.AddToPlaylistButton.Text = "Playlists";
+            this.AddToPlaylistButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.AddToPlaylistButton.UseVisualStyleBackColor = true;
+            this.AddToPlaylistButton.Click += new System.EventHandler(this.AddToPlaylistButton_Click);
             // 
             // SubFiltersPanel
             // 
@@ -4247,7 +4614,13 @@
             this.PlaylistVideoPanel.ResumeLayout(false);
             this.MasVistosPanel.ResumeLayout(false);
             this.VideoFollowPanel.ResumeLayout(false);
+            this.VideosInFollowingPlaylistPanel.ResumeLayout(false);
+            this.VideosInFollowingPlaylistPanel.PerformLayout();
             this.VideoMyPlaylistPanel.ResumeLayout(false);
+            this.CrearVideoPlaylistpanel.ResumeLayout(false);
+            this.CrearVideoPlaylistpanel.PerformLayout();
+            this.MyVideoPlaylistPanel.ResumeLayout(false);
+            this.MyVideoPlaylistPanel.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.SubVideoPlaylistPanel.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
@@ -4283,6 +4656,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.IconSearchLogo)).EndInit();
             this.SearchMediapanel.ResumeLayout(false);
             this.SearchMediapanel.PerformLayout();
+            this.SubMediaSearchPanel.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.SubFiltersPanel.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
@@ -4567,7 +4941,6 @@
         private System.Windows.Forms.ListBox SongsInFollowPlaylistListBox;
         private FontAwesome.Sharp.IconButton VerCancionesPlaylistSeguidas;
         private FontAwesome.Sharp.IconButton BorrarCancionMyplaylist;
-        private FontAwesome.Sharp.IconButton AddSongMyPlaylists;
         private System.Windows.Forms.Panel CrearSongPlaylistPanel;
         private FontAwesome.Sharp.IconButton CrearSongPlaylistButton;
         private System.Windows.Forms.Label CrearPlaylistSongLabel;
@@ -4578,6 +4951,31 @@
         private System.Windows.Forms.Label ErrorExisteSongPlaylisteNombre;
         private System.Windows.Forms.Label ErrorCuentaPrivadaPlaylistSong;
         private System.Windows.Forms.Label PlaylistSongCreada;
+        private System.Windows.Forms.Panel MyVideoPlaylistPanel;
+        private FontAwesome.Sharp.IconButton DeleteVideoButton;
+        private FontAwesome.Sharp.IconButton BackMyVideoPlaylistButton;
+        private System.Windows.Forms.Label MyVideoPlaylistNameLabel;
+        private System.Windows.Forms.ListBox MisVideoMyPlaylist;
+        private FontAwesome.Sharp.IconButton VideoInMyplaylistButton;
+        private System.Windows.Forms.Panel CrearVideoPlaylistpanel;
+        private FontAwesome.Sharp.IconButton CrearVideoPlaylist;
+        private System.Windows.Forms.ComboBox PrivacidadVideoPlaylist;
+        private System.Windows.Forms.TextBox NombreVideoPlalistInput;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label PriviacidadVideoLabel;
+        private System.Windows.Forms.Label NombreVideoPlaylistLabel;
+        private System.Windows.Forms.Label VideoPlaylistCreadaConExitoLabel;
+        private System.Windows.Forms.Label Errorplaylistvideo;
+        private System.Windows.Forms.Label NombrePlaylistExiste;
+        private System.Windows.Forms.Panel VideosInFollowingPlaylistPanel;
+        private FontAwesome.Sharp.IconButton BackFollowingPlaylist;
+        private System.Windows.Forms.ListBox VideosInFollowingPlaylistListbox;
+        private FontAwesome.Sharp.IconButton VideosInFollowingPlaylistButton;
+        private System.Windows.Forms.Label VideoFollowingPlaylistName;
+        private System.Windows.Forms.Panel SubMediaSearchPanel;
+        private FontAwesome.Sharp.IconButton AgregarMediaPlaylistButton;
+        private System.Windows.Forms.ListBox PlaylistListBoxAdd;
+        private FontAwesome.Sharp.IconButton AddToPlaylistButton;
     }
 }
 

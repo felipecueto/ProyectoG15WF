@@ -24,12 +24,13 @@ namespace Proyectog15WF.Contollers
             this.view = view as AppForm;
             this.view.Searchingnamevideoorsong += OnSearchTextChanged;
             this.view.Reproducesong += OnSelectedSongVideoEventArgs;
+            this.view.Recivingsong += OnverifySong;
         }
 
         public void Chargesong()
         {
 
-            songs.Add(new Song("Tusa.mp3", "Hip-Hop", "Dadddy Yankee", "El cartel: The big Boss", "Cartel Records", new DateTime(2007, 4, 24), "Tu me dejaste caer pero ella me levanto llamale poca mujer..", 4, "Reggaeton", 0, 0, "Masculino", "30"));
+            songs.Add(new Song("UNITED.mp3", "Hip-Hop", "Dadddy Yankee", "El cartel: The big Boss", "Cartel Records", new DateTime(2007, 4, 24), "Tu me dejaste caer pero ella me levanto llamale poca mujer..", 4, "Reggaeton", 0, 0, "Masculino", "30"));
 
         }
         public void OnSearchTextChanged(object sender, SearchingSongorVideo e)
@@ -58,6 +59,7 @@ namespace Proyectog15WF.Contollers
                     resultString.Add(s.ToString());
             }
             view.UpdateResultsvideoandsong(resultString);
+            
         }
         public string OnSelectedSongVideoEventArgs(object sender, SelectSongEventArgs e)
         {
@@ -72,6 +74,17 @@ namespace Proyectog15WF.Contollers
             return reproduce;
 
 
+        }
+        public Song OnverifySong(object sender, ReturnsongEventArgs e)
+        {   
+            foreach(Song cancion  in songs)
+            {
+                if (e.Verifysonginsongofuser.Contains(cancion.Namesong))
+                {
+                    return cancion;
+                }
+            }
+            return null;
         }
 
 

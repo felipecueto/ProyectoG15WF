@@ -27,6 +27,8 @@ namespace Controllers
             this.view.Searching += OnSearchTextChanged;
             this.view.Sendingplaylist += OnShowSongPlaylist;
             this.view.Userselectedplaylist += OnRemovePlaylist;
+            this.view.Changingpassword += OnChangingpassword;
+            this.view.Addplaylist += OnAddMusicPlaylist;
         }
 
 
@@ -125,6 +127,20 @@ namespace Controllers
             }
             return false; //no elimina nada
         }
-
+        public bool OnChangingpassword(object sender, ChangePasswordEventArgs e)
+        {
+            foreach (User user in users)
+            {
+                if (user.Username == e.Usertext)
+                {
+                    if (user.Password == e.Passwordtext)
+                    {
+                        user.Password = e.NewPasswordtext;
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
     }
 }   

@@ -27,7 +27,7 @@ namespace Proyectog15WF.Contollers
         public void ChargeVideos() 
         {
 
-            videos.Add(new Video("Joker.wmv", "Drama", "Crimen", "Joaquin Phoenix", "Todd Phillips", "WarnerBros", new DateTime(2019, 5, 12), "Muy buena", 122, 0, 0, "Masculino", "54", 720));
+            videos.Add(new Video("LS.WEBM", "Drama", "Crimen", "Joaquin Phoenix", "Todd Phillips", "WarnerBros", new DateTime(2019, 5, 12), "Muy buena", 122, 0, 0, "Masculino", "54", 720));
 
         }
         public void OnSearchTextChanged(object sender, SearchingSongorVideo e)
