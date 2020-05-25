@@ -28,6 +28,7 @@ namespace Controllers
             this.view.Sendingplaylist += OnShowSongPlaylist;
             this.view.Userselectedplaylist += OnRemovePlaylist;
             this.view.Changingpassword += OnChangingpassword;
+            this.view.Addplaylist += OnAddMusicPlaylist;
         }
 
 

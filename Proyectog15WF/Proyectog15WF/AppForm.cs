@@ -21,6 +21,7 @@ namespace Proyectog15WF
         string namevideo = "";
         string namesong = "";
         string nameuser = ""; //ESTE ES EL NO,BRE DEL USUARIO
+        bool buttonClickdelete = false;
         public delegate bool LoginEventHandler(object source, LoginEventArgs args);
         public event LoginEventHandler LoginButtonClicked;
         public event EventHandler<LoginEventArgs> UserChecked;
@@ -36,6 +37,7 @@ namespace Proyectog15WF
         public event SendingPlaylistHandler Sendingplaylist;
         public delegate bool SendingActualPlaylistHandler(object source, GetUserPlaylistEventsArgs args);
         public event SendingActualPlaylistHandler Userselectedplaylist;
+        public event EventHandler<GetUserPlaylistEventsArgs> Addplaylist;
         //Evnetos de reproduccion
         public delegate string SelectedVideoEventHandler(object source, SelectVideoEventArgs args);
         public event SelectedVideoEventHandler Reproducevideo;
@@ -584,8 +586,12 @@ namespace Proyectog15WF
                 SubMyPlaylistPanel.Visible = true;
                 foreach (PlaylistSong playlist in OnReciveUsernamePlaylist())
                 {
-                    MySongsListBox.Items.Add(playlist.GetPlaylistName()); // con esto accedo al listbox de playlistsong y obtengo las playlist
-                    //MySongsListBox.Items.Add(nameuser); //Aqui esta el nombre del usuario (lo puse aqui para comprobar si esta tomando el usuario cada vez que hago log in
+                    if (!MySongsListBox.Items.Contains(playlist.GetPlaylistName()))
+                    {
+                        MySongsListBox.Items.Add(playlist.GetPlaylistName());// con esto accedo al listbox de playlistsong y obtengo las playlist
+                    }
+
+
                 }
             }
         }
@@ -1015,7 +1021,15 @@ namespace Proyectog15WF
         //Canciones
         private void MySongsListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DeletePlaylistButton_Click(sender, e);
+            string playlist_seleccionada = Convert.ToString(MySongsListBox.SelectedItem);
+            if (Userselectedplaylist != null)
+            {
+
+                if (Userselectedplaylist(this, new GetUserPlaylistEventsArgs { ActualPlaylistSelected = playlist_seleccionada, ActualLoggedUsername = nameuser }) && buttonClickdelete)
+                {
+                    MySongsListBox.Items.Remove(playlist_seleccionada);
+                }
+            }
         }
 
         private void FollowPlaylistSongListBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -1037,14 +1051,7 @@ namespace Proyectog15WF
           
         private void DeletePlaylistButton_Click(object sender, EventArgs e)
         {
-            if (Userselectedplaylist != null)
-            {
-                string playlistname = SongInMyPlaylistListBox.Text.ToString();
-                if (Userselectedplaylist(this, new GetUserPlaylistEventsArgs { ActualPlaylistSelected = playlistname, ActualLoggedUsername = nameuser }) == true)
-                {
-                    MySongsListBox.Items.Remove(playlistname);
-                }
-            }
+            buttonClickdelete = true;
         }
         private void VerCancionesEnMisPlaylistButton_Click(object sender, EventArgs e)
         {
@@ -1088,9 +1095,13 @@ namespace Proyectog15WF
         private void CrearSongPlaylistButton_Click(object sender, EventArgs e)
         {
             string nameplaylist = PlaylistSongNameInput.Text;
-            string privacidad = NewSongPrivacidadComboBox.SelectedItem.ToString();
+            string privacidad = Convert.ToString(NewSongPrivacidadComboBox.SelectedItem);
             bool UserNotPublic = false;
             bool NamePlaylistExist = false;
+            if (Addplaylist != null)
+            {
+                Addplaylist(this, new GetUserPlaylistEventsArgs() { PlaylistNameText = nameplaylist, ActualLoggedUsername = nameuser }); //le estoy mandado a usercontroller el nombre de la playlist
+            }
             if (UserNotPublic)
             {
                 ErrorCuentaPrivadaPlaylistSong.Visible = true;
