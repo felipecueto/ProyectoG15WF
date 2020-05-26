@@ -54,6 +54,8 @@ namespace Proyectog15WF
         //Evento para agregar cacnion a la playlist
         public delegate Song ReceiveSongEventHandler(object source, ReturnsongEventArgs args);
         public event ReceiveSongEventHandler Recivingsong;
+        //Evento para enviar cambios del usuario
+        public event EventHandler<SendingtypeaccountEventArgs> Userifosend;
 
         List<Panel> stackPanels = new List<Panel>();
         Dictionary<string, Panel> panels = new Dictionary<string, Panel>();
@@ -161,33 +163,55 @@ namespace Proyectog15WF
                 }
                 else
                 {
-
-                    //if (gender=="hombre")
+                    if (Userrequest != null)
                     {
-                        // GeneroComboBox.SelectedIndex = 0;//(Hombre0,mujer1,otro2)
+                        actuallogeduser = Userrequest(this, new LoginEventArgs() { UsernameText = username });
                     }
-                    //else
                     {
-                        GeneroComboBox.SelectedIndex = 3;
-                    }
-                    bool TypeAcount = false;
+                        string variable = actuallogeduser.Genero;
+                        if (variable == "Hombre")
+                        {
 
-                    if (TypeAcount)
+                            GeneroComboBox.SelectedIndex = 0;//(Hombre0,mujer1,otro2)
+                        }
+                        if (variable == "Mujer")
+                        {
+
+                            GeneroComboBox.SelectedIndex = 1;
+                        }
+                        if (variable == "Otro")
+                        {
+
+                            GeneroComboBox.SelectedIndex = 2;
+                        }
+                        if (variable == "None")
+                        {
+
+                            GeneroComboBox.SelectedIndex = 3;
+                        }
+                    }
+                    if (actuallogeduser.Tipodeusuario.ToUpper() == "PREMIUM")
                     {
                         TipoDeCuentaCombobox.SelectedIndex = 1;
-                        //ArtisteModeButton.Visible = true;
+
                     }
                     else
                     {
                         TipoDeCuentaCombobox.SelectedIndex = 0;
-                        //ArtisteModeButton.Visible = false;
-                    }
 
-                    PrivacidadInputCuenta.SelectedIndex = 0;
-                    TipoArtistacomboBox1.SelectedIndex = 0;
+                    }
+                    if (actuallogeduser.Privacidad == "Privado")
+                    {
+                        PrivacidadInputCuenta.SelectedIndex = 1;
+                    }
+                    if (actuallogeduser.Privacidad == "Publico")
+                    {
+                        PrivacidadInputCuenta.SelectedIndex = 0;
+                    }
                     loginViewInvalidCredentialsAlert.ResetText();
                     loginViewInvalidCredentialsAlert.Visible = false;
                     OnUserChecked(username, pass);
+                    
                 }
             }
         }
@@ -789,8 +813,15 @@ namespace Proyectog15WF
 
         private void AceptarCambioCuenta_Click(object sender, EventArgs e)
         {
-            string typeAccounte = this.TipoDeCuentaCombobox.SelectedItem.ToString();
+            string typeAccounte = Convert.ToString(this.TipoDeCuentaCombobox.SelectedItem);
+            string GenderAccounte = Convert.ToString(this.GeneroComboBox.SelectedItem);
+            string ageAcctounte = Convert.ToString(this.EdadCuentaInput.SelectedText);
+            string privacidad = Convert.ToString(this.PrivacidadInputCuenta.SelectedItem);
 
+            if (Userifosend != null)
+            {
+                Userifosend(this, new SendingtypeaccountEventArgs() { Usernametext = nameuser, Typeaccount = typeAccounte, Genero = GenderAccounte, Agetext = ageAcctounte, Privacidad = privacidad });
+            }
             InfomacionCuentaCambiadaLabel.Visible = true;
             if (typeAccounte == "Premium")
             {
@@ -810,9 +841,7 @@ namespace Proyectog15WF
                 TipoArtistaButton.Visible = false;
             }
 
-            string GenderAccounte = this.GeneroComboBox.SelectedItem.ToString();
-            string ageAcctounte = this.EdadCuentaInput.SelectedText;
-            string privacidad = this.PrivacidadInputCuenta.SelectedItem.ToString();
+            
         }
         private void ShowUserInfo()
         {   

@@ -30,6 +30,7 @@ namespace Controllers
             this.view.Changingpassword += OnChangingpassword;
             this.view.Addplaylist += OnAddMusicPlaylist;
             this.view.Userrequest += OnUserRequest;
+            this.view.Userifosend += OnRecivingUserchanges;
         }
 
 
@@ -154,6 +155,19 @@ namespace Controllers
                 }
             }
             return false;
+        }
+        public void OnRecivingUserchanges(object sender, SendingtypeaccountEventArgs e)
+        {
+            foreach (User user in users)
+            {
+                if (user.Username == e.Usernametext)
+                {
+                    user.Edad = e.Agetext;
+                    user.Privacidad = e.Privacidad;
+                    user.Tipodeusuario = e.Typeaccount;
+                    user.Genero = e.Genero;
+                }
+            }
         }
     }
 }   

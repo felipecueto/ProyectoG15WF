@@ -15,6 +15,12 @@ namespace Model
         string mail;
         List<PlaylistSong> musicplaylist;
         List<PlaylistVideo> videoplaylist;
+        string edad = "";
+        string privacidad = "Publico";
+        string tipodeusuario = "Free";
+        string genero = "None";
+
+
 
 
         public User()
@@ -43,6 +49,10 @@ namespace Model
         public string Password { get => password; set => password = value; }
         public string Mail { get => mail; set => mail = value; }
         public string Lastname { get => lastname; set => lastname = value; }
+        public string Edad { get => edad; set => edad = value; }
+        public string Privacidad { get => privacidad; set => privacidad = value; }
+        public string Tipodeusuario { get => tipodeusuario; set => tipodeusuario = value; }
+        public string Genero { get => genero; set => genero = value; }
 
         public bool CheckCredentials(string username, string pass)
         {
