@@ -177,7 +177,7 @@
         RK5CYII=
 </value>
   </data>
-  <data name="CloseAppRegister.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="CloseAppStart.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAABGdBTUEAALGPC/xhBQAAAOhJREFUSEvt
         lEEOgjAQAFfFxAMHS6IPsPzAD/BERQ/6AsHXeCbh4El4Rd2tWyNgRGz1YJikgWV3O8AmhZ6eChc/nCmA
@@ -187,7 +187,7 @@
         RK5CYII=
 </value>
   </data>
-  <data name="CloseAppStart.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="CloseAppRegister.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAABGdBTUEAALGPC/xhBQAAAOhJREFUSEvt
         lEEOgjAQAFfFxAMHS6IPsPzAD/BERQ/6AsHXeCbh4El4Rd2tWyNgRGz1YJikgWV3O8AmhZ6eChc/nCmA

@@ -356,6 +356,7 @@ namespace Proyectog15WF
             SearchArtistPanel.Visible = false;
             SearchMainPanel.Visible = true;
             SearchUserPanel.Visible = true;
+            SeguirPlaylistPanel.Visible = false;
 
         }
 
@@ -1299,6 +1300,33 @@ namespace Proyectog15WF
                 }
             }
         }
-       
+        //Buscar Usuario--------------------------------------------------------------------------------------------------//
+        
+        private void FollowUserButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void PlaylistsUserSearchButton_Click(object sender, EventArgs e)
+        {
+            if (SeguirPlaylistPanel.Visible)
+            {
+               SeguirPlaylistPanel.Visible = false;
+            }
+            else
+            {
+                SeguirPlaylistPanel.Visible = true;
+            }
+        }
+
+        private void SearchUserPlaylistListbox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FollowPlyalistButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }    
 }

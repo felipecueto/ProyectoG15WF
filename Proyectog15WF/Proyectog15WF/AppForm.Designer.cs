@@ -329,6 +329,9 @@
             this.SOPTLOGO = new System.Windows.Forms.Label();
             this.PrivacidadInputCuenta = new System.Windows.Forms.ComboBox();
             this.PrivacidadLabel = new System.Windows.Forms.Label();
+            this.SeguirPlaylistPanel = new System.Windows.Forms.Panel();
+            this.SearchUserPlaylistListbox = new System.Windows.Forms.ListBox();
+            this.FollowPlyalistButton = new FontAwesome.Sharp.IconButton();
             this.StartPanel.SuspendLayout();
             this.LoginPanel.SuspendLayout();
             this.MainPanel.SuspendLayout();
@@ -409,6 +412,7 @@
             this.SubPlaylistPanel.SuspendLayout();
             this.SubSerchPanel.SuspendLayout();
             this.RegisterPanel.SuspendLayout();
+            this.SeguirPlaylistPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // StartPanel
@@ -2886,6 +2890,7 @@
             // 
             // DownPanelUSerSearch
             // 
+            this.DownPanelUSerSearch.Controls.Add(this.SeguirPlaylistPanel);
             this.DownPanelUSerSearch.Controls.Add(this.PlaylistsUserSearchButton);
             this.DownPanelUSerSearch.Controls.Add(this.FollowUserButton);
             this.DownPanelUSerSearch.Controls.Add(this.LodoUserPanel);
@@ -2912,6 +2917,7 @@
             this.PlaylistsUserSearchButton.Text = "Playlist\r\n";
             this.PlaylistsUserSearchButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.PlaylistsUserSearchButton.UseVisualStyleBackColor = false;
+            this.PlaylistsUserSearchButton.Click += new System.EventHandler(this.PlaylistsUserSearchButton_Click);
             // 
             // FollowUserButton
             // 
@@ -2930,6 +2936,7 @@
             this.FollowUserButton.Text = "Follow";
             this.FollowUserButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.FollowUserButton.UseVisualStyleBackColor = false;
+            this.FollowUserButton.Click += new System.EventHandler(this.FollowUserButton_Click);
             // 
             // LodoUserPanel
             // 
@@ -4321,6 +4328,45 @@
             this.PrivacidadLabel.Text = "Privacidad";
             this.PrivacidadLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // SeguirPlaylistPanel
+            // 
+            this.SeguirPlaylistPanel.Controls.Add(this.FollowPlyalistButton);
+            this.SeguirPlaylistPanel.Controls.Add(this.SearchUserPlaylistListbox);
+            this.SeguirPlaylistPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SeguirPlaylistPanel.Location = new System.Drawing.Point(414, 0);
+            this.SeguirPlaylistPanel.Name = "SeguirPlaylistPanel";
+            this.SeguirPlaylistPanel.Size = new System.Drawing.Size(310, 97);
+            this.SeguirPlaylistPanel.TabIndex = 4;
+            this.SeguirPlaylistPanel.Visible = false;
+            // 
+            // SearchUserPlaylistListbox
+            // 
+            this.SearchUserPlaylistListbox.Dock = System.Windows.Forms.DockStyle.Top;
+            this.SearchUserPlaylistListbox.FormattingEnabled = true;
+            this.SearchUserPlaylistListbox.ItemHeight = 20;
+            this.SearchUserPlaylistListbox.Location = new System.Drawing.Point(0, 0);
+            this.SearchUserPlaylistListbox.Name = "SearchUserPlaylistListbox";
+            this.SearchUserPlaylistListbox.Size = new System.Drawing.Size(310, 64);
+            this.SearchUserPlaylistListbox.TabIndex = 0;
+            this.SearchUserPlaylistListbox.SelectedIndexChanged += new System.EventHandler(this.SearchUserPlaylistListbox_SelectedIndexChanged);
+            // 
+            // FollowPlyalistButton
+            // 
+            this.FollowPlyalistButton.BackColor = System.Drawing.Color.DimGray;
+            this.FollowPlyalistButton.Dock = System.Windows.Forms.DockStyle.Right;
+            this.FollowPlyalistButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.FollowPlyalistButton.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.FollowPlyalistButton.IconChar = FontAwesome.Sharp.IconChar.Star;
+            this.FollowPlyalistButton.IconColor = System.Drawing.Color.Black;
+            this.FollowPlyalistButton.IconSize = 30;
+            this.FollowPlyalistButton.Location = new System.Drawing.Point(248, 64);
+            this.FollowPlyalistButton.Name = "FollowPlyalistButton";
+            this.FollowPlyalistButton.Rotation = 0D;
+            this.FollowPlyalistButton.Size = new System.Drawing.Size(62, 33);
+            this.FollowPlyalistButton.TabIndex = 1;
+            this.FollowPlyalistButton.UseVisualStyleBackColor = false;
+            this.FollowPlyalistButton.Click += new System.EventHandler(this.FollowPlyalistButton_Click);
+            // 
             // AppForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -4433,6 +4479,7 @@
             this.SubSerchPanel.ResumeLayout(false);
             this.RegisterPanel.ResumeLayout(false);
             this.RegisterPanel.PerformLayout();
+            this.SeguirPlaylistPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -4739,6 +4786,9 @@
         private FontAwesome.Sharp.IconButton AddToPlaylistButton;
         private System.Windows.Forms.Label PrivacidadLabel;
         private System.Windows.Forms.ComboBox PrivacidadInputCuenta;
+        private System.Windows.Forms.Panel SeguirPlaylistPanel;
+        private FontAwesome.Sharp.IconButton FollowPlyalistButton;
+        private System.Windows.Forms.ListBox SearchUserPlaylistListbox;
     }
 }
 
