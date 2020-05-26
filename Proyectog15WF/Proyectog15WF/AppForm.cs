@@ -62,6 +62,7 @@ namespace Proyectog15WF
         string namelog = "";
         string lastNameLog = "";
         string mailLog = "";
+        bool prim = false;
 
         public AppForm()
         {
@@ -183,6 +184,7 @@ namespace Proyectog15WF
                     }
 
                     PrivacidadInputCuenta.SelectedIndex = 0;
+                    TipoArtistacomboBox1.SelectedIndex = 0;
                     loginViewInvalidCredentialsAlert.ResetText();
                     loginViewInvalidCredentialsAlert.Visible = false;
                     OnUserChecked(username, pass);
@@ -408,6 +410,10 @@ namespace Proyectog15WF
         private void ArtisteModeButton_Click(object sender, EventArgs e)
         {
             ShowSubPanel(SubArtistPanel);
+            if (!prim)
+            {
+                VeryfyArtistPanel.Visible = true;
+            }
             ReproduccionMainPanel.Visible = false;
             MainScreenPanel.Visible = true;
             SearchMainPanel.Visible = false;
@@ -788,11 +794,20 @@ namespace Proyectog15WF
             InfomacionCuentaCambiadaLabel.Visible = true;
             if (typeAccounte == "Premium")
             {
-                //ArtisteModeButton.Visible = true;
+                VeryfyArtistPanel.Visible = true;
+                NotPrimiumLabelArtist.Visible = false;
+                TipoArtistacomboBox1.Visible = true;
+                TipodeArtistaModeLabel.Visible = true;
+                TipoArtistaButton.Visible = true;
+                prim = true;
             }
             else
             {
-                //ArtisteModeButton.Visible = false;
+                VeryfyArtistPanel.Visible = true;
+                NotPrimiumLabelArtist.Visible = true;
+                TipoArtistacomboBox1.Visible = false;
+                TipodeArtistaModeLabel.Visible = false;
+                TipoArtistaButton.Visible = false;
             }
 
             string GenderAccounte = this.GeneroComboBox.SelectedItem.ToString();
@@ -1327,6 +1342,12 @@ namespace Proyectog15WF
         private void FollowPlyalistButton_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void TipoArtistaButton_Click(object sender, EventArgs e)
+        {
+            string artist = this.TipoArtistacomboBox1.SelectedItem.ToString();
+            VeryfyArtistPanel.Visible = false;
         }
     }    
 }

@@ -57,6 +57,8 @@
             this.iconPictureBox2 = new FontAwesome.Sharp.IconPictureBox();
             this.EditeProfilePanel = new System.Windows.Forms.Panel();
             this.CuentaPanel = new System.Windows.Forms.Panel();
+            this.PrivacidadLabel = new System.Windows.Forms.Label();
+            this.PrivacidadInputCuenta = new System.Windows.Forms.ComboBox();
             this.GeneroComboBox = new System.Windows.Forms.ComboBox();
             this.InfomacionCuentaCambiadaLabel = new System.Windows.Forms.Label();
             this.AceptarCambioCuenta = new FontAwesome.Sharp.IconButton();
@@ -139,6 +141,11 @@
             this.SongGenderLabel = new System.Windows.Forms.Label();
             this.SongNameLabel = new System.Windows.Forms.Label();
             this.UploadSongLogo = new System.Windows.Forms.Label();
+            this.VeryfyArtistPanel = new System.Windows.Forms.Panel();
+            this.TipoArtistaButton = new FontAwesome.Sharp.IconButton();
+            this.TipoArtistacomboBox1 = new System.Windows.Forms.ComboBox();
+            this.TipodeArtistaModeLabel = new System.Windows.Forms.Label();
+            this.NotPrimiumLabelArtist = new System.Windows.Forms.Label();
             this.PlaylistMainPanel = new System.Windows.Forms.Panel();
             this.PlaylistVideoPanel = new System.Windows.Forms.Panel();
             this.MasVistosPanel = new System.Windows.Forms.Panel();
@@ -225,6 +232,9 @@
             this.SearchMainPanel = new System.Windows.Forms.Panel();
             this.SearchUserPanel = new System.Windows.Forms.Panel();
             this.DownPanelUSerSearch = new System.Windows.Forms.Panel();
+            this.SeguirPlaylistPanel = new System.Windows.Forms.Panel();
+            this.FollowPlyalistButton = new FontAwesome.Sharp.IconButton();
+            this.SearchUserPlaylistListbox = new System.Windows.Forms.ListBox();
             this.PlaylistsUserSearchButton = new FontAwesome.Sharp.IconButton();
             this.FollowUserButton = new FontAwesome.Sharp.IconButton();
             this.LodoUserPanel = new System.Windows.Forms.Panel();
@@ -327,11 +337,6 @@
             this.RegistrateButton = new System.Windows.Forms.Button();
             this.CloseAppStart = new BWCMM.MZButtonWindows();
             this.SOPTLOGO = new System.Windows.Forms.Label();
-            this.PrivacidadInputCuenta = new System.Windows.Forms.ComboBox();
-            this.PrivacidadLabel = new System.Windows.Forms.Label();
-            this.SeguirPlaylistPanel = new System.Windows.Forms.Panel();
-            this.SearchUserPlaylistListbox = new System.Windows.Forms.ListBox();
-            this.FollowPlyalistButton = new FontAwesome.Sharp.IconButton();
             this.StartPanel.SuspendLayout();
             this.LoginPanel.SuspendLayout();
             this.MainPanel.SuspendLayout();
@@ -363,6 +368,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.VideoLogoIconLabbel)).BeginInit();
             this.SongUploadPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.UploadSongIcon)).BeginInit();
+            this.VeryfyArtistPanel.SuspendLayout();
             this.PlaylistMainPanel.SuspendLayout();
             this.PlaylistVideoPanel.SuspendLayout();
             this.MasVistosPanel.SuspendLayout();
@@ -391,6 +397,7 @@
             this.SearchMainPanel.SuspendLayout();
             this.SearchUserPanel.SuspendLayout();
             this.DownPanelUSerSearch.SuspendLayout();
+            this.SeguirPlaylistPanel.SuspendLayout();
             this.LodoUserPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.UserSeachIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SearchLogoIcon)).BeginInit();
@@ -412,7 +419,6 @@
             this.SubPlaylistPanel.SuspendLayout();
             this.SubSerchPanel.SuspendLayout();
             this.RegisterPanel.SuspendLayout();
-            this.SeguirPlaylistPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // StartPanel
@@ -799,6 +805,29 @@
             this.CuentaPanel.TabIndex = 3;
             this.CuentaPanel.Visible = false;
             // 
+            // PrivacidadLabel
+            // 
+            this.PrivacidadLabel.AutoSize = true;
+            this.PrivacidadLabel.Location = new System.Drawing.Point(43, 448);
+            this.PrivacidadLabel.Name = "PrivacidadLabel";
+            this.PrivacidadLabel.Size = new System.Drawing.Size(81, 20);
+            this.PrivacidadLabel.TabIndex = 20;
+            this.PrivacidadLabel.Text = "Privacidad";
+            this.PrivacidadLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // PrivacidadInputCuenta
+            // 
+            this.PrivacidadInputCuenta.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.PrivacidadInputCuenta.FormattingEnabled = true;
+            this.PrivacidadInputCuenta.Items.AddRange(new object[] {
+            "Publico",
+            "Privado"});
+            this.PrivacidadInputCuenta.Location = new System.Drawing.Point(173, 445);
+            this.PrivacidadInputCuenta.Name = "PrivacidadInputCuenta";
+            this.PrivacidadInputCuenta.Size = new System.Drawing.Size(256, 28);
+            this.PrivacidadInputCuenta.TabIndex = 19;
+            // 
             // GeneroComboBox
             // 
             this.GeneroComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -1176,6 +1205,7 @@
             // ArtistModeMainPanel
             // 
             this.ArtistModeMainPanel.BackColor = System.Drawing.Color.Yellow;
+            this.ArtistModeMainPanel.Controls.Add(this.VeryfyArtistPanel);
             this.ArtistModeMainPanel.Controls.Add(this.AlbumArtistPanel);
             this.ArtistModeMainPanel.Controls.Add(this.UploadVideoPanel);
             this.ArtistModeMainPanel.Controls.Add(this.SongUploadPanel);
@@ -1548,7 +1578,7 @@
             this.UpLoadVideoLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.UpLoadVideoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UpLoadVideoLabel.Location = new System.Drawing.Point(262, 98);
+            this.UpLoadVideoLabel.Location = new System.Drawing.Point(216, 98);
             this.UpLoadVideoLabel.Name = "UpLoadVideoLabel";
             this.UpLoadVideoLabel.Size = new System.Drawing.Size(363, 65);
             this.UpLoadVideoLabel.TabIndex = 35;
@@ -1758,6 +1788,83 @@
             this.UploadSongLogo.TabIndex = 17;
             this.UploadSongLogo.Text = "Subir Cancion";
             this.UploadSongLogo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // VeryfyArtistPanel
+            // 
+            this.VeryfyArtistPanel.BackColor = System.Drawing.Color.Yellow;
+            this.VeryfyArtistPanel.Controls.Add(this.TipoArtistaButton);
+            this.VeryfyArtistPanel.Controls.Add(this.TipoArtistacomboBox1);
+            this.VeryfyArtistPanel.Controls.Add(this.TipodeArtistaModeLabel);
+            this.VeryfyArtistPanel.Controls.Add(this.NotPrimiumLabelArtist);
+            this.VeryfyArtistPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.VeryfyArtistPanel.Location = new System.Drawing.Point(0, 0);
+            this.VeryfyArtistPanel.Name = "VeryfyArtistPanel";
+            this.VeryfyArtistPanel.Size = new System.Drawing.Size(724, 683);
+            this.VeryfyArtistPanel.TabIndex = 10;
+            this.VeryfyArtistPanel.Visible = false;
+            // 
+            // TipoArtistaButton
+            // 
+            this.TipoArtistaButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.TipoArtistaButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.TipoArtistaButton.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.TipoArtistaButton.IconChar = FontAwesome.Sharp.IconChar.ToggleOn;
+            this.TipoArtistaButton.IconColor = System.Drawing.Color.Black;
+            this.TipoArtistaButton.IconSize = 36;
+            this.TipoArtistaButton.Location = new System.Drawing.Point(286, 358);
+            this.TipoArtistaButton.Name = "TipoArtistaButton";
+            this.TipoArtistaButton.Rotation = 0D;
+            this.TipoArtistaButton.Size = new System.Drawing.Size(213, 61);
+            this.TipoArtistaButton.TabIndex = 3;
+            this.TipoArtistaButton.Text = "Crear Artista";
+            this.TipoArtistaButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.TipoArtistaButton.UseVisualStyleBackColor = true;
+            this.TipoArtistaButton.Visible = false;
+            this.TipoArtistaButton.Click += new System.EventHandler(this.TipoArtistaButton_Click);
+            // 
+            // TipoArtistacomboBox1
+            // 
+            this.TipoArtistacomboBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.TipoArtistacomboBox1.FormattingEnabled = true;
+            this.TipoArtistacomboBox1.Items.AddRange(new object[] {
+            "Seleccione el tipo de artista",
+            "Cantante",
+            "Creador",
+            "Director",
+            "Actor",
+            "Otro"});
+            this.TipoArtistacomboBox1.Location = new System.Drawing.Point(227, 303);
+            this.TipoArtistacomboBox1.Name = "TipoArtistacomboBox1";
+            this.TipoArtistacomboBox1.Size = new System.Drawing.Size(326, 28);
+            this.TipoArtistacomboBox1.TabIndex = 2;
+            this.TipoArtistacomboBox1.Visible = false;
+            // 
+            // TipodeArtistaModeLabel
+            // 
+            this.TipodeArtistaModeLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.TipodeArtistaModeLabel.AutoSize = true;
+            this.TipodeArtistaModeLabel.Font = new System.Drawing.Font("MV Boli", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TipodeArtistaModeLabel.Location = new System.Drawing.Point(201, 233);
+            this.TipodeArtistaModeLabel.Name = "TipodeArtistaModeLabel";
+            this.TipodeArtistaModeLabel.Size = new System.Drawing.Size(359, 37);
+            this.TipodeArtistaModeLabel.TabIndex = 1;
+            this.TipodeArtistaModeLabel.Text = "Que Tipo de artista eres:";
+            this.TipodeArtistaModeLabel.Visible = false;
+            // 
+            // NotPrimiumLabelArtist
+            // 
+            this.NotPrimiumLabelArtist.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.NotPrimiumLabelArtist.Font = new System.Drawing.Font("MV Boli", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NotPrimiumLabelArtist.Location = new System.Drawing.Point(58, 42);
+            this.NotPrimiumLabelArtist.Name = "NotPrimiumLabelArtist";
+            this.NotPrimiumLabelArtist.Size = new System.Drawing.Size(621, 168);
+            this.NotPrimiumLabelArtist.TabIndex = 0;
+            this.NotPrimiumLabelArtist.Text = "Compra Ya Stoptflix Premium para poder ser un Artista ";
+            this.NotPrimiumLabelArtist.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // PlaylistMainPanel
             // 
@@ -2899,6 +3006,45 @@
             this.DownPanelUSerSearch.Name = "DownPanelUSerSearch";
             this.DownPanelUSerSearch.Size = new System.Drawing.Size(724, 97);
             this.DownPanelUSerSearch.TabIndex = 10;
+            // 
+            // SeguirPlaylistPanel
+            // 
+            this.SeguirPlaylistPanel.Controls.Add(this.FollowPlyalistButton);
+            this.SeguirPlaylistPanel.Controls.Add(this.SearchUserPlaylistListbox);
+            this.SeguirPlaylistPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SeguirPlaylistPanel.Location = new System.Drawing.Point(414, 0);
+            this.SeguirPlaylistPanel.Name = "SeguirPlaylistPanel";
+            this.SeguirPlaylistPanel.Size = new System.Drawing.Size(310, 97);
+            this.SeguirPlaylistPanel.TabIndex = 4;
+            this.SeguirPlaylistPanel.Visible = false;
+            // 
+            // FollowPlyalistButton
+            // 
+            this.FollowPlyalistButton.BackColor = System.Drawing.Color.DimGray;
+            this.FollowPlyalistButton.Dock = System.Windows.Forms.DockStyle.Right;
+            this.FollowPlyalistButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.FollowPlyalistButton.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.FollowPlyalistButton.IconChar = FontAwesome.Sharp.IconChar.Star;
+            this.FollowPlyalistButton.IconColor = System.Drawing.Color.Black;
+            this.FollowPlyalistButton.IconSize = 30;
+            this.FollowPlyalistButton.Location = new System.Drawing.Point(248, 64);
+            this.FollowPlyalistButton.Name = "FollowPlyalistButton";
+            this.FollowPlyalistButton.Rotation = 0D;
+            this.FollowPlyalistButton.Size = new System.Drawing.Size(62, 33);
+            this.FollowPlyalistButton.TabIndex = 1;
+            this.FollowPlyalistButton.UseVisualStyleBackColor = false;
+            this.FollowPlyalistButton.Click += new System.EventHandler(this.FollowPlyalistButton_Click);
+            // 
+            // SearchUserPlaylistListbox
+            // 
+            this.SearchUserPlaylistListbox.Dock = System.Windows.Forms.DockStyle.Top;
+            this.SearchUserPlaylistListbox.FormattingEnabled = true;
+            this.SearchUserPlaylistListbox.ItemHeight = 20;
+            this.SearchUserPlaylistListbox.Location = new System.Drawing.Point(0, 0);
+            this.SearchUserPlaylistListbox.Name = "SearchUserPlaylistListbox";
+            this.SearchUserPlaylistListbox.Size = new System.Drawing.Size(310, 64);
+            this.SearchUserPlaylistListbox.TabIndex = 0;
+            this.SearchUserPlaylistListbox.SelectedIndexChanged += new System.EventHandler(this.SearchUserPlaylistListbox_SelectedIndexChanged);
             // 
             // PlaylistsUserSearchButton
             // 
@@ -4305,68 +4451,6 @@
             this.SOPTLOGO.Text = "SPOT";
             this.SOPTLOGO.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // PrivacidadInputCuenta
-            // 
-            this.PrivacidadInputCuenta.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.PrivacidadInputCuenta.FormattingEnabled = true;
-            this.PrivacidadInputCuenta.Items.AddRange(new object[] {
-            "Publico",
-            "Privado"});
-            this.PrivacidadInputCuenta.Location = new System.Drawing.Point(173, 445);
-            this.PrivacidadInputCuenta.Name = "PrivacidadInputCuenta";
-            this.PrivacidadInputCuenta.Size = new System.Drawing.Size(256, 28);
-            this.PrivacidadInputCuenta.TabIndex = 19;
-            // 
-            // PrivacidadLabel
-            // 
-            this.PrivacidadLabel.AutoSize = true;
-            this.PrivacidadLabel.Location = new System.Drawing.Point(43, 448);
-            this.PrivacidadLabel.Name = "PrivacidadLabel";
-            this.PrivacidadLabel.Size = new System.Drawing.Size(81, 20);
-            this.PrivacidadLabel.TabIndex = 20;
-            this.PrivacidadLabel.Text = "Privacidad";
-            this.PrivacidadLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // SeguirPlaylistPanel
-            // 
-            this.SeguirPlaylistPanel.Controls.Add(this.FollowPlyalistButton);
-            this.SeguirPlaylistPanel.Controls.Add(this.SearchUserPlaylistListbox);
-            this.SeguirPlaylistPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SeguirPlaylistPanel.Location = new System.Drawing.Point(414, 0);
-            this.SeguirPlaylistPanel.Name = "SeguirPlaylistPanel";
-            this.SeguirPlaylistPanel.Size = new System.Drawing.Size(310, 97);
-            this.SeguirPlaylistPanel.TabIndex = 4;
-            this.SeguirPlaylistPanel.Visible = false;
-            // 
-            // SearchUserPlaylistListbox
-            // 
-            this.SearchUserPlaylistListbox.Dock = System.Windows.Forms.DockStyle.Top;
-            this.SearchUserPlaylistListbox.FormattingEnabled = true;
-            this.SearchUserPlaylistListbox.ItemHeight = 20;
-            this.SearchUserPlaylistListbox.Location = new System.Drawing.Point(0, 0);
-            this.SearchUserPlaylistListbox.Name = "SearchUserPlaylistListbox";
-            this.SearchUserPlaylistListbox.Size = new System.Drawing.Size(310, 64);
-            this.SearchUserPlaylistListbox.TabIndex = 0;
-            this.SearchUserPlaylistListbox.SelectedIndexChanged += new System.EventHandler(this.SearchUserPlaylistListbox_SelectedIndexChanged);
-            // 
-            // FollowPlyalistButton
-            // 
-            this.FollowPlyalistButton.BackColor = System.Drawing.Color.DimGray;
-            this.FollowPlyalistButton.Dock = System.Windows.Forms.DockStyle.Right;
-            this.FollowPlyalistButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.FollowPlyalistButton.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.FollowPlyalistButton.IconChar = FontAwesome.Sharp.IconChar.Star;
-            this.FollowPlyalistButton.IconColor = System.Drawing.Color.Black;
-            this.FollowPlyalistButton.IconSize = 30;
-            this.FollowPlyalistButton.Location = new System.Drawing.Point(248, 64);
-            this.FollowPlyalistButton.Name = "FollowPlyalistButton";
-            this.FollowPlyalistButton.Rotation = 0D;
-            this.FollowPlyalistButton.Size = new System.Drawing.Size(62, 33);
-            this.FollowPlyalistButton.TabIndex = 1;
-            this.FollowPlyalistButton.UseVisualStyleBackColor = false;
-            this.FollowPlyalistButton.Click += new System.EventHandler(this.FollowPlyalistButton_Click);
-            // 
             // AppForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -4417,6 +4501,8 @@
             this.SongUploadPanel.ResumeLayout(false);
             this.SongUploadPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.UploadSongIcon)).EndInit();
+            this.VeryfyArtistPanel.ResumeLayout(false);
+            this.VeryfyArtistPanel.PerformLayout();
             this.PlaylistMainPanel.ResumeLayout(false);
             this.PlaylistVideoPanel.ResumeLayout(false);
             this.MasVistosPanel.ResumeLayout(false);
@@ -4452,6 +4538,7 @@
             this.SearchUserPanel.ResumeLayout(false);
             this.SearchUserPanel.PerformLayout();
             this.DownPanelUSerSearch.ResumeLayout(false);
+            this.SeguirPlaylistPanel.ResumeLayout(false);
             this.LodoUserPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.UserSeachIcon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SearchLogoIcon)).EndInit();
@@ -4479,7 +4566,6 @@
             this.SubSerchPanel.ResumeLayout(false);
             this.RegisterPanel.ResumeLayout(false);
             this.RegisterPanel.PerformLayout();
-            this.SeguirPlaylistPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -4789,6 +4875,11 @@
         private System.Windows.Forms.Panel SeguirPlaylistPanel;
         private FontAwesome.Sharp.IconButton FollowPlyalistButton;
         private System.Windows.Forms.ListBox SearchUserPlaylistListbox;
+        private FontAwesome.Sharp.IconButton TipoArtistaButton;
+        private System.Windows.Forms.ComboBox TipoArtistacomboBox1;
+        private System.Windows.Forms.Label TipodeArtistaModeLabel;
+        private System.Windows.Forms.Label NotPrimiumLabelArtist;
+        private System.Windows.Forms.Panel VeryfyArtistPanel;
     }
 }
 
