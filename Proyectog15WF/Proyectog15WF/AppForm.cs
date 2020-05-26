@@ -182,7 +182,7 @@ namespace Proyectog15WF
                         //ArtisteModeButton.Visible = false;
                     }
 
-
+                    PrivacidadInputCuenta.SelectedIndex = 0;
                     loginViewInvalidCredentialsAlert.ResetText();
                     loginViewInvalidCredentialsAlert.Visible = false;
                     OnUserChecked(username, pass);
@@ -783,6 +783,7 @@ namespace Proyectog15WF
         private void AceptarCambioCuenta_Click(object sender, EventArgs e)
         {
             string typeAccounte = this.TipoDeCuentaCombobox.SelectedItem.ToString();
+
             InfomacionCuentaCambiadaLabel.Visible = true;
             if (typeAccounte == "Premium")
             {
@@ -792,8 +793,10 @@ namespace Proyectog15WF
             {
                 //ArtisteModeButton.Visible = false;
             }
+
             string GenderAccounte = this.GeneroComboBox.SelectedItem.ToString();
             string ageAcctounte = this.EdadCuentaInput.SelectedText;
+            string privacidad = this.PrivacidadInputCuenta.SelectedItem.ToString();
         }
         private void ShowUserInfo()
         {   
