@@ -197,7 +197,10 @@ namespace Proyectog15WF
                 UsernameInPutLogin.ResetText();
                 PasswordInPutLogin.ResetText();
                 nameuser = username; //AQUI OBTENGO EL USUARIO QUE HACE LOGIN
-                User actuallogeduser = Userrequest(this, new LoginEventArgs() {UsernameText = username });
+                if (Userrequest != null)
+                {
+                    actuallogeduser = Userrequest(this, new LoginEventArgs() { UsernameText = username });
+                }
                 stackPanels.Add(panels["StartPanel"]);
                 MainPanel.Visible = true;
                 MainPanel.BringToFront();
@@ -210,7 +213,7 @@ namespace Proyectog15WF
         {
             if (RegisterButtonClicked != null)
             {
-                bool result = RegisterButtonClicked(this, new RegisterEventArgs() { Usernametext = Username, Passwordtext = Passworduser });
+                bool result = RegisterButtonClicked(this, new RegisterEventArgs() { Usernametext = Username, Passwordtext = Passworduser,Nametext=Name,Lastnametext=Lastname,Email=Mailuser });
                 if (result)
                 {
                     nameInputRegister.ResetText();
@@ -793,11 +796,11 @@ namespace Proyectog15WF
             string ageAcctounte = this.EdadCuentaInput.SelectedText;
         }
         private void ShowUserInfo()
-        {
-            NombreCuentaImput.Text = namelog;
-            ApellidoCuentaInput.Text = lastNameLog;
-            UsuarioCuentaInput.Text = userlog;
-            MailCuentaInput.Text = mailLog;
+        {   
+            NombreCuentaImput.Text = actuallogeduser.Name;
+            ApellidoCuentaInput.Text = actuallogeduser.Lastname;
+            UsuarioCuentaInput.Text = actuallogeduser.Username;
+            MailCuentaInput.Text = actuallogeduser.Mail;
             EdadCuentaInput.Text = null;
         }
 
@@ -1266,11 +1269,18 @@ namespace Proyectog15WF
 
         private void PlaylistListBoxAdd_SelectedIndexChanged(object sender, EventArgs e)
         {   
+            
+        }
+        
+        bool botonparaagregaralaplaylist = false; //boton que agrega a la playlist
+        private void AgregarMediaPlaylistButton_Click(object sender, EventArgs e)
+        {
+            botonparaagregaralaplaylist = true;
             if (!PlaylistListBoxAdd.SelectedItem.Equals("No results for search criteria") && botonparaagregaralaplaylist)
             {
-               List< PlaylistSong> playlistSong = OnReciveUsernamePlaylist();
-                
-                foreach(PlaylistSong cancionesinplaylistsong in playlistSong)
+                List<PlaylistSong> playlistSong = OnReciveUsernamePlaylist();
+
+                foreach (PlaylistSong cancionesinplaylistsong in playlistSong)
                 {
                     if (cancionesinplaylistsong.GetPlaylistName() == Convert.ToString(PlaylistListBoxAdd.SelectedItem))
                     {
@@ -1279,17 +1289,12 @@ namespace Proyectog15WF
                             if (Convert.ToString(SearchMediapanellistBox.SelectedItem).Contains(song.Namesong))
                             {
                                 cancionesinplaylistsong.AddSong(song);
+                                botonparaagregaralaplaylist = false;
                             }
                         }
                     }
                 }
             }
-        }
-        
-        bool botonparaagregaralaplaylist = false; //boton que agrega a la playlist
-        private void AgregarMediaPlaylistButton_Click(object sender, EventArgs e)
-        {
-            botonparaagregaralaplaylist = true;
         }
        
     }    
