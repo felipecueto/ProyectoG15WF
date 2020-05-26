@@ -29,6 +29,7 @@ namespace Controllers
             this.view.Userselectedplaylist += OnRemovePlaylist;
             this.view.Changingpassword += OnChangingpassword;
             this.view.Addplaylist += OnAddMusicPlaylist;
+            this.view.Userrequest += OnUserRequest;
         }
 
 
@@ -104,6 +105,18 @@ namespace Controllers
             return new List<PlaylistSong>() { new PlaylistSong("Sin Playlist") };
         }
 
+        public User OnUserRequest(object sender, LoginEventArgs e)
+        {
+            foreach (User usuario in users)
+            {
+                if (usuario.Username.ToUpper() == e.UsernameText.ToUpper())
+                {
+                    return usuario;
+                }
+            }
+            return null;
+        }
+
         public void OnAddMusicPlaylist(object sender, GetUserPlaylistEventsArgs e)
         {
             foreach (User usuario in users)
@@ -122,10 +135,10 @@ namespace Controllers
                 if (usuario.Username.ToUpper() == e.ActualLoggedUsername.ToUpper())
                 {
                     usuario.RemoveMusicPlaylist(e.ActualPlaylistSelected);
-                    return true; // Elimina la playlist
+                    return false; // Elimina la playlist
                 }
             }
-            return false; //no elimina nada
+            return true; //no elimina nada
         }
         public bool OnChangingpassword(object sender, ChangePasswordEventArgs e)
         {

@@ -33,6 +33,8 @@ namespace Proyectog15WF
         public event CheckusernameEventHandler Checkusernameregister;
         public event EventHandler<SearchUserEventArgs> Searching;
         public event EventHandler<SearchingSongorVideo> Searchingnamevideoorsong;
+        public delegate User LoginReturnUserEventHandler(object source, LoginEventArgs args);
+        public event LoginReturnUserEventHandler Userrequest;
 
         // Eventos playlist
         public delegate List<PlaylistSong> SendingPlaylistHandler(object source, GetUserPlaylistEventsArgs args);
@@ -55,6 +57,7 @@ namespace Proyectog15WF
 
         List<Panel> stackPanels = new List<Panel>();
         Dictionary<string, Panel> panels = new Dictionary<string, Panel>();
+        User actuallogeduser = null;
         string userlog = "";
         string namelog = "";
         string lastNameLog = "";
@@ -194,6 +197,7 @@ namespace Proyectog15WF
                 UsernameInPutLogin.ResetText();
                 PasswordInPutLogin.ResetText();
                 nameuser = username; //AQUI OBTENGO EL USUARIO QUE HACE LOGIN
+                User actuallogeduser = Userrequest(this, new LoginEventArgs() {UsernameText = username });
                 stackPanels.Add(panels["StartPanel"]);
                 MainPanel.Visible = true;
                 MainPanel.BringToFront();
@@ -897,6 +901,7 @@ namespace Proyectog15WF
                       {
                             variablecancion  = Recivingsong(this, new ReturnsongEventArgs() { Verifysonginsongofuser = Convert.ToString(SearchMediapanellistBox.SelectedItem) });
                             cancionesdelusuario.Add(variablecancion);
+                            
 
                       }
 
@@ -1039,27 +1044,18 @@ namespace Proyectog15WF
         private void MySongsListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             string playlist_seleccionada = Convert.ToString(MySongsListBox.SelectedItem);
-            if (Userselectedplaylist != null)
-            {
 
-                if (Userselectedplaylist(this, new GetUserPlaylistEventsArgs { ActualPlaylistSelected = playlist_seleccionada, ActualLoggedUsername = nameuser }) && buttonClickdelete)
-                {
-                    MySongsListBox.Items.Remove(playlist_seleccionada);
-                }
-            }
-            foreach(PlaylistSong playsofsongs in OnReciveUsernamePlaylist()) 
+
+            foreach (PlaylistSong playlist in OnReciveUsernamePlaylist())
             {
-                if (playsofsongs.GetPlaylistName() == playlist_seleccionada)
+                if (playlist.GetPlaylistName() == playlist_seleccionada)
                 {
-                    foreach(Song canciones in playsofsongs.GetPlaylistAllSongs())
+                    foreach (Song canciones in playlist.GetPlaylistAllSongs())
                     {
                         SongInMyPlaylistListBox.Items.Add(canciones.Namesong);
                     }
                 }
-            
             }
-
-
 
         }
 
@@ -1083,6 +1079,15 @@ namespace Proyectog15WF
         private void DeletePlaylistButton_Click(object sender, EventArgs e)
         {
             buttonClickdelete = true;
+            string playlist_seleccionada = Convert.ToString(MySongsListBox.SelectedItem);
+            if (Userselectedplaylist != null)
+            {
+
+                if (Userselectedplaylist(this, new GetUserPlaylistEventsArgs { ActualPlaylistSelected = playlist_seleccionada, ActualLoggedUsername = nameuser }) && buttonClickdelete)
+                {
+                MySongsListBox.Items.Remove(playlist_seleccionada);
+                }
+            }
         }
         private void VerCancionesEnMisPlaylistButton_Click(object sender, EventArgs e)
         {
@@ -1271,15 +1276,13 @@ namespace Proyectog15WF
                     {
                         foreach (Song song in cancionesdelusuario)
                         {
-                            if (SearchMediapanellistBox.SelectedItem.Equals(song.Namesong))
+                            if (Convert.ToString(SearchMediapanellistBox.SelectedItem).Contains(song.Namesong))
                             {
                                 cancionesinplaylistsong.AddSong(song);
                             }
                         }
                     }
-                    
                 }
-
             }
         }
         

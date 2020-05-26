@@ -13,8 +13,8 @@ namespace Model
         string name;
         string lastname;
         string mail;
-        List<PlaylistSong> musicplaylist = new List<PlaylistSong>();
-        List<PlaylistVideo> videoplaylist = new List<PlaylistVideo>();
+        List<PlaylistSong> musicplaylist;
+        List<PlaylistVideo> videoplaylist;
 
 
         public User()
@@ -31,6 +31,8 @@ namespace Model
             this.password = password;
             this.mail = email;
             this.lastname = lastname;
+            this.musicplaylist = new List<PlaylistSong>();
+            this.videoplaylist = new List<PlaylistVideo>();
             AddMusicPlaylist("Musica Favorita");
             AddVideoPlaylist("Videos Favoritos");
         }
@@ -56,7 +58,7 @@ namespace Model
         //Playlist Methods
         public bool AddMusicPlaylist(string playlistname)
         {
-            foreach (PlaylistSong playlist in musicplaylist)
+            foreach (PlaylistSong playlist in this.musicplaylist)
             {
                 if (playlist.GetPlaylistName() == playlistname)
                 {
@@ -69,7 +71,7 @@ namespace Model
 
         public bool RemoveMusicPlaylist(string playlistname)
         {
-            foreach (PlaylistSong playlist in musicplaylist)
+            foreach (PlaylistSong playlist in this.musicplaylist)
             {
                 if (playlist.GetPlaylistName() == playlistname)
                 {
@@ -82,7 +84,7 @@ namespace Model
 
         public bool AddVideoPlaylist(string playlistname)
         {
-            foreach (PlaylistVideo playlist in videoplaylist)
+            foreach (PlaylistVideo playlist in this.videoplaylist)
             {
                 if (playlist.GetPlaylistName() == playlistname)
                 {
@@ -95,7 +97,7 @@ namespace Model
 
         public void RemoveVideoPlaylist(string playlistname)
         {
-            foreach (PlaylistVideo playlist in videoplaylist)
+            foreach (PlaylistVideo playlist in this.videoplaylist)
             {
                 if (playlist.GetPlaylistName() == playlistname)
                 {
@@ -106,7 +108,7 @@ namespace Model
 
         public List<PlaylistSong> GetPlaylistSongs()
         {
-            return musicplaylist;
+            return this.musicplaylist;
         }
         //
 

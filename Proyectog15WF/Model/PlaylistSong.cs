@@ -77,18 +77,22 @@ namespace Model
             }
         }
 
-        public bool AddSong(Song song)
+        public void AddSong(Song song)
         {
-            foreach (Song value in songs)
+            bool flag = false;
+            foreach (Song value in this.songs)
             {
                 if (value.Namesong == song.Namesong)
                 {
-                    return false; // no agrega la cancion porque ya está
+                    flag = true;
+                    // no agrega la cancion porque ya está
                 }
             }
-
-            songs.Add(song);
-            return true; // si agrego la cancion
+            if (flag == false)
+            {
+                songs.Add(song);
+            }
+            // si agrego la cancion
         }
 
         public bool RemoveSong(Song song)
