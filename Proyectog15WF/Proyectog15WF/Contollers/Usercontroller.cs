@@ -34,6 +34,7 @@ namespace Controllers
             this.view.SendingplaylistVideo += OnShowSongPlaylistVideo;
             this.view.Userifosend += OnRecivingUserchanges;
             this.view.Artistifosend += OnArtistModeUserchanges;
+            this.view.Serialize += OnSerialize;
             DeserializeData();
         }
 
@@ -67,7 +68,10 @@ namespace Controllers
             }
         }
 
-
+        public void OnSerialize(object sender, EventArgs e)
+        {
+            SerializeData();
+        }
         public bool OnLoginButtonClicked(object sender, LoginEventArgs e)
         {
 

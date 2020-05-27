@@ -56,6 +56,9 @@
             this.MiInformacionLogoPanel = new System.Windows.Forms.Panel();
             this.iconPictureBox2 = new FontAwesome.Sharp.IconPictureBox();
             this.EditeProfilePanel = new System.Windows.Forms.Panel();
+            this.ImagePanel = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.LoadImageButton = new FontAwesome.Sharp.IconButton();
             this.CuentaPanel = new System.Windows.Forms.Panel();
             this.PrivacidadLabel = new System.Windows.Forms.Label();
             this.PrivacidadInputCuenta = new System.Windows.Forms.ComboBox();
@@ -352,6 +355,8 @@
             this.MiInformacionLogoPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox2)).BeginInit();
             this.EditeProfilePanel.SuspendLayout();
+            this.ImagePanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.CuentaPanel.SuspendLayout();
             this.CambiarContraseñaPanel.SuspendLayout();
             this.SideProfilePanel.SuspendLayout();
@@ -768,6 +773,7 @@
             // 
             // EditeProfilePanel
             // 
+            this.EditeProfilePanel.Controls.Add(this.ImagePanel);
             this.EditeProfilePanel.Controls.Add(this.CuentaPanel);
             this.EditeProfilePanel.Controls.Add(this.CambiarContraseñaPanel);
             this.EditeProfilePanel.Controls.Add(this.SideProfilePanel);
@@ -776,6 +782,46 @@
             this.EditeProfilePanel.Name = "EditeProfilePanel";
             this.EditeProfilePanel.Size = new System.Drawing.Size(724, 683);
             this.EditeProfilePanel.TabIndex = 0;
+            // 
+            // ImagePanel
+            // 
+            this.ImagePanel.Controls.Add(this.pictureBox1);
+            this.ImagePanel.Controls.Add(this.LoadImageButton);
+            this.ImagePanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ImagePanel.Location = new System.Drawing.Point(256, 0);
+            this.ImagePanel.Name = "ImagePanel";
+            this.ImagePanel.Size = new System.Drawing.Size(468, 683);
+            this.ImagePanel.TabIndex = 22;
+            this.ImagePanel.Visible = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox1.Location = new System.Drawing.Point(103, 105);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(259, 281);
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
+            // LoadImageButton
+            // 
+            this.LoadImageButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.LoadImageButton.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.LoadImageButton.IconChar = FontAwesome.Sharp.IconChar.CloudUploadAlt;
+            this.LoadImageButton.IconColor = System.Drawing.Color.Black;
+            this.LoadImageButton.IconSize = 36;
+            this.LoadImageButton.Location = new System.Drawing.Point(158, 437);
+            this.LoadImageButton.Name = "LoadImageButton";
+            this.LoadImageButton.Rotation = 0D;
+            this.LoadImageButton.Size = new System.Drawing.Size(154, 67);
+            this.LoadImageButton.TabIndex = 0;
+            this.LoadImageButton.Text = "Subir Imagen";
+            this.LoadImageButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.LoadImageButton.UseVisualStyleBackColor = true;
+            this.LoadImageButton.Click += new System.EventHandler(this.LoadImageButton_Click);
             // 
             // CuentaPanel
             // 
@@ -4480,6 +4526,8 @@
             this.MiInformacionLogoPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox2)).EndInit();
             this.EditeProfilePanel.ResumeLayout(false);
+            this.ImagePanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.CuentaPanel.ResumeLayout(false);
             this.CuentaPanel.PerformLayout();
             this.CambiarContraseñaPanel.ResumeLayout(false);
@@ -4879,6 +4927,9 @@
         private System.Windows.Forms.Label TipodeArtistaModeLabel;
         private System.Windows.Forms.Label NotPrimiumLabelArtist;
         private System.Windows.Forms.Panel VeryfyArtistPanel;
+        private System.Windows.Forms.Panel ImagePanel;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private FontAwesome.Sharp.IconButton LoadImageButton;
     }
 }
 

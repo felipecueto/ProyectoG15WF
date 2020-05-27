@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace Proyectog15WF
 {
@@ -67,12 +68,15 @@ namespace Proyectog15WF
         public event EventHandler<SendingtypeaccountEventArgs> Userifosend;
         //Evento para envar Artista
         public event EventHandler<SendingArtistInfo> Artistifosend;
+        //Evento´para serializar
+        public event EventHandler<EventArgs> Serialize;
 
         List<Panel> stackPanels = new List<Panel>();
         Dictionary<string, Panel> panels = new Dictionary<string, Panel>();
         User actuallogeduser = null;
         bool prim = false;
 
+       
         public AppForm()
         {
 
@@ -81,13 +85,19 @@ namespace Proyectog15WF
             panels.Add("Registerpanel", RegisterPanel);
             panels.Add("LoginPanel", LoginPanel);
             panels.Add("Mainpanel", MainPanel);
-
-
-
         }
 
-        private void HideSubPanel()
+        public void SerializeData()
         {
+            if (Serialize != null)
+            {
+                Serialize(this, new EventArgs() { });
+            }
+        }
+        private void HideSubPanel()
+
+        {
+            SerializeData();
             if (SubArtistPanel.Visible == true)
             {
                 SubArtistPanel.Visible = false;
@@ -107,6 +117,8 @@ namespace Proyectog15WF
         }
         private void ShowSubPanel(Panel submenu)
         {
+            SerializeData();
+            
             if (submenu.Visible == false)
             {
                 HideSubPanel();
@@ -120,20 +132,26 @@ namespace Proyectog15WF
 
         private void EXITbutton_Click(object sender, EventArgs e)
         {
+            SerializeData();
             this.Close();
         }
 
     
         private void RegistrateButton_Click(object sender, EventArgs e)
         {
+
+        
             StartPanel.SendToBack();
             RegisterPanel.BringToFront();
             RegisterPanel.Visible = true;
+            SerializeData();
 
         }
 
         private void BackButtonLogin_Click(object sender, EventArgs e)
         {
+
+            SerializeData();
             LoginPanel.SendToBack();
             StartPanel.BringToFront();
             LoginPanel.Visible = false;
@@ -141,6 +159,7 @@ namespace Proyectog15WF
 
         private void button1_Click(object sender, EventArgs e)
         {
+            SerializeData();
             StartPanel.SendToBack();
             LoginPanel.BringToFront();
             loginViewInvalidCredentialsAlert.ResetText();
@@ -151,6 +170,7 @@ namespace Proyectog15WF
 
         private void BackRegisterButton_Click(object sender, EventArgs e)
         {
+            SerializeData();
             RegisterPanel.SendToBack();
             StartPanel.BringToFront();
             RegisterPanel.Visible = false;
@@ -159,6 +179,7 @@ namespace Proyectog15WF
     
         private void OnLoginButtonClicked(string username, string pass)
         {
+            SerializeData();
             if (LoginButtonClicked != null)
             {
                 bool result = LoginButtonClicked(this, new LoginEventArgs() { UsernameText = username, PasswordText = pass });
@@ -276,6 +297,7 @@ namespace Proyectog15WF
 
         public void Onregisteredbutooncliked(string Name, string Lastname, string Username, string Mailuser, string Passworduser)
         {
+            SerializeData();
             if (RegisterButtonClicked != null)
             {
                 bool result = RegisterButtonClicked(this, new RegisterEventArgs() { Usernametext = Username, Passwordtext = Passworduser,Nametext=Name,Lastnametext=Lastname,Email=Mailuser });
@@ -294,6 +316,7 @@ namespace Proyectog15WF
         }
         private void ShowLastPanel()
         {
+            SerializeData();
             foreach (Panel panel in panels.Values)
             {
                 if (panel != stackPanels.Last())
@@ -311,12 +334,14 @@ namespace Proyectog15WF
         {
             string username = UsernameInPutLogin.Text;
             string pass = PasswordInPutLogin.Text;
+            SerializeData();
             OnLoginButtonClicked(username, pass);
 
         }
 
         private void Registerbutton_Click(object sender, EventArgs e)
         {
+            SerializeData();
             string nameInputuser = null;
             
             string lastNameInputuser = null;
@@ -396,6 +421,7 @@ namespace Proyectog15WF
         }
         public string OncheckUsernameregister(string Username)
         {
+            SerializeData();
             string check = null;
             if (Checkusernameregister != null)
             {
@@ -415,6 +441,7 @@ namespace Proyectog15WF
      
         private void UserSeachButton_Click(object sender, EventArgs e)
         {
+            SerializeData();
             //MainScreenPanel.Visible = false;
             SearchMediapanel.Visible = false;
             SearchArtistPanel.Visible = false;
@@ -426,6 +453,7 @@ namespace Proyectog15WF
 
         private void SearchButton_Click_1(object sender, EventArgs e)
         {
+            SerializeData();
             ShowSubPanel(SubSerchPanel);
             ReproduccionMainPanel.Visible = false;
             PlaylistMainPanel.Visible = false;
@@ -452,6 +480,7 @@ namespace Proyectog15WF
 
         private void PlayListButton_Click_1(object sender, EventArgs e)
         {
+            SerializeData();
             ShowSubPanel(SubPlaylistPanel);
             MainScreenPanel.Visible = true;
             SearchMainPanel.Visible = false;
@@ -472,7 +501,7 @@ namespace Proyectog15WF
         private void ArtisteModeButton_Click(object sender, EventArgs e)
         {
             ShowSubPanel(SubArtistPanel);
-
+            SerializeData();
             if (!prim)
             {
                 VeryfyArtistPanel.Visible = true;
@@ -489,6 +518,7 @@ namespace Proyectog15WF
 
         private void ProfileButton_Click_1(object sender, EventArgs e)
         {
+            SerializeData();
             ShowSubPanel(SubProfilePanel);
             MainScreenPanel.Visible = true;
             SearchMainPanel.Visible = false;
@@ -501,7 +531,9 @@ namespace Proyectog15WF
         private void LogOutButton_Click(object sender, EventArgs e)
         {
             //stackPanels.RemoveAt(stackPanels.Count - 1);
-           // ShowLastPanel();
+            // ShowLastPanel();
+            axWindowsMediaPlayer1.Ctlcontrols.pause();
+            SerializeData();
             MainPanel.Visible = false;
             SubArtistPanel.Visible = false;
             SubPlaylistPanel.Visible = false;
@@ -517,6 +549,7 @@ namespace Proyectog15WF
 
         private void SearchUserPaneltextbox_TextChanged(object sender, EventArgs e)
         {
+            SerializeData();
             string searchtext = SearchUserPaneltextbox.Text;
             List<string> results = new List<string>();
             if (searchtext.Length >= 3)
@@ -532,6 +565,7 @@ namespace Proyectog15WF
         }
         private void Noresult()
         {
+            SerializeData();
             SearchUserPanelResultlistusers.Items.Add("No results for search criteria");
         }
         private void CleanSearch()
@@ -562,6 +596,7 @@ namespace Proyectog15WF
 
         private void MediaSeachButton_Click(object sender, EventArgs e)
         {
+            SerializeData();
             SubFiltersPanel.Visible = false;
             SearchUserPanel.Visible = false;
             SearchArtistPanel.Visible = false;
@@ -589,6 +624,7 @@ namespace Proyectog15WF
 
         private void SearchMediatextBox_TextChanged(object sender, EventArgs e)
         {
+            SerializeData();
             string searchtext = SearchMediatextBox.Text;
             List<string> results = new List<string>();
             if (searchtext.Length >= 1)
@@ -604,6 +640,7 @@ namespace Proyectog15WF
         }
         public void UpdateResultsvideoandsong(List<string> results)
         {
+            SerializeData();
             if (results.Count > 0)
             {
                 foreach (string result in results)
@@ -625,6 +662,7 @@ namespace Proyectog15WF
 
         private void UploadSongButton_Click(object sender, EventArgs e)
         {
+            SerializeData();
             UploadVideoPanel.Visible = false;
             SongUploadPanel.Visible = true;
             ArtistModeMainPanel.Visible = true;
@@ -636,6 +674,7 @@ namespace Proyectog15WF
 
         private void FiltersButton_Click(object sender, EventArgs e)
         {
+            SerializeData();
             FilterONlable.ResetText();
             if (SubFiltersPanel.Visible)
             {
@@ -648,6 +687,7 @@ namespace Proyectog15WF
         }
         private void FilterButton_Click(object sender, EventArgs e)
         {
+            SerializeData();
             Button button = (Button)sender;
             FilterONlable.ResetText();
             FilterONlable.Text = button.Text;
@@ -655,6 +695,7 @@ namespace Proyectog15WF
 
         private void ArtistSeachButton_Click(object sender, EventArgs e)
         {
+            SerializeData();
             // MainScreenPanel.Visible = false;
             SearchUserPanel.Visible = false;
             SearchMediapanel.Visible = false;
@@ -665,6 +706,7 @@ namespace Proyectog15WF
 
         private void MySongplaylistButton_Click(object sender, EventArgs e)
         {
+            SerializeData();
             MySongsListBox.Items.Clear();
             PlaylistMySongPanel.Visible = true;
             MasEsuchadaPanel.Visible = false;
@@ -710,6 +752,7 @@ namespace Proyectog15WF
 
         private void FollowingPlaylist_Click(object sender, EventArgs e)
         {
+            SerializeData();
             FollowPlaylistSongPanel.Visible = true;
             PlaylistMySongPanel.Visible = false;
             CrearSongPlaylistPanel.Visible = false;
@@ -718,6 +761,7 @@ namespace Proyectog15WF
 
         private void MostLisentSonButton_Click(object sender, EventArgs e)
         {
+            SerializeData();
             MasEsuchadaPanel.Visible = true;
             FollowPlaylistSongPanel.Visible = false;
             PlaylistMySongPanel.Visible = false;
@@ -727,6 +771,7 @@ namespace Proyectog15WF
 
         private void SongButton_Click(object sender, EventArgs e)
         {
+            SerializeData();
             PlaylistMainPanel.Visible = true;
             PlaylistSongPanel.Visible = true;
             PlaylistVideoPanel.Visible = false;
@@ -741,6 +786,7 @@ namespace Proyectog15WF
 
         private void VideoButton_Click(object sender, EventArgs e)
         {
+            SerializeData();
             PlaylistSongPanel.Visible = false;
             SubVideoPlaylistPanel.Visible = false;
             PlaylistMainPanel.Visible = true;
@@ -754,6 +800,7 @@ namespace Proyectog15WF
 
         private void MyVideoPlaylistButton_Click(object sender, EventArgs e)
         {
+            SerializeData();
             MyVideoListBox.Items.Clear();
             VideoMyPlaylistPanel.Visible = true;
             VideoFollowPanel.Visible = false;
@@ -779,6 +826,7 @@ namespace Proyectog15WF
 
         private void UploadVideoButton_Click(object sender, EventArgs e)
         {
+            SerializeData();
             ArtistModeMainPanel.Visible = true;
             UploadVideoPanel.Visible = true;
             SongUploadPanel.Visible = false;
@@ -787,18 +835,21 @@ namespace Proyectog15WF
 
         private void SongAlbumButton_Click(object sender, EventArgs e)
         {
+            SerializeData();
             SongsAlbumPanel.Visible = true;
             VideoAlbumPanel.Visible = false;
         }
 
         private void VideosAlbumButton_Click(object sender, EventArgs e)
         {
+            SerializeData();
             SongsAlbumPanel.Visible = false;
             VideoAlbumPanel.Visible = true;
         }
 
         private void AlbumButton_Click(object sender, EventArgs e)
         {
+            SerializeData();
             AlbumArtistPanel.Visible = true;
             ArtistModeMainPanel.Visible = true;
             UploadVideoPanel.Visible = false;
@@ -810,6 +861,7 @@ namespace Proyectog15WF
 
         private void MasVistoButton_Click(object sender, EventArgs e)
         {
+            SerializeData();
             MasVistosPanel.Visible = true;
             VideoMyPlaylistPanel.Visible = false;
             VideoFollowPanel.Visible = false;
@@ -819,6 +871,7 @@ namespace Proyectog15WF
 
         private void FolloweVideoButton_Click(object sender, EventArgs e)
         {
+            SerializeData();
             VideoFollowPanel.Visible = true;
             MasVistosPanel.Visible = false;
             VideoMyPlaylistPanel.Visible = false;
@@ -829,6 +882,7 @@ namespace Proyectog15WF
 
         private void EditeProfilebutton_Click(object sender, EventArgs e)
         {
+            SerializeData();
             ProfileMainPanel.Visible = true;
             EditeProfilePanel.Visible = true;
             CambiarContraseñaPanel.Visible = false;
@@ -839,32 +893,40 @@ namespace Proyectog15WF
 
         private void InfoProfileButton_Click(object sender, EventArgs e)
         {
+            SerializeData();
             ProfileMainPanel.Visible = true;
             EditeProfilePanel.Visible = false;
             MiInformacionPanel.Visible = true;
             UserNameInfoInput.Text = nameuser;
             SeguidoresPanel.Visible = false;
             SeguidosPanel.Visible = false;
+            ImagePanel.Visible = false;
         }
 
         private void ChangePasswordButton_Click(object sender, EventArgs e)
         {
+            SerializeData();
             CambiarContraseñaPanel.Visible = true;
             CuentaPanel.Visible = false;
+            ImagePanel.Visible = false;
 
         }
 
     
         private void CuentaButton_Click(object sender, EventArgs e)
         {
+            SerializeData();
             CambiarContraseñaPanel.Visible = false;
             CuentaPanel.Visible = true;
             InfomacionCuentaCambiadaLabel.Visible = false;
+            ImagePanel.Visible = false;
         }
         private void CambiarFotoButton_Click(object sender, EventArgs e)
         {
             CambiarContraseñaPanel.Visible = false;
             CuentaPanel.Visible = false;
+            ImagePanel.Visible = true;
+            SerializeData();
         }
 
         private void TipoDeCuentaCombobox_SelectedIndexChanged(object sender, EventArgs e)
@@ -913,8 +975,8 @@ namespace Proyectog15WF
                 TipodeArtistaModeLabel.Visible = false;
                 TipoArtistaButton.Visible = false;
             }
+            SerializeData();
 
-            
         }
         
 
@@ -922,17 +984,20 @@ namespace Proyectog15WF
         {
             SeguidoresPanel.Visible = true;
             SeguidosPanel.Visible = false;
+            SerializeData();
         }
 
         private void FollowButton_Click(object sender, EventArgs e)
         {
             SeguidoresPanel.Visible = false;
             SeguidosPanel.Visible = true;
+            SerializeData();
         }
 
         private void PlayButton_Click_1(object sender, EventArgs e)
         {
             CalificacionComboBox.SelectedIndex = 0;
+
             if (ReproduccionMainPanel.Visible)
             {
                 ReproduccionMainPanel.Visible = false;
@@ -962,10 +1027,12 @@ namespace Proyectog15WF
                 }
 
             }
+            SerializeData();
         }
 
         private void QueueButton_Click(object sender, EventArgs e)
         {
+            SerializeData();
             if (QueuePanel.Visible)
             {
                 QueuePanel.Visible = false;
@@ -979,7 +1046,7 @@ namespace Proyectog15WF
 
         private void SearchMediapanellistBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            SerializeData();
             if (Reproducevideo != null)
             {
                 if (!SearchMediapanellistBox.SelectedItem.Equals("No results for search criteria"))
@@ -1025,13 +1092,14 @@ namespace Proyectog15WF
 
         private void StopButton_Click(object sender, EventArgs e)
         {
-            axWindowsMediaPlayer1.Ctlcontrols.stop();
+            axWindowsMediaPlayer1.Ctlcontrols.pause();
         }
         //Profile---------------------------------------------------------------------------------------------------//
         
         //Cambio contraseña:
         private void ChangePasswordAcepted(object sender, EventArgs e)
         {
+            SerializeData();
             string pass = ContraseñaActualInput.Text;
             string newpass = NuevaContraseñainput.Text;
             if (Changingpassword != null)
@@ -1097,6 +1165,7 @@ namespace Proyectog15WF
             {
                 VideoSubidoConExito.Visible = true; //Mensaje Video subido 
             }
+            SerializeData();
         }
 
         // Subir cancion
@@ -1118,7 +1187,9 @@ namespace Proyectog15WF
             else
             {
                CancionSubidaConExito.Visible = true; //Mensaje Video subido 
+         
             }
+            SerializeData();
         }
 
         //Playlist------------------------------------------------------------------------------------------------/
@@ -1138,6 +1209,7 @@ namespace Proyectog15WF
                     }
                 }
             }
+            SerializeData();
         }
 
         private void FollowVideoListBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -1156,6 +1228,7 @@ namespace Proyectog15WF
             NombrePlaylistExiste.Visible = false;
             VideoPlaylistCreadaConExitoLabel.Visible =false;
             CrearVideoPlaylistpanel.Visible = true;
+            SerializeData();
 
         }
         
@@ -1181,6 +1254,7 @@ namespace Proyectog15WF
                     }
                 }
             }
+            SerializeData();
 
         }
 
@@ -1199,6 +1273,7 @@ namespace Proyectog15WF
             ErrorCuentaPrivadaPlaylistSong.Visible = false;
             ErrorExisteSongPlaylisteNombre.Visible = false;
             PlaylistSongCreada.Visible = false;
+            SerializeData();
         }
           
         private void DeletePlaylistButton_Click(object sender, EventArgs e)
@@ -1213,18 +1288,20 @@ namespace Proyectog15WF
                 MySongsListBox.Items.Remove(playlist_seleccionada);
                 }
             }
+            SerializeData();
         }
         private void VerCancionesEnMisPlaylistButton_Click(object sender, EventArgs e)
         {
             SongsInMyPlaylistPanel.Visible = true;
 
-
+            SerializeData();
 
 
         }
         private void BackMyPlaylistSong_Click(object sender, EventArgs e)
         {
             SongsInMyPlaylistPanel.Visible = false;
+            SerializeData();
         }
 
         private void SongInMyPlaylistListBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -1235,11 +1312,13 @@ namespace Proyectog15WF
         private void VerCancionesPlaylistSeguidas_Click(object sender, EventArgs e)
         {
             SongSeguidasPlaylistPanel.Visible = true;
+            SerializeData();
         }
 
         private void BackPlaylistSeguidas_Click(object sender, EventArgs e)
         {
             SongSeguidasPlaylistPanel.Visible = false;
+            SerializeData();
         }
 
         private void SongsInFollowPlaylistListBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -1279,6 +1358,7 @@ namespace Proyectog15WF
             {
                 PlaylistSongCreada.Visible = true;
             }
+            SerializeData();
         }
 
         //Search-----------------------------------------------------------------------------------------------------//
@@ -1317,6 +1397,7 @@ namespace Proyectog15WF
 
         private void CrearVideoPlaylist_Click(object sender, EventArgs e)
         {
+            
             string nameVideo = NombreVideoPlalistInput.Text;
             string privacidad = Convert.ToString(PrivacidadVideoPlaylist.SelectedItem);
 
@@ -1340,17 +1421,20 @@ namespace Proyectog15WF
             {
                 VideoPlaylistCreadaConExitoLabel.Visible = true;
             }
+            SerializeData();
 
         }
 
         private void BackFollowingPlaylist_Click(object sender, EventArgs e)
         {
             VideosInFollowingPlaylistPanel.Visible = false;
+            SerializeData();
         }
 
         private void VideosInFollowingPlaylistButton_Click(object sender, EventArgs e)
         {
             VideosInFollowingPlaylistPanel.Visible = true;
+            SerializeData();
         }
 
         private void VideosInFollowingPlaylistListbox_SelectedIndexChanged(object sender, EventArgs e)
@@ -1396,6 +1480,7 @@ namespace Proyectog15WF
                     }
                 }
             }
+            SerializeData();
         }
 
         private void PlaylistListBoxAdd_SelectedIndexChanged(object sender, EventArgs e)
@@ -1468,6 +1553,7 @@ namespace Proyectog15WF
                 }
 
             }
+            SerializeData();
         }
         //Buscar Usuario--------------------------------------------------------------------------------------------------//
         
@@ -1486,6 +1572,7 @@ namespace Proyectog15WF
             {
                 SeguirPlaylistPanel.Visible = true;
             }
+            SerializeData();
         }
 
         private void SearchUserPlaylistListbox_SelectedIndexChanged(object sender, EventArgs e)
@@ -1506,7 +1593,19 @@ namespace Proyectog15WF
                 Artistifosend(this, new SendingArtistInfo() { Usernametext = nameuser, ArtistText=artist });
             }
             VeryfyArtistPanel.Visible = false;
+            SerializeData();
+        }
 
+        private void LoadImageButton_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Title = "Selecione la imagen";
+            openFileDialog.Filter = "Image file (*.jpg; *.jpeg;*.bmp;)|*.jpg; *.jpeg;*.bmp;";
+            if(openFileDialog.ShowDialog()== DialogResult.OK)
+            {
+                Bitmap image = new Bitmap(openFileDialog.FileName);
+                pictureBox1.Image = image;
+            }
         }
 
       
