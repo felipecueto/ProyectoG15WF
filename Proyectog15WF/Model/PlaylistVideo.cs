@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
+    [Serializable()]
     public class PlaylistVideo
     {
         List<Video> videos; // Quizas hacer una lista de objetos Song

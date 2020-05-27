@@ -4,8 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace Model
 {
+    [Serializable()]
     public class User
     {
         string username;
@@ -19,9 +21,7 @@ namespace Model
         string privacidad = "Publico";
         string tipodeusuario = "Free";
         string genero = "None";
-
-
-
+        string artist = null;
 
         public User()
         {
@@ -53,6 +53,7 @@ namespace Model
         public string Privacidad { get => privacidad; set => privacidad = value; }
         public string Tipodeusuario { get => tipodeusuario; set => tipodeusuario = value; }
         public string Genero { get => genero; set => genero = value; }
+        public string Artist { get => artist; set => artist = value; }
 
         public bool CheckCredentials(string username, string pass)
         {

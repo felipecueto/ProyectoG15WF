@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Model;
 using Proyectog15WF;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.IO;
 
 namespace Controllers
 {
@@ -14,9 +16,7 @@ namespace Controllers
     {
         List<User> users = new List<User>();
         AppForm view;
-
-
-
+        BinaryFormatter binaryFormatter = new BinaryFormatter();
         public UserController(Form view)
         {
             this.view = view as AppForm;
@@ -31,11 +31,44 @@ namespace Controllers
             this.view.Addplaylist += OnAddMusicPlaylist;
             this.view.Userrequest += OnUserRequest;
             this.view.Userifosend += OnRecivingUserchanges;
+            this.view.Artistifosend += OnArtistModeUserchanges;
+            DeserializeData();
+        }
+
+        public void SerializeData()
+        {
+            try
+            {
+                FileStream FS = new FileStream("Users.Bin", FileMode.Create, FileAccess.Write, FileShare.None);
+                binaryFormatter.Serialize(FS, users);
+                FS.Close();
+            }
+            catch
+            {
+               
+            }
+        }
+
+        public void DeserializeData()
+        {
+            
+            try
+            {
+                FileStream FS = new FileStream("Users.bin", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+                users =(List<User>)binaryFormatter.Deserialize(FS);
+                FS.Close();
+               
+            }
+            catch
+            {
+               
+            }
         }
 
 
         public bool OnLoginButtonClicked(object sender, LoginEventArgs e)
         {
+
             User result = null;
             result = users.Where(t =>
                t.Username.ToUpper().Contains(e.UsernameText.ToUpper()) && (t.Password.ToUpper().Contains(e.PasswordText.ToUpper()))).FirstOrDefault();
@@ -61,7 +94,9 @@ namespace Controllers
         public bool OnRegisterButtonClicked(object sender, RegisterEventArgs e)
         {
             users.Add(new User(e.Usernametext, e.Nametext, e.Lastnametext, e.Email, e.Passwordtext));
+            SerializeData();
             return true;
+            
 
         }
         public string OncheckUsernameregister(object sender, RegisterEventArgs e)
@@ -150,10 +185,12 @@ namespace Controllers
                     if (user.Password == e.Passwordtext)
                     {
                         user.Password = e.NewPasswordtext;
+                        SerializeData();
                         return true;
                     }
                 }
             }
+            SerializeData();
             return false;
         }
         public void OnRecivingUserchanges(object sender, SendingtypeaccountEventArgs e)
@@ -168,6 +205,19 @@ namespace Controllers
                     user.Genero = e.Genero;
                 }
             }
+            SerializeData();
+        }
+        public void OnArtistModeUserchanges(object sender, SendingArtistInfo e)
+        {
+            foreach (User user in users)
+            {
+                if (user.Username == e.Usernametext)
+                {
+                    user.Artist = e.ArtistText;
+                   
+                }
+            }
+            SerializeData();
         }
     }
 }   
