@@ -34,7 +34,7 @@ namespace Model
         {
             return name;
         }
-        public List<Video> GetPlaylistAllSongs()
+        public List<Video> GetPlaylistAllVideos()
         {
             return videos;
         }

@@ -110,6 +110,10 @@ namespace Model
         {
             return this.musicplaylist;
         }
+        public List<PlaylistVideo> GetPlaylistVideo()
+        {
+            return this.videoplaylist;
+        }
         //
 
     }

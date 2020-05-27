@@ -39,6 +39,8 @@ namespace Proyectog15WF
         // Eventos playlist
         public delegate List<PlaylistSong> SendingPlaylistHandler(object source, GetUserPlaylistEventsArgs args);
         public event SendingPlaylistHandler Sendingplaylist;
+        public delegate List<PlaylistVideo> SendingPlaylistVideoHandler(object source, GetUserPlaylistEventsArgs args);
+        public event SendingPlaylistVideoHandler SendingplaylistVideo;
         public delegate bool SendingActualPlaylistHandler(object source, GetUserPlaylistEventsArgs args);
         public event SendingActualPlaylistHandler Userselectedplaylist;
         public event EventHandler<GetUserPlaylistEventsArgs> Addplaylist;
@@ -583,6 +585,7 @@ namespace Proyectog15WF
 
         private void MySongplaylistButton_Click(object sender, EventArgs e)
         {
+            MySongsListBox.Items.Clear();
             PlaylistMySongPanel.Visible = true;
             MasEsuchadaPanel.Visible = false;
             FollowPlaylistSongPanel.Visible = false;
@@ -602,8 +605,6 @@ namespace Proyectog15WF
                     {
                         MySongsListBox.Items.Add(playlist.GetPlaylistName());// con esto accedo al listbox de playlistsong y obtengo las playlist
                     }
-
-
                 }
             }
         }
@@ -613,6 +614,15 @@ namespace Proyectog15WF
             if (Sendingplaylist != null)
             {
                 List<PlaylistSong> Userplaylist = Sendingplaylist(this, new GetUserPlaylistEventsArgs() { ActualLoggedUsername = nameuser });
+                return Userplaylist;
+            }
+            return null;
+        }
+        public List<PlaylistVideo> OnReciveUsernamePlaylistVideo()
+        {
+            if (Sendingplaylist != null)
+            {
+                List<PlaylistVideo> Userplaylist = SendingplaylistVideo(this, new GetUserPlaylistEventsArgs() { ActualLoggedUsername = nameuser });
                 return Userplaylist;
             }
             return null;
@@ -664,6 +674,7 @@ namespace Proyectog15WF
 
         private void MyVideoPlaylistButton_Click(object sender, EventArgs e)
         {
+            MyVideoListBox.Items.Clear();
             VideoMyPlaylistPanel.Visible = true;
             VideoFollowPanel.Visible = false;
             MasVistosPanel.Visible = false;
@@ -676,6 +687,13 @@ namespace Proyectog15WF
             else
             {
                 SubVideoPlaylistPanel.Visible = true;
+                foreach (PlaylistVideo playlist in OnReciveUsernamePlaylistVideo())
+                {
+                    if (!MyVideoListBox.Items.Contains(playlist.GetPlaylistName()))
+                    {
+                        MyVideoListBox.Items.Add(playlist.GetPlaylistName());// con esto accedo al listbox de playlistsong y obtengo las playlist
+                    }
+                }
             }
         }
 
@@ -1016,7 +1034,18 @@ namespace Proyectog15WF
         //Videos
         private void MyVideoListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            string playlist_seleccionada = Convert.ToString(MyVideoListBox.SelectedItem);
 
+            foreach (PlaylistVideo playlist in OnReciveUsernamePlaylistVideo())
+            {
+                if (playlist.GetPlaylistName() == playlist_seleccionada)
+                {
+                    foreach (Video videos in playlist.GetPlaylistAllVideos())
+                    {
+                        MisVideoMyPlaylist.Items.Add(videos.VideoName);
+                    }
+                }
+            }
         }
 
         private void FollowVideoListBox_SelectedIndexChanged(object sender, EventArgs e)

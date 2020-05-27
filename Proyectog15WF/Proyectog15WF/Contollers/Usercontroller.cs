@@ -30,6 +30,7 @@ namespace Controllers
             this.view.Changingpassword += OnChangingpassword;
             this.view.Addplaylist += OnAddMusicPlaylist;
             this.view.Userrequest += OnUserRequest;
+            this.view.SendingplaylistVideo += OnShowSongPlaylistVideo;
         }
 
 
@@ -103,6 +104,17 @@ namespace Controllers
                 }
             }
             return new List<PlaylistSong>() { new PlaylistSong("Sin Playlist") };
+        }
+        public List<PlaylistVideo> OnShowSongPlaylistVideo(object sender, GetUserPlaylistEventsArgs e)
+        {
+            foreach (User usuario in users)
+            {
+                if (usuario.Username.ToUpper() == e.ActualLoggedUsername.ToUpper())
+                {
+                    return usuario.GetPlaylistVideo();
+                }
+            }
+            return new List<PlaylistVideo>() { new PlaylistVideo("Sin Playlist") };
         }
 
         public User OnUserRequest(object sender, LoginEventArgs e)
