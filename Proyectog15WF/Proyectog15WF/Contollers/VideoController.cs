@@ -22,7 +22,7 @@ namespace Proyectog15WF.Contollers
             this.view = view as AppForm;
             this.view.Searchingnamevideoorsong += OnSearchTextChanged;
             this.view.Reproducevideo += OnSelectedSongVideoEventArgs;
-
+            this.view.Recivingvideo += OnverifyVideo;
         }
         public void ChargeVideos() 
         {
@@ -71,6 +71,17 @@ namespace Proyectog15WF.Contollers
             return reproduce;
 
 
+        }
+        public Video OnverifyVideo(object sender, ReturnVideoEventArgs e)
+        {
+            foreach (Video video in videos)
+            {
+                if (e.Verifyvideoinvideoofuser.Contains(video.VideoName))
+                {
+                    return video;
+                }
+            }
+            return null;
         }
 
 

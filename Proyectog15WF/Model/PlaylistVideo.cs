@@ -78,7 +78,7 @@ namespace Model
             }
         }
 
-        public bool AddSong(Video video)
+        public bool AddVideo(Video video)
         {
             foreach (Video value in videos)
             {

@@ -23,7 +23,9 @@ namespace Proyectog15WF
         string nameuser = ""; //ESTE ES EL NO,BRE DEL USUARIO
         bool buttonClickdelete = false;
         Song variablecancion = null; //CANCION SELECCIONADA
+        Video variablevideo = null;
         List<Song> cancionesdelusuario = new List<Song>(); //LISTA DE CANCIONES DEL USUARIO
+        List<Video> videosdelusuario = new List<Video>();
         public delegate bool LoginEventHandler(object source, LoginEventArgs args);
         public event LoginEventHandler LoginButtonClicked;
         public event EventHandler<LoginEventArgs> UserChecked;
@@ -41,6 +43,7 @@ namespace Proyectog15WF
         public event SendingPlaylistHandler Sendingplaylist;
         public delegate List<PlaylistVideo> SendingPlaylistVideoHandler(object source, GetUserPlaylistEventsArgs args);
         public event SendingPlaylistVideoHandler SendingplaylistVideo;
+        public event EventHandler<GetUserPlaylistEventsArgs> Addvideoplaylist;
         public delegate bool SendingActualPlaylistHandler(object source, GetUserPlaylistEventsArgs args);
         public event SendingActualPlaylistHandler Userselectedplaylist;
         public event EventHandler<GetUserPlaylistEventsArgs> Addplaylist;
@@ -57,6 +60,9 @@ namespace Proyectog15WF
         //Evento para agregar cacnion a la playlist
         public delegate Song ReceiveSongEventHandler(object source, ReturnsongEventArgs args);
         public event ReceiveSongEventHandler Recivingsong;
+        //Evento agregar video
+        public delegate Video ReciveVideoEventHandler(object source, ReturnVideoEventArgs args);
+        public event ReciveVideoEventHandler Recivingvideo;
         //Evento para enviar cambios del usuario
         public event EventHandler<SendingtypeaccountEventArgs> Userifosend;
         //Evento para envar Artista
@@ -973,42 +979,48 @@ namespace Proyectog15WF
 
         private void SearchMediapanellistBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
-                if (Reproducevideo != null)
+
+            if (Reproducevideo != null)
+            {
+                if (!SearchMediapanellistBox.SelectedItem.Equals("No results for search criteria"))
                 {
-                    if (!SearchMediapanellistBox.SelectedItem.Equals("No results for search criteria"))
-                    {
 
 
-                        namevideo = Reproducevideo(this, new SelectVideoEventArgs() { Selectedvideo = Convert.ToString(SearchMediapanellistBox.SelectedItem) });
-                        
+                    namevideo = Reproducevideo(this, new SelectVideoEventArgs() { Selectedvideo = Convert.ToString(SearchMediapanellistBox.SelectedItem) });
 
 
-                    }
-                }
-                if (Reproducesong != null )
-                {
-                    if (!SearchMediapanellistBox.SelectedItem.Equals("No results for search criteria"))
-                    {
-                        namesong = Reproducesong(this, new SelectSongEventArgs() { Selectedsong = Convert.ToString(SearchMediapanellistBox.SelectedItem) });
-                        
-                        
-                    }
 
                 }
-                if (Recivingsong != null)
+            }
+            if (Reproducesong != null)
+            {
+                if (!SearchMediapanellistBox.SelectedItem.Equals("No results for search criteria"))
                 {
-                      if (!SearchMediapanellistBox.SelectedItem.Equals("No results for search criteria"))
-                      {
-                            variablecancion  = Recivingsong(this, new ReturnsongEventArgs() { Verifysonginsongofuser = Convert.ToString(SearchMediapanellistBox.SelectedItem) });
-                            cancionesdelusuario.Add(variablecancion);
-                            
+                    namesong = Reproducesong(this, new SelectSongEventArgs() { Selectedsong = Convert.ToString(SearchMediapanellistBox.SelectedItem) });
 
-                      }
 
                 }
 
-            
+            }
+            if (Recivingsong != null)
+            {
+                if (!SearchMediapanellistBox.SelectedItem.Equals("No results for search criteria"))
+                {
+                    variablecancion = Recivingsong(this, new ReturnsongEventArgs() { Verifysonginsongofuser = Convert.ToString(SearchMediapanellistBox.SelectedItem) });
+                    cancionesdelusuario.Add(variablecancion);
+
+
+                }
+
+            }
+            if (Recivingvideo != null)
+            {
+                if (!SearchMediapanellistBox.SelectedItem.Equals("No results for search criteria"))
+                {
+                    variablevideo = Recivingvideo(this, new ReturnVideoEventArgs() { Verifyvideoinvideoofuser = Convert.ToString(SearchMediapanellistBox.SelectedItem) });
+                    videosdelusuario.Add(variablevideo);
+                }
+            }
         }
 
         private void StopButton_Click(object sender, EventArgs e)
@@ -1144,6 +1156,7 @@ namespace Proyectog15WF
             NombrePlaylistExiste.Visible = false;
             VideoPlaylistCreadaConExitoLabel.Visible =false;
             CrearVideoPlaylistpanel.Visible = true;
+
         }
         
 
@@ -1305,10 +1318,15 @@ namespace Proyectog15WF
         private void CrearVideoPlaylist_Click(object sender, EventArgs e)
         {
             string nameVideo = NombreVideoPlalistInput.Text;
-            string privacidad = PrivacidadVideoPlaylist.SelectedItem.ToString();
+            string privacidad = Convert.ToString(PrivacidadVideoPlaylist.SelectedItem);
 
             bool UserNotPublic = false;
             bool NamePlaylistExist = false;
+
+            if (Addvideoplaylist != null)
+            {
+                Addvideoplaylist(this, new GetUserPlaylistEventsArgs() { PlaylistNameText = nameVideo, ActualLoggedUsername = nameuser }); //le estoy mandado a usercontroller el nombre de la playlist
+            }
 
             if (UserNotPublic)
             {
@@ -1361,19 +1379,23 @@ namespace Proyectog15WF
             else
             { 
              SubMediaSearchPanel.Visible = true;
+
+                foreach (PlaylistVideo playlist in OnReciveUsernamePlaylistVideo())
+                {
+                    if (!PlaylistListBoxAdd.Items.Contains(playlist.GetPlaylistName()))
+                    {
+                        PlaylistListBoxAdd.Items.Add(playlist.GetPlaylistName());// con esto accedo al listbox de playlistsong y obtengo las playlist
+                    }
+                }
+
                 foreach (PlaylistSong playlist in OnReciveUsernamePlaylist())
                 {
                     if (!PlaylistListBoxAdd.Items.Contains(playlist.GetPlaylistName()))
                     {
                         PlaylistListBoxAdd.Items.Add(playlist.GetPlaylistName());// con esto accedo al listbox de playlistsong y obtengo las playlist
-                        
                     }
-
-
                 }
-
             }
-
         }
 
         private void PlaylistListBoxAdd_SelectedIndexChanged(object sender, EventArgs e)
@@ -1387,22 +1409,64 @@ namespace Proyectog15WF
             botonparaagregaralaplaylist = true;
             if (!PlaylistListBoxAdd.SelectedItem.Equals("No results for search criteria") && botonparaagregaralaplaylist)
             {
-                List<PlaylistSong> playlistSong = OnReciveUsernamePlaylist();
-
-                foreach (PlaylistSong cancionesinplaylistsong in playlistSong)
+                bool songflag = false;
+                bool videoflag = false;
+                try
                 {
-                    if (cancionesinplaylistsong.GetPlaylistName() == Convert.ToString(PlaylistListBoxAdd.SelectedItem))
+                    List<PlaylistSong> playlistSong = OnReciveUsernamePlaylist();
+
+                    foreach (PlaylistSong cancionesinplaylistsong in playlistSong)
                     {
-                        foreach (Song song in cancionesdelusuario)
+                        if (cancionesinplaylistsong.GetPlaylistName() == Convert.ToString(PlaylistListBoxAdd.SelectedItem))
                         {
-                            if (Convert.ToString(SearchMediapanellistBox.SelectedItem).Contains(song.Namesong))
+                            foreach (Song song in cancionesdelusuario)
                             {
-                                cancionesinplaylistsong.AddSong(song);
-                                botonparaagregaralaplaylist = false;
+                                if (Convert.ToString(SearchMediapanellistBox.SelectedItem).Contains(song.Namesong))
+                                {
+                                    cancionesinplaylistsong.AddSong(song);
+                                    botonparaagregaralaplaylist = false;
+                                    MessageBox.Show("Cancion Agregado");
+                                    cancionesdelusuario.Clear();
+                                }
                             }
                         }
                     }
                 }
+                catch
+                {
+                    songflag = true;
+                }
+                try
+                {
+                    List<PlaylistVideo> playlistVideo = OnReciveUsernamePlaylistVideo();
+
+                    foreach (PlaylistVideo cancionesinplaylistvideo in playlistVideo)
+                    {
+                        if (cancionesinplaylistvideo.GetPlaylistName() == Convert.ToString(PlaylistListBoxAdd.SelectedItem))
+                        {
+                            foreach (Video video in videosdelusuario)
+                            {
+                                if (Convert.ToString(SearchMediapanellistBox.SelectedItem).Contains(video.VideoName))
+                                {
+                                    cancionesinplaylistvideo.AddVideo(video);
+                                    botonparaagregaralaplaylist = false;
+                                    MessageBox.Show("Video Agregado");
+                                    videosdelusuario.Clear();
+                                }
+                            }
+                        }
+                    }
+                }
+                catch
+                {
+                    videoflag = true;
+                }
+
+                if (videoflag == true && songflag == true)
+                {
+                    MessageBox.Show("No se pueden agregar canciones o videos a playlist que no son de su tipo");
+                }
+
             }
         }
         //Buscar Usuario--------------------------------------------------------------------------------------------------//

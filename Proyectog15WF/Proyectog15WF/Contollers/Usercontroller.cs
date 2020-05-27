@@ -29,10 +29,9 @@ namespace Controllers
             this.view.Userselectedplaylist += OnRemovePlaylist;
             this.view.Changingpassword += OnChangingpassword;
             this.view.Addplaylist += OnAddMusicPlaylist;
+            this.view.Addvideoplaylist += OnAddVideoPlaylist;
             this.view.Userrequest += OnUserRequest;
-<<<<<<< HEAD
             this.view.SendingplaylistVideo += OnShowSongPlaylistVideo;
-=======
             this.view.Userifosend += OnRecivingUserchanges;
             this.view.Artistifosend += OnArtistModeUserchanges;
             DeserializeData();
@@ -66,7 +65,6 @@ namespace Controllers
             {
                
             }
->>>>>>> 86883989111f76738725ac697ea53b7691fc91b8
         }
 
 
@@ -177,6 +175,19 @@ namespace Controllers
                     usuario.AddMusicPlaylist(e.PlaylistNameText);
                 }
             }
+            SerializeData();
+        }
+
+        public void OnAddVideoPlaylist(object sender, GetUserPlaylistEventsArgs e)
+        {
+            foreach (User usuario in users)
+            {
+                if (usuario.Username.ToUpper() == e.ActualLoggedUsername.ToUpper())
+                {
+                    usuario.AddVideoPlaylist(e.PlaylistNameText);
+                }
+            }
+            SerializeData();
         }
 
         public bool OnRemovePlaylist(object sender, GetUserPlaylistEventsArgs e)
@@ -189,6 +200,7 @@ namespace Controllers
                     return false; // Elimina la playlist
                 }
             }
+            SerializeData();
             return true; //no elimina nada
         }
         public bool OnChangingpassword(object sender, ChangePasswordEventArgs e)

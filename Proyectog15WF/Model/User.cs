@@ -17,6 +17,10 @@ namespace Model
         string mail;
         List<PlaylistSong> musicplaylist;
         List<PlaylistVideo> videoplaylist;
+        List<PlaylistSong> followedPlaylistSongs;
+        List<PlaylistVideo> followedPlaylistVideo;
+        List<User> followingUsers;
+        List<User> followedUsers;
         string edad = "";
         string privacidad = "Publico";
         string tipodeusuario = "Free";
@@ -28,7 +32,7 @@ namespace Model
 
         }
 
-        public User(string username, string name,string lastname, string email, string password)
+        public User(string username, string name, string lastname, string email, string password)
             : this()
 
         {
@@ -54,6 +58,8 @@ namespace Model
         public string Tipodeusuario { get => tipodeusuario; set => tipodeusuario = value; }
         public string Genero { get => genero; set => genero = value; }
         public string Artist { get => artist; set => artist = value; }
+        public List<PlaylistSong> Playlistsong { get => musicplaylist; set => musicplaylist = value; }
+        public List<PlaylistVideo> Playlistvideo { get => videoplaylist; set => videoplaylist = value; }
 
         public bool CheckCredentials(string username, string pass)
         {
@@ -76,7 +82,7 @@ namespace Model
                     return false; // No se agrego la playlist
                 }
             }
-            musicplaylist.Add(new PlaylistSong(playlistname));
+            this.musicplaylist.Add(new PlaylistSong(playlistname));
             return true; // Se agrega la playlist
         }
 
@@ -86,7 +92,7 @@ namespace Model
             {
                 if (playlist.GetPlaylistName() == playlistname)
                 {
-                    musicplaylist.Remove(playlist);
+                    this.musicplaylist.Remove(playlist);
                     return true; //elimina la playlist
                 }
             }
@@ -102,7 +108,7 @@ namespace Model
                     return false; // No se agrego la playlist
                 }
             }
-            videoplaylist.Add(new PlaylistVideo(playlistname));
+            this.videoplaylist.Add(new PlaylistVideo(playlistname));
             return true; // Se agrega la playlist
         }
 
@@ -112,7 +118,7 @@ namespace Model
             {
                 if (playlist.GetPlaylistName() == playlistname)
                 {
-                    videoplaylist.Remove(playlist);
+                    this.videoplaylist.Remove(playlist);
                 }
             }
         }
