@@ -54,7 +54,9 @@
     <Compile Include="SelectSongEventArgs.cs" />
     <Compile Include="SelectVideoEventArgs.cs" />
     <Compile Include="SendingArtistInfo.cs" />
+    <Compile Include="SendingsongcaracteristicsEventArgs.cs" />
     <Compile Include="SendingtypeaccountEventArgs.cs" />
+    <Compile Include="SendingvideocaracteristicsEventArgs.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

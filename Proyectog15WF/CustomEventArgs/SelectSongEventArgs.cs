@@ -9,6 +9,7 @@ namespace CustomEventArgs
     public class SelectSongEventArgs : EventArgs
     {
         public string Selectedsong { get; set; }
+        public string path{ get; set; }
 
     }
 }

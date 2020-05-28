@@ -22,9 +22,10 @@ namespace Model
          int reproduction;
          string sexo;
          string age;
-         int resolution;
+         string resolution;
+         string path;
 
-        public Video(string videoName, string genre, string category, string actor, string director, string studio, DateTime uploadDate, string description, int duration, int qualification, int reproduction, string sexo, string age, int resolution)
+        public Video(string videoName, string genre, string category, string actor, string director, string studio, DateTime uploadDate, string description, int duration, int qualification, int reproduction, string sexo, string age, string resolution,string path)
         {
             this.VideoName = videoName;
             this.Genre = genre;
@@ -40,6 +41,7 @@ namespace Model
             this.Sexo = sexo;
             this.Age = age;
             this.Resolution = resolution;
+            this.path = path;
         }
 
         public string VideoName { get => videoName; set => videoName = value; }
@@ -55,7 +57,8 @@ namespace Model
         public int Reproduction { get => reproduction; set => reproduction = value; }
         public string Sexo { get => sexo; set => sexo = value; }
         public string Age { get => age; set => age = value; }
-        public int Resolution { get => resolution; set => resolution = value; }
+        public string Resolution { get => resolution; set => resolution = value; }
+        public string Path { get => path; set => path = value; }
 
         public override string ToString()
         {

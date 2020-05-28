@@ -56,6 +56,9 @@
             this.MiInformacionLogoPanel = new System.Windows.Forms.Panel();
             this.iconPictureBox2 = new FontAwesome.Sharp.IconPictureBox();
             this.EditeProfilePanel = new System.Windows.Forms.Panel();
+            this.ImagePanel = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.LoadImageButton = new FontAwesome.Sharp.IconButton();
             this.CuentaPanel = new System.Windows.Forms.Panel();
             this.PrivacidadLabel = new System.Windows.Forms.Label();
             this.PrivacidadInputCuenta = new System.Windows.Forms.ComboBox();
@@ -121,12 +124,10 @@
             this.VideoDescripcionTextBox = new System.Windows.Forms.TextBox();
             this.VideoEstudiTextbox = new System.Windows.Forms.TextBox();
             this.VideoGeneroTextBox = new System.Windows.Forms.TextBox();
-            this.VideoNombreTextBox = new System.Windows.Forms.TextBox();
             this.CategoriaVideo = new System.Windows.Forms.Label();
             this.EstudioVideo = new System.Windows.Forms.Label();
             this.DescripcionVideo = new System.Windows.Forms.Label();
             this.GeneroVideo = new System.Windows.Forms.Label();
-            this.NombreVideo = new System.Windows.Forms.Label();
             this.UpLoadVideoLabel = new System.Windows.Forms.Label();
             this.SongUploadPanel = new System.Windows.Forms.Panel();
             this.CancionSubidaConExito = new System.Windows.Forms.Label();
@@ -280,10 +281,7 @@
             this.StopButton = new FontAwesome.Sharp.IconButton();
             this.NextButton = new FontAwesome.Sharp.IconButton();
             this.BackButton = new FontAwesome.Sharp.IconButton();
-            this.MuteButton = new FontAwesome.Sharp.IconButton();
             this.QueueButton = new FontAwesome.Sharp.IconButton();
-            this.VolumeLessButton = new FontAwesome.Sharp.IconButton();
-            this.VolumeMoreBurrton = new FontAwesome.Sharp.IconButton();
             this.PlayButton = new FontAwesome.Sharp.IconButton();
             this.LikeButton = new FontAwesome.Sharp.IconButton();
             this.SideMainPanel = new System.Windows.Forms.Panel();
@@ -337,6 +335,8 @@
             this.RegistrateButton = new System.Windows.Forms.Button();
             this.CloseAppStart = new BWCMM.MZButtonWindows();
             this.SOPTLOGO = new System.Windows.Forms.Label();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.VolumenTrackBar1 = new System.Windows.Forms.TrackBar();
             this.StartPanel.SuspendLayout();
             this.LoginPanel.SuspendLayout();
             this.MainPanel.SuspendLayout();
@@ -352,6 +352,8 @@
             this.MiInformacionLogoPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox2)).BeginInit();
             this.EditeProfilePanel.SuspendLayout();
+            this.ImagePanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.CuentaPanel.SuspendLayout();
             this.CambiarContraseñaPanel.SuspendLayout();
             this.SideProfilePanel.SuspendLayout();
@@ -419,6 +421,7 @@
             this.SubPlaylistPanel.SuspendLayout();
             this.SubSerchPanel.SuspendLayout();
             this.RegisterPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.VolumenTrackBar1)).BeginInit();
             this.SuspendLayout();
             // 
             // StartPanel
@@ -768,6 +771,7 @@
             // 
             // EditeProfilePanel
             // 
+            this.EditeProfilePanel.Controls.Add(this.ImagePanel);
             this.EditeProfilePanel.Controls.Add(this.CuentaPanel);
             this.EditeProfilePanel.Controls.Add(this.CambiarContraseñaPanel);
             this.EditeProfilePanel.Controls.Add(this.SideProfilePanel);
@@ -776,6 +780,46 @@
             this.EditeProfilePanel.Name = "EditeProfilePanel";
             this.EditeProfilePanel.Size = new System.Drawing.Size(724, 683);
             this.EditeProfilePanel.TabIndex = 0;
+            // 
+            // ImagePanel
+            // 
+            this.ImagePanel.Controls.Add(this.pictureBox1);
+            this.ImagePanel.Controls.Add(this.LoadImageButton);
+            this.ImagePanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ImagePanel.Location = new System.Drawing.Point(256, 0);
+            this.ImagePanel.Name = "ImagePanel";
+            this.ImagePanel.Size = new System.Drawing.Size(468, 683);
+            this.ImagePanel.TabIndex = 22;
+            this.ImagePanel.Visible = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox1.Location = new System.Drawing.Point(104, 105);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(260, 282);
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
+            // LoadImageButton
+            // 
+            this.LoadImageButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.LoadImageButton.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.LoadImageButton.IconChar = FontAwesome.Sharp.IconChar.CloudUploadAlt;
+            this.LoadImageButton.IconColor = System.Drawing.Color.Black;
+            this.LoadImageButton.IconSize = 36;
+            this.LoadImageButton.Location = new System.Drawing.Point(158, 437);
+            this.LoadImageButton.Name = "LoadImageButton";
+            this.LoadImageButton.Rotation = 0D;
+            this.LoadImageButton.Size = new System.Drawing.Size(155, 68);
+            this.LoadImageButton.TabIndex = 0;
+            this.LoadImageButton.Text = "Subir Imagen";
+            this.LoadImageButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.LoadImageButton.UseVisualStyleBackColor = true;
+            this.LoadImageButton.Click += new System.EventHandler(this.LoadImageButton_Click);
             // 
             // CuentaPanel
             // 
@@ -1465,12 +1509,10 @@
             this.UploadVideoPanel.Controls.Add(this.VideoDescripcionTextBox);
             this.UploadVideoPanel.Controls.Add(this.VideoEstudiTextbox);
             this.UploadVideoPanel.Controls.Add(this.VideoGeneroTextBox);
-            this.UploadVideoPanel.Controls.Add(this.VideoNombreTextBox);
             this.UploadVideoPanel.Controls.Add(this.CategoriaVideo);
             this.UploadVideoPanel.Controls.Add(this.EstudioVideo);
             this.UploadVideoPanel.Controls.Add(this.DescripcionVideo);
             this.UploadVideoPanel.Controls.Add(this.GeneroVideo);
-            this.UploadVideoPanel.Controls.Add(this.NombreVideo);
             this.UploadVideoPanel.Controls.Add(this.UpLoadVideoLabel);
             this.UploadVideoPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.UploadVideoPanel.Location = new System.Drawing.Point(0, 0);
@@ -1495,7 +1537,7 @@
             // 
             // ResolucionVideo
             // 
-            this.ResolucionVideo.Location = new System.Drawing.Point(14, 423);
+            this.ResolucionVideo.Location = new System.Drawing.Point(18, 430);
             this.ResolucionVideo.Name = "ResolucionVideo";
             this.ResolucionVideo.Size = new System.Drawing.Size(144, 42);
             this.ResolucionVideo.TabIndex = 52;
@@ -1563,7 +1605,7 @@
             // 
             this.VideoCategoriaTextbox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.VideoCategoriaTextbox.Location = new System.Drawing.Point(164, 389);
+            this.VideoCategoriaTextbox.Location = new System.Drawing.Point(165, 388);
             this.VideoCategoriaTextbox.Name = "VideoCategoriaTextbox";
             this.VideoCategoriaTextbox.Size = new System.Drawing.Size(446, 26);
             this.VideoCategoriaTextbox.TabIndex = 47;
@@ -1590,19 +1632,10 @@
             // 
             this.VideoGeneroTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.VideoGeneroTextBox.Location = new System.Drawing.Point(164, 246);
+            this.VideoGeneroTextBox.Location = new System.Drawing.Point(164, 243);
             this.VideoGeneroTextBox.Name = "VideoGeneroTextBox";
             this.VideoGeneroTextBox.Size = new System.Drawing.Size(446, 26);
             this.VideoGeneroTextBox.TabIndex = 43;
-            // 
-            // VideoNombreTextBox
-            // 
-            this.VideoNombreTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.VideoNombreTextBox.Location = new System.Drawing.Point(164, 202);
-            this.VideoNombreTextBox.Name = "VideoNombreTextBox";
-            this.VideoNombreTextBox.Size = new System.Drawing.Size(446, 26);
-            this.VideoNombreTextBox.TabIndex = 42;
             // 
             // CategoriaVideo
             // 
@@ -1624,7 +1657,7 @@
             // 
             // DescripcionVideo
             // 
-            this.DescripcionVideo.Location = new System.Drawing.Point(0, 274);
+            this.DescripcionVideo.Location = new System.Drawing.Point(3, 283);
             this.DescripcionVideo.Name = "DescripcionVideo";
             this.DescripcionVideo.Size = new System.Drawing.Size(159, 45);
             this.DescripcionVideo.TabIndex = 38;
@@ -1639,15 +1672,6 @@
             this.GeneroVideo.TabIndex = 37;
             this.GeneroVideo.Text = "Genero";
             this.GeneroVideo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // NombreVideo
-            // 
-            this.NombreVideo.Location = new System.Drawing.Point(26, 202);
-            this.NombreVideo.Name = "NombreVideo";
-            this.NombreVideo.Size = new System.Drawing.Size(140, 35);
-            this.NombreVideo.TabIndex = 36;
-            this.NombreVideo.Text = "Nombre";
-            this.NombreVideo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // UpLoadVideoLabel
             // 
@@ -3578,15 +3602,13 @@
             // ReproduccionPanel
             // 
             this.ReproduccionPanel.BackColor = System.Drawing.Color.DimGray;
+            this.ReproduccionPanel.Controls.Add(this.VolumenTrackBar1);
             this.ReproduccionPanel.Controls.Add(this.CalsificacionButton);
             this.ReproduccionPanel.Controls.Add(this.CalificacionComboBox);
             this.ReproduccionPanel.Controls.Add(this.StopButton);
             this.ReproduccionPanel.Controls.Add(this.NextButton);
             this.ReproduccionPanel.Controls.Add(this.BackButton);
-            this.ReproduccionPanel.Controls.Add(this.MuteButton);
             this.ReproduccionPanel.Controls.Add(this.QueueButton);
-            this.ReproduccionPanel.Controls.Add(this.VolumeLessButton);
-            this.ReproduccionPanel.Controls.Add(this.VolumeMoreBurrton);
             this.ReproduccionPanel.Controls.Add(this.PlayButton);
             this.ReproduccionPanel.Controls.Add(this.LikeButton);
             this.ReproduccionPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -3673,21 +3695,6 @@
             this.BackButton.TabIndex = 5;
             this.BackButton.UseVisualStyleBackColor = true;
             // 
-            // MuteButton
-            // 
-            this.MuteButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.MuteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MuteButton.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.MuteButton.IconChar = FontAwesome.Sharp.IconChar.VolumeOff;
-            this.MuteButton.IconColor = System.Drawing.Color.Black;
-            this.MuteButton.IconSize = 36;
-            this.MuteButton.Location = new System.Drawing.Point(490, 15);
-            this.MuteButton.Name = "MuteButton";
-            this.MuteButton.Rotation = 0D;
-            this.MuteButton.Size = new System.Drawing.Size(50, 49);
-            this.MuteButton.TabIndex = 5;
-            this.MuteButton.UseVisualStyleBackColor = true;
-            // 
             // QueueButton
             // 
             this.QueueButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -3702,36 +3709,6 @@
             this.QueueButton.TabIndex = 4;
             this.QueueButton.UseVisualStyleBackColor = true;
             this.QueueButton.Click += new System.EventHandler(this.QueueButton_Click);
-            // 
-            // VolumeLessButton
-            // 
-            this.VolumeLessButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.VolumeLessButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.VolumeLessButton.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.VolumeLessButton.IconChar = FontAwesome.Sharp.IconChar.VolumeDown;
-            this.VolumeLessButton.IconColor = System.Drawing.Color.Black;
-            this.VolumeLessButton.IconSize = 36;
-            this.VolumeLessButton.Location = new System.Drawing.Point(547, 15);
-            this.VolumeLessButton.Name = "VolumeLessButton";
-            this.VolumeLessButton.Rotation = 0D;
-            this.VolumeLessButton.Size = new System.Drawing.Size(50, 49);
-            this.VolumeLessButton.TabIndex = 3;
-            this.VolumeLessButton.UseVisualStyleBackColor = true;
-            // 
-            // VolumeMoreBurrton
-            // 
-            this.VolumeMoreBurrton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.VolumeMoreBurrton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.VolumeMoreBurrton.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.VolumeMoreBurrton.IconChar = FontAwesome.Sharp.IconChar.VolumeUp;
-            this.VolumeMoreBurrton.IconColor = System.Drawing.Color.Black;
-            this.VolumeMoreBurrton.IconSize = 36;
-            this.VolumeMoreBurrton.Location = new System.Drawing.Point(604, 15);
-            this.VolumeMoreBurrton.Name = "VolumeMoreBurrton";
-            this.VolumeMoreBurrton.Rotation = 0D;
-            this.VolumeMoreBurrton.Size = new System.Drawing.Size(50, 49);
-            this.VolumeMoreBurrton.TabIndex = 2;
-            this.VolumeMoreBurrton.UseVisualStyleBackColor = true;
             // 
             // PlayButton
             // 
@@ -4450,6 +4427,20 @@
             this.SOPTLOGO.Text = "SPOT";
             this.SOPTLOGO.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // VolumenTrackBar1
+            // 
+            this.VolumenTrackBar1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.VolumenTrackBar1.Location = new System.Drawing.Point(458, 8);
+            this.VolumenTrackBar1.Maximum = 100;
+            this.VolumenTrackBar1.Name = "VolumenTrackBar1";
+            this.VolumenTrackBar1.Size = new System.Drawing.Size(194, 69);
+            this.VolumenTrackBar1.TabIndex = 10;
+            this.VolumenTrackBar1.Scroll += new System.EventHandler(this.VolumenTrackBar1_Scroll);
+            // 
             // AppForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -4480,6 +4471,8 @@
             this.MiInformacionLogoPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox2)).EndInit();
             this.EditeProfilePanel.ResumeLayout(false);
+            this.ImagePanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.CuentaPanel.ResumeLayout(false);
             this.CuentaPanel.PerformLayout();
             this.CambiarContraseñaPanel.ResumeLayout(false);
@@ -4565,6 +4558,7 @@
             this.SubSerchPanel.ResumeLayout(false);
             this.RegisterPanel.ResumeLayout(false);
             this.RegisterPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.VolumenTrackBar1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -4625,10 +4619,7 @@
         private BWCMM.MZButtonWindows MinimizarButton;
         private FontAwesome.Sharp.IconButton PlayButton;
         private FontAwesome.Sharp.IconButton LikeButton;
-        private FontAwesome.Sharp.IconButton MuteButton;
         private FontAwesome.Sharp.IconButton QueueButton;
-        private FontAwesome.Sharp.IconButton VolumeLessButton;
-        private FontAwesome.Sharp.IconButton VolumeMoreBurrton;
         private FontAwesome.Sharp.IconButton NextButton;
         private FontAwesome.Sharp.IconButton BackButton;
         private FontAwesome.Sharp.IconButton LogOutButton;
@@ -4686,23 +4677,6 @@
         private System.Windows.Forms.Panel panel6;
         private FontAwesome.Sharp.IconPictureBox iconPictureBox4;
         private System.Windows.Forms.Panel ArtistModeMainPanel;
-        private System.Windows.Forms.Panel UploadVideoPanel;
-        private System.Windows.Forms.Label ResolucionVideo;
-        private System.Windows.Forms.TextBox ResolucionTextBox;
-        private System.Windows.Forms.Label ErrorVideo;
-        private FontAwesome.Sharp.IconButton SubirVideoButton;
-        private FontAwesome.Sharp.IconPictureBox VideoLogoIconLabbel;
-        private System.Windows.Forms.TextBox VideoCategoriaTextbox;
-        private System.Windows.Forms.TextBox VideoDescripcionTextBox;
-        private System.Windows.Forms.TextBox VideoEstudiTextbox;
-        private System.Windows.Forms.TextBox VideoGeneroTextBox;
-        private System.Windows.Forms.TextBox VideoNombreTextBox;
-        private System.Windows.Forms.Label CategoriaVideo;
-        private System.Windows.Forms.Label EstudioVideo;
-        private System.Windows.Forms.Label DescripcionVideo;
-        private System.Windows.Forms.Label GeneroVideo;
-        private System.Windows.Forms.Label NombreVideo;
-        private System.Windows.Forms.Label UpLoadVideoLabel;
         private System.Windows.Forms.Panel SongUploadPanel;
         private System.Windows.Forms.Label label1;
         private FontAwesome.Sharp.IconButton SubirCancionButton;
@@ -4732,21 +4706,7 @@
         private FontAwesome.Sharp.IconButton FollowUserButton;
         private System.Windows.Forms.Button ResolucionButton;
         private System.Windows.Forms.Panel SearchUserPanel;
-        private System.Windows.Forms.Label VideoSubidoConExito;
         private System.Windows.Forms.Label CancionSubidaConExito;
-        private System.Windows.Forms.Panel AlbumArtistPanel;
-        private System.Windows.Forms.Panel SongsAlbumPanel;
-        private System.Windows.Forms.Panel SideAlbumPanel;
-        private FontAwesome.Sharp.IconButton VideosAlbumButton;
-        private FontAwesome.Sharp.IconButton SongAlbumButton;
-        private System.Windows.Forms.Panel panel4;
-        private FontAwesome.Sharp.IconPictureBox iconPictureBox1;
-        private System.Windows.Forms.Label SongsAlbumLabel;
-        private System.Windows.Forms.ListBox AlbumCanciones;
-        private System.Windows.Forms.Label AlbumLabel;
-        private System.Windows.Forms.Panel VideoAlbumPanel;
-        private System.Windows.Forms.Label VideoAlbumLabel;
-        private System.Windows.Forms.ListBox VideoAlbumListBox;
         private System.Windows.Forms.Panel MasVistosPanel;
         private System.Windows.Forms.Label VideoMasVistosLabel;
         private System.Windows.Forms.ListBox VideosMasVistos;
@@ -4767,59 +4727,6 @@
         private System.Windows.Forms.Panel MasEsuchadaPanel;
         private System.Windows.Forms.Label MasEscuchadaLabel;
         private System.Windows.Forms.ListBox MasEsuchadaListBox;
-        private System.Windows.Forms.Panel ProfileMainPanel;
-        private System.Windows.Forms.Panel EditeProfilePanel;
-        private System.Windows.Forms.Panel SideProfilePanel;
-        private System.Windows.Forms.Panel LogoProfilePanel;
-        private FontAwesome.Sharp.IconPictureBox EditeUserIcon;
-        private FontAwesome.Sharp.IconButton CuentaButton;
-        private FontAwesome.Sharp.IconButton ChangePasswordButton;
-        private FontAwesome.Sharp.IconButton CambiarFotoButton;
-        private System.Windows.Forms.Panel CambiarContraseñaPanel;
-        private System.Windows.Forms.Label ContraseñaCambiadaConExxtit;
-        private System.Windows.Forms.Label CambioContraseñaLabel;
-        private System.Windows.Forms.TextBox NuevaContraseñainput;
-        private System.Windows.Forms.TextBox ContraseñaActualInput;
-        private System.Windows.Forms.Button CambiarContraseñaButton;
-        private System.Windows.Forms.Label ContraseñaNuevaLabel;
-        private System.Windows.Forms.Label ErrorContraseñaActual;
-        private System.Windows.Forms.Label ContraseñaActualLabel;
-        private System.Windows.Forms.Panel CuentaPanel;
-        private System.Windows.Forms.Label GeneroCuentaLabel;
-        private System.Windows.Forms.Label EdadCuentaLabel;
-        private System.Windows.Forms.Label TipoDeCuentaLabel;
-        private System.Windows.Forms.Label UsuarioCuentaLabel;
-        private System.Windows.Forms.Label ApellidoCuentaLabel;
-        private System.Windows.Forms.Label NombreCuentaLabel;
-        private System.Windows.Forms.Label MailCuentaLabel;
-        private System.Windows.Forms.Label CuentaLabel;
-        private System.Windows.Forms.ComboBox TipoDeCuentaCombobox;
-        private System.Windows.Forms.ComboBox GeneroComboBox;
-        private System.Windows.Forms.Label InfomacionCuentaCambiadaLabel;
-        private FontAwesome.Sharp.IconButton AceptarCambioCuenta;
-        private System.Windows.Forms.TextBox MailCuentaInput;
-        private System.Windows.Forms.TextBox NombreCuentaImput;
-        private System.Windows.Forms.TextBox ApellidoCuentaInput;
-        private System.Windows.Forms.TextBox UsuarioCuentaInput;
-        private System.Windows.Forms.TextBox EdadCuentaInput;
-        private System.Windows.Forms.Panel MiInformacionPanel;
-        private System.Windows.Forms.Panel SideMiInformacionPanel;
-        private FontAwesome.Sharp.IconButton FollowButton;
-        private FontAwesome.Sharp.IconButton FollowersButton;
-        private System.Windows.Forms.Panel MiInformacionLogoPanel;
-        private FontAwesome.Sharp.IconPictureBox iconPictureBox2;
-        private System.Windows.Forms.TextBox UserNameInfoInput;
-        private System.Windows.Forms.Panel SeguidoresPanel;
-        private System.Windows.Forms.Label SeguidoresLabel;
-        private System.Windows.Forms.ListBox SeguidoreslistBox;
-        private System.Windows.Forms.Panel SeguidosPanel;
-        private FontAwesome.Sharp.IconButton DejarDeSeguirButton1;
-        private System.Windows.Forms.Label SeguidosLabel;
-        private System.Windows.Forms.ListBox SeguidosListBox;
-        private System.Windows.Forms.Panel ReproduccionMainPanel;
-        private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer1;
-        private System.Windows.Forms.Panel QueuePanel;
-        private System.Windows.Forms.ListBox QueueListBox;
         private FontAwesome.Sharp.IconButton StopButton;
         private System.Windows.Forms.ComboBox CalificacionComboBox;
         private FontAwesome.Sharp.IconButton CalsificacionButton;
@@ -4869,16 +4776,103 @@
         private FontAwesome.Sharp.IconButton AgregarMediaPlaylistButton;
         private System.Windows.Forms.ListBox PlaylistListBoxAdd;
         private FontAwesome.Sharp.IconButton AddToPlaylistButton;
-        private System.Windows.Forms.Label PrivacidadLabel;
-        private System.Windows.Forms.ComboBox PrivacidadInputCuenta;
         private System.Windows.Forms.Panel SeguirPlaylistPanel;
         private FontAwesome.Sharp.IconButton FollowPlyalistButton;
         private System.Windows.Forms.ListBox SearchUserPlaylistListbox;
+        private System.Windows.Forms.Panel ReproduccionMainPanel;
+        private System.Windows.Forms.Panel QueuePanel;
+        private System.Windows.Forms.ListBox QueueListBox;
+        private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer1;
+        private System.Windows.Forms.Panel ProfileMainPanel;
+        private System.Windows.Forms.Panel MiInformacionPanel;
+        private System.Windows.Forms.Panel SeguidosPanel;
+        private FontAwesome.Sharp.IconButton DejarDeSeguirButton1;
+        private System.Windows.Forms.Label SeguidosLabel;
+        private System.Windows.Forms.ListBox SeguidosListBox;
+        private System.Windows.Forms.Panel SeguidoresPanel;
+        private System.Windows.Forms.Label SeguidoresLabel;
+        private System.Windows.Forms.ListBox SeguidoreslistBox;
+        private System.Windows.Forms.TextBox UserNameInfoInput;
+        private System.Windows.Forms.Panel SideMiInformacionPanel;
+        private FontAwesome.Sharp.IconButton FollowButton;
+        private FontAwesome.Sharp.IconButton FollowersButton;
+        private System.Windows.Forms.Panel MiInformacionLogoPanel;
+        private FontAwesome.Sharp.IconPictureBox iconPictureBox2;
+        private System.Windows.Forms.Panel EditeProfilePanel;
+        private System.Windows.Forms.Panel ImagePanel;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private FontAwesome.Sharp.IconButton LoadImageButton;
+        private System.Windows.Forms.Panel CuentaPanel;
+        private System.Windows.Forms.Label PrivacidadLabel;
+        private System.Windows.Forms.ComboBox PrivacidadInputCuenta;
+        private System.Windows.Forms.ComboBox GeneroComboBox;
+        private System.Windows.Forms.Label InfomacionCuentaCambiadaLabel;
+        private FontAwesome.Sharp.IconButton AceptarCambioCuenta;
+        private System.Windows.Forms.TextBox MailCuentaInput;
+        private System.Windows.Forms.TextBox NombreCuentaImput;
+        private System.Windows.Forms.TextBox ApellidoCuentaInput;
+        private System.Windows.Forms.TextBox UsuarioCuentaInput;
+        private System.Windows.Forms.TextBox EdadCuentaInput;
+        private System.Windows.Forms.ComboBox TipoDeCuentaCombobox;
+        private System.Windows.Forms.Label GeneroCuentaLabel;
+        private System.Windows.Forms.Label EdadCuentaLabel;
+        private System.Windows.Forms.Label TipoDeCuentaLabel;
+        private System.Windows.Forms.Label UsuarioCuentaLabel;
+        private System.Windows.Forms.Label ApellidoCuentaLabel;
+        private System.Windows.Forms.Label NombreCuentaLabel;
+        private System.Windows.Forms.Label MailCuentaLabel;
+        private System.Windows.Forms.Label CuentaLabel;
+        private System.Windows.Forms.Panel CambiarContraseñaPanel;
+        private System.Windows.Forms.Label ContraseñaCambiadaConExxtit;
+        private System.Windows.Forms.Label CambioContraseñaLabel;
+        private System.Windows.Forms.TextBox NuevaContraseñainput;
+        private System.Windows.Forms.TextBox ContraseñaActualInput;
+        private System.Windows.Forms.Button CambiarContraseñaButton;
+        private System.Windows.Forms.Label ContraseñaNuevaLabel;
+        private System.Windows.Forms.Label ErrorContraseñaActual;
+        private System.Windows.Forms.Label ContraseñaActualLabel;
+        private System.Windows.Forms.Panel SideProfilePanel;
+        private FontAwesome.Sharp.IconButton CambiarFotoButton;
+        private FontAwesome.Sharp.IconButton CuentaButton;
+        private FontAwesome.Sharp.IconButton ChangePasswordButton;
+        private System.Windows.Forms.Panel LogoProfilePanel;
+        private FontAwesome.Sharp.IconPictureBox EditeUserIcon;
+        private System.Windows.Forms.Panel VeryfyArtistPanel;
         private FontAwesome.Sharp.IconButton TipoArtistaButton;
         private System.Windows.Forms.ComboBox TipoArtistacomboBox1;
         private System.Windows.Forms.Label TipodeArtistaModeLabel;
         private System.Windows.Forms.Label NotPrimiumLabelArtist;
-        private System.Windows.Forms.Panel VeryfyArtistPanel;
+        private System.Windows.Forms.Panel AlbumArtistPanel;
+        private System.Windows.Forms.Panel VideoAlbumPanel;
+        private System.Windows.Forms.Label VideoAlbumLabel;
+        private System.Windows.Forms.ListBox VideoAlbumListBox;
+        private System.Windows.Forms.Panel SongsAlbumPanel;
+        private System.Windows.Forms.Label SongsAlbumLabel;
+        private System.Windows.Forms.ListBox AlbumCanciones;
+        private System.Windows.Forms.Panel SideAlbumPanel;
+        private FontAwesome.Sharp.IconButton VideosAlbumButton;
+        private FontAwesome.Sharp.IconButton SongAlbumButton;
+        private System.Windows.Forms.Panel panel4;
+        private FontAwesome.Sharp.IconPictureBox iconPictureBox1;
+        private System.Windows.Forms.Label AlbumLabel;
+        private System.Windows.Forms.Panel UploadVideoPanel;
+        private System.Windows.Forms.Label VideoSubidoConExito;
+        private System.Windows.Forms.Label ResolucionVideo;
+        private System.Windows.Forms.TextBox ResolucionTextBox;
+        private System.Windows.Forms.Label ErrorVideo;
+        private FontAwesome.Sharp.IconButton SubirVideoButton;
+        private FontAwesome.Sharp.IconPictureBox VideoLogoIconLabbel;
+        private System.Windows.Forms.TextBox VideoCategoriaTextbox;
+        private System.Windows.Forms.TextBox VideoDescripcionTextBox;
+        private System.Windows.Forms.TextBox VideoEstudiTextbox;
+        private System.Windows.Forms.TextBox VideoGeneroTextBox;
+        private System.Windows.Forms.Label CategoriaVideo;
+        private System.Windows.Forms.Label EstudioVideo;
+        private System.Windows.Forms.Label DescripcionVideo;
+        private System.Windows.Forms.Label GeneroVideo;
+        private System.Windows.Forms.Label UpLoadVideoLabel;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.TrackBar VolumenTrackBar1;
     }
 }
 
