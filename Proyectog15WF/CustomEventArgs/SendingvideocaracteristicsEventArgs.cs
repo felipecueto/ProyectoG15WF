@@ -6,18 +6,18 @@ using System.Threading.Tasks;
 
 namespace CustomEventArgs
 {
-    public class SendingsongcaracteristicsEventArgs:EventArgs
+    public class SendingvideocaracteristicsEventArgs:EventArgs
     {
-        public string Nombrecancion { get; set; }
-        public string Compositor { get; set; }
+        public string Videoname { get; set; }
         public string Genero { get; set; }
-        public string Discografia { get; set; }
-        public string Estudio { get; set; }
-        public string Letra { get; set; }
         public string Categoria { get; set; }
+        public string Actor { get; set; }
+        public string Director { get; set; }
+        public string Estudio { get; set; }
+        public string Descripcion { get; set; }
         public string Sexo { get; set; }
         public string Edad { get; set; }
-
+        public string Resolution { get; set; }
 
 
 

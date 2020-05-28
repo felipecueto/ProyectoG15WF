@@ -1159,8 +1159,19 @@ namespace Proyectog15WF
             string videoDescripcion = VideoDescripcionTextBox.Text;
             string videoResolucion = ResolucionVideo.Text;
             string videoEtudio = VideoEstudiTextbox.Text;
+            if (Artistwithcaracteristics != null)
+            {
+                String[] separator = { " " };
+                string user_typeartist = Artistwithcaracteristics(this, new LoginEventArgs() { UsernameText = nameuser });
+                String[] username_typeartist = user_typeartist.Split(separator, StringSplitOptions.RemoveEmptyEntries); //[0] nombre(real) del usuario, [1] tipo de artista, [2] genero, [3] edad
+                if(username_typeartist[1] == "Director")
+                {
 
-            bool exist = false;
+                }
+
+
+            }
+                bool exist = false;
 
             if (exist)
             {
@@ -1187,7 +1198,8 @@ namespace Proyectog15WF
             {
                 String[] separator = { " " };
                 string user_typeartist = Artistwithcaracteristics(this, new LoginEventArgs() { UsernameText = nameuser });
-                String[] username_typeartist=user_typeartist.Split(separator, StringSplitOptions.RemoveEmptyEntries); //[0] nombre(real) del usuario, [1] tipo de artista, [2] genero, [3] edad
+                String[] username_typeartist = user_typeartist.Split(separator, StringSplitOptions.RemoveEmptyEntries); //[0] nombre(real) del usuario, [1] tipo de artista, [2] genero, [3] edad
+
                 if (username_typeartist[1] == "Cantante")
                 {
                     if (Songcaracteristics != null)
