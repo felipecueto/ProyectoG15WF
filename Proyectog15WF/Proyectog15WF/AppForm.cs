@@ -70,6 +70,11 @@ namespace Proyectog15WF
         public event EventHandler<SendingArtistInfo> Artistifosend;
         //Evento´para serializar
         public event EventHandler<EventArgs> Serialize;
+        //Evento para llamar al artista
+        public delegate string TypeartistEventHandler(object source, LoginEventArgs args);
+        public event TypeartistEventHandler Artistwithcaracteristics;
+        //Evento para mandar la cancion
+        public event EventHandler<SendingsongcaracteristicsEventArgs> Songcaracteristics;
 
         List<Panel> stackPanels = new List<Panel>();
         Dictionary<string, Panel> panels = new Dictionary<string, Panel>();
@@ -1178,6 +1183,22 @@ namespace Proyectog15WF
             string songLetra = SongLetraInput.Text;
             string songEtudio =SongStudioInput.Text;
 
+            if (Artistwithcaracteristics != null)
+            {
+                String[] separator = { " " };
+                string user_typeartist = Artistwithcaracteristics(this, new LoginEventArgs() { UsernameText = nameuser });
+                String[] username_typeartist=user_typeartist.Split(separator, StringSplitOptions.RemoveEmptyEntries); //[0] nombre(real) del usuario, [1] tipo de artista, [2] genero, [3] edad
+                if (username_typeartist[1] == "Cantante")
+                {
+                    if (Songcaracteristics != null)
+                    {
+                        Songcaracteristics(this, new SendingsongcaracteristicsEventArgs() { Nombrecancion = songName, Genero = songGender, Compositor = username_typeartist[0], Discografia = songDiscorafia, Estudio = songEtudio, Letra = songLetra, Sexo = username_typeartist[2], Edad = username_typeartist[3] ,Categoria=songCategoria});
+                    }
+
+                }
+
+            }
+
             bool exist = false;
 
             if (exist)
@@ -1588,6 +1609,8 @@ namespace Proyectog15WF
         private void TipoArtistaButton_Click(object sender, EventArgs e)
         {
             string artist = this.TipoArtistacomboBox1.SelectedItem.ToString();
+
+     
             if (Artistifosend != null)
             {
                 Artistifosend(this, new SendingArtistInfo() { Usernametext = nameuser, ArtistText=artist });
@@ -1608,6 +1631,5 @@ namespace Proyectog15WF
             }
         }
 
-      
     }    
 }

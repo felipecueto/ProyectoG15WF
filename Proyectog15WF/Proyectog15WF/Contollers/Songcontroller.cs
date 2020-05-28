@@ -25,6 +25,7 @@ namespace Proyectog15WF.Contollers
             this.view.Searchingnamevideoorsong += OnSearchTextChanged;
             this.view.Reproducesong += OnSelectedSongVideoEventArgs;
             this.view.Recivingsong += OnverifySong;
+            this.view.Songcaracteristics += OnrecivingSongCaracteristics;
         }
 
         public void Chargesong()
@@ -85,6 +86,11 @@ namespace Proyectog15WF.Contollers
                 }
             }
             return null;
+        }
+        public void OnrecivingSongCaracteristics(object sender, SendingsongcaracteristicsEventArgs e)
+        {
+            songs.Add(new Song(e.Nombrecancion, e.Genero, e.Compositor, e.Discografia, e.Estudio, new DateTime(2007, 4, 24), e.Letra, 0, e.Categoria, 0, 0, e.Sexo, e.Edad));
+
         }
 
 

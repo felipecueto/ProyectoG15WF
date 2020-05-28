@@ -35,6 +35,7 @@ namespace Controllers
             this.view.Userifosend += OnRecivingUserchanges;
             this.view.Artistifosend += OnArtistModeUserchanges;
             this.view.Serialize += OnSerialize;
+            this.view.Artistwithcaracteristics += OnArtistwithcaracteristics;
             DeserializeData();
         }
 
@@ -249,6 +250,17 @@ namespace Controllers
                 }
             }
             SerializeData();
+        }
+        public string OnArtistwithcaracteristics(object source , LoginEventArgs e)
+        {
+            foreach(User user in users)
+            {
+                if (user.Username == e.UsernameText)
+                {
+                    return user.Name + " " + user.Artist+ " " +user.Genero+ " " +user.Edad;
+                }
+            }
+            return null;
         }
     }
 }   

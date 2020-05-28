@@ -25,7 +25,7 @@ namespace Model
         string privacidad = "Publico";
         string tipodeusuario = "Free";
         string genero = "None";
-        string artist = null;
+        string artist = "";
 
         public User()
         {
