@@ -1219,7 +1219,14 @@ namespace Proyectog15WF
                 String[] username_typeartist = user_typeartist.Split(separator, StringSplitOptions.RemoveEmptyEntries); //[0] nombre(real) del usuario, [1] tipo de artista, [2] genero, [3] edad
                 if (Songcaracteristics != null)
                 {
-                    Songcaracteristics(this, new SendingsongcaracteristicsEventArgs() { Nombrecancion = songName, Genero = songGender, Compositor = username_typeartist[0], Discografia = songDiscorafia, Estudio = songEtudio, Letra = songLetra, Sexo = username_typeartist[2], Edad = username_typeartist[3], Categoria = songCategoria, path= path });
+                    try
+                    {
+                        Songcaracteristics(this, new SendingsongcaracteristicsEventArgs() { Nombrecancion = songName, Genero = songGender, Compositor = username_typeartist[0], Discografia = songDiscorafia, Estudio = songEtudio, Letra = songLetra, Sexo = username_typeartist[2], Edad = username_typeartist[3], Categoria = songCategoria, path = path });
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Te faltan datos Por rellenar en tu cuenta");
+                    }
                 }
             }
 
@@ -1362,13 +1369,7 @@ namespace Proyectog15WF
         private void VerCancionesEnMisPlaylistButton_Click(object sender, EventArgs e)
         {
             SongsInMyPlaylistPanel.Visible = true;
-
-<<<<<<< HEAD
-=======
             SerializeData();
-
-
->>>>>>> 4bae1a264f43d94b7d3d3eeda3daf1690cd27672
         }
         private void BackMyPlaylistSong_Click(object sender, EventArgs e)
         {
