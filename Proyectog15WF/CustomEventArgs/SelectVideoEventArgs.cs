@@ -9,6 +9,7 @@ namespace CustomEventArgs
     public class SelectVideoEventArgs : EventArgs
     {
         public string Selectedvideo { get; set; }
+        public string Path { get; set; }
 
     }        
 }

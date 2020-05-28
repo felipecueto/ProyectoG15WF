@@ -31,7 +31,7 @@ namespace Proyectog15WF.Contollers
         public void Chargesong()
         {
 
-            songs.Add(new Song("UNITED.mp3", "Hip-Hop", "Dadddy Yankee", "El cartel: The big Boss", "Cartel Records", new DateTime(2007, 4, 24), "Tu me dejaste caer pero ella me levanto llamale poca mujer..", 4, "Reggaeton", 0, 0, "Masculino", "30"));
+            songs.Add(new Song("UNITED.mp3", "Hip-Hop", "Dadddy Yankee", "El cartel: The big Boss", "Cartel Records", new DateTime(2007, 4, 24), "Tu me dejaste caer pero ella me levanto llamale poca mujer..", 4, "Reggaeton", 0, 0, "Masculino", "30","Path"));
 
         }
         public void OnSearchTextChanged(object sender, SearchingSongorVideo e)
@@ -69,7 +69,7 @@ namespace Proyectog15WF.Contollers
             {
                 if (e.Selectedsong.Contains(song.Namesong))
                 {
-                    reproduce = curDir + @"\" + song.Namesong;
+                    reproduce = song.Path;
                 }
             }
             return reproduce;
@@ -89,7 +89,7 @@ namespace Proyectog15WF.Contollers
         }
         public void OnrecivingSongCaracteristics(object sender, SendingsongcaracteristicsEventArgs e)
         {
-            songs.Add(new Song(e.Nombrecancion, e.Genero, e.Compositor, e.Discografia, e.Estudio, new DateTime(2007, 4, 24), e.Letra, 0, e.Categoria, 0, 0, e.Sexo, e.Edad));
+            songs.Add(new Song(e.Nombrecancion, e.Genero, e.Compositor, e.Discografia, e.Estudio, new DateTime(2007, 4, 24), e.Letra, 0, e.Categoria, 0, 0, e.Sexo, e.Edad,e.path));
 
         }
 

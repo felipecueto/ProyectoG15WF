@@ -28,7 +28,7 @@ namespace Proyectog15WF.Contollers
         public void ChargeVideos() 
         {
 
-            videos.Add(new Video("LS.WEBM", "Drama", "Crimen", "Joaquin Phoenix", "Todd Phillips", "WarnerBros", new DateTime(2019, 5, 12), "Muy buena", 122, 0, 0, "Masculino", "54", "720"));
+            videos.Add(new Video("LS.WEBM", "Drama", "Crimen", "Joaquin Phoenix", "Todd Phillips", "WarnerBros", new DateTime(2019, 5, 12), "Muy buena", 122, 0, 0, "Masculino", "54", "720","path"));
 
         }
         public void OnSearchTextChanged(object sender, SearchingSongorVideo e)
@@ -66,12 +66,10 @@ namespace Proyectog15WF.Contollers
             {
                 if (e.Selectedvideo.Contains(video.VideoName))
                 {
-                    reproduce = curDir + @"\" + video.VideoName;
+                    reproduce = video.Path;
                 }
             }
             return reproduce;
-
-
         }
         public Video OnverifyVideo(object sender, ReturnVideoEventArgs e)
         {
@@ -86,7 +84,7 @@ namespace Proyectog15WF.Contollers
         }
         public void OnVideocaracteristics(object sender,SendingvideocaracteristicsEventArgs e)
         {
-            videos.Add(new Video(e.Videoname, e.Genero, e.Categoria, e.Actor, e.Director, e.Estudio, new DateTime(2019, 5, 12), e.Descripcion, 0, 0, 0, e.Sexo, e.Edad, e.Resolution));
+            videos.Add(new Video(e.Videoname, e.Genero, e.Categoria, e.Actor, e.Director, e.Estudio, new DateTime(2019, 5, 12), e.Descripcion, 0, 0, 0, e.Sexo, e.Edad, e.Resolution,e.path));
         }
 
 

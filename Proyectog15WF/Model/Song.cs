@@ -22,8 +22,9 @@ namespace Model
          int reproduction;
          string sexo;
          string age;
+         string path;
 
-        public Song(string namesong, string genre, string composer, string discography, string studio, DateTime publicationyear, string lyrics, int duration, string category, int qualification, int reproduction, string sexo, string age)
+        public Song(string namesong, string genre, string composer, string discography, string studio, DateTime publicationyear, string lyrics, int duration, string category, int qualification, int reproduction, string sexo, string age,string path)
         {
             this.Namesong = namesong;
             this.Genre = genre;
@@ -38,6 +39,7 @@ namespace Model
             this.Reproduction = reproduction;
             this.Sexo = sexo;
             this.Age = age;
+            this.path = path;
         }
 
         public string Namesong { get => namesong; set => namesong = value; }
@@ -53,6 +55,7 @@ namespace Model
         public int Reproduction { get => reproduction; set => reproduction = value; }
         public string Sexo { get => sexo; set => sexo = value; }
         public string Age { get => age; set => age = value; }
+        public string Path { get => path; set => path = value; }
 
         public override string ToString()
         {

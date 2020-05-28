@@ -38,7 +38,6 @@ C:\Users\felij\Desktop\ProyectoG15WF\Proyectog15WF\Proyectog15WF\obj\Debug\Proye
 C:\Users\felij\Desktop\ProyectoG15WF\Proyectog15WF\Proyectog15WF\obj\Debug\Proyectog15WF.csproj.CopyComplete
 C:\Users\felij\Desktop\ProyectoG15WF\Proyectog15WF\Proyectog15WF\obj\Debug\Proyectog15WF.exe
 C:\Users\felij\Desktop\ProyectoG15WF\Proyectog15WF\Proyectog15WF\obj\Debug\Proyectog15WF.pdb
-C:\Users\felij\Desktop\ProyectoG15WF\Proyectog15WF\Proyectog15WF\bin\Debug\BWCMM.dll
 C:\Users\felij\Desktop\Proyectog15WF\Proyectog15WF\Proyectog15WF\bin\Debug\Interop.WMPLib.dll
 C:\Users\felij\Desktop\Proyectog15WF\Proyectog15WF\Proyectog15WF\bin\Debug\AxInterop.WMPLib.dll
 C:\Users\felij\Desktop\Proyectog15WF\Proyectog15WF\Proyectog15WF\obj\Debug\Interop.WMPLib.dll

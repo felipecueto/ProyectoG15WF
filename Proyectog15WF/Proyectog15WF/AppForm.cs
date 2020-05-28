@@ -1015,7 +1015,6 @@ namespace Proyectog15WF
                 ReproduccionMainPanel.Visible = true;
                 if (namesong != "" && namevideo == "")
                 {
-
                     axWindowsMediaPlayer1.URL = namesong;
                     axWindowsMediaPlayer1.Ctlcontrols.play();
                     namesong = "";
@@ -1155,28 +1154,33 @@ namespace Proyectog15WF
         //Subir Video
         private void SubirVideoButton_Click(object sender, EventArgs e)
         {
-            string videoName = VideoNombreTextBox.Text;
+            string path;
+            string videoName;
             string videoCategoria = VideoCategoriaTextbox.Text;
             string videoGender = VideoGeneroTextBox.Text;
             string videoDescripcion = VideoDescripcionTextBox.Text;
             string videoResolucion = ResolucionVideo.Text;
             string videoEtudio = VideoEstudiTextbox.Text;
-            if (Artistwithcaracteristics != null)
-            {
+
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Title = "Selecione elvideo";
+            openFileDialog.Filter = "Video file (*.MP4; *.WEBM;*AVI; *.MPG; *.H264;*.MOV;*.WMV;)| *.MP4; *.WEBM;*AVI; *.MPG; *.H264;*.MOV;*.WMV;";
+
+            if (openFileDialog.ShowDialog()==DialogResult.OK)
+            {   
+                videoName = openFileDialog.SafeFileName;
+                path = openFileDialog.FileName;
                 String[] separator = { " " };
                 string user_typeartist = Artistwithcaracteristics(this, new LoginEventArgs() { UsernameText = nameuser });
-                String[] username_typeartist = user_typeartist.Split(separator, StringSplitOptions.RemoveEmptyEntries); //[0] nombre(real) del usuario (no username), [1] tipo de artista, [2] genero, [3] edad
-                if(username_typeartist[1] == "Actor")
+                String[] username_typeartist = user_typeartist.Split(separator, StringSplitOptions.RemoveEmptyEntries);
+
+                if (Videocaracteristics != null)
                 {
-                    if (Videocaracteristics != null)
-                    {
-                        Videocaracteristics(this, new SendingvideocaracteristicsEventArgs() {Videoname=videoName,Genero= videoGender,Categoria=videoCategoria,Actor= username_typeartist [0],Director="",Estudio=videoEtudio,Descripcion=videoDescripcion,Sexo= username_typeartist [2],Edad= username_typeartist [3],Resolution=videoResolucion});
-                    }
+                    Videocaracteristics(this, new SendingvideocaracteristicsEventArgs() { Videoname = videoName, Genero = videoGender, Categoria = videoCategoria, Actor = username_typeartist[0], Director = "", Estudio = videoEtudio, Descripcion = videoDescripcion, Sexo = username_typeartist[2], Edad = username_typeartist[3], Resolution = videoResolucion, path=path});
                 }
-
-
             }
-                bool exist = false;
+
+            bool exist = false;
 
             if (exist)
             {
@@ -1192,12 +1196,31 @@ namespace Proyectog15WF
         // Subir cancion
         private void SubiCancionButton_Click(object sender, EventArgs e)
         {
-            string songName = SongNameInput.Text;
+            string path;
+            string songName;
             string songCategoria = SongCategoriaInput.Text;
             string songGender = SongGenderInput.Text;
             string songDiscorafia = SongDiscografiaInput.Text;
             string songLetra = SongLetraInput.Text;
             string songEtudio =SongStudioInput.Text;
+
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Title = "Selecione la cancion";
+            openFileDialog.Filter = "Song file (*.MP3; *.mp3;)|*.MP3; *.mp3";
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                songName = openFileDialog.SafeFileName;
+
+                path = openFileDialog.FileName;
+                String[] separator = { " " };
+                string user_typeartist = Artistwithcaracteristics(this, new LoginEventArgs() { UsernameText = nameuser });
+                String[] username_typeartist = user_typeartist.Split(separator, StringSplitOptions.RemoveEmptyEntries); //[0] nombre(real) del usuario, [1] tipo de artista, [2] genero, [3] edad
+                if (Songcaracteristics != null)
+                {
+                    Songcaracteristics(this, new SendingsongcaracteristicsEventArgs() { Nombrecancion = songName, Genero = songGender, Compositor = username_typeartist[0], Discografia = songDiscorafia, Estudio = songEtudio, Letra = songLetra, Sexo = username_typeartist[2], Edad = username_typeartist[3], Categoria = songCategoria, path= path });
+                }
+            }
 
             if (Artistwithcaracteristics != null)
             {
@@ -1207,10 +1230,7 @@ namespace Proyectog15WF
 
                 if (username_typeartist[1] == "Cantante")
                 {
-                    if (Songcaracteristics != null)
-                    {
-                        Songcaracteristics(this, new SendingsongcaracteristicsEventArgs() { Nombrecancion = songName, Genero = songGender, Compositor = username_typeartist[0], Discografia = songDiscorafia, Estudio = songEtudio, Letra = songLetra, Sexo = username_typeartist[2], Edad = username_typeartist[3] ,Categoria=songCategoria});
-                    }
+                   
 
                 }
 
@@ -1648,5 +1668,10 @@ namespace Proyectog15WF
             }
         }
 
+        private void VolumenTrackBar1_Scroll(object sender, EventArgs e)
+        {
+            
+            axWindowsMediaPlayer1.settings.volume = VolumenTrackBar1.Value;
+        }
     }    
 }
