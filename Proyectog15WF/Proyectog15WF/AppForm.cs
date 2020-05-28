@@ -75,6 +75,8 @@ namespace Proyectog15WF
         public event TypeartistEventHandler Artistwithcaracteristics;
         //Evento para mandar la cancion
         public event EventHandler<SendingsongcaracteristicsEventArgs> Songcaracteristics;
+        //Evento para mandar el video
+        public event EventHandler<SendingvideocaracteristicsEventArgs> Videocaracteristics;
 
         List<Panel> stackPanels = new List<Panel>();
         Dictionary<string, Panel> panels = new Dictionary<string, Panel>();
@@ -1163,10 +1165,13 @@ namespace Proyectog15WF
             {
                 String[] separator = { " " };
                 string user_typeartist = Artistwithcaracteristics(this, new LoginEventArgs() { UsernameText = nameuser });
-                String[] username_typeartist = user_typeartist.Split(separator, StringSplitOptions.RemoveEmptyEntries); //[0] nombre(real) del usuario, [1] tipo de artista, [2] genero, [3] edad
-                if(username_typeartist[1] == "Director")
+                String[] username_typeartist = user_typeartist.Split(separator, StringSplitOptions.RemoveEmptyEntries); //[0] nombre(real) del usuario (no username), [1] tipo de artista, [2] genero, [3] edad
+                if(username_typeartist[1] == "Actor")
                 {
-
+                    if (Videocaracteristics != null)
+                    {
+                        Videocaracteristics(this, new SendingvideocaracteristicsEventArgs() {Videoname=videoName,Genero= videoGender,Categoria=videoCategoria,Actor= username_typeartist [0],Director="",Estudio=videoEtudio,Descripcion=videoDescripcion,Sexo= username_typeartist [2],Edad= username_typeartist [3],Resolution=videoResolucion});
+                    }
                 }
 
 

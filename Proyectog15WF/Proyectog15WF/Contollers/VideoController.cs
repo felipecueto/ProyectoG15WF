@@ -23,11 +23,12 @@ namespace Proyectog15WF.Contollers
             this.view.Searchingnamevideoorsong += OnSearchTextChanged;
             this.view.Reproducevideo += OnSelectedSongVideoEventArgs;
             this.view.Recivingvideo += OnverifyVideo;
+            this.view.Videocaracteristics += OnVideocaracteristics;
         }
         public void ChargeVideos() 
         {
 
-            videos.Add(new Video("LS.WEBM", "Drama", "Crimen", "Joaquin Phoenix", "Todd Phillips", "WarnerBros", new DateTime(2019, 5, 12), "Muy buena", 122, 0, 0, "Masculino", "54", 720));
+            videos.Add(new Video("LS.WEBM", "Drama", "Crimen", "Joaquin Phoenix", "Todd Phillips", "WarnerBros", new DateTime(2019, 5, 12), "Muy buena", 122, 0, 0, "Masculino", "54", "720"));
 
         }
         public void OnSearchTextChanged(object sender, SearchingSongorVideo e)
@@ -83,7 +84,10 @@ namespace Proyectog15WF.Contollers
             }
             return null;
         }
-
+        public void OnVideocaracteristics(object sender,SendingvideocaracteristicsEventArgs e)
+        {
+            videos.Add(new Video(e.Videoname, e.Genero, e.Categoria, e.Actor, e.Director, e.Estudio, new DateTime(2019, 5, 12), e.Descripcion, 0, 0, 0, e.Sexo, e.Edad, e.Resolution));
+        }
 
 
     }
