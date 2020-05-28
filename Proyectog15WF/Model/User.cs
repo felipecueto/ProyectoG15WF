@@ -69,7 +69,7 @@ namespace Model
         }
         public override string ToString()
         {
-            return "Usuario: " + this.Username + " ";
+            return this.Username;
         }
 
         //Playlist Methods
@@ -119,6 +119,7 @@ namespace Model
                 if (playlist.GetPlaylistName() == playlistname)
                 {
                     this.videoplaylist.Remove(playlist);
+                    break;
                 }
             }
         }

@@ -46,6 +46,7 @@ namespace Proyectog15WF
         public event EventHandler<GetUserPlaylistEventsArgs> Addvideoplaylist;
         public delegate bool SendingActualPlaylistHandler(object source, GetUserPlaylistEventsArgs args);
         public event SendingActualPlaylistHandler Userselectedplaylist;
+        public event SendingActualPlaylistHandler Userselectedvideoplaylist;
         public event EventHandler<GetUserPlaylistEventsArgs> Addplaylist;
 
         //Evnetos de reproduccion
@@ -1162,7 +1163,16 @@ namespace Proyectog15WF
 
         private void DeleteVideoPlaylistButton_Click(object sender, EventArgs e)
         {
+            buttonClickdelete = true;
+            string playlist_seleccionada = Convert.ToString(MyVideoListBox.SelectedItem);
+            if (Userselectedvideoplaylist != null)
+            {
 
+                if (Userselectedvideoplaylist(this, new GetUserPlaylistEventsArgs { ActualPlaylistSelected = playlist_seleccionada, ActualLoggedUsername = nameuser }) && buttonClickdelete)
+                {
+                    MyVideoListBox.Items.Remove(playlist_seleccionada);
+                }
+            }
         }
 
         //Canciones
@@ -1210,16 +1220,14 @@ namespace Proyectog15WF
 
                 if (Userselectedplaylist(this, new GetUserPlaylistEventsArgs { ActualPlaylistSelected = playlist_seleccionada, ActualLoggedUsername = nameuser }) && buttonClickdelete)
                 {
-                MySongsListBox.Items.Remove(playlist_seleccionada);
+                    MySongsListBox.Items.Remove(playlist_seleccionada);
                 }
             }
         }
+
         private void VerCancionesEnMisPlaylistButton_Click(object sender, EventArgs e)
         {
             SongsInMyPlaylistPanel.Visible = true;
-
-
-
 
         }
         private void BackMyPlaylistSong_Click(object sender, EventArgs e)
@@ -1476,8 +1484,44 @@ namespace Proyectog15WF
 
         }
 
+        public List<PlaylistSong> OnReciveUsernamePlaylist(string selecteduser)
+        {
+            if (Sendingplaylist != null)
+            {
+                List<PlaylistSong> Userplaylist = Sendingplaylist(this, new GetUserPlaylistEventsArgs() { ActualLoggedUsername = selecteduser });
+                return Userplaylist;
+            }
+            return null;
+        }
+        public List<PlaylistVideo> OnReciveUsernamePlaylistVideo(string selecteduser)
+        {
+            if (Sendingplaylist != null)
+            {
+                List<PlaylistVideo> Userplaylist = SendingplaylistVideo(this, new GetUserPlaylistEventsArgs() { ActualLoggedUsername = selecteduser });
+                return Userplaylist;
+            }
+            return null;
+        }
+
         private void PlaylistsUserSearchButton_Click(object sender, EventArgs e)
         {
+
+            string selecteduser = Convert.ToString(SearchUserPanelResultlistusers.SelectedItem);
+
+            foreach (PlaylistSong playlist in OnReciveUsernamePlaylist(selecteduser))
+            {
+                if (!SearchUserPlaylistListbox.Items.Contains(playlist.GetPlaylistName()))
+                {
+                    SearchUserPlaylistListbox.Items.Add(playlist.GetPlaylistName());// con esto accedo al listbox de playlistsong y obtengo las playlist
+                }
+            }
+            foreach (PlaylistVideo playlist in OnReciveUsernamePlaylistVideo(selecteduser))
+            {
+                if (!SearchUserPlaylistListbox.Items.Contains(playlist.GetPlaylistName()))
+                {
+                    SearchUserPlaylistListbox.Items.Add(playlist.GetPlaylistName());// con esto accedo al listbox de playlistsong y obtengo las playlist
+                }
+            }
             if (SeguirPlaylistPanel.Visible)
             {
                SeguirPlaylistPanel.Visible = false;

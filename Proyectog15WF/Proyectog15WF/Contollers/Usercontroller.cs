@@ -27,6 +27,7 @@ namespace Controllers
             this.view.Searching += OnSearchTextChanged;
             this.view.Sendingplaylist += OnShowSongPlaylist;
             this.view.Userselectedplaylist += OnRemovePlaylist;
+            this.view.Userselectedvideoplaylist += OnRemoveVideoPlaylist;
             this.view.Changingpassword += OnChangingpassword;
             this.view.Addplaylist += OnAddMusicPlaylist;
             this.view.Addvideoplaylist += OnAddVideoPlaylist;
@@ -203,6 +204,21 @@ namespace Controllers
             SerializeData();
             return true; //no elimina nada
         }
+
+        public bool OnRemoveVideoPlaylist(object sender, GetUserPlaylistEventsArgs e)
+        {
+            foreach (User usuario in users)
+            {
+                if (usuario.Username.ToUpper() == e.ActualLoggedUsername.ToUpper())
+                {
+                    usuario.RemoveVideoPlaylist(e.ActualPlaylistSelected);
+                    return false; // Elimina la playlist
+                }
+            }
+            SerializeData();
+            return true; //no elimina nada
+        }
+
         public bool OnChangingpassword(object sender, ChangePasswordEventArgs e)
         {
             foreach (User user in users)
