@@ -15,7 +15,7 @@ using System.IO;
 
 namespace Proyectog15WF
 {
-    
+
     public partial class AppForm : Form
     {
         int resultCounter = 0;
@@ -88,7 +88,7 @@ namespace Proyectog15WF
         User actuallogeduser = null;
         bool prim = false;
 
-       
+
         public AppForm()
         {
 
@@ -130,7 +130,7 @@ namespace Proyectog15WF
         private void ShowSubPanel(Panel submenu)
         {
             SerializeData();
-            
+
             if (submenu.Visible == false)
             {
                 HideSubPanel();
@@ -148,11 +148,11 @@ namespace Proyectog15WF
             this.Close();
         }
 
-    
+
         private void RegistrateButton_Click(object sender, EventArgs e)
         {
 
-        
+
             StartPanel.SendToBack();
             RegisterPanel.BringToFront();
             RegisterPanel.Visible = true;
@@ -188,7 +188,7 @@ namespace Proyectog15WF
             RegisterPanel.Visible = false;
         }
 
-    
+
         private void OnLoginButtonClicked(string username, string pass)
         {
             SerializeData();
@@ -265,13 +265,13 @@ namespace Proyectog15WF
                     }
 
                     NombreCuentaImput.Text = actuallogeduser.Name;
-                    ApellidoCuentaInput.Text=actuallogeduser.Lastname;
-                    UsuarioCuentaInput.Text=actuallogeduser.Username;
-                    MailCuentaInput.Text=actuallogeduser.Mail;
+                    ApellidoCuentaInput.Text = actuallogeduser.Lastname;
+                    UsuarioCuentaInput.Text = actuallogeduser.Username;
+                    MailCuentaInput.Text = actuallogeduser.Mail;
 
                     if (actuallogeduser.Edad != "")
                     {
-                        EdadCuentaInput.Text= actuallogeduser.Edad;
+                        EdadCuentaInput.Text = actuallogeduser.Edad;
                         EdadCuentaInput.ReadOnly = true;
                     }
                     else
@@ -283,7 +283,7 @@ namespace Proyectog15WF
                     loginViewInvalidCredentialsAlert.ResetText();
                     loginViewInvalidCredentialsAlert.Visible = false;
                     OnUserChecked(username, pass);
-                   
+
                 }
             }
         }
@@ -312,7 +312,7 @@ namespace Proyectog15WF
             SerializeData();
             if (RegisterButtonClicked != null)
             {
-                bool result = RegisterButtonClicked(this, new RegisterEventArgs() { Usernametext = Username, Passwordtext = Passworduser,Nametext=Name,Lastnametext=Lastname,Email=Mailuser });
+                bool result = RegisterButtonClicked(this, new RegisterEventArgs() { Usernametext = Username, Passwordtext = Passworduser, Nametext = Name, Lastnametext = Lastname, Email = Mailuser });
                 if (result)
                 {
                     nameInputRegister.ResetText();
@@ -355,12 +355,12 @@ namespace Proyectog15WF
         {
             SerializeData();
             string nameInputuser = null;
-            
+
             string lastNameInputuser = null;
-           
+
             string usernameInputuser = null;
             string mailInputuser = null;
-            
+
             string passwordInputUser = null;
             int count = 0;
             if (count == 0)
@@ -450,7 +450,7 @@ namespace Proyectog15WF
 
         }
 
-     
+
         private void UserSeachButton_Click(object sender, EventArgs e)
         {
             SerializeData();
@@ -680,8 +680,8 @@ namespace Proyectog15WF
             ArtistModeMainPanel.Visible = true;
             AlbumArtistPanel.Visible = false;
             CancionSubidaConExito.Visible = false;
-            
-           
+
+
         }
 
         private void FiltersButton_Click(object sender, EventArgs e)
@@ -959,7 +959,7 @@ namespace Proyectog15WF
 
         }
 
-    
+
         private void CuentaButton_Click(object sender, EventArgs e)
         {
             SerializeData();
@@ -999,7 +999,7 @@ namespace Proyectog15WF
             }
             InfomacionCuentaCambiadaLabel.Visible = true;
 
-            if (ageAcctounte!="")
+            if (ageAcctounte != "")
             {
                 EdadCuentaInput.ReadOnly = true;
             }
@@ -1025,7 +1025,7 @@ namespace Proyectog15WF
             SerializeData();
 
         }
-        
+
 
         private void FollowersButton_Click(object sender, EventArgs e)
         {
@@ -1048,7 +1048,7 @@ namespace Proyectog15WF
             if (ReproduccionMainPanel.Visible)
             {
                 ReproduccionMainPanel.Visible = false;
-                
+
             }
             else
             {
@@ -1141,7 +1141,7 @@ namespace Proyectog15WF
             axWindowsMediaPlayer1.Ctlcontrols.pause();
         }
         //Profile---------------------------------------------------------------------------------------------------//
-        
+
         //Cambio contraseña:
         private void ChangePasswordAcepted(object sender, EventArgs e)
         {
@@ -1280,7 +1280,7 @@ namespace Proyectog15WF
                 }
                 SerializeData();
             }
-            
+
         }
 
         // Subir cancion
@@ -1314,7 +1314,7 @@ namespace Proyectog15WF
                 count++;
             }
             songDiscorafia = SongDiscografiaInput.Text;
-            if (songDiscorafia== "")
+            if (songDiscorafia == "")
             {
                 MessageBox.Show("Falta campo discografia");
             }
@@ -1331,7 +1331,7 @@ namespace Proyectog15WF
             {
                 count++;
             }
-            songEtudio =SongStudioInput.Text;
+            songEtudio = SongStudioInput.Text;
             if (songEtudio == "")
             {
                 MessageBox.Show("Falta campo estudio");
@@ -1366,31 +1366,29 @@ namespace Proyectog15WF
                         }
                     }
                 }
+            }
 
-                if (Artistwithcaracteristics != null)
-                {
-                    String[] separator = { " " };
-                    string user_typeartist = Artistwithcaracteristics(this, new LoginEventArgs() { UsernameText = nameuser });
-                    String[] username_typeartist = user_typeartist.Split(separator, StringSplitOptions.RemoveEmptyEntries); //[0] nombre(real) del usuario, [1] tipo de artista, [2] genero, [3] edad
-
-                    if (username_typeartist[1] == "Cantante")
-                    {
-
-
-                    }
-
-                }
-
-<<<<<<< HEAD
 
             if (Artistwithcaracteristics != null)
             {
                 String[] separator = { " " };
                 string user_typeartist = Artistwithcaracteristics(this, new LoginEventArgs() { UsernameText = nameuser });
                 String[] username_typeartist = user_typeartist.Split(separator, StringSplitOptions.RemoveEmptyEntries); //[0] nombre(real) del usuario, [1] tipo de artista, [2] genero, [3] edad
-=======
+
+                if (username_typeartist[1] == "Cantante")
+                {
+
+
+                }
+
+            }
+
+            if (Artistwithcaracteristics != null)
+            {
+                String[] separator = { " " };
+                string user_typeartist = Artistwithcaracteristics(this, new LoginEventArgs() { UsernameText = nameuser });
+                String[] username_typeartist = user_typeartist.Split(separator, StringSplitOptions.RemoveEmptyEntries); //[0] nombre(real) del usuario, [1] tipo de artista, [2] genero, [3] edad
                 bool exist = false;
->>>>>>> 0921ef0c463e2c4de46a5a15c463bf5782e90c88
 
                 if (exist)
                 {
@@ -1403,10 +1401,7 @@ namespace Proyectog15WF
                 }
                 SerializeData();
             }
-
-            
         }
-
         //Playlist------------------------------------------------------------------------------------------------/
 
         //Videos
@@ -1452,12 +1447,12 @@ namespace Proyectog15WF
         {
             Errorplaylistvideo.Visible = false;
             NombrePlaylistExiste.Visible = false;
-            VideoPlaylistCreadaConExitoLabel.Visible =false;
+            VideoPlaylistCreadaConExitoLabel.Visible = false;
             CrearVideoPlaylistpanel.Visible = true;
             SerializeData();
 
         }
-        
+
 
         private void DeleteVideoPlaylistButton_Click(object sender, EventArgs e)
         {
@@ -1522,7 +1517,7 @@ namespace Proyectog15WF
             PlaylistSongCreada.Visible = false;
             SerializeData();
         }
-          
+
         private void DeletePlaylistButton_Click(object sender, EventArgs e)
         {
             buttonClickdelete = true;
@@ -1642,7 +1637,7 @@ namespace Proyectog15WF
 
         private void CrearVideoPlaylist_Click(object sender, EventArgs e)
         {
-            
+
             string nameVideo = NombreVideoPlalistInput.Text;
             string privacidad = Convert.ToString(PrivacidadVideoPlaylist.SelectedItem);
 
@@ -1701,13 +1696,13 @@ namespace Proyectog15WF
 
         private void AddToPlaylistButton_Click(object sender, EventArgs e)
         {
-           if(SubMediaSearchPanel.Visible)
-           {
+            if (SubMediaSearchPanel.Visible)
+            {
                 SubMediaSearchPanel.Visible = false;
-           }
+            }
             else
-            { 
-             SubMediaSearchPanel.Visible = true;
+            {
+                SubMediaSearchPanel.Visible = true;
 
                 foreach (PlaylistVideo playlist in OnReciveUsernamePlaylistVideo())
                 {
@@ -1729,10 +1724,10 @@ namespace Proyectog15WF
         }
 
         private void PlaylistListBoxAdd_SelectedIndexChanged(object sender, EventArgs e)
-        {   
-            
+        {
+
         }
-        
+
         bool botonparaagregaralaplaylist = false; //boton que agrega a la playlist
         private void AgregarMediaPlaylistButton_Click(object sender, EventArgs e)
         {
@@ -1801,7 +1796,7 @@ namespace Proyectog15WF
             SerializeData();
         }
         //Buscar Usuario--------------------------------------------------------------------------------------------------//
-        
+
         private void FollowUserButton_Click(object sender, EventArgs e)
         {
 
@@ -1847,7 +1842,7 @@ namespace Proyectog15WF
             }
             if (SeguirPlaylistPanel.Visible)
             {
-               SeguirPlaylistPanel.Visible = false;
+                SeguirPlaylistPanel.Visible = false;
             }
             else
             {
@@ -1875,10 +1870,10 @@ namespace Proyectog15WF
         {
             string artist = this.TipoArtistacomboBox1.SelectedItem.ToString();
 
-     
+
             if (Artistifosend != null)
             {
-                Artistifosend(this, new SendingArtistInfo() { Usernametext = nameuser, ArtistText=artist });
+                Artistifosend(this, new SendingArtistInfo() { Usernametext = nameuser, ArtistText = artist });
             }
             VeryfyArtistPanel.Visible = false;
             SerializeData();
@@ -1889,7 +1884,7 @@ namespace Proyectog15WF
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Title = "Selecione la imagen";
             openFileDialog.Filter = "Image file (*.jpg; *.jpeg;*.bmp;)|*.jpg; *.jpeg;*.bmp;";
-            if(openFileDialog.ShowDialog()== DialogResult.OK)
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 Bitmap image = new Bitmap(openFileDialog.FileName);
                 pictureBox1.Image = image;
@@ -1898,8 +1893,9 @@ namespace Proyectog15WF
 
         private void VolumenTrackBar1_Scroll(object sender, EventArgs e)
         {
-            
+
             axWindowsMediaPlayer1.settings.volume = VolumenTrackBar1.Value;
         }
-    }    
+    }
 }
+
