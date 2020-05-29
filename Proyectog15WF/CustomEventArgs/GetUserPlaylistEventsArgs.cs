@@ -10,6 +10,8 @@ namespace CustomEventArgs
     {
         public string ActualLoggedUsername { get; set; }
 
+        public string ActualUsernameSelected { get; set; }
+
         public string ActualPlaylistSelected { get; set; }
 
         public string PlaylistNameText { get; set; }

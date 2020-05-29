@@ -43,6 +43,8 @@ namespace Model
             this.lastname = lastname;
             this.musicplaylist = new List<PlaylistSong>();
             this.videoplaylist = new List<PlaylistVideo>();
+            this.followedPlaylistSongs = new List<PlaylistSong>();
+            this.followedPlaylistVideo = new List<PlaylistVideo>();
             AddMusicPlaylist("Musica Favorita");
             AddVideoPlaylist("Videos Favoritos");
         }
@@ -85,6 +87,21 @@ namespace Model
             this.musicplaylist.Add(new PlaylistSong(playlistname));
             return true; // Se agrega la playlist
         }
+        public bool AddFollowedMusicPlaylist(PlaylistSong selectedplaylist)
+        {
+            if (followedPlaylistSongs != null)
+            {
+                foreach (PlaylistSong playlist in this.followedPlaylistSongs)
+                {
+                    if (playlist.GetPlaylistName() == selectedplaylist.GetPlaylistName())
+                    {
+                        return false; // No se agrego la playlist
+                    }
+                }
+            }
+            this.followedPlaylistSongs.Add(selectedplaylist);
+            return true; // Se agrega la playlist
+        }
 
         public bool RemoveMusicPlaylist(string playlistname)
         {
@@ -112,6 +129,22 @@ namespace Model
             return true; // Se agrega la playlist
         }
 
+        public bool AddFollowedVideoPlaylist(PlaylistVideo selectedplaylist)
+        {
+            if (this.followedPlaylistSongs != null)
+            {
+                foreach (PlaylistVideo playlist in this.followedPlaylistVideo)
+                {
+                    if (playlist.GetPlaylistName() == selectedplaylist.GetPlaylistName())
+                    {
+                        return false; // No se agrego la playlist
+                    }
+                }
+            }
+            this.followedPlaylistVideo.Add(selectedplaylist);
+            return true; // Se agrega la playlist
+        }
+
         public void RemoveVideoPlaylist(string playlistname)
         {
             foreach (PlaylistVideo playlist in this.videoplaylist)
@@ -131,6 +164,14 @@ namespace Model
         public List<PlaylistVideo> GetPlaylistVideo()
         {
             return this.videoplaylist;
+        }
+        public List<PlaylistSong> GetFollowedPlaylistSongs()
+        {
+            return this.followedPlaylistSongs;
+        }
+        public List<PlaylistVideo> GetFollowedPlaylistVideo()
+        {
+            return this.followedPlaylistVideo;
         }
         //
 

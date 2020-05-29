@@ -42,13 +42,17 @@ namespace Proyectog15WF
         // Eventos playlist
         public delegate List<PlaylistSong> SendingPlaylistHandler(object source, GetUserPlaylistEventsArgs args);
         public event SendingPlaylistHandler Sendingplaylist;
+        public event SendingPlaylistHandler Sendingfollowedplaylist;
         public delegate List<PlaylistVideo> SendingPlaylistVideoHandler(object source, GetUserPlaylistEventsArgs args);
         public event SendingPlaylistVideoHandler SendingplaylistVideo;
+        public event SendingPlaylistVideoHandler Sendingfollowedplaylistvideo;
         public event EventHandler<GetUserPlaylistEventsArgs> Addvideoplaylist;
         public delegate bool SendingActualPlaylistHandler(object source, GetUserPlaylistEventsArgs args);
         public event SendingActualPlaylistHandler Userselectedplaylist;
         public event SendingActualPlaylistHandler Userselectedvideoplaylist;
         public event EventHandler<GetUserPlaylistEventsArgs> Addplaylist;
+        public event EventHandler<GetUserPlaylistEventsArgs> Followmusicplaylist;
+        public event EventHandler<GetUserPlaylistEventsArgs> Followvideoplaylist;
 
         //Evnetos de reproduccion
         public delegate string SelectedVideoEventHandler(object source, SelectVideoEventArgs args);
@@ -758,6 +762,26 @@ namespace Proyectog15WF
             return null;
         }
 
+        public List<PlaylistSong> OnReciveUsernameFollowedPlaylist()
+        {
+            if (Sendingplaylist != null)
+            {
+                List<PlaylistSong> Userplaylist = Sendingfollowedplaylist(this, new GetUserPlaylistEventsArgs() { ActualLoggedUsername = nameuser });
+                return Userplaylist;
+            }
+            return null;
+        }
+        public List<PlaylistVideo> OnReciveUsernameFollowedPlaylistVideo()
+        {
+            if (Sendingplaylist != null)
+            {
+                List<PlaylistVideo> Userplaylist = Sendingfollowedplaylistvideo(this, new GetUserPlaylistEventsArgs() { ActualLoggedUsername = nameuser });
+                return Userplaylist;
+            }
+            return null;
+        }
+
+
         private void FollowingPlaylist_Click(object sender, EventArgs e)
         {
             SerializeData();
@@ -765,6 +789,14 @@ namespace Proyectog15WF
             PlaylistMySongPanel.Visible = false;
             CrearSongPlaylistPanel.Visible = false;
             SubMyPlaylistPanel.Visible = false;
+
+            foreach (PlaylistSong playlist in OnReciveUsernameFollowedPlaylist())
+            {
+                if (!FollowPlaylistSongListBox.Items.Contains(playlist.GetPlaylistName()))
+                {
+                    FollowPlaylistSongListBox.Items.Add(playlist.GetPlaylistName());// con esto accedo al listbox de playlistsong y obtengo las playlist
+                }
+            }
         }
 
         private void MostLisentSonButton_Click(object sender, EventArgs e)
@@ -886,6 +918,13 @@ namespace Proyectog15WF
             MyVideoPlaylistPanel.Visible = false;
             VideosInFollowingPlaylistPanel.Visible = false;
             SubVideoPlaylistPanel.Visible = false;
+            foreach (PlaylistVideo playlist in OnReciveUsernameFollowedPlaylistVideo())
+            {
+                if (!FollowVideoListBox.Items.Contains(playlist.GetPlaylistName()))
+                {
+                    FollowVideoListBox.Items.Add(playlist.GetPlaylistName());// con esto accedo al listbox de playlistsong y obtengo las playlist
+                }
+            }
         }
 
         private void EditeProfilebutton_Click(object sender, EventArgs e)
@@ -1230,6 +1269,7 @@ namespace Proyectog15WF
                 }
             }
 
+
             if (Artistwithcaracteristics != null)
             {
                 String[] separator = { " " };
@@ -1280,7 +1320,18 @@ namespace Proyectog15WF
 
         private void FollowVideoListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            string playlist_seleccionada = Convert.ToString(FollowVideoListBox.SelectedItem);
 
+            foreach (PlaylistVideo playlist in OnReciveUsernameFollowedPlaylistVideo())
+            {
+                if (playlist.GetPlaylistName() == playlist_seleccionada)
+                {
+                    foreach (Video videos in playlist.GetPlaylistAllVideos())
+                    {
+                        FollowVideoListBox.Items.Add(videos.VideoName);
+                    }
+                }
+            }
         }
 
         private void VideosMasVistos_SelectedIndexChanged(object sender, EventArgs e)
@@ -1335,6 +1386,18 @@ namespace Proyectog15WF
 
         private void FollowPlaylistSongListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            string playlist_seleccionada = Convert.ToString(FollowPlaylistSongListBox.SelectedItem);
+
+            foreach (PlaylistSong playlist in OnReciveUsernameFollowedPlaylist())
+            {
+                if (playlist.GetPlaylistName() == playlist_seleccionada)
+                {
+                    foreach (Song song in playlist.GetPlaylistAllSongs())
+                    {
+                        FollowPlaylistSongListBox.Items.Add(song.Namesong);
+                    }
+                }
+            }
 
         }
         private void MasEscuchadaListBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -1691,6 +1754,11 @@ namespace Proyectog15WF
 
         private void FollowPlyalistButton_Click(object sender, EventArgs e)
         {
+            string selecteduser = Convert.ToString(SearchUserPanelResultlistusers.SelectedItem);
+            string selectedplaylist = Convert.ToString(SearchUserPlaylistListbox.SelectedItem);
+            Followmusicplaylist(this, new GetUserPlaylistEventsArgs() { ActualLoggedUsername = nameuser, ActualPlaylistSelected = selectedplaylist, ActualUsernameSelected = selecteduser });
+
+            Followvideoplaylist(this, new GetUserPlaylistEventsArgs() { ActualLoggedUsername = nameuser, ActualPlaylistSelected = selectedplaylist, ActualUsernameSelected = selecteduser });
 
         }
 

@@ -26,6 +26,7 @@ namespace Controllers
             this.view.Checkusernameregister += OncheckUsernameregister;
             this.view.Searching += OnSearchTextChanged;
             this.view.Sendingplaylist += OnShowSongPlaylist;
+            this.view.Sendingfollowedplaylist += OnShowFollowedSongPlaylist;
             this.view.Userselectedplaylist += OnRemovePlaylist;
             this.view.Userselectedvideoplaylist += OnRemoveVideoPlaylist;
             this.view.Changingpassword += OnChangingpassword;
@@ -33,10 +34,15 @@ namespace Controllers
             this.view.Addvideoplaylist += OnAddVideoPlaylist;
             this.view.Userrequest += OnUserRequest;
             this.view.SendingplaylistVideo += OnShowSongPlaylistVideo;
+            this.view.Sendingfollowedplaylistvideo += OnShowFollowedVideoPlaylist;
             this.view.Userifosend += OnRecivingUserchanges;
             this.view.Artistifosend += OnArtistModeUserchanges;
             this.view.Serialize += OnSerialize;
             this.view.Artistwithcaracteristics += OnArtistwithcaracteristics;
+            this.view.Followmusicplaylist  += OnAddFollowedMusicPlaylist;
+            this.view.Followvideoplaylist += OnAddFollowedVideoPlaylist;
+
+
             DeserializeData();
         }
 
@@ -148,6 +154,7 @@ namespace Controllers
             }
             return new List<PlaylistSong>() { new PlaylistSong("Sin Playlist") };
         }
+
         public List<PlaylistVideo> OnShowSongPlaylistVideo(object sender, GetUserPlaylistEventsArgs e)
         {
             foreach (User usuario in users)
@@ -155,6 +162,30 @@ namespace Controllers
                 if (usuario.Username.ToUpper() == e.ActualLoggedUsername.ToUpper())
                 {
                     return usuario.GetPlaylistVideo();
+                }
+            }
+            return new List<PlaylistVideo>() { new PlaylistVideo("Sin Playlist") };
+        }
+
+        public List<PlaylistSong> OnShowFollowedSongPlaylist(object sender, GetUserPlaylistEventsArgs e)
+        {
+            foreach (User usuario in users)
+            {
+                if (usuario.Username.ToUpper() == e.ActualLoggedUsername.ToUpper())
+                {
+                    return usuario.GetFollowedPlaylistSongs();
+                }
+            }
+            return new List<PlaylistSong>() { new PlaylistSong("Sin Playlist") };
+        }
+
+        public List<PlaylistVideo> OnShowFollowedVideoPlaylist(object sender, GetUserPlaylistEventsArgs e)
+        {
+            foreach (User usuario in users)
+            {
+                if (usuario.Username.ToUpper() == e.ActualLoggedUsername.ToUpper())
+                {
+                    return usuario.GetFollowedPlaylistVideo();
                 }
             }
             return new List<PlaylistVideo>() { new PlaylistVideo("Sin Playlist") };
@@ -193,6 +224,56 @@ namespace Controllers
                     usuario.AddVideoPlaylist(e.PlaylistNameText);
                 }
             }
+            SerializeData();
+        }
+        public void OnAddFollowedMusicPlaylist(object sender, GetUserPlaylistEventsArgs e)
+        {
+            foreach (User usuario in users)
+            {
+                if (usuario.Username.ToUpper() == e.ActualLoggedUsername.ToUpper()) // El usuario que esta usando la aplicacion
+                {
+                    foreach (User selecteduser in users)
+                    {
+                        if (selecteduser.Username.ToUpper() == e.ActualUsernameSelected.ToUpper()) // El usuario que esta usando la aplicacion
+                        {
+                            List<PlaylistSong> selectedplaylist = selecteduser.GetPlaylistSongs();
+                            foreach (PlaylistSong playlist in selectedplaylist)
+                            {
+                                if (playlist.GetPlaylistName() == e.ActualPlaylistSelected)
+                                {
+                                    usuario.AddFollowedMusicPlaylist(playlist);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            SerializeData();
+        }
+
+        public void OnAddFollowedVideoPlaylist(object sender, GetUserPlaylistEventsArgs e)
+        {
+            foreach (User usuario in users)
+            {
+                if (usuario.Username.ToUpper() == e.ActualLoggedUsername.ToUpper()) // El usuario que esta usando la aplicacion
+                {
+                    foreach (User selecteduser in users)
+                    {
+                        if (selecteduser.Username.ToUpper() == e.ActualUsernameSelected.ToUpper()) // El usuario que Se selecciona
+                        {
+                            List<PlaylistVideo> selectedplaylist = selecteduser.GetPlaylistVideo();
+                            foreach (PlaylistVideo playlist in selectedplaylist)
+                            {
+                                if (playlist.GetPlaylistName() == e.ActualPlaylistSelected)
+                                {
+                                    usuario.AddFollowedVideoPlaylist(playlist);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            SerializeData();
             SerializeData();
         }
 
