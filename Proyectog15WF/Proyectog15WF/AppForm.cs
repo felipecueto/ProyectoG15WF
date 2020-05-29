@@ -1155,107 +1155,208 @@ namespace Proyectog15WF
         //Subir Video
         private void SubirVideoButton_Click(object sender, EventArgs e)
         {
+            string videoCategoria = null;
+            string videoGender = null;
+            string videoDescripcion = null;
+            string videoResolucion = null;
+            string videoEtudio = null;
             string path;
             string videoName;
-            string videoCategoria = VideoCategoriaTextbox.Text;
-            string videoGender = VideoGeneroTextBox.Text;
-            string videoDescripcion = VideoDescripcionTextBox.Text;
-            string videoResolucion = ResolucionVideo.Text;
-            string videoEtudio = VideoEstudiTextbox.Text;
-
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Title = "Selecione elvideo";
-            openFileDialog.Filter = "Video file (*.MP4; *.WEBM;*AVI; *.MPG; *.H264;*.MOV;*.WMV;)| *.MP4; *.WEBM;*AVI; *.MPG; *.H264;*.MOV;*.WMV;";
-
-            if (openFileDialog.ShowDialog()==DialogResult.OK)
-            {   
-                videoName = openFileDialog.SafeFileName;
-                path = openFileDialog.FileName;
-                String[] separator = { " " };
-                string user_typeartist = Artistwithcaracteristics(this, new LoginEventArgs() { UsernameText = nameuser });
-                String[] username_typeartist = user_typeartist.Split(separator, StringSplitOptions.RemoveEmptyEntries);
-
-                if (Videocaracteristics != null)
-                {
-                    Videocaracteristics(this, new SendingvideocaracteristicsEventArgs() { Videoname = videoName, Genero = videoGender, Categoria = videoCategoria, Actor = username_typeartist[0], Director = "", Estudio = videoEtudio, Descripcion = videoDescripcion, Sexo = username_typeartist[2], Edad = username_typeartist[3], Resolution = videoResolucion, path=path});
-                }
-            }
-
-            bool exist = false;
-
-            if (exist)
+            int count = 0;
+            videoCategoria = VideoCategoriaTextbox.Text;
+            if (videoCategoria == "")
             {
-                ErrorVideo.Visible = true;
+                MessageBox.Show("Falta campo categoria");
             }
             else
             {
-                VideoSubidoConExito.Visible = true; //Mensaje Video subido 
+                count++;
             }
-            SerializeData();
+            videoGender = VideoGeneroTextBox.Text;
+            if (videoGender == "")
+            {
+                MessageBox.Show("Falta campo Genero");
+            }
+            else
+            {
+                count++;
+            }
+            videoDescripcion = VideoDescripcionTextBox.Text;
+            if (videoDescripcion == "")
+            {
+                MessageBox.Show("Falta campo descripcion");
+            }
+            else
+            {
+                count++;
+            }
+            videoResolucion = ResolucionTextBox.Text;
+            if (videoResolucion == "")
+            {
+                MessageBox.Show("Falta campo Resolucion");
+            }
+            else
+            {
+                count++;
+            }
+            videoEtudio = VideoEstudiTextbox.Text;
+            if (videoEtudio == "")
+            {
+                MessageBox.Show("Falta campo estudio");
+
+            }
+            else
+            {
+                count++;
+            }
+            if (count == 5)
+            {
+                OpenFileDialog openFileDialog = new OpenFileDialog();
+                openFileDialog.Title = "Selecione elvideo";
+                openFileDialog.Filter = "Video file (*.MP4; *.WEBM;*AVI; *.MPG; *.H264;*.MOV;*.WMV;)| *.MP4; *.WEBM;*AVI; *.MPG; *.H264;*.MOV;*.WMV;";
+
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    videoName = openFileDialog.SafeFileName;
+                    path = openFileDialog.FileName;
+                    String[] separator = { " " };
+                    string user_typeartist = Artistwithcaracteristics(this, new LoginEventArgs() { UsernameText = nameuser });
+                    String[] username_typeartist = user_typeartist.Split(separator, StringSplitOptions.RemoveEmptyEntries);//[0] nombre(real) del usuario, [1] tipo de artista, [2] genero, [3] edad
+
+                    if (Videocaracteristics != null)
+                    {
+                        Videocaracteristics(this, new SendingvideocaracteristicsEventArgs() { Videoname = videoName, Genero = videoGender, Categoria = videoCategoria, Actor = username_typeartist[0], Director = username_typeartist[0], Estudio = videoEtudio, Descripcion = videoDescripcion, Sexo = username_typeartist[2], Edad = username_typeartist[3], Resolution = videoResolucion, path = path });
+                    }
+                }
+
+                bool exist = false;
+
+                if (exist)
+                {
+                    ErrorVideo.Visible = true;
+                }
+                else
+                {
+                    VideoSubidoConExito.Visible = true; //Mensaje Video subido 
+                }
+                SerializeData();
+            }
+            
         }
 
         // Subir cancion
         private void SubiCancionButton_Click(object sender, EventArgs e)
         {
+            string songCategoria = null;
+            string songGender = null;
+            string songDiscorafia = null;
+            string songLetra = null;
+            string songEtudio = null;
+
             string path;
             string songName;
-            string songCategoria = SongCategoriaInput.Text;
-            string songGender = SongGenderInput.Text;
-            string songDiscorafia = SongDiscografiaInput.Text;
-            string songLetra = SongLetraInput.Text;
-            string songEtudio =SongStudioInput.Text;
-
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Title = "Selecione la cancion";
-            openFileDialog.Filter = "Song file (*.MP3; *.mp3;)|*.MP3; *.mp3";
-
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            int count = 0;
+            songCategoria = SongCategoriaInput.Text;
+            if (songCategoria == "")
             {
-                songName = openFileDialog.SafeFileName;
-
-                path = openFileDialog.FileName;
-                String[] separator = { " " };
-                string user_typeartist = Artistwithcaracteristics(this, new LoginEventArgs() { UsernameText = nameuser });
-                String[] username_typeartist = user_typeartist.Split(separator, StringSplitOptions.RemoveEmptyEntries); //[0] nombre(real) del usuario, [1] tipo de artista, [2] genero, [3] edad
-                if (Songcaracteristics != null)
-                {
-                    try
-                    {
-                        Songcaracteristics(this, new SendingsongcaracteristicsEventArgs() { Nombrecancion = songName, Genero = songGender, Compositor = username_typeartist[0], Discografia = songDiscorafia, Estudio = songEtudio, Letra = songLetra, Sexo = username_typeartist[2], Edad = username_typeartist[3], Categoria = songCategoria, path = path });
-                    }
-                    catch
-                    {
-                        MessageBox.Show("Te faltan datos Por rellenar en tu cuenta");
-                    }
-                }
-            }
-
-            if (Artistwithcaracteristics != null)
-            {
-                String[] separator = { " " };
-                string user_typeartist = Artistwithcaracteristics(this, new LoginEventArgs() { UsernameText = nameuser });
-                String[] username_typeartist = user_typeartist.Split(separator, StringSplitOptions.RemoveEmptyEntries); //[0] nombre(real) del usuario, [1] tipo de artista, [2] genero, [3] edad
-
-                if (username_typeartist[1] == "Cantante")
-                {
-                   
-
-                }
-
-            }
-
-            bool exist = false;
-
-            if (exist)
-            {
-                //Falta error
+                MessageBox.Show("Falta campo categoria");
             }
             else
             {
-               CancionSubidaConExito.Visible = true; //Mensaje Video subido 
-         
+                count++;
             }
-            SerializeData();
+            songGender = SongGenderInput.Text;
+            if (songGender == "")
+            {
+                MessageBox.Show("Falta campo genero");
+            }
+            else
+            {
+                count++;
+            }
+            songDiscorafia = SongDiscografiaInput.Text;
+            if (songDiscorafia== "")
+            {
+                MessageBox.Show("Falta campo discografia");
+            }
+            else
+            {
+                count++;
+            }
+            songLetra = SongLetraInput.Text;
+            if (songLetra == "")
+            {
+                MessageBox.Show("Falta campo letra");
+            }
+            else
+            {
+                count++;
+            }
+            songEtudio =SongStudioInput.Text;
+            if (songEtudio == "")
+            {
+                MessageBox.Show("Falta campo estudio");
+            }
+            else
+            {
+                count++;
+            }
+            if (count == 5)
+            {
+                OpenFileDialog openFileDialog = new OpenFileDialog();
+                openFileDialog.Title = "Selecione la cancion";
+                openFileDialog.Filter = "Song file (*.MP3; *.mp3;)|*.MP3; *.mp3";
+
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    songName = openFileDialog.SafeFileName;
+
+                    path = openFileDialog.FileName;
+                    String[] separator = { " " };
+                    string user_typeartist = Artistwithcaracteristics(this, new LoginEventArgs() { UsernameText = nameuser });
+                    String[] username_typeartist = user_typeartist.Split(separator, StringSplitOptions.RemoveEmptyEntries); //[0] nombre(real) del usuario, [1] tipo de artista, [2] genero, [3] edad
+                    if (Songcaracteristics != null)
+                    {
+                        try
+                        {
+                            Songcaracteristics(this, new SendingsongcaracteristicsEventArgs() { Nombrecancion = songName, Genero = songGender, Compositor = username_typeartist[0], Discografia = songDiscorafia, Estudio = songEtudio, Letra = songLetra, Sexo = username_typeartist[2], Edad = username_typeartist[3], Categoria = songCategoria, path = path });
+                        }
+                        catch
+                        {
+                            MessageBox.Show("Te faltan datos Por rellenar en tu cuenta");
+                        }
+                    }
+                }
+
+                if (Artistwithcaracteristics != null)
+                {
+                    String[] separator = { " " };
+                    string user_typeartist = Artistwithcaracteristics(this, new LoginEventArgs() { UsernameText = nameuser });
+                    String[] username_typeartist = user_typeartist.Split(separator, StringSplitOptions.RemoveEmptyEntries); //[0] nombre(real) del usuario, [1] tipo de artista, [2] genero, [3] edad
+
+                    if (username_typeartist[1] == "Cantante")
+                    {
+
+
+                    }
+
+                }
+
+                bool exist = false;
+
+                if (exist)
+                {
+                    //Falta error
+                }
+                else
+                {
+                    CancionSubidaConExito.Visible = true; //Mensaje Video subido 
+
+                }
+                SerializeData();
+            }
+
+            
         }
 
         //Playlist------------------------------------------------------------------------------------------------/
