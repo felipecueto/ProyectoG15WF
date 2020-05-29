@@ -82,6 +82,9 @@ namespace Proyectog15WF
         public event EventHandler<SendingsongcaracteristicsEventArgs> Songcaracteristics;
         //Evento para mandar el video
         public event EventHandler<SendingvideocaracteristicsEventArgs> Videocaracteristics;
+        //Evento para recibir la lista de canciones
+        public delegate List<string> SongsEventHandler(object source, SendingSongsEventArgs args);
+        public event SongsEventHandler Totalitsofsongs;
 
         List<Panel> stackPanels = new List<Panel>();
         Dictionary<string, Panel> panels = new Dictionary<string, Panel>();
@@ -878,6 +881,18 @@ namespace Proyectog15WF
             SerializeData();
             SongsAlbumPanel.Visible = true;
             VideoAlbumPanel.Visible = false;
+            if (Totalitsofsongs != null)
+            {
+                List<string> listasdelartista = Totalitsofsongs(this, new SendingSongsEventArgs() { Sendinguser = nameuser });
+                foreach (string songs in listasdelartista)
+                {
+                    AlbumCanciones.Items.Add(songs);
+                }
+
+            }
+
+
+
         }
 
         private void VideosAlbumButton_Click(object sender, EventArgs e)
@@ -1184,11 +1199,13 @@ namespace Proyectog15WF
         private void VideoAlbumListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+
+            
         }
         //AlbumCancion
         private void AlbumCanciones_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            
         }
 
         //Subir Video

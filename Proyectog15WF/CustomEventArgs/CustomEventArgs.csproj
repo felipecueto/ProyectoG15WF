@@ -55,6 +55,7 @@
     <Compile Include="SelectVideoEventArgs.cs" />
     <Compile Include="SendingArtistInfo.cs" />
     <Compile Include="SendingsongcaracteristicsEventArgs.cs" />
+    <Compile Include="SendingSongsEventArgs.cs" />
     <Compile Include="SendingtypeaccountEventArgs.cs" />
     <Compile Include="SendingvideocaracteristicsEventArgs.cs" />
   </ItemGroup>
