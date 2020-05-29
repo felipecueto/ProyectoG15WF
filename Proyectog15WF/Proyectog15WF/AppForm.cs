@@ -1407,6 +1407,7 @@ namespace Proyectog15WF
         //Videos
         private void MyVideoListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            MisVideoMyPlaylist.Items.Clear();
             string playlist_seleccionada = Convert.ToString(MyVideoListBox.SelectedItem);
 
             foreach (PlaylistVideo playlist in OnReciveUsernamePlaylistVideo())
@@ -1424,6 +1425,7 @@ namespace Proyectog15WF
 
         private void FollowVideoListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            VideosInFollowingPlaylistListbox.Items.Clear();
             string playlist_seleccionada = Convert.ToString(FollowVideoListBox.SelectedItem);
 
             foreach (PlaylistVideo playlist in OnReciveUsernameFollowedPlaylistVideo())
@@ -1432,7 +1434,7 @@ namespace Proyectog15WF
                 {
                     foreach (Video videos in playlist.GetPlaylistAllVideos())
                     {
-                        FollowVideoListBox.Items.Add(videos.VideoName);
+                        VideosInFollowingPlaylistListbox.Items.Add(videos.VideoName);
                     }
                 }
             }
@@ -1471,8 +1473,8 @@ namespace Proyectog15WF
         //Canciones
         private void MySongsListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            SongInMyPlaylistListBox.Items.Clear();
             string playlist_seleccionada = Convert.ToString(MySongsListBox.SelectedItem);
-
 
             foreach (PlaylistSong playlist in OnReciveUsernamePlaylist())
             {
@@ -1485,11 +1487,11 @@ namespace Proyectog15WF
                 }
             }
             SerializeData();
-
         }
 
         private void FollowPlaylistSongListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            SongsInFollowPlaylistListBox.Items.Clear();
             string playlist_seleccionada = Convert.ToString(FollowPlaylistSongListBox.SelectedItem);
 
             foreach (PlaylistSong playlist in OnReciveUsernameFollowedPlaylist())
@@ -1498,12 +1500,12 @@ namespace Proyectog15WF
                 {
                     foreach (Song song in playlist.GetPlaylistAllSongs())
                     {
-                        FollowPlaylistSongListBox.Items.Add(song.Namesong);
+                        SongsInFollowPlaylistListBox.Items.Add(song.Namesong);
                     }
                 }
             }
-
         }
+
         private void MasEscuchadaListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
 
