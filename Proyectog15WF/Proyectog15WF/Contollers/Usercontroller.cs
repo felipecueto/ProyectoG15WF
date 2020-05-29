@@ -354,7 +354,7 @@ namespace Controllers
             {
                 if (user.Username == e.UsernameText)
                 {
-                    return user.Name + " " + user.Artist+ " " +user.Genero+ " " +user.Edad;
+                    return user.Username + " " + user.Artist+ " " +user.Genero+ " " +user.Edad;
                 }
             }
             return null;

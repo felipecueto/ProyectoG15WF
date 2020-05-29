@@ -26,6 +26,7 @@ namespace Proyectog15WF.Contollers
             this.view.Reproducesong += OnSelectedSongVideoEventArgs;
             this.view.Recivingsong += OnverifySong;
             this.view.Songcaracteristics += OnrecivingSongCaracteristics;
+            this.view.Totalitsofsongs += OnTotalitsofsongs;
         }
 
         public void Chargesong()
@@ -92,6 +93,19 @@ namespace Proyectog15WF.Contollers
             songs.Add(new Song(e.Nombrecancion, e.Genero, e.Compositor, e.Discografia, e.Estudio, new DateTime(2007, 4, 24), e.Letra, 0, e.Categoria, 0, 0, e.Sexo, e.Edad,e.path));
 
         }
+        public List<string> OnTotalitsofsongs(object sender, SendingSongsEventArgs e)
+        { List<string> modeartistsongs = new List<string>();
+            foreach (Song song in songs)
+            {
+                if (song.Composer == e.Sendinguser)
+                {
+                    modeartistsongs.Add(song.Namesong);
+                }
+            }
+            return modeartistsongs;
+        }
+
+
 
 
     }
