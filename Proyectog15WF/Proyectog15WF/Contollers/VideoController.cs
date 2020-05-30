@@ -34,7 +34,7 @@ namespace Proyectog15WF.Contollers
         {
             try
             {
-                FileStream FS = new FileStream("Videos.Bin", FileMode.Create, FileAccess.Write, FileShare.None);
+                FileStream FS = new FileStream("Videos.bin", FileMode.Create, FileAccess.Write, FileShare.None);
                 binaryFormatter.Serialize(FS, videos);
                 FS.Close();
             }
@@ -50,13 +50,15 @@ namespace Proyectog15WF.Contollers
 
             try
             {
-                FileStream FS = new FileStream("Video.bin", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+                FileStream FS = new FileStream("Videos.bin", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
                 videos = (List<Video>)binaryFormatter.Deserialize(FS);
                 FS.Close();
+               
 
             }
-            catch
+            catch(Exception e)
             {
+               
 
             }
         }
@@ -97,6 +99,7 @@ namespace Proyectog15WF.Contollers
                     resultString.Add(s.ToString());
             }
             view.UpdateResultsvideoandsong(resultString);
+            SerializeData();
         }
         public string OnSelectedSongVideoEventArgs(object sender, SelectVideoEventArgs e)
         {
@@ -108,6 +111,7 @@ namespace Proyectog15WF.Contollers
                     reproduce = video.Path;
                 }
             }
+            SerializeData();
             return reproduce;
         }
         public Video OnverifyVideo(object sender, ReturnVideoEventArgs e)
@@ -119,11 +123,13 @@ namespace Proyectog15WF.Contollers
                     return video;
                 }
             }
+            SerializeData();
             return null;
         }
         public void OnVideocaracteristics(object sender,SendingvideocaracteristicsEventArgs e)
         {
             videos.Add(new Video(e.Videoname, e.Genero, e.Categoria, e.Actor, e.Director, e.Estudio, new DateTime(2019, 5, 12), e.Descripcion, 0, 0, 0, e.Sexo, e.Edad, e.Resolution,e.path));
+            SerializeData();
         }
         public bool OnverifyVideoExist(object sender, VideosExistEventsArtgs e)
         {

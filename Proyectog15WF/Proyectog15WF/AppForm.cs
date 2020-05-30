@@ -888,12 +888,13 @@ namespace Proyectog15WF
             UploadVideoPanel.Visible = true;
             SongUploadPanel.Visible = false;
             AlbumArtistPanel.Visible = false;
-            VideoSubidoConExito.Visible = true;
+            VideoSubidoConExito.Visible = false;
             VideoCategoriaTextbox.ResetText();
             VideoGeneroTextBox.ResetText();
             ResolucionTextBox.ResetText();
             VideoEstudiTextbox.ResetText();
-            
+            VideoDescripcionTextBox.ResetText();
+
         }
 
         private void SongAlbumButton_Click(object sender, EventArgs e)
@@ -1313,7 +1314,12 @@ namespace Proyectog15WF
                         if (Videocaracteristics != null)
                         {
                             Videocaracteristics(this, new SendingvideocaracteristicsEventArgs() { Videoname = videoName, Genero = videoGender, Categoria = videoCategoria, Actor = username_typeartist[0], Director = username_typeartist[0], Estudio = videoEtudio, Descripcion = videoDescripcion, Sexo = username_typeartist[2], Edad = username_typeartist[3], Resolution = videoResolucion, path = path });
-                            VideoSubidoConExito.Visible = true;
+                            MessageBox.Show("Video subido con exito");
+                            VideoCategoriaTextbox.ResetText();
+                            VideoGeneroTextBox.ResetText();
+                            ResolucionTextBox.ResetText();
+                            VideoEstudiTextbox.ResetText();
+                            VideoDescripcionTextBox.ResetText();
                         }
                     }
                 }
@@ -1414,7 +1420,12 @@ namespace Proyectog15WF
                             try
                             {
                                 Songcaracteristics(this, new SendingsongcaracteristicsEventArgs() { Nombrecancion = songName, Genero = songGender, Compositor = username_typeartist[0], Discografia = songDiscorafia, Estudio = songEtudio, Letra = songLetra, Sexo = username_typeartist[2], Edad = username_typeartist[3], Categoria = songCategoria, path = path });
-                                CancionSubidaConExito.Visible = true;
+                                MessageBox.Show("Cancion subida con exito");
+                                SongCategoriaInput.ResetText();
+                                SongGenderInput.ResetText();
+                                SongDiscografiaInput.ResetText();
+                                SongLetraInput.ResetText();
+                                SongStudioInput.ResetText();
                             }
                             catch
                             {
