@@ -7,6 +7,7 @@ using Model;
 using System.Windows.Forms;
 using CustomEventArgs;
 using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace Proyectog15WF.Contollers
 {
@@ -15,6 +16,7 @@ namespace Proyectog15WF.Contollers
         List<Video> videos = new List<Video>();
         AppForm view;
         string curDir= Directory.GetCurrentDirectory();
+        BinaryFormatter binaryFormatter = new BinaryFormatter();
 
         public VideoController(Form view)
         {
@@ -24,12 +26,49 @@ namespace Proyectog15WF.Contollers
             this.view.Reproducevideo += OnSelectedSongVideoEventArgs;
             this.view.Recivingvideo += OnverifyVideo;
             this.view.Videocaracteristics += OnVideocaracteristics;
+            this.view.verifyVideoExist += OnverifyVideoExist;
+            DeserializeData();
+        }
+
+        public void SerializeData()
+        {
+            try
+            {
+                FileStream FS = new FileStream("Videos.Bin", FileMode.Create, FileAccess.Write, FileShare.None);
+                binaryFormatter.Serialize(FS, videos);
+                FS.Close();
+            }
+
+            catch
+            {
+
+            }
+        }
+
+        public void DeserializeData()
+        {
+
+            try
+            {
+                FileStream FS = new FileStream("Video.bin", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+                videos = (List<Video>)binaryFormatter.Deserialize(FS);
+                FS.Close();
+
+            }
+            catch
+            {
+
+            }
+        }
+
+        public void OnSerialize(object sender, EventArgs e)
+        {
+            SerializeData();
         }
         public void ChargeVideos() 
         {
 
-            videos.Add(new Video("LS.WEBM", "Drama", "Crimen", "Joaquin Phoenix", "Todd Phillips", "WarnerBros", new DateTime(2019, 5, 12), "Muy buena", 122, 0, 0, "Masculino", "54", "720","path"));
-
+            
         }
         public void OnSearchTextChanged(object sender, SearchingSongorVideo e)
         {
@@ -86,7 +125,18 @@ namespace Proyectog15WF.Contollers
         {
             videos.Add(new Video(e.Videoname, e.Genero, e.Categoria, e.Actor, e.Director, e.Estudio, new DateTime(2019, 5, 12), e.Descripcion, 0, 0, 0, e.Sexo, e.Edad, e.Resolution,e.path));
         }
-
+        public bool OnverifyVideoExist(object sender, VideosExistEventsArtgs e)
+        {
+            foreach (Video video in videos)
+            {
+                if (video.VideoName == e.VideoNameText)
+                {
+                    return true;
+                }
+            }
+            SerializeData();
+            return false;
+        }
 
     }
 }

@@ -8,7 +8,7 @@ using Proyectog15WF;
 using System.Windows.Forms;
 using CustomEventArgs;
 using System.IO;
-
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace Proyectog15WF.Contollers
 {
@@ -17,6 +17,7 @@ namespace Proyectog15WF.Contollers
         List<Song> songs = new List<Song>();
         AppForm view;
         string curDir = Directory.GetCurrentDirectory();
+        BinaryFormatter binaryFormatter = new BinaryFormatter();
 
         public Songcontroller(Form view)
         {
@@ -27,12 +28,45 @@ namespace Proyectog15WF.Contollers
             this.view.Recivingsong += OnverifySong;
             this.view.Songcaracteristics += OnrecivingSongCaracteristics;
             this.view.Totalitsofsongs += OnTotalitsofsongs;
+            this.view.verfyedsong += OnverifySongExist;
+            DeserializeData();
+
         }
+        public void SerializeData()
+        {
+            try
+            {
+                FileStream FS = new FileStream("Songs.Bin", FileMode.Create, FileAccess.Write, FileShare.None);
+                binaryFormatter.Serialize(FS, songs);
+                FS.Close();
+            }
+            catch
+            {
+
+            }
+        }
+
+        public void DeserializeData()
+        {
+
+            try
+            {
+                FileStream FS = new FileStream("Songs.bin", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+                songs = (List<Song>)binaryFormatter.Deserialize(FS);
+                FS.Close();
+
+            }
+            catch
+            {
+
+            }
+        }
+
 
         public void Chargesong()
         {
 
-            songs.Add(new Song("UNITED.mp3", "Hip-Hop", "Dadddy Yankee", "El cartel: The big Boss", "Cartel Records", new DateTime(2007, 4, 24), "Tu me dejaste caer pero ella me levanto llamale poca mujer..", 4, "Reggaeton", 0, 0, "Masculino", "30","Path"));
+           
 
         }
         public void OnSearchTextChanged(object sender, SearchingSongorVideo e)
@@ -61,7 +95,9 @@ namespace Proyectog15WF.Contollers
                     resultString.Add(s.ToString());
             }
             view.UpdateResultsvideoandsong(resultString);
-            
+            SerializeData();
+
+
         }
         public string OnSelectedSongVideoEventArgs(object sender, SelectSongEventArgs e)
         {
@@ -73,6 +109,7 @@ namespace Proyectog15WF.Contollers
                     reproduce = song.Path;
                 }
             }
+            SerializeData();
             return reproduce;
 
 
@@ -91,8 +128,22 @@ namespace Proyectog15WF.Contollers
         public void OnrecivingSongCaracteristics(object sender, SendingsongcaracteristicsEventArgs e)
         {
             songs.Add(new Song(e.Nombrecancion, e.Genero, e.Compositor, e.Discografia, e.Estudio, new DateTime(2007, 4, 24), e.Letra, 0, e.Categoria, 0, 0, e.Sexo, e.Edad,e.path));
-
+            SerializeData();
         }
+
+        public bool OnverifySongExist(object sender, SongsExistEventsArtgs e)
+        {
+            foreach (Song song in songs)
+            {
+                if (song.Namesong == e.SongName)
+                {
+                    return true;
+                }
+            }
+            SerializeData();
+            return false;
+        }
+
         public List<string> OnTotalitsofsongs(object sender, SendingSongsEventArgs e)
         { List<string> modeartistsongs = new List<string>();
             foreach (Song song in songs)
@@ -102,6 +153,7 @@ namespace Proyectog15WF.Contollers
                     modeartistsongs.Add(song.Namesong);
                 }
             }
+            SerializeData();
             return modeartistsongs;
         }
 
