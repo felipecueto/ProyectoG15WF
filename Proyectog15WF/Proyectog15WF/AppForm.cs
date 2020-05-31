@@ -1592,7 +1592,7 @@ namespace Proyectog15WF
 
         private void BorrarCancionMyplaylist_Click(object sender, EventArgs e)
         {
-
+            MessageBox.Show("Hola");
         }
 
         private void CrearSongPlaylistButton_Click(object sender, EventArgs e)
