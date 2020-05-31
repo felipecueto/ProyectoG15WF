@@ -115,6 +115,20 @@ namespace Model
             }
             return false; //No elimina nada
         }
+        public bool RemoveFollowedMusicPlaylist(string playlistname)
+        {
+            foreach (PlaylistSong playlist in this.followedPlaylistSongs)
+            {
+                if (playlist.GetPlaylistName() == playlistname)
+                {
+                    this.followedPlaylistSongs.Remove(playlist);
+                    return true; //elimina la playlist
+                }
+            }
+            return false; //No elimina nada
+        }
+
+
 
         public bool AddVideoPlaylist(string playlistname)
         {
@@ -152,6 +166,18 @@ namespace Model
                 if (playlist.GetPlaylistName() == playlistname)
                 {
                     this.videoplaylist.Remove(playlist);
+                    break;
+                }
+            }
+        }
+
+        public void RemoveFollowedVideoPlaylist(string playlistname)
+        {
+            foreach (PlaylistVideo playlist in this.followedPlaylistVideo)
+            {
+                if (playlist.GetPlaylistName() == playlistname)
+                {
+                    this.followedPlaylistVideo.Remove(playlist);
                     break;
                 }
             }

@@ -50,6 +50,9 @@ namespace Proyectog15WF
         public delegate bool SendingActualPlaylistHandler(object source, GetUserPlaylistEventsArgs args);
         public event SendingActualPlaylistHandler Userselectedplaylist;
         public event SendingActualPlaylistHandler Userselectedvideoplaylist;
+        public event SendingActualPlaylistHandler Userselectedfollowedplaylist;
+        public event SendingActualPlaylistHandler Userselectedfollowedvideoplaylist;
+
         public event EventHandler<GetUserPlaylistEventsArgs> Addplaylist;
         public event EventHandler<GetUserPlaylistEventsArgs> Followmusicplaylist;
         public event EventHandler<GetUserPlaylistEventsArgs> Followvideoplaylist;
@@ -1565,7 +1568,6 @@ namespace Proyectog15WF
             string playlist_seleccionada = Convert.ToString(MySongsListBox.SelectedItem);
             if (Userselectedplaylist != null)
             {
-
                 if (Userselectedplaylist(this, new GetUserPlaylistEventsArgs { ActualPlaylistSelected = playlist_seleccionada, ActualLoggedUsername = nameuser }) && buttonClickdelete)
                 {
                     MySongsListBox.Items.Remove(playlist_seleccionada);
@@ -1942,12 +1944,26 @@ namespace Proyectog15WF
         //----------------------------------------------------------Botones Nuevos--------------------------------------------------------//
         private void DejarSeguirVideoPlaylist_Click(object sender, EventArgs e)
         {
+            string playlist_seleccionada = Convert.ToString(FollowVideoListBox.SelectedItem);
 
+            if (Userselectedfollowedvideoplaylist != null)
+            {
+                Userselectedfollowedvideoplaylist(this, new GetUserPlaylistEventsArgs { ActualPlaylistSelected = playlist_seleccionada, ActualLoggedUsername = nameuser });
+                FollowVideoListBox.Items.Remove(playlist_seleccionada);
+            }
+            SerializeData();
         }
 
         private void DejarSeguirCancionbutton_Click(object sender, EventArgs e)
         {
+            string playlist_seleccionada = Convert.ToString(FollowPlaylistSongListBox.SelectedItem);
 
+            if (Userselectedfollowedplaylist != null)
+            {
+                Userselectedfollowedplaylist(this, new GetUserPlaylistEventsArgs { ActualPlaylistSelected = playlist_seleccionada, ActualLoggedUsername = nameuser });
+                FollowPlaylistSongListBox.Items.Remove(playlist_seleccionada);
+            }
+            SerializeData();
         }
 
         private void Album_Click(object sender, EventArgs e)

@@ -41,6 +41,11 @@ namespace Controllers
             this.view.Artistwithcaracteristics += OnArtistwithcaracteristics;
             this.view.Followmusicplaylist  += OnAddFollowedMusicPlaylist;
             this.view.Followvideoplaylist += OnAddFollowedVideoPlaylist;
+            this.view.Userselectedfollowedplaylist += OnRemoveFollowedPlaylist;
+            this.view.Userselectedfollowedvideoplaylist += OnRemoveFollowedVideoPlaylist;
+
+
+
 
 
             DeserializeData();
@@ -304,6 +309,35 @@ namespace Controllers
             SerializeData();
             return true; //no elimina nada
         }
+
+        public bool OnRemoveFollowedPlaylist(object sender, GetUserPlaylistEventsArgs e)
+        {
+            foreach (User usuario in users)
+            {
+                if (usuario.Username.ToUpper() == e.ActualLoggedUsername.ToUpper())
+                {
+                    usuario.RemoveFollowedMusicPlaylist(e.ActualPlaylistSelected);
+                    return false; // Elimina la playlist
+                }
+            }
+            SerializeData();
+            return true; //no elimina nada
+        }
+
+        public bool OnRemoveFollowedVideoPlaylist(object sender, GetUserPlaylistEventsArgs e)
+        {
+            foreach (User usuario in users)
+            {
+                if (usuario.Username.ToUpper() == e.ActualLoggedUsername.ToUpper())
+                {
+                    usuario.RemoveFollowedVideoPlaylist(e.ActualPlaylistSelected);
+                    return false; // Elimina la playlist
+                }
+            }
+            SerializeData();
+            return true; //no elimina nada
+        }
+
 
         public bool OnChangingpassword(object sender, ChangePasswordEventArgs e)
         {
