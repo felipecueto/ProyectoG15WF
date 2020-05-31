@@ -58,6 +58,8 @@
     <Compile Include="SendingSongsEventArgs.cs" />
     <Compile Include="SendingtypeaccountEventArgs.cs" />
     <Compile Include="SendingvideocaracteristicsEventArgs.cs" />
+    <Compile Include="SongsExistEventsArtgs.cs" />
+    <Compile Include="VideosExistEventsArtgs.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
