@@ -4590,6 +4590,7 @@
             this.SearchMediatextBox.Size = new System.Drawing.Size(449, 26);
             this.SearchMediatextBox.TabIndex = 10;
             this.SearchMediatextBox.WordWrap = false;
+            this.SearchMediatextBox.Click += new System.EventHandler(this.SearchMediatextBox_TextChanged);
             this.SearchMediatextBox.TextChanged += new System.EventHandler(this.SearchMediatextBox_TextChanged_1);
             // 
             // iconPictureBox5
