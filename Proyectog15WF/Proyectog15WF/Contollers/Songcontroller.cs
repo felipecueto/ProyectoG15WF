@@ -156,6 +156,189 @@ namespace Proyectog15WF.Contollers
             SerializeData();
             return modeartistsongs;
         }
+        public List<List<List<string>>> Declaration(string Declaration)
+        {
+            List<List<List<string>>> Total = new List<List<List<string>>>();
+
+            if (Declaration.Contains(" or ")) //Note: before it was .Contains("or") and now is .Contains(" or ")
+            {
+                foreach (string SubDeclaration0 in Declaration.Split(new string[] { " or " }, StringSplitOptions.None))
+                {
+                    List<List<string>> subDec = new List<List<string>>();
+                    string SubDeclaration = SubDeclaration0.Replace(" ", "");
+                    if (SubDeclaration.Contains("and"))
+                    {
+                        foreach (string atributes in SubDeclaration.Split(new string[] { "and" }, StringSplitOptions.None))
+                        {
+                            string[] atFinal = atributes.Split(new string[] { ":" }, StringSplitOptions.None);
+                            subDec.Add(new List<string> { atFinal[0], atFinal[1] });
+                        }
+
+                    }
+                    else
+                    {
+
+                        string[] atFinal = SubDeclaration.Split(new string[] { ":" }, StringSplitOptions.None);
+                        subDec.Add(new List<string> { atFinal[0], atFinal[1] });
+
+                    }
+
+                    Total.Add(subDec);
+                }
+
+            }
+            else
+            {
+                List<List<string>> subDec = new List<List<string>>();
+                if (Declaration.Contains("and"))
+                {
+                    foreach (string atributes0 in Declaration.Split(new string[] { "and" }, StringSplitOptions.None))
+                    {
+                        string atributes = atributes0.Replace(" ", "");
+
+                        string[] atFinal = atributes.Split(new string[] { ":" }, StringSplitOptions.None);
+                        subDec.Add(new List<string> { atFinal[0], atFinal[1] });
+
+                    }
+                }
+                else
+                {
+                    string[] atFinal = Declaration.Split(new string[] { ":" }, StringSplitOptions.None);
+                    subDec.Add(new List<string> { atFinal[0], atFinal[1] });
+                }
+                Total.Add(subDec);
+            }
+
+            return Total;
+        }
+        public List<Song> Buscar(object sender, SearchingSongorVideo e) //deberia retornar un una lista de canciones
+        {
+            int count = 0;
+            List<List<List<string>>> palabras = Declaration(e.SearchTextSongVideo);
+            List<Song> Definitivo = new List<Song>();
+            List<List<Song>> optativo = new List<List<Song>>();
+            foreach (List<List<string>> words in palabras)
+            {
+                List<Song> cancionesseleccionadas = new List<Song>();
+                foreach (Song song in songs)
+                {
+                    foreach (List<string> seleccion in words)
+                    {
+                        switch (seleccion[0])
+                        {
+                            case "Nombre cancion":
+                                if (song.Namesong == seleccion[1])
+                                {
+                                    count++;
+                                }
+                                break;
+                            case "Genero":
+                                if (song.Genre == seleccion[1])
+                                {
+                                    count++;
+                                }
+                                break;
+                            case "Compositor":
+                                if (song.Composer == seleccion[1])
+                                {
+                                    count++;
+                                }
+                                break;
+                            case "Discografia":
+                                if (song.Discography == seleccion[1])
+                                {
+                                    count++;
+                                }
+                                break;
+                            case "Estudio":
+                                if (song.Studio == seleccion[1])
+                                {
+                                    count++;
+                                }
+                                break;
+                            case "Año de publicacion":
+                                if (song.Publicationyear == Convert.ToDateTime(seleccion[1]))
+                                {
+                                    count++;
+                                }
+                                break;
+                            case "Letra":
+                                if (song.Lyrics == seleccion[1])
+                                {
+                                    count++;
+                                }
+                                break;
+                            case "Duracion":
+                                if (song.Duration == Convert.ToInt32(seleccion[1]))
+                                {
+                                    count++;
+                                }
+                                break;
+                            case "Categoria":
+                                if (song.Category == seleccion[1])
+                                {
+                                    count++;
+                                }
+                                break;
+                            case "Calificacion":
+                                if (song.Qualification == Convert.ToInt32(seleccion[1]))
+                                {
+                                    count++;
+                                }
+                                break;
+                            case "Reproducciones":
+                                if (song.Reproduction == Convert.ToInt32(seleccion[1]))
+                                {
+                                    count++;
+                                }
+                                break;
+                            case "Sexo":
+                                if (song.Sexo == seleccion[1])
+                                {
+                                    count++;
+                                }
+                                break;
+                            case "Edad":
+                                if (song.Age == seleccion[1])
+                                {
+                                    count++;
+                                }
+                                break;
+
+                        }
+
+                    }
+
+                    if (count == words.Count)
+                    {
+                        cancionesseleccionadas.Add(song);
+                    }
+                    optativo.Add(cancionesseleccionadas);
+
+
+                }
+
+
+            }
+            foreach (List<Song> mp3 in optativo)
+            {
+                foreach (Song mp4 in mp3)
+                {
+                    if (!Definitivo.Contains(mp4))
+                    {
+                        Definitivo.Add(mp4);
+                    }
+
+
+                }
+
+
+            }
+            return Definitivo;
+
+
+        }
+
 
 
 
