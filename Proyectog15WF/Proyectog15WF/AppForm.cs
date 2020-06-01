@@ -2012,5 +2012,30 @@ namespace Proyectog15WF
         {
 
         }
+
+        private void SearchMediapanellistBox_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SearchMediatextBox_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BuscarMultiplesFiltroButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void InfoFButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void InfoMFbutton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

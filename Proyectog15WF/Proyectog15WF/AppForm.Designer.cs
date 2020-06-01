@@ -348,6 +348,9 @@
             this.SearchMediatextBox = new System.Windows.Forms.TextBox();
             this.iconPictureBox5 = new FontAwesome.Sharp.IconPictureBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.BuscarMultiplesFiltroButton = new FontAwesome.Sharp.IconButton();
+            this.InfoFButton = new FontAwesome.Sharp.IconButton();
+            this.InfoMFbutton = new FontAwesome.Sharp.IconButton();
             this.StartPanel.SuspendLayout();
             this.LoginPanel.SuspendLayout();
             this.MainPanel.SuspendLayout();
@@ -3387,6 +3390,8 @@
             // MultifiltroPanel
             // 
             this.MultifiltroPanel.BackColor = System.Drawing.Color.DarkRed;
+            this.MultifiltroPanel.Controls.Add(this.InfoMFbutton);
+            this.MultifiltroPanel.Controls.Add(this.BuscarMultiplesFiltroButton);
             this.MultifiltroPanel.Controls.Add(this.MultiFiltrotextBox1);
             this.MultifiltroPanel.Controls.Add(this.MultifiltrolistBox1);
             this.MultifiltroPanel.Controls.Add(this.SearchMediaIcon);
@@ -4490,7 +4495,7 @@
             this.SearchMediaIcon.IconChar = FontAwesome.Sharp.IconChar.Search;
             this.SearchMediaIcon.IconColor = System.Drawing.SystemColors.ControlText;
             this.SearchMediaIcon.IconSize = 69;
-            this.SearchMediaIcon.Location = new System.Drawing.Point(50, 77);
+            this.SearchMediaIcon.Location = new System.Drawing.Point(55, 99);
             this.SearchMediaIcon.Name = "SearchMediaIcon";
             this.SearchMediaIcon.Size = new System.Drawing.Size(70, 69);
             this.SearchMediaIcon.TabIndex = 11;
@@ -4500,12 +4505,12 @@
             // 
             this.SearchLogo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.SearchLogo.Font = new System.Drawing.Font("Microsoft Sans Serif", 26F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SearchLogo.Location = new System.Drawing.Point(121, 77);
+            this.SearchLogo.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SearchLogo.Location = new System.Drawing.Point(126, 99);
             this.SearchLogo.Name = "SearchLogo";
             this.SearchLogo.Size = new System.Drawing.Size(400, 74);
             this.SearchLogo.TabIndex = 10;
-            this.SearchLogo.Text = "Buscar Media";
+            this.SearchLogo.Text = "Buscar Media Por Multifiltro";
             this.SearchLogo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // MultifiltrolistBox1
@@ -4514,9 +4519,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.MultifiltrolistBox1.FormattingEnabled = true;
             this.MultifiltrolistBox1.ItemHeight = 20;
-            this.MultifiltrolistBox1.Location = new System.Drawing.Point(55, 235);
+            this.MultifiltrolistBox1.Location = new System.Drawing.Point(68, 238);
             this.MultifiltrolistBox1.Name = "MultifiltrolistBox1";
-            this.MultifiltrolistBox1.Size = new System.Drawing.Size(435, 284);
+            this.MultifiltrolistBox1.Size = new System.Drawing.Size(449, 244);
             this.MultifiltrolistBox1.TabIndex = 12;
             this.MultifiltrolistBox1.SelectedIndexChanged += new System.EventHandler(this.MultifiltrolistBox1_SelectedIndexChanged);
             // 
@@ -4524,9 +4529,9 @@
             // 
             this.MultiFiltrotextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.MultiFiltrotextBox1.Location = new System.Drawing.Point(55, 176);
+            this.MultiFiltrotextBox1.Location = new System.Drawing.Point(68, 184);
             this.MultiFiltrotextBox1.Name = "MultiFiltrotextBox1";
-            this.MultiFiltrotextBox1.Size = new System.Drawing.Size(436, 26);
+            this.MultiFiltrotextBox1.Size = new System.Drawing.Size(449, 26);
             this.MultiFiltrotextBox1.TabIndex = 13;
             this.MultiFiltrotextBox1.TextChanged += new System.EventHandler(this.MultiFiltrotextBox1_TextChanged);
             // 
@@ -4549,6 +4554,7 @@
             // FiltroPanel
             // 
             this.FiltroPanel.BackColor = System.Drawing.Color.DarkRed;
+            this.FiltroPanel.Controls.Add(this.InfoFButton);
             this.FiltroPanel.Controls.Add(this.iconPictureBox5);
             this.FiltroPanel.Controls.Add(this.label2);
             this.FiltroPanel.Controls.Add(this.SearchMediapanellistBox);
@@ -4567,22 +4573,24 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.SearchMediapanellistBox.FormattingEnabled = true;
             this.SearchMediapanellistBox.ItemHeight = 20;
-            this.SearchMediapanellistBox.Location = new System.Drawing.Point(67, 195);
+            this.SearchMediapanellistBox.Location = new System.Drawing.Point(68, 238);
             this.SearchMediapanellistBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.SearchMediapanellistBox.Name = "SearchMediapanellistBox";
             this.SearchMediapanellistBox.Size = new System.Drawing.Size(449, 244);
             this.SearchMediapanellistBox.TabIndex = 11;
+            this.SearchMediapanellistBox.SelectedIndexChanged += new System.EventHandler(this.SearchMediapanellistBox_SelectedIndexChanged_1);
             // 
             // SearchMediatextBox
             // 
             this.SearchMediatextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.SearchMediatextBox.Location = new System.Drawing.Point(68, 158);
+            this.SearchMediatextBox.Location = new System.Drawing.Point(68, 184);
             this.SearchMediatextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.SearchMediatextBox.Name = "SearchMediatextBox";
             this.SearchMediatextBox.Size = new System.Drawing.Size(449, 26);
             this.SearchMediatextBox.TabIndex = 10;
             this.SearchMediatextBox.WordWrap = false;
+            this.SearchMediatextBox.TextChanged += new System.EventHandler(this.SearchMediatextBox_TextChanged_1);
             // 
             // iconPictureBox5
             // 
@@ -4591,7 +4599,7 @@
             this.iconPictureBox5.IconChar = FontAwesome.Sharp.IconChar.Search;
             this.iconPictureBox5.IconColor = System.Drawing.SystemColors.ControlText;
             this.iconPictureBox5.IconSize = 69;
-            this.iconPictureBox5.Location = new System.Drawing.Point(44, 50);
+            this.iconPictureBox5.Location = new System.Drawing.Point(55, 99);
             this.iconPictureBox5.Name = "iconPictureBox5";
             this.iconPictureBox5.Size = new System.Drawing.Size(70, 69);
             this.iconPictureBox5.TabIndex = 13;
@@ -4601,13 +4609,58 @@
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 26F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(115, 50);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(126, 99);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(400, 74);
             this.label2.TabIndex = 12;
-            this.label2.Text = "Buscar Filtro";
+            this.label2.Text = "Buscar Media Por Filtro";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // BuscarMultiplesFiltroButton
+            // 
+            this.BuscarMultiplesFiltroButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.BuscarMultiplesFiltroButton.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.BuscarMultiplesFiltroButton.IconChar = FontAwesome.Sharp.IconChar.Search;
+            this.BuscarMultiplesFiltroButton.IconColor = System.Drawing.Color.Black;
+            this.BuscarMultiplesFiltroButton.IconSize = 20;
+            this.BuscarMultiplesFiltroButton.Location = new System.Drawing.Point(520, 184);
+            this.BuscarMultiplesFiltroButton.Name = "BuscarMultiplesFiltroButton";
+            this.BuscarMultiplesFiltroButton.Rotation = 0D;
+            this.BuscarMultiplesFiltroButton.Size = new System.Drawing.Size(45, 26);
+            this.BuscarMultiplesFiltroButton.TabIndex = 14;
+            this.BuscarMultiplesFiltroButton.UseVisualStyleBackColor = true;
+            this.BuscarMultiplesFiltroButton.Click += new System.EventHandler(this.BuscarMultiplesFiltroButton_Click);
+            // 
+            // InfoFButton
+            // 
+            this.InfoFButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.InfoFButton.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.InfoFButton.IconChar = FontAwesome.Sharp.IconChar.InfoCircle;
+            this.InfoFButton.IconColor = System.Drawing.Color.Black;
+            this.InfoFButton.IconSize = 26;
+            this.InfoFButton.Location = new System.Drawing.Point(522, 238);
+            this.InfoFButton.Name = "InfoFButton";
+            this.InfoFButton.Rotation = 0D;
+            this.InfoFButton.Size = new System.Drawing.Size(42, 42);
+            this.InfoFButton.TabIndex = 14;
+            this.InfoFButton.UseVisualStyleBackColor = true;
+            this.InfoFButton.Click += new System.EventHandler(this.InfoFButton_Click);
+            // 
+            // InfoMFbutton
+            // 
+            this.InfoMFbutton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.InfoMFbutton.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.InfoMFbutton.IconChar = FontAwesome.Sharp.IconChar.InfoCircle;
+            this.InfoMFbutton.IconColor = System.Drawing.Color.Black;
+            this.InfoMFbutton.IconSize = 26;
+            this.InfoMFbutton.Location = new System.Drawing.Point(522, 238);
+            this.InfoMFbutton.Name = "InfoMFbutton";
+            this.InfoMFbutton.Rotation = 0D;
+            this.InfoMFbutton.Size = new System.Drawing.Size(42, 42);
+            this.InfoMFbutton.TabIndex = 15;
+            this.InfoMFbutton.UseVisualStyleBackColor = true;
+            this.InfoMFbutton.Click += new System.EventHandler(this.InfoMFbutton_Click);
             // 
             // AppForm
             // 
@@ -5057,6 +5110,9 @@
         private FontAwesome.Sharp.IconPictureBox iconPictureBox3;
         private FontAwesome.Sharp.IconPictureBox iconPictureBox5;
         private System.Windows.Forms.Label label2;
+        private FontAwesome.Sharp.IconButton BuscarMultiplesFiltroButton;
+        private FontAwesome.Sharp.IconButton InfoFButton;
+        private FontAwesome.Sharp.IconButton InfoMFbutton;
     }
 }
 
