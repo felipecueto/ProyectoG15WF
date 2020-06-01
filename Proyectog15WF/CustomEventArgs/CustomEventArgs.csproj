@@ -56,6 +56,7 @@
     <Compile Include="SendingArtistInfo.cs" />
     <Compile Include="SendingsongcaracteristicsEventArgs.cs" />
     <Compile Include="SendingSongsEventArgs.cs" />
+    <Compile Include="SendingtextMultipleFiltersEventArgs.cs" />
     <Compile Include="SendingtypeaccountEventArgs.cs" />
     <Compile Include="SendingvideocaracteristicsEventArgs.cs" />
     <Compile Include="SongsExistEventsArtgs.cs" />

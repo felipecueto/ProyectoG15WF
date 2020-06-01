@@ -94,6 +94,9 @@ namespace Proyectog15WF
         //Ver si el video existe
         public delegate bool VerfyvideoEventHandler(object source, VideosExistEventsArtgs args);
         public event VerfyvideoEventHandler verifyVideoExist;
+        //Evento para busqueda multiple
+        public delegate List<Song> SendingMultipleSong(object source, SendingtextMultipleFiltersEventArgs args);
+        public event SendingMultipleSong Recivesongmultiplecriteria;
 
         List<Panel> stackPanels = new List<Panel>();
         Dictionary<string, Panel> panels = new Dictionary<string, Panel>();
@@ -2013,18 +2016,20 @@ namespace Proyectog15WF
 
         }
 
-        private void SearchMediapanellistBox_SelectedIndexChanged_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void SearchMediatextBox_TextChanged_1(object sender, EventArgs e)
-        {
-
-        }
-
         private void BuscarMultiplesFiltroButton_Click(object sender, EventArgs e)
         {
+            MultifiltrolistBox1.Items.Clear();
+            string word = MultiFiltrotextBox1.Text;
+            if (Recivesongmultiplecriteria != null)
+            {
+                List<Song> songsmultiplefilters = Recivesongmultiplecriteria(this, new SendingtextMultipleFiltersEventArgs() { TexttoMultipleFilters = word });
+                foreach (Song s in songsmultiplefilters)
+                {
+                    MultifiltrolistBox1.Items.Add(s.ToString());
+                }
+            }
+
+
 
         }
 

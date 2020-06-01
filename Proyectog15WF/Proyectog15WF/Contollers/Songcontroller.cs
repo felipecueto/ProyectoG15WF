@@ -29,6 +29,7 @@ namespace Proyectog15WF.Contollers
             this.view.Songcaracteristics += OnrecivingSongCaracteristics;
             this.view.Totalitsofsongs += OnTotalitsofsongs;
             this.view.verfyedsong += OnverifySongExist;
+            this.view.Recivesongmultiplecriteria += OnBuscar;
             DeserializeData();
 
         }
@@ -211,10 +212,10 @@ namespace Proyectog15WF.Contollers
 
             return Total;
         }
-        public List<Song> Buscar(object sender, SearchingSongorVideo e) //deberia retornar un una lista de canciones
+        public List<Song> OnBuscar(object sender, SendingtextMultipleFiltersEventArgs e) //deberia retornar un una lista de canciones
         {
             int count = 0;
-            List<List<List<string>>> palabras = Declaration(e.SearchTextSongVideo);
+            List<List<List<string>>> palabras = Declaration(e.TexttoMultipleFilters);
             List<Song> Definitivo = new List<Song>();
             List<List<Song>> optativo = new List<List<Song>>();
             foreach (List<List<string>> words in palabras)
@@ -227,31 +228,31 @@ namespace Proyectog15WF.Contollers
                         switch (seleccion[0])
                         {
                             case "Nombre cancion":
-                                if (song.Namesong == seleccion[1])
+                                if (song.Namesong.Trim().ToUpper() == seleccion[1].ToUpper().Trim())
                                 {
                                     count++;
                                 }
                                 break;
                             case "Genero":
-                                if (song.Genre == seleccion[1])
+                                if (song.Genre.ToUpper().Trim() == seleccion[1].ToUpper().Trim())
                                 {
                                     count++;
                                 }
                                 break;
                             case "Compositor":
-                                if (song.Composer == seleccion[1])
+                                if (song.Composer.ToUpper().Trim() == seleccion[1].ToUpper().Trim())
                                 {
                                     count++;
                                 }
                                 break;
                             case "Discografia":
-                                if (song.Discography == seleccion[1])
+                                if (song.Discography.ToUpper().Trim() == seleccion[1].ToUpper().Trim())
                                 {
                                     count++;
                                 }
                                 break;
                             case "Estudio":
-                                if (song.Studio == seleccion[1])
+                                if (song.Studio.ToUpper().Trim() == seleccion[1].ToUpper().Trim())
                                 {
                                     count++;
                                 }
@@ -275,7 +276,7 @@ namespace Proyectog15WF.Contollers
                                 }
                                 break;
                             case "Categoria":
-                                if (song.Category == seleccion[1])
+                                if (song.Category.ToUpper() == seleccion[1].ToUpper())
                                 {
                                     count++;
                                 }
@@ -293,7 +294,7 @@ namespace Proyectog15WF.Contollers
                                 }
                                 break;
                             case "Sexo":
-                                if (song.Sexo == seleccion[1])
+                                if (song.Sexo.ToUpper().Trim() == seleccion[1].ToUpper().Trim()) 
                                 {
                                     count++;
                                 }
@@ -304,6 +305,9 @@ namespace Proyectog15WF.Contollers
                                     count++;
                                 }
                                 break;
+                            default:
+                                
+                                break;
 
                         }
 
@@ -312,6 +316,7 @@ namespace Proyectog15WF.Contollers
                     if (count == words.Count)
                     {
                         cancionesseleccionadas.Add(song);
+                        count = 0;
                     }
                     optativo.Add(cancionesseleccionadas);
 
