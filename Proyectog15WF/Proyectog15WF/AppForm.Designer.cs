@@ -151,7 +151,6 @@
             this.VideoMasVistosLabel = new System.Windows.Forms.Label();
             this.VideosMasVistos = new System.Windows.Forms.ListBox();
             this.VideoFollowPanel = new System.Windows.Forms.Panel();
-            this.DejarSeguirVideoPlaylist = new FontAwesome.Sharp.IconButton();
             this.VideosInFollowingPlaylistPanel = new System.Windows.Forms.Panel();
             this.VideoFollowingPlaylistName = new System.Windows.Forms.Label();
             this.BackFollowingPlaylist = new FontAwesome.Sharp.IconButton();
@@ -159,6 +158,7 @@
             this.VideosInFollowingPlaylistButton = new FontAwesome.Sharp.IconButton();
             this.FollowLabel = new System.Windows.Forms.Label();
             this.FollowVideoListBox = new System.Windows.Forms.ListBox();
+            this.DejarSeguirVideoPlaylist = new FontAwesome.Sharp.IconButton();
             this.VideoMyPlaylistPanel = new System.Windows.Forms.Panel();
             this.CrearVideoPlaylistpanel = new System.Windows.Forms.Panel();
             this.Errorplaylistvideo = new System.Windows.Forms.Label();
@@ -193,6 +193,7 @@
             this.MasEscuchadaLabel = new System.Windows.Forms.Label();
             this.MasEsuchadaListBox = new System.Windows.Forms.ListBox();
             this.FollowPlaylistSongPanel = new System.Windows.Forms.Panel();
+            this.DejarSeguirCancionbutton = new FontAwesome.Sharp.IconButton();
             this.SongSeguidasPlaylistPanel = new System.Windows.Forms.Panel();
             this.BackPlaylistSeguidas = new FontAwesome.Sharp.IconButton();
             this.NombrePlaylistSeguidaLabel = new System.Windows.Forms.Label();
@@ -245,6 +246,8 @@
             this.SearchUserPaneltextbox = new System.Windows.Forms.TextBox();
             this.SearchArtistPanel = new System.Windows.Forms.Panel();
             this.SideSearchArtsitsPanel = new System.Windows.Forms.Panel();
+            this.AlbumSearchPanel = new System.Windows.Forms.Panel();
+            this.AlbumSearchArtistListbox = new System.Windows.Forms.ListBox();
             this.Album = new FontAwesome.Sharp.IconButton();
             this.FollowArtist = new FontAwesome.Sharp.IconButton();
             this.LogoArtistSearch = new System.Windows.Forms.Panel();
@@ -254,10 +257,10 @@
             this.IconSearchLogo = new FontAwesome.Sharp.IconPictureBox();
             this.SearchArtistLogo = new System.Windows.Forms.Label();
             this.SearchMediapanel = new System.Windows.Forms.Panel();
+            this.MultifiltroPanel = new System.Windows.Forms.Panel();
             this.SubMediaSearchPanel = new System.Windows.Forms.Panel();
             this.AgregarMediaPlaylistButton = new FontAwesome.Sharp.IconButton();
             this.PlaylistListBoxAdd = new System.Windows.Forms.ListBox();
-            this.SearchMediapanellistBox = new System.Windows.Forms.ListBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.AddToPlaylistButton = new FontAwesome.Sharp.IconButton();
             this.SubFiltersPanel = new System.Windows.Forms.Panel();
@@ -269,10 +272,9 @@
             this.PalabraClaveButton = new System.Windows.Forms.Button();
             this.FiltersButton = new FontAwesome.Sharp.IconButton();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.iconButton1 = new FontAwesome.Sharp.IconButton();
+            this.panel7 = new System.Windows.Forms.Panel();
             this.FilterONlable = new System.Windows.Forms.Label();
-            this.SearchMediaIcon = new FontAwesome.Sharp.IconPictureBox();
-            this.SearchLogo = new System.Windows.Forms.Label();
-            this.SearchMediatextBox = new System.Windows.Forms.TextBox();
             this.SPOTFLIXlOGO = new System.Windows.Forms.Label();
             this.ReproduccionPanel = new System.Windows.Forms.Panel();
             this.VolumenTrackBar1 = new System.Windows.Forms.TrackBar();
@@ -336,9 +338,16 @@
             this.CloseAppStart = new BWCMM.MZButtonWindows();
             this.SOPTLOGO = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.DejarSeguirCancionbutton = new FontAwesome.Sharp.IconButton();
-            this.AlbumSearchPanel = new System.Windows.Forms.Panel();
-            this.AlbumSearchArtistListbox = new System.Windows.Forms.ListBox();
+            this.SearchMediaIcon = new FontAwesome.Sharp.IconPictureBox();
+            this.SearchLogo = new System.Windows.Forms.Label();
+            this.MultifiltrolistBox1 = new System.Windows.Forms.ListBox();
+            this.MultiFiltrotextBox1 = new System.Windows.Forms.TextBox();
+            this.iconPictureBox3 = new FontAwesome.Sharp.IconPictureBox();
+            this.FiltroPanel = new System.Windows.Forms.Panel();
+            this.SearchMediapanellistBox = new System.Windows.Forms.ListBox();
+            this.SearchMediatextBox = new System.Windows.Forms.TextBox();
+            this.iconPictureBox5 = new FontAwesome.Sharp.IconPictureBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.StartPanel.SuspendLayout();
             this.LoginPanel.SuspendLayout();
             this.MainPanel.SuspendLayout();
@@ -407,15 +416,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.SearchLogoIcon)).BeginInit();
             this.SearchArtistPanel.SuspendLayout();
             this.SideSearchArtsitsPanel.SuspendLayout();
+            this.AlbumSearchPanel.SuspendLayout();
             this.LogoArtistSearch.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.IconSearchUserLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.IconSearchLogo)).BeginInit();
             this.SearchMediapanel.SuspendLayout();
+            this.MultifiltroPanel.SuspendLayout();
             this.SubMediaSearchPanel.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SubFiltersPanel.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.SearchMediaIcon)).BeginInit();
             this.ReproduccionPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.VolumenTrackBar1)).BeginInit();
             this.SideMainPanel.SuspendLayout();
@@ -424,7 +434,10 @@
             this.SubPlaylistPanel.SuspendLayout();
             this.SubSerchPanel.SuspendLayout();
             this.RegisterPanel.SuspendLayout();
-            this.AlbumSearchPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.SearchMediaIcon)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox3)).BeginInit();
+            this.FiltroPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox5)).BeginInit();
             this.SuspendLayout();
             // 
             // StartPanel
@@ -547,7 +560,7 @@
             this.ReproduccionMainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ReproduccionMainPanel.Location = new System.Drawing.Point(0, 0);
             this.ReproduccionMainPanel.Name = "ReproduccionMainPanel";
-            this.ReproduccionMainPanel.Size = new System.Drawing.Size(1, 683);
+            this.ReproduccionMainPanel.Size = new System.Drawing.Size(724, 683);
             this.ReproduccionMainPanel.TabIndex = 13;
             this.ReproduccionMainPanel.Visible = false;
             // 
@@ -558,7 +571,7 @@
             this.QueuePanel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.QueuePanel.Location = new System.Drawing.Point(0, 568);
             this.QueuePanel.Name = "QueuePanel";
-            this.QueuePanel.Size = new System.Drawing.Size(1, 115);
+            this.QueuePanel.Size = new System.Drawing.Size(724, 115);
             this.QueuePanel.TabIndex = 1;
             this.QueuePanel.Visible = false;
             // 
@@ -570,7 +583,7 @@
             this.QueueListBox.ItemHeight = 20;
             this.QueueListBox.Location = new System.Drawing.Point(26, 25);
             this.QueueListBox.Name = "QueueListBox";
-            this.QueueListBox.Size = new System.Drawing.Size(0, 84);
+            this.QueueListBox.Size = new System.Drawing.Size(723, 84);
             this.QueueListBox.TabIndex = 0;
             // 
             // axWindowsMediaPlayer1
@@ -580,7 +593,7 @@
             this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(0, 0);
             this.axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
             this.axWindowsMediaPlayer1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer1.OcxState")));
-            this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(1, 683);
+            this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(724, 683);
             this.axWindowsMediaPlayer1.TabIndex = 0;
             // 
             // ProfileMainPanel
@@ -588,10 +601,10 @@
             this.ProfileMainPanel.BackColor = System.Drawing.Color.Lime;
             this.ProfileMainPanel.Controls.Add(this.MiInformacionPanel);
             this.ProfileMainPanel.Controls.Add(this.EditeProfilePanel);
-            this.ProfileMainPanel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ProfileMainPanel.Location = new System.Drawing.Point(1, 0);
+            this.ProfileMainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ProfileMainPanel.Location = new System.Drawing.Point(0, 0);
             this.ProfileMainPanel.Name = "ProfileMainPanel";
-            this.ProfileMainPanel.Size = new System.Drawing.Size(723, 683);
+            this.ProfileMainPanel.Size = new System.Drawing.Size(724, 683);
             this.ProfileMainPanel.TabIndex = 12;
             this.ProfileMainPanel.Visible = false;
             // 
@@ -604,7 +617,7 @@
             this.MiInformacionPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MiInformacionPanel.Location = new System.Drawing.Point(0, 0);
             this.MiInformacionPanel.Name = "MiInformacionPanel";
-            this.MiInformacionPanel.Size = new System.Drawing.Size(723, 683);
+            this.MiInformacionPanel.Size = new System.Drawing.Size(724, 683);
             this.MiInformacionPanel.TabIndex = 1;
             // 
             // SeguidosPanel
@@ -615,7 +628,7 @@
             this.SeguidosPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.SeguidosPanel.Location = new System.Drawing.Point(256, 0);
             this.SeguidosPanel.Name = "SeguidosPanel";
-            this.SeguidosPanel.Size = new System.Drawing.Size(467, 683);
+            this.SeguidosPanel.Size = new System.Drawing.Size(468, 683);
             this.SeguidosPanel.TabIndex = 3;
             this.SeguidosPanel.Visible = false;
             // 
@@ -626,7 +639,7 @@
             this.DejarDeSeguirButton1.IconChar = FontAwesome.Sharp.IconChar.UserMinus;
             this.DejarDeSeguirButton1.IconColor = System.Drawing.Color.Black;
             this.DejarDeSeguirButton1.IconSize = 36;
-            this.DejarDeSeguirButton1.Location = new System.Drawing.Point(403, 105);
+            this.DejarDeSeguirButton1.Location = new System.Drawing.Point(404, 105);
             this.DejarDeSeguirButton1.Name = "DejarDeSeguirButton1";
             this.DejarDeSeguirButton1.Rotation = 0D;
             this.DejarDeSeguirButton1.Size = new System.Drawing.Size(56, 55);
@@ -652,7 +665,7 @@
             this.SeguidosListBox.ItemHeight = 20;
             this.SeguidosListBox.Location = new System.Drawing.Point(80, 105);
             this.SeguidosListBox.Name = "SeguidosListBox";
-            this.SeguidosListBox.Size = new System.Drawing.Size(326, 424);
+            this.SeguidosListBox.Size = new System.Drawing.Size(327, 424);
             this.SeguidosListBox.TabIndex = 0;
             this.SeguidosListBox.SelectedIndexChanged += new System.EventHandler(this.SeguidosListBox_SelectedIndexChanged);
             // 
@@ -663,7 +676,7 @@
             this.SeguidoresPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.SeguidoresPanel.Location = new System.Drawing.Point(256, 0);
             this.SeguidoresPanel.Name = "SeguidoresPanel";
-            this.SeguidoresPanel.Size = new System.Drawing.Size(467, 683);
+            this.SeguidoresPanel.Size = new System.Drawing.Size(468, 683);
             this.SeguidoresPanel.TabIndex = 2;
             this.SeguidoresPanel.Visible = false;
             // 
@@ -686,7 +699,7 @@
             this.SeguidoreslistBox.ItemHeight = 20;
             this.SeguidoreslistBox.Location = new System.Drawing.Point(70, 105);
             this.SeguidoreslistBox.Name = "SeguidoreslistBox";
-            this.SeguidoreslistBox.Size = new System.Drawing.Size(326, 424);
+            this.SeguidoreslistBox.Size = new System.Drawing.Size(327, 424);
             this.SeguidoreslistBox.TabIndex = 0;
             this.SeguidoreslistBox.SelectedIndexChanged += new System.EventHandler(this.SeguidoreslistBox_SelectedIndexChanged);
             // 
@@ -700,7 +713,7 @@
             this.UserNameInfoInput.Location = new System.Drawing.Point(300, 325);
             this.UserNameInfoInput.Name = "UserNameInfoInput";
             this.UserNameInfoInput.ReadOnly = true;
-            this.UserNameInfoInput.Size = new System.Drawing.Size(348, 50);
+            this.UserNameInfoInput.Size = new System.Drawing.Size(349, 50);
             this.UserNameInfoInput.TabIndex = 1;
             // 
             // SideMiInformacionPanel
@@ -781,7 +794,7 @@
             this.EditeProfilePanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.EditeProfilePanel.Location = new System.Drawing.Point(0, 0);
             this.EditeProfilePanel.Name = "EditeProfilePanel";
-            this.EditeProfilePanel.Size = new System.Drawing.Size(723, 683);
+            this.EditeProfilePanel.Size = new System.Drawing.Size(724, 683);
             this.EditeProfilePanel.TabIndex = 0;
             // 
             // ImagePanel
@@ -791,7 +804,7 @@
             this.ImagePanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ImagePanel.Location = new System.Drawing.Point(256, 0);
             this.ImagePanel.Name = "ImagePanel";
-            this.ImagePanel.Size = new System.Drawing.Size(467, 683);
+            this.ImagePanel.Size = new System.Drawing.Size(468, 683);
             this.ImagePanel.TabIndex = 22;
             this.ImagePanel.Visible = false;
             // 
@@ -802,7 +815,7 @@
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox1.Location = new System.Drawing.Point(104, 105);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(259, 282);
+            this.pictureBox1.Size = new System.Drawing.Size(260, 282);
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
@@ -817,7 +830,7 @@
             this.LoadImageButton.Location = new System.Drawing.Point(158, 437);
             this.LoadImageButton.Name = "LoadImageButton";
             this.LoadImageButton.Rotation = 0D;
-            this.LoadImageButton.Size = new System.Drawing.Size(154, 68);
+            this.LoadImageButton.Size = new System.Drawing.Size(155, 68);
             this.LoadImageButton.TabIndex = 0;
             this.LoadImageButton.Text = "Subir Imagen";
             this.LoadImageButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -848,7 +861,7 @@
             this.CuentaPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.CuentaPanel.Location = new System.Drawing.Point(256, 0);
             this.CuentaPanel.Name = "CuentaPanel";
-            this.CuentaPanel.Size = new System.Drawing.Size(467, 683);
+            this.CuentaPanel.Size = new System.Drawing.Size(468, 683);
             this.CuentaPanel.TabIndex = 3;
             this.CuentaPanel.Visible = false;
             // 
@@ -872,7 +885,7 @@
             "Privado"});
             this.PrivacidadInputCuenta.Location = new System.Drawing.Point(172, 445);
             this.PrivacidadInputCuenta.Name = "PrivacidadInputCuenta";
-            this.PrivacidadInputCuenta.Size = new System.Drawing.Size(255, 28);
+            this.PrivacidadInputCuenta.Size = new System.Drawing.Size(256, 28);
             this.PrivacidadInputCuenta.TabIndex = 19;
             // 
             // GeneroComboBox
@@ -888,7 +901,7 @@
             "None"});
             this.GeneroComboBox.Location = new System.Drawing.Point(174, 349);
             this.GeneroComboBox.Name = "GeneroComboBox";
-            this.GeneroComboBox.Size = new System.Drawing.Size(254, 28);
+            this.GeneroComboBox.Size = new System.Drawing.Size(255, 28);
             this.GeneroComboBox.TabIndex = 9;
             this.GeneroComboBox.SelectedIndexChanged += new System.EventHandler(this.GeneroComboBox_SelectedIndexChanged);
             // 
@@ -898,7 +911,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.InfomacionCuentaCambiadaLabel.Location = new System.Drawing.Point(176, 478);
             this.InfomacionCuentaCambiadaLabel.Name = "InfomacionCuentaCambiadaLabel";
-            this.InfomacionCuentaCambiadaLabel.Size = new System.Drawing.Size(253, 58);
+            this.InfomacionCuentaCambiadaLabel.Size = new System.Drawing.Size(254, 58);
             this.InfomacionCuentaCambiadaLabel.TabIndex = 18;
             this.InfomacionCuentaCambiadaLabel.Text = "Cuenta Actualizada";
             this.InfomacionCuentaCambiadaLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -917,7 +930,7 @@
             this.AceptarCambioCuenta.Location = new System.Drawing.Point(208, 554);
             this.AceptarCambioCuenta.Name = "AceptarCambioCuenta";
             this.AceptarCambioCuenta.Rotation = 0D;
-            this.AceptarCambioCuenta.Size = new System.Drawing.Size(199, 62);
+            this.AceptarCambioCuenta.Size = new System.Drawing.Size(200, 62);
             this.AceptarCambioCuenta.TabIndex = 17;
             this.AceptarCambioCuenta.Text = "Aceptar ";
             this.AceptarCambioCuenta.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -931,7 +944,7 @@
             this.MailCuentaInput.Location = new System.Drawing.Point(172, 260);
             this.MailCuentaInput.Name = "MailCuentaInput";
             this.MailCuentaInput.ReadOnly = true;
-            this.MailCuentaInput.Size = new System.Drawing.Size(254, 26);
+            this.MailCuentaInput.Size = new System.Drawing.Size(255, 26);
             this.MailCuentaInput.TabIndex = 16;
             // 
             // NombreCuentaImput
@@ -941,7 +954,7 @@
             this.NombreCuentaImput.Location = new System.Drawing.Point(174, 118);
             this.NombreCuentaImput.Name = "NombreCuentaImput";
             this.NombreCuentaImput.ReadOnly = true;
-            this.NombreCuentaImput.Size = new System.Drawing.Size(254, 26);
+            this.NombreCuentaImput.Size = new System.Drawing.Size(255, 26);
             this.NombreCuentaImput.TabIndex = 15;
             // 
             // ApellidoCuentaInput
@@ -951,7 +964,7 @@
             this.ApellidoCuentaInput.Location = new System.Drawing.Point(172, 163);
             this.ApellidoCuentaInput.Name = "ApellidoCuentaInput";
             this.ApellidoCuentaInput.ReadOnly = true;
-            this.ApellidoCuentaInput.Size = new System.Drawing.Size(254, 26);
+            this.ApellidoCuentaInput.Size = new System.Drawing.Size(255, 26);
             this.ApellidoCuentaInput.TabIndex = 14;
             // 
             // UsuarioCuentaInput
@@ -961,7 +974,7 @@
             this.UsuarioCuentaInput.Location = new System.Drawing.Point(172, 211);
             this.UsuarioCuentaInput.Name = "UsuarioCuentaInput";
             this.UsuarioCuentaInput.ReadOnly = true;
-            this.UsuarioCuentaInput.Size = new System.Drawing.Size(255, 26);
+            this.UsuarioCuentaInput.Size = new System.Drawing.Size(256, 26);
             this.UsuarioCuentaInput.TabIndex = 13;
             // 
             // EdadCuentaInput
@@ -970,7 +983,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.EdadCuentaInput.Location = new System.Drawing.Point(174, 305);
             this.EdadCuentaInput.Name = "EdadCuentaInput";
-            this.EdadCuentaInput.Size = new System.Drawing.Size(254, 26);
+            this.EdadCuentaInput.Size = new System.Drawing.Size(255, 26);
             this.EdadCuentaInput.TabIndex = 11;
             // 
             // TipoDeCuentaCombobox
@@ -983,7 +996,7 @@
             "Premium"});
             this.TipoDeCuentaCombobox.Location = new System.Drawing.Point(172, 395);
             this.TipoDeCuentaCombobox.Name = "TipoDeCuentaCombobox";
-            this.TipoDeCuentaCombobox.Size = new System.Drawing.Size(255, 28);
+            this.TipoDeCuentaCombobox.Size = new System.Drawing.Size(256, 28);
             this.TipoDeCuentaCombobox.TabIndex = 8;
             this.TipoDeCuentaCombobox.SelectedIndexChanged += new System.EventHandler(this.TipoDeCuentaCombobox_SelectedIndexChanged);
             // 
@@ -1057,7 +1070,7 @@
             this.CuentaLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CuentaLabel.Location = new System.Drawing.Point(50, 60);
             this.CuentaLabel.Name = "CuentaLabel";
-            this.CuentaLabel.Size = new System.Drawing.Size(467, 46);
+            this.CuentaLabel.Size = new System.Drawing.Size(468, 46);
             this.CuentaLabel.TabIndex = 0;
             this.CuentaLabel.Text = "Informacion Cuenta";
             // 
@@ -1074,7 +1087,7 @@
             this.CambiarContraseñaPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.CambiarContraseñaPanel.Location = new System.Drawing.Point(256, 0);
             this.CambiarContraseñaPanel.Name = "CambiarContraseñaPanel";
-            this.CambiarContraseñaPanel.Size = new System.Drawing.Size(467, 683);
+            this.CambiarContraseñaPanel.Size = new System.Drawing.Size(468, 683);
             this.CambiarContraseñaPanel.TabIndex = 1;
             this.CambiarContraseñaPanel.Visible = false;
             // 
@@ -1108,7 +1121,7 @@
             this.NuevaContraseñainput.Location = new System.Drawing.Point(206, 166);
             this.NuevaContraseñainput.Name = "NuevaContraseñainput";
             this.NuevaContraseñainput.PasswordChar = '*';
-            this.NuevaContraseñainput.Size = new System.Drawing.Size(207, 26);
+            this.NuevaContraseñainput.Size = new System.Drawing.Size(208, 26);
             this.NuevaContraseñainput.TabIndex = 5;
             // 
             // ContraseñaActualInput
@@ -1118,7 +1131,7 @@
             this.ContraseñaActualInput.Location = new System.Drawing.Point(206, 115);
             this.ContraseñaActualInput.Name = "ContraseñaActualInput";
             this.ContraseñaActualInput.PasswordChar = '*';
-            this.ContraseñaActualInput.Size = new System.Drawing.Size(207, 26);
+            this.ContraseñaActualInput.Size = new System.Drawing.Size(208, 26);
             this.ContraseñaActualInput.TabIndex = 4;
             // 
             // CambiarContraseñaButton
@@ -1934,32 +1947,17 @@
             // 
             // VideoFollowPanel
             // 
-            this.VideoFollowPanel.Controls.Add(this.DejarSeguirVideoPlaylist);
             this.VideoFollowPanel.Controls.Add(this.VideosInFollowingPlaylistPanel);
             this.VideoFollowPanel.Controls.Add(this.VideosInFollowingPlaylistButton);
             this.VideoFollowPanel.Controls.Add(this.FollowLabel);
             this.VideoFollowPanel.Controls.Add(this.FollowVideoListBox);
+            this.VideoFollowPanel.Controls.Add(this.DejarSeguirVideoPlaylist);
             this.VideoFollowPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.VideoFollowPanel.Location = new System.Drawing.Point(232, 0);
             this.VideoFollowPanel.Name = "VideoFollowPanel";
             this.VideoFollowPanel.Size = new System.Drawing.Size(492, 683);
             this.VideoFollowPanel.TabIndex = 2;
             this.VideoFollowPanel.Visible = false;
-            // 
-            // DejarSeguirVideoPlaylist
-            // 
-            this.DejarSeguirVideoPlaylist.BackColor = System.Drawing.Color.LightGray;
-            this.DejarSeguirVideoPlaylist.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.DejarSeguirVideoPlaylist.IconChar = FontAwesome.Sharp.IconChar.Minus;
-            this.DejarSeguirVideoPlaylist.IconColor = System.Drawing.Color.Black;
-            this.DejarSeguirVideoPlaylist.IconSize = 16;
-            this.DejarSeguirVideoPlaylist.Location = new System.Drawing.Point(431, 169);
-            this.DejarSeguirVideoPlaylist.Name = "DejarSeguirVideoPlaylist";
-            this.DejarSeguirVideoPlaylist.Rotation = 0D;
-            this.DejarSeguirVideoPlaylist.Size = new System.Drawing.Size(54, 55);
-            this.DejarSeguirVideoPlaylist.TabIndex = 4;
-            this.DejarSeguirVideoPlaylist.UseVisualStyleBackColor = false;
-            this.DejarSeguirVideoPlaylist.Click += new System.EventHandler(this.DejarSeguirVideoPlaylist_Click);
             // 
             // VideosInFollowingPlaylistPanel
             // 
@@ -2048,6 +2046,21 @@
             this.FollowVideoListBox.Size = new System.Drawing.Size(351, 504);
             this.FollowVideoListBox.TabIndex = 0;
             this.FollowVideoListBox.SelectedIndexChanged += new System.EventHandler(this.FollowVideoListBox_SelectedIndexChanged);
+            // 
+            // DejarSeguirVideoPlaylist
+            // 
+            this.DejarSeguirVideoPlaylist.BackColor = System.Drawing.Color.LightGray;
+            this.DejarSeguirVideoPlaylist.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.DejarSeguirVideoPlaylist.IconChar = FontAwesome.Sharp.IconChar.Minus;
+            this.DejarSeguirVideoPlaylist.IconColor = System.Drawing.Color.Black;
+            this.DejarSeguirVideoPlaylist.IconSize = 16;
+            this.DejarSeguirVideoPlaylist.Location = new System.Drawing.Point(431, 169);
+            this.DejarSeguirVideoPlaylist.Name = "DejarSeguirVideoPlaylist";
+            this.DejarSeguirVideoPlaylist.Rotation = 0D;
+            this.DejarSeguirVideoPlaylist.Size = new System.Drawing.Size(54, 55);
+            this.DejarSeguirVideoPlaylist.TabIndex = 4;
+            this.DejarSeguirVideoPlaylist.UseVisualStyleBackColor = false;
+            this.DejarSeguirVideoPlaylist.Click += new System.EventHandler(this.DejarSeguirVideoPlaylist_Click);
             // 
             // VideoMyPlaylistPanel
             // 
@@ -2212,6 +2225,7 @@
             this.DeleteVideoButton.Size = new System.Drawing.Size(56, 55);
             this.DeleteVideoButton.TabIndex = 4;
             this.DeleteVideoButton.UseVisualStyleBackColor = true;
+            this.DeleteVideoButton.Click += new System.EventHandler(this.DeleteVideoButton_Click);
             // 
             // BackMyVideoPlaylistButton
             // 
@@ -2503,6 +2517,21 @@
             this.FollowPlaylistSongPanel.Size = new System.Drawing.Size(492, 683);
             this.FollowPlaylistSongPanel.TabIndex = 3;
             this.FollowPlaylistSongPanel.Visible = false;
+            // 
+            // DejarSeguirCancionbutton
+            // 
+            this.DejarSeguirCancionbutton.BackColor = System.Drawing.Color.LightGray;
+            this.DejarSeguirCancionbutton.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.DejarSeguirCancionbutton.IconChar = FontAwesome.Sharp.IconChar.Minus;
+            this.DejarSeguirCancionbutton.IconColor = System.Drawing.Color.Black;
+            this.DejarSeguirCancionbutton.IconSize = 16;
+            this.DejarSeguirCancionbutton.Location = new System.Drawing.Point(430, 173);
+            this.DejarSeguirCancionbutton.Name = "DejarSeguirCancionbutton";
+            this.DejarSeguirCancionbutton.Rotation = 0D;
+            this.DejarSeguirCancionbutton.Size = new System.Drawing.Size(54, 55);
+            this.DejarSeguirCancionbutton.TabIndex = 5;
+            this.DejarSeguirCancionbutton.UseVisualStyleBackColor = false;
+            this.DejarSeguirCancionbutton.Click += new System.EventHandler(this.DejarSeguirCancionbutton_Click);
             // 
             // SongSeguidasPlaylistPanel
             // 
@@ -3208,6 +3237,26 @@
             this.SideSearchArtsitsPanel.Size = new System.Drawing.Size(724, 97);
             this.SideSearchArtsitsPanel.TabIndex = 4;
             // 
+            // AlbumSearchPanel
+            // 
+            this.AlbumSearchPanel.Controls.Add(this.AlbumSearchArtistListbox);
+            this.AlbumSearchPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.AlbumSearchPanel.Location = new System.Drawing.Point(414, 0);
+            this.AlbumSearchPanel.Name = "AlbumSearchPanel";
+            this.AlbumSearchPanel.Size = new System.Drawing.Size(310, 97);
+            this.AlbumSearchPanel.TabIndex = 3;
+            // 
+            // AlbumSearchArtistListbox
+            // 
+            this.AlbumSearchArtistListbox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.AlbumSearchArtistListbox.FormattingEnabled = true;
+            this.AlbumSearchArtistListbox.ItemHeight = 20;
+            this.AlbumSearchArtistListbox.Location = new System.Drawing.Point(0, 0);
+            this.AlbumSearchArtistListbox.Name = "AlbumSearchArtistListbox";
+            this.AlbumSearchArtistListbox.Size = new System.Drawing.Size(310, 97);
+            this.AlbumSearchArtistListbox.TabIndex = 0;
+            this.AlbumSearchArtistListbox.SelectedIndexChanged += new System.EventHandler(this.AlbumSearchArtistListbox_SelectedIndexChanged);
+            // 
             // Album
             // 
             this.Album.BackColor = System.Drawing.Color.DimGray;
@@ -3322,12 +3371,11 @@
             // SearchMediapanel
             // 
             this.SearchMediapanel.BackColor = System.Drawing.Color.DarkRed;
+            this.SearchMediapanel.Controls.Add(this.FiltroPanel);
+            this.SearchMediapanel.Controls.Add(this.MultifiltroPanel);
             this.SearchMediapanel.Controls.Add(this.SubMediaSearchPanel);
-            this.SearchMediapanel.Controls.Add(this.SearchMediapanellistBox);
             this.SearchMediapanel.Controls.Add(this.panel1);
-            this.SearchMediapanel.Controls.Add(this.SearchMediaIcon);
-            this.SearchMediapanel.Controls.Add(this.SearchLogo);
-            this.SearchMediapanel.Controls.Add(this.SearchMediatextBox);
+            this.SearchMediapanel.Controls.Add(this.iconPictureBox3);
             this.SearchMediapanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.SearchMediapanel.Location = new System.Drawing.Point(0, 0);
             this.SearchMediapanel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -3335,6 +3383,20 @@
             this.SearchMediapanel.Size = new System.Drawing.Size(724, 683);
             this.SearchMediapanel.TabIndex = 3;
             this.SearchMediapanel.Visible = false;
+            // 
+            // MultifiltroPanel
+            // 
+            this.MultifiltroPanel.BackColor = System.Drawing.Color.DarkRed;
+            this.MultifiltroPanel.Controls.Add(this.MultiFiltrotextBox1);
+            this.MultifiltroPanel.Controls.Add(this.MultifiltrolistBox1);
+            this.MultifiltroPanel.Controls.Add(this.SearchMediaIcon);
+            this.MultifiltroPanel.Controls.Add(this.SearchLogo);
+            this.MultifiltroPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.MultifiltroPanel.Location = new System.Drawing.Point(153, 0);
+            this.MultifiltroPanel.Name = "MultifiltroPanel";
+            this.MultifiltroPanel.Size = new System.Drawing.Size(571, 535);
+            this.MultifiltroPanel.TabIndex = 6;
+            this.MultifiltroPanel.Visible = false;
             // 
             // SubMediaSearchPanel
             // 
@@ -3375,19 +3437,6 @@
             this.PlaylistListBoxAdd.TabIndex = 0;
             this.PlaylistListBoxAdd.SelectedIndexChanged += new System.EventHandler(this.PlaylistListBoxAdd_SelectedIndexChanged);
             // 
-            // SearchMediapanellistBox
-            // 
-            this.SearchMediapanellistBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.SearchMediapanellistBox.FormattingEnabled = true;
-            this.SearchMediapanellistBox.ItemHeight = 20;
-            this.SearchMediapanellistBox.Location = new System.Drawing.Point(160, 263);
-            this.SearchMediapanellistBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.SearchMediapanellistBox.Name = "SearchMediapanellistBox";
-            this.SearchMediapanellistBox.Size = new System.Drawing.Size(449, 244);
-            this.SearchMediapanellistBox.TabIndex = 1;
-            this.SearchMediapanellistBox.SelectedIndexChanged += new System.EventHandler(this.SearchMediapanellistBox_SelectedIndexChanged);
-            // 
             // panel1
             // 
             this.panel1.Controls.Add(this.AddToPlaylistButton);
@@ -3426,9 +3475,9 @@
             this.SubFiltersPanel.Controls.Add(this.PersonsButton);
             this.SubFiltersPanel.Controls.Add(this.PalabraClaveButton);
             this.SubFiltersPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.SubFiltersPanel.Location = new System.Drawing.Point(0, 195);
+            this.SubFiltersPanel.Location = new System.Drawing.Point(0, 210);
             this.SubFiltersPanel.Name = "SubFiltersPanel";
-            this.SubFiltersPanel.Size = new System.Drawing.Size(153, 243);
+            this.SubFiltersPanel.Size = new System.Drawing.Size(153, 314);
             this.SubFiltersPanel.TabIndex = 3;
             this.SubFiltersPanel.Visible = false;
             // 
@@ -3526,7 +3575,7 @@
             this.FiltersButton.Location = new System.Drawing.Point(0, 155);
             this.FiltersButton.Name = "FiltersButton";
             this.FiltersButton.Rotation = 0D;
-            this.FiltersButton.Size = new System.Drawing.Size(153, 40);
+            this.FiltersButton.Size = new System.Drawing.Size(153, 55);
             this.FiltersButton.TabIndex = 2;
             this.FiltersButton.Text = "Filtros";
             this.FiltersButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -3535,12 +3584,39 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.FilterONlable);
+            this.panel2.Controls.Add(this.iconButton1);
+            this.panel2.Controls.Add(this.panel7);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(153, 155);
             this.panel2.TabIndex = 1;
+            // 
+            // iconButton1
+            // 
+            this.iconButton1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.iconButton1.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.Filter;
+            this.iconButton1.IconColor = System.Drawing.Color.Black;
+            this.iconButton1.IconSize = 36;
+            this.iconButton1.Location = new System.Drawing.Point(0, 101);
+            this.iconButton1.Name = "iconButton1";
+            this.iconButton1.Rotation = 0D;
+            this.iconButton1.Size = new System.Drawing.Size(153, 55);
+            this.iconButton1.TabIndex = 2;
+            this.iconButton1.Text = "MultiFiltro";
+            this.iconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.iconButton1.UseVisualStyleBackColor = true;
+            this.iconButton1.Click += new System.EventHandler(this.iconButton1_Click);
+            // 
+            // panel7
+            // 
+            this.panel7.BackColor = System.Drawing.Color.Maroon;
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel7.Location = new System.Drawing.Point(0, 0);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(153, 101);
+            this.panel7.TabIndex = 1;
             // 
             // FilterONlable
             // 
@@ -3548,47 +3624,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.FilterONlable.AutoSize = true;
             this.FilterONlable.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FilterONlable.Location = new System.Drawing.Point(3, 118);
+            this.FilterONlable.Location = new System.Drawing.Point(73, 126);
             this.FilterONlable.Name = "FilterONlable";
             this.FilterONlable.Size = new System.Drawing.Size(0, 20);
             this.FilterONlable.TabIndex = 0;
-            // 
-            // SearchMediaIcon
-            // 
-            this.SearchMediaIcon.BackColor = System.Drawing.Color.DarkRed;
-            this.SearchMediaIcon.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.SearchMediaIcon.IconChar = FontAwesome.Sharp.IconChar.Search;
-            this.SearchMediaIcon.IconColor = System.Drawing.SystemColors.ControlText;
-            this.SearchMediaIcon.IconSize = 69;
-            this.SearchMediaIcon.Location = new System.Drawing.Point(160, 100);
-            this.SearchMediaIcon.Name = "SearchMediaIcon";
-            this.SearchMediaIcon.Size = new System.Drawing.Size(70, 69);
-            this.SearchMediaIcon.TabIndex = 3;
-            this.SearchMediaIcon.TabStop = false;
-            // 
-            // SearchLogo
-            // 
-            this.SearchLogo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.SearchLogo.Font = new System.Drawing.Font("Microsoft Sans Serif", 26F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SearchLogo.Location = new System.Drawing.Point(231, 100);
-            this.SearchLogo.Name = "SearchLogo";
-            this.SearchLogo.Size = new System.Drawing.Size(400, 74);
-            this.SearchLogo.TabIndex = 2;
-            this.SearchLogo.Text = "Buscar Media";
-            this.SearchLogo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // SearchMediatextBox
-            // 
-            this.SearchMediatextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.SearchMediatextBox.Location = new System.Drawing.Point(160, 203);
-            this.SearchMediatextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.SearchMediatextBox.Name = "SearchMediatextBox";
-            this.SearchMediatextBox.Size = new System.Drawing.Size(449, 26);
-            this.SearchMediatextBox.TabIndex = 0;
-            this.SearchMediatextBox.WordWrap = false;
-            this.SearchMediatextBox.TextChanged += new System.EventHandler(this.SearchMediatextBox_TextChanged);
             // 
             // SPOTFLIXlOGO
             // 
@@ -4444,40 +4483,131 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // DejarSeguirCancionbutton
+            // SearchMediaIcon
             // 
-            this.DejarSeguirCancionbutton.BackColor = System.Drawing.Color.LightGray;
-            this.DejarSeguirCancionbutton.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.DejarSeguirCancionbutton.IconChar = FontAwesome.Sharp.IconChar.Minus;
-            this.DejarSeguirCancionbutton.IconColor = System.Drawing.Color.Black;
-            this.DejarSeguirCancionbutton.IconSize = 16;
-            this.DejarSeguirCancionbutton.Location = new System.Drawing.Point(430, 173);
-            this.DejarSeguirCancionbutton.Name = "DejarSeguirCancionbutton";
-            this.DejarSeguirCancionbutton.Rotation = 0D;
-            this.DejarSeguirCancionbutton.Size = new System.Drawing.Size(54, 55);
-            this.DejarSeguirCancionbutton.TabIndex = 5;
-            this.DejarSeguirCancionbutton.UseVisualStyleBackColor = false;
-            this.DejarSeguirCancionbutton.Click += new System.EventHandler(this.DejarSeguirCancionbutton_Click);
+            this.SearchMediaIcon.BackColor = System.Drawing.Color.DarkRed;
+            this.SearchMediaIcon.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.SearchMediaIcon.IconChar = FontAwesome.Sharp.IconChar.Search;
+            this.SearchMediaIcon.IconColor = System.Drawing.SystemColors.ControlText;
+            this.SearchMediaIcon.IconSize = 69;
+            this.SearchMediaIcon.Location = new System.Drawing.Point(50, 77);
+            this.SearchMediaIcon.Name = "SearchMediaIcon";
+            this.SearchMediaIcon.Size = new System.Drawing.Size(70, 69);
+            this.SearchMediaIcon.TabIndex = 11;
+            this.SearchMediaIcon.TabStop = false;
             // 
-            // AlbumSearchPanel
+            // SearchLogo
             // 
-            this.AlbumSearchPanel.Controls.Add(this.AlbumSearchArtistListbox);
-            this.AlbumSearchPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.AlbumSearchPanel.Location = new System.Drawing.Point(414, 0);
-            this.AlbumSearchPanel.Name = "AlbumSearchPanel";
-            this.AlbumSearchPanel.Size = new System.Drawing.Size(310, 97);
-            this.AlbumSearchPanel.TabIndex = 3;
+            this.SearchLogo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.SearchLogo.Font = new System.Drawing.Font("Microsoft Sans Serif", 26F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SearchLogo.Location = new System.Drawing.Point(121, 77);
+            this.SearchLogo.Name = "SearchLogo";
+            this.SearchLogo.Size = new System.Drawing.Size(400, 74);
+            this.SearchLogo.TabIndex = 10;
+            this.SearchLogo.Text = "Buscar Media";
+            this.SearchLogo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // AlbumSearchArtistListbox
+            // MultifiltrolistBox1
             // 
-            this.AlbumSearchArtistListbox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.AlbumSearchArtistListbox.FormattingEnabled = true;
-            this.AlbumSearchArtistListbox.ItemHeight = 20;
-            this.AlbumSearchArtistListbox.Location = new System.Drawing.Point(0, 0);
-            this.AlbumSearchArtistListbox.Name = "AlbumSearchArtistListbox";
-            this.AlbumSearchArtistListbox.Size = new System.Drawing.Size(310, 97);
-            this.AlbumSearchArtistListbox.TabIndex = 0;
-            this.AlbumSearchArtistListbox.SelectedIndexChanged += new System.EventHandler(this.AlbumSearchArtistListbox_SelectedIndexChanged);
+            this.MultifiltrolistBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.MultifiltrolistBox1.FormattingEnabled = true;
+            this.MultifiltrolistBox1.ItemHeight = 20;
+            this.MultifiltrolistBox1.Location = new System.Drawing.Point(55, 235);
+            this.MultifiltrolistBox1.Name = "MultifiltrolistBox1";
+            this.MultifiltrolistBox1.Size = new System.Drawing.Size(435, 284);
+            this.MultifiltrolistBox1.TabIndex = 12;
+            this.MultifiltrolistBox1.SelectedIndexChanged += new System.EventHandler(this.MultifiltrolistBox1_SelectedIndexChanged);
+            // 
+            // MultiFiltrotextBox1
+            // 
+            this.MultiFiltrotextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.MultiFiltrotextBox1.Location = new System.Drawing.Point(55, 176);
+            this.MultiFiltrotextBox1.Name = "MultiFiltrotextBox1";
+            this.MultiFiltrotextBox1.Size = new System.Drawing.Size(436, 26);
+            this.MultiFiltrotextBox1.TabIndex = 13;
+            this.MultiFiltrotextBox1.TextChanged += new System.EventHandler(this.MultiFiltrotextBox1_TextChanged);
+            // 
+            // iconPictureBox3
+            // 
+            this.iconPictureBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.iconPictureBox3.BackColor = System.Drawing.Color.DarkRed;
+            this.iconPictureBox3.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.iconPictureBox3.IconChar = FontAwesome.Sharp.IconChar.Search;
+            this.iconPictureBox3.IconColor = System.Drawing.SystemColors.ControlText;
+            this.iconPictureBox3.IconSize = 236;
+            this.iconPictureBox3.Location = new System.Drawing.Point(300, 156);
+            this.iconPictureBox3.Name = "iconPictureBox3";
+            this.iconPictureBox3.Size = new System.Drawing.Size(279, 236);
+            this.iconPictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.iconPictureBox3.TabIndex = 7;
+            this.iconPictureBox3.TabStop = false;
+            // 
+            // FiltroPanel
+            // 
+            this.FiltroPanel.BackColor = System.Drawing.Color.DarkRed;
+            this.FiltroPanel.Controls.Add(this.iconPictureBox5);
+            this.FiltroPanel.Controls.Add(this.label2);
+            this.FiltroPanel.Controls.Add(this.SearchMediapanellistBox);
+            this.FiltroPanel.Controls.Add(this.SearchMediatextBox);
+            this.FiltroPanel.Controls.Add(this.FilterONlable);
+            this.FiltroPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.FiltroPanel.Location = new System.Drawing.Point(153, 0);
+            this.FiltroPanel.Name = "FiltroPanel";
+            this.FiltroPanel.Size = new System.Drawing.Size(571, 535);
+            this.FiltroPanel.TabIndex = 8;
+            this.FiltroPanel.Visible = false;
+            // 
+            // SearchMediapanellistBox
+            // 
+            this.SearchMediapanellistBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.SearchMediapanellistBox.FormattingEnabled = true;
+            this.SearchMediapanellistBox.ItemHeight = 20;
+            this.SearchMediapanellistBox.Location = new System.Drawing.Point(67, 195);
+            this.SearchMediapanellistBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.SearchMediapanellistBox.Name = "SearchMediapanellistBox";
+            this.SearchMediapanellistBox.Size = new System.Drawing.Size(449, 244);
+            this.SearchMediapanellistBox.TabIndex = 11;
+            // 
+            // SearchMediatextBox
+            // 
+            this.SearchMediatextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.SearchMediatextBox.Location = new System.Drawing.Point(68, 158);
+            this.SearchMediatextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.SearchMediatextBox.Name = "SearchMediatextBox";
+            this.SearchMediatextBox.Size = new System.Drawing.Size(449, 26);
+            this.SearchMediatextBox.TabIndex = 10;
+            this.SearchMediatextBox.WordWrap = false;
+            // 
+            // iconPictureBox5
+            // 
+            this.iconPictureBox5.BackColor = System.Drawing.Color.DarkRed;
+            this.iconPictureBox5.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.iconPictureBox5.IconChar = FontAwesome.Sharp.IconChar.Search;
+            this.iconPictureBox5.IconColor = System.Drawing.SystemColors.ControlText;
+            this.iconPictureBox5.IconSize = 69;
+            this.iconPictureBox5.Location = new System.Drawing.Point(44, 50);
+            this.iconPictureBox5.Name = "iconPictureBox5";
+            this.iconPictureBox5.Size = new System.Drawing.Size(70, 69);
+            this.iconPictureBox5.TabIndex = 13;
+            this.iconPictureBox5.TabStop = false;
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 26F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(115, 50);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(400, 74);
+            this.label2.TabIndex = 12;
+            this.label2.Text = "Buscar Filtro";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // AppForm
             // 
@@ -4575,17 +4705,17 @@
             this.SearchArtistPanel.ResumeLayout(false);
             this.SearchArtistPanel.PerformLayout();
             this.SideSearchArtsitsPanel.ResumeLayout(false);
+            this.AlbumSearchPanel.ResumeLayout(false);
             this.LogoArtistSearch.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.IconSearchUserLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.IconSearchLogo)).EndInit();
             this.SearchMediapanel.ResumeLayout(false);
-            this.SearchMediapanel.PerformLayout();
+            this.MultifiltroPanel.ResumeLayout(false);
+            this.MultifiltroPanel.PerformLayout();
             this.SubMediaSearchPanel.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.SubFiltersPanel.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.SearchMediaIcon)).EndInit();
             this.ReproduccionPanel.ResumeLayout(false);
             this.ReproduccionPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.VolumenTrackBar1)).EndInit();
@@ -4597,7 +4727,11 @@
             this.SubSerchPanel.ResumeLayout(false);
             this.RegisterPanel.ResumeLayout(false);
             this.RegisterPanel.PerformLayout();
-            this.AlbumSearchPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.SearchMediaIcon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox3)).EndInit();
+            this.FiltroPanel.ResumeLayout(false);
+            this.FiltroPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox5)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -4670,10 +4804,6 @@
         private System.Windows.Forms.TextBox SearchUserPaneltextbox;
         private System.Windows.Forms.ListBox SearchUserPanelResultlistusers;
         private System.Windows.Forms.Panel SearchMediapanel;
-        private System.Windows.Forms.ListBox SearchMediapanellistBox;
-        private System.Windows.Forms.TextBox SearchMediatextBox;
-        private FontAwesome.Sharp.IconPictureBox SearchMediaIcon;
-        private System.Windows.Forms.Label SearchLogo;
         private System.Windows.Forms.Label SPOTFLIXlOGO;
         private FontAwesome.Sharp.IconPictureBox SearchLogoIcon;
         private System.Windows.Forms.Label SearchUserLogo;
@@ -4910,10 +5040,23 @@
         private System.Windows.Forms.ComboBox TipoArtistacomboBox1;
         private System.Windows.Forms.Label TipodeArtistaModeLabel;
         private System.Windows.Forms.Label NotPrimiumLabelArtist;
-        private FontAwesome.Sharp.IconButton DejarSeguirVideoPlaylist;
         private FontAwesome.Sharp.IconButton DejarSeguirCancionbutton;
         private System.Windows.Forms.Panel AlbumSearchPanel;
         private System.Windows.Forms.ListBox AlbumSearchArtistListbox;
+        private FontAwesome.Sharp.IconButton DejarSeguirVideoPlaylist;
+        private System.Windows.Forms.Panel MultifiltroPanel;
+        private FontAwesome.Sharp.IconButton iconButton1;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.TextBox MultiFiltrotextBox1;
+        private System.Windows.Forms.ListBox MultifiltrolistBox1;
+        private FontAwesome.Sharp.IconPictureBox SearchMediaIcon;
+        private System.Windows.Forms.Label SearchLogo;
+        private System.Windows.Forms.Panel FiltroPanel;
+        private System.Windows.Forms.ListBox SearchMediapanellistBox;
+        private System.Windows.Forms.TextBox SearchMediatextBox;
+        private FontAwesome.Sharp.IconPictureBox iconPictureBox3;
+        private FontAwesome.Sharp.IconPictureBox iconPictureBox5;
+        private System.Windows.Forms.Label label2;
     }
 }
 

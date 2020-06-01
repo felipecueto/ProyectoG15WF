@@ -707,14 +707,17 @@ namespace Proyectog15WF
         private void FiltersButton_Click(object sender, EventArgs e)
         {
             SerializeData();
+            MultifiltroPanel.Visible = false;
             FilterONlable.ResetText();
             if (SubFiltersPanel.Visible)
             {
                 SubFiltersPanel.Visible = false;
+                FiltroPanel.Visible = false;
             }
             else
             {
                 SubFiltersPanel.Visible = true;
+                FiltroPanel.Visible = true;
             }
         }
         private void FilterButton_Click(object sender, EventArgs e)
@@ -1977,6 +1980,35 @@ namespace Proyectog15WF
         }
 
         private void FollowArtist_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void iconButton1_Click(object sender, EventArgs e)
+        {
+            SubFiltersPanel.Visible = false;
+            FiltroPanel.Visible = false;
+            if (MultifiltroPanel.Visible)
+            {
+                MultifiltroPanel.Visible = false;
+            }
+            else
+            {
+                MultifiltroPanel.Visible = true;
+            }
+        }
+
+        private void MultiFiltrotextBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MultifiltrolistBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DeleteVideoButton_Click(object sender, EventArgs e)
         {
 
         }
