@@ -36,6 +36,25 @@
             this.mzButtonWindows2 = new BWCMM.MZButtonWindows();
             this.mzButtonWindows1 = new BWCMM.MZButtonWindows();
             this.UploadAdminMainPanel = new System.Windows.Forms.Panel();
+            this.AdminUpLoadSongPanel = new System.Windows.Forms.Panel();
+            this.AdminUploadSongButton = new FontAwesome.Sharp.IconButton();
+            this.AdminSongEdadTextBox = new System.Windows.Forms.TextBox();
+            this.AdminSongCompositorTextBox = new System.Windows.Forms.TextBox();
+            this.AdminSongDiscografiaTextBox = new System.Windows.Forms.TextBox();
+            this.AdminSongEstudioTextBox = new System.Windows.Forms.TextBox();
+            this.AdminSongLetraTextBox = new System.Windows.Forms.TextBox();
+            this.AdminSongCategoriaTextBox = new System.Windows.Forms.TextBox();
+            this.AdminSongDuracionTextBox = new System.Windows.Forms.TextBox();
+            this.AdminSongGeneroTextBox = new System.Windows.Forms.TextBox();
+            this.AdminSongEdadLabel = new System.Windows.Forms.Label();
+            this.AdminSongCategoriaLabel = new System.Windows.Forms.Label();
+            this.AdminSongSexoLabel = new System.Windows.Forms.Label();
+            this.AdminSongCompositorLabel = new System.Windows.Forms.Label();
+            this.AdminSongDiscografiaLabel = new System.Windows.Forms.Label();
+            this.AdminSongEstudioLabel = new System.Windows.Forms.Label();
+            this.AdminSongLetraLabel = new System.Windows.Forms.Label();
+            this.AdminSongDuracionLabel = new System.Windows.Forms.Label();
+            this.AdminSongGeneroLabel = new System.Windows.Forms.Label();
             this.UploadAdminlogo = new FontAwesome.Sharp.IconPictureBox();
             this.AdminSearchMainPanel = new System.Windows.Forms.Panel();
             this.AdminUserMainPanel = new System.Windows.Forms.Panel();
@@ -54,6 +73,7 @@
             this.SearchAdminIcon = new FontAwesome.Sharp.IconPictureBox();
             this.SearchAdminlogo = new FontAwesome.Sharp.IconPictureBox();
             this.SubAdminPanel = new System.Windows.Forms.Panel();
+            this.ExitAdminButton = new FontAwesome.Sharp.IconButton();
             this.SubAdminUploadContent = new System.Windows.Forms.Panel();
             this.UploadAdminVideoButton = new System.Windows.Forms.Button();
             this.UploadAdminSongButton = new System.Windows.Forms.Button();
@@ -333,6 +353,7 @@
             this.PlayButton = new FontAwesome.Sharp.IconButton();
             this.LikeButton = new FontAwesome.Sharp.IconButton();
             this.SideMainPanel = new System.Windows.Forms.Panel();
+            this.ExitMainPanel = new FontAwesome.Sharp.IconButton();
             this.SubProfilePanel = new System.Windows.Forms.Panel();
             this.InfoProfileButton = new System.Windows.Forms.Button();
             this.EditeProfilebutton = new System.Windows.Forms.Button();
@@ -383,12 +404,34 @@
             this.CloseAppStart = new BWCMM.MZButtonWindows();
             this.SOPTLOGO = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.ExitAdminButton = new FontAwesome.Sharp.IconButton();
-            this.ExitMainPanel = new FontAwesome.Sharp.IconButton();
+            this.SubirCancionAdminLable = new System.Windows.Forms.Label();
+            this.AdminSongSexoCombobox = new System.Windows.Forms.ComboBox();
+            this.AdminUploadVideoPanel = new System.Windows.Forms.Panel();
+            this.AdminVideoSexoCombobox = new System.Windows.Forms.ComboBox();
+            this.AdminUploadSongLogo = new System.Windows.Forms.Label();
+            this.AdminUploadVideoButton = new FontAwesome.Sharp.IconButton();
+            this.AdminVideoEdadTextbox = new System.Windows.Forms.TextBox();
+            this.AdminVideoActorTextbox = new System.Windows.Forms.TextBox();
+            this.AdminVideoDirectorTextbox = new System.Windows.Forms.TextBox();
+            this.AdminVideoEstudioTextbox = new System.Windows.Forms.TextBox();
+            this.AdminVideoDescipcionTextbox = new System.Windows.Forms.TextBox();
+            this.AdminVideoCategoriaTextbox = new System.Windows.Forms.TextBox();
+            this.AdminVideoDuracionTextbox = new System.Windows.Forms.TextBox();
+            this.AdminVideoGeneroTextbox = new System.Windows.Forms.TextBox();
+            this.AdminVideoEdadLabel = new System.Windows.Forms.Label();
+            this.AdminVideoCategoriaLabel = new System.Windows.Forms.Label();
+            this.AdminVideoSexoLabel = new System.Windows.Forms.Label();
+            this.AdminVideoActorLabel = new System.Windows.Forms.Label();
+            this.AdminVideoDirectorLabel = new System.Windows.Forms.Label();
+            this.AdminVideoEstudioLabel = new System.Windows.Forms.Label();
+            this.AdminVideoDescipcionLabel = new System.Windows.Forms.Label();
+            this.AdminVideoduracionLabel = new System.Windows.Forms.Label();
+            this.AdminVideoGeneroLabel = new System.Windows.Forms.Label();
             this.StartPanel.SuspendLayout();
             this.LoginPanel.SuspendLayout();
             this.AdminMainPanel.SuspendLayout();
             this.UploadAdminMainPanel.SuspendLayout();
+            this.AdminUpLoadSongPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.UploadAdminlogo)).BeginInit();
             this.AdminSearchMainPanel.SuspendLayout();
             this.AdminUserMainPanel.SuspendLayout();
@@ -487,6 +530,7 @@
             this.SubPlaylistPanel.SuspendLayout();
             this.SubSerchPanel.SuspendLayout();
             this.RegisterPanel.SuspendLayout();
+            this.AdminUploadVideoPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // StartPanel
@@ -590,6 +634,8 @@
             // UploadAdminMainPanel
             // 
             this.UploadAdminMainPanel.BackColor = System.Drawing.Color.Yellow;
+            this.UploadAdminMainPanel.Controls.Add(this.AdminUploadVideoPanel);
+            this.UploadAdminMainPanel.Controls.Add(this.AdminUpLoadSongPanel);
             this.UploadAdminMainPanel.Controls.Add(this.UploadAdminlogo);
             this.UploadAdminMainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.UploadAdminMainPanel.Location = new System.Drawing.Point(250, 0);
@@ -598,14 +644,219 @@
             this.UploadAdminMainPanel.TabIndex = 5;
             this.UploadAdminMainPanel.Visible = false;
             // 
+            // AdminUpLoadSongPanel
+            // 
+            this.AdminUpLoadSongPanel.BackColor = System.Drawing.Color.Yellow;
+            this.AdminUpLoadSongPanel.Controls.Add(this.AdminSongSexoCombobox);
+            this.AdminUpLoadSongPanel.Controls.Add(this.SubirCancionAdminLable);
+            this.AdminUpLoadSongPanel.Controls.Add(this.AdminUploadSongButton);
+            this.AdminUpLoadSongPanel.Controls.Add(this.AdminSongEdadTextBox);
+            this.AdminUpLoadSongPanel.Controls.Add(this.AdminSongCompositorTextBox);
+            this.AdminUpLoadSongPanel.Controls.Add(this.AdminSongDiscografiaTextBox);
+            this.AdminUpLoadSongPanel.Controls.Add(this.AdminSongEstudioTextBox);
+            this.AdminUpLoadSongPanel.Controls.Add(this.AdminSongLetraTextBox);
+            this.AdminUpLoadSongPanel.Controls.Add(this.AdminSongCategoriaTextBox);
+            this.AdminUpLoadSongPanel.Controls.Add(this.AdminSongDuracionTextBox);
+            this.AdminUpLoadSongPanel.Controls.Add(this.AdminSongGeneroTextBox);
+            this.AdminUpLoadSongPanel.Controls.Add(this.AdminSongEdadLabel);
+            this.AdminUpLoadSongPanel.Controls.Add(this.AdminSongCategoriaLabel);
+            this.AdminUpLoadSongPanel.Controls.Add(this.AdminSongSexoLabel);
+            this.AdminUpLoadSongPanel.Controls.Add(this.AdminSongCompositorLabel);
+            this.AdminUpLoadSongPanel.Controls.Add(this.AdminSongDiscografiaLabel);
+            this.AdminUpLoadSongPanel.Controls.Add(this.AdminSongEstudioLabel);
+            this.AdminUpLoadSongPanel.Controls.Add(this.AdminSongLetraLabel);
+            this.AdminUpLoadSongPanel.Controls.Add(this.AdminSongDuracionLabel);
+            this.AdminUpLoadSongPanel.Controls.Add(this.AdminSongGeneroLabel);
+            this.AdminUpLoadSongPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.AdminUpLoadSongPanel.Location = new System.Drawing.Point(0, 0);
+            this.AdminUpLoadSongPanel.Name = "AdminUpLoadSongPanel";
+            this.AdminUpLoadSongPanel.Size = new System.Drawing.Size(774, 768);
+            this.AdminUpLoadSongPanel.TabIndex = 1;
+            this.AdminUpLoadSongPanel.Visible = false;
+            // 
+            // AdminUploadSongButton
+            // 
+            this.AdminUploadSongButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.AdminUploadSongButton.FlatAppearance.BorderSize = 0;
+            this.AdminUploadSongButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AdminUploadSongButton.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.AdminUploadSongButton.IconChar = FontAwesome.Sharp.IconChar.CloudUploadAlt;
+            this.AdminUploadSongButton.IconColor = System.Drawing.Color.Black;
+            this.AdminUploadSongButton.IconSize = 36;
+            this.AdminUploadSongButton.Location = new System.Drawing.Point(347, 627);
+            this.AdminUploadSongButton.Name = "AdminUploadSongButton";
+            this.AdminUploadSongButton.Rotation = 0D;
+            this.AdminUploadSongButton.Size = new System.Drawing.Size(218, 65);
+            this.AdminUploadSongButton.TabIndex = 19;
+            this.AdminUploadSongButton.Text = "Subir Cancion";
+            this.AdminUploadSongButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.AdminUploadSongButton.UseVisualStyleBackColor = true;
+            this.AdminUploadSongButton.Click += new System.EventHandler(this.AdminUploadSongButton_Click);
+            // 
+            // AdminSongEdadTextBox
+            // 
+            this.AdminSongEdadTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.AdminSongEdadTextBox.Location = new System.Drawing.Point(203, 528);
+            this.AdminSongEdadTextBox.Name = "AdminSongEdadTextBox";
+            this.AdminSongEdadTextBox.Size = new System.Drawing.Size(471, 26);
+            this.AdminSongEdadTextBox.TabIndex = 18;
+            // 
+            // AdminSongCompositorTextBox
+            // 
+            this.AdminSongCompositorTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.AdminSongCompositorTextBox.Location = new System.Drawing.Point(203, 179);
+            this.AdminSongCompositorTextBox.Name = "AdminSongCompositorTextBox";
+            this.AdminSongCompositorTextBox.Size = new System.Drawing.Size(471, 26);
+            this.AdminSongCompositorTextBox.TabIndex = 16;
+            // 
+            // AdminSongDiscografiaTextBox
+            // 
+            this.AdminSongDiscografiaTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.AdminSongDiscografiaTextBox.Location = new System.Drawing.Point(203, 229);
+            this.AdminSongDiscografiaTextBox.Name = "AdminSongDiscografiaTextBox";
+            this.AdminSongDiscografiaTextBox.Size = new System.Drawing.Size(471, 26);
+            this.AdminSongDiscografiaTextBox.TabIndex = 15;
+            // 
+            // AdminSongEstudioTextBox
+            // 
+            this.AdminSongEstudioTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.AdminSongEstudioTextBox.Location = new System.Drawing.Point(203, 278);
+            this.AdminSongEstudioTextBox.Name = "AdminSongEstudioTextBox";
+            this.AdminSongEstudioTextBox.Size = new System.Drawing.Size(471, 26);
+            this.AdminSongEstudioTextBox.TabIndex = 14;
+            // 
+            // AdminSongLetraTextBox
+            // 
+            this.AdminSongLetraTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.AdminSongLetraTextBox.Location = new System.Drawing.Point(203, 328);
+            this.AdminSongLetraTextBox.Name = "AdminSongLetraTextBox";
+            this.AdminSongLetraTextBox.Size = new System.Drawing.Size(471, 26);
+            this.AdminSongLetraTextBox.TabIndex = 13;
+            // 
+            // AdminSongCategoriaTextBox
+            // 
+            this.AdminSongCategoriaTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.AdminSongCategoriaTextBox.Location = new System.Drawing.Point(203, 429);
+            this.AdminSongCategoriaTextBox.Name = "AdminSongCategoriaTextBox";
+            this.AdminSongCategoriaTextBox.Size = new System.Drawing.Size(471, 26);
+            this.AdminSongCategoriaTextBox.TabIndex = 12;
+            // 
+            // AdminSongDuracionTextBox
+            // 
+            this.AdminSongDuracionTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.AdminSongDuracionTextBox.Location = new System.Drawing.Point(203, 376);
+            this.AdminSongDuracionTextBox.Name = "AdminSongDuracionTextBox";
+            this.AdminSongDuracionTextBox.Size = new System.Drawing.Size(471, 26);
+            this.AdminSongDuracionTextBox.TabIndex = 11;
+            // 
+            // AdminSongGeneroTextBox
+            // 
+            this.AdminSongGeneroTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.AdminSongGeneroTextBox.Location = new System.Drawing.Point(203, 131);
+            this.AdminSongGeneroTextBox.Name = "AdminSongGeneroTextBox";
+            this.AdminSongGeneroTextBox.Size = new System.Drawing.Size(471, 26);
+            this.AdminSongGeneroTextBox.TabIndex = 10;
+            // 
+            // AdminSongEdadLabel
+            // 
+            this.AdminSongEdadLabel.Location = new System.Drawing.Point(59, 520);
+            this.AdminSongEdadLabel.Name = "AdminSongEdadLabel";
+            this.AdminSongEdadLabel.Size = new System.Drawing.Size(119, 43);
+            this.AdminSongEdadLabel.TabIndex = 9;
+            this.AdminSongEdadLabel.Text = "Edad";
+            this.AdminSongEdadLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // AdminSongCategoriaLabel
+            // 
+            this.AdminSongCategoriaLabel.Location = new System.Drawing.Point(59, 421);
+            this.AdminSongCategoriaLabel.Name = "AdminSongCategoriaLabel";
+            this.AdminSongCategoriaLabel.Size = new System.Drawing.Size(119, 43);
+            this.AdminSongCategoriaLabel.TabIndex = 7;
+            this.AdminSongCategoriaLabel.Text = "Categoría";
+            this.AdminSongCategoriaLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // AdminSongSexoLabel
+            // 
+            this.AdminSongSexoLabel.Location = new System.Drawing.Point(59, 471);
+            this.AdminSongSexoLabel.Name = "AdminSongSexoLabel";
+            this.AdminSongSexoLabel.Size = new System.Drawing.Size(119, 43);
+            this.AdminSongSexoLabel.TabIndex = 6;
+            this.AdminSongSexoLabel.Text = "Sexo";
+            this.AdminSongSexoLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // AdminSongCompositorLabel
+            // 
+            this.AdminSongCompositorLabel.Location = new System.Drawing.Point(53, 173);
+            this.AdminSongCompositorLabel.Name = "AdminSongCompositorLabel";
+            this.AdminSongCompositorLabel.Size = new System.Drawing.Size(138, 50);
+            this.AdminSongCompositorLabel.TabIndex = 5;
+            this.AdminSongCompositorLabel.Text = "Compositor";
+            this.AdminSongCompositorLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // AdminSongDiscografiaLabel
+            // 
+            this.AdminSongDiscografiaLabel.Location = new System.Drawing.Point(46, 221);
+            this.AdminSongDiscografiaLabel.Name = "AdminSongDiscografiaLabel";
+            this.AdminSongDiscografiaLabel.Size = new System.Drawing.Size(145, 49);
+            this.AdminSongDiscografiaLabel.TabIndex = 4;
+            this.AdminSongDiscografiaLabel.Text = "Discografía";
+            this.AdminSongDiscografiaLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // AdminSongEstudioLabel
+            // 
+            this.AdminSongEstudioLabel.Location = new System.Drawing.Point(53, 275);
+            this.AdminSongEstudioLabel.Name = "AdminSongEstudioLabel";
+            this.AdminSongEstudioLabel.Size = new System.Drawing.Size(119, 43);
+            this.AdminSongEstudioLabel.TabIndex = 3;
+            this.AdminSongEstudioLabel.Text = "Estudio";
+            this.AdminSongEstudioLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // AdminSongLetraLabel
+            // 
+            this.AdminSongLetraLabel.Location = new System.Drawing.Point(53, 319);
+            this.AdminSongLetraLabel.Name = "AdminSongLetraLabel";
+            this.AdminSongLetraLabel.Size = new System.Drawing.Size(119, 43);
+            this.AdminSongLetraLabel.TabIndex = 2;
+            this.AdminSongLetraLabel.Text = "Letra";
+            this.AdminSongLetraLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // AdminSongDuracionLabel
+            // 
+            this.AdminSongDuracionLabel.Location = new System.Drawing.Point(53, 370);
+            this.AdminSongDuracionLabel.Name = "AdminSongDuracionLabel";
+            this.AdminSongDuracionLabel.Size = new System.Drawing.Size(119, 43);
+            this.AdminSongDuracionLabel.TabIndex = 1;
+            this.AdminSongDuracionLabel.Text = "Duración\r\n(segundos)";
+            this.AdminSongDuracionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // AdminSongGeneroLabel
+            // 
+            this.AdminSongGeneroLabel.Location = new System.Drawing.Point(53, 129);
+            this.AdminSongGeneroLabel.Name = "AdminSongGeneroLabel";
+            this.AdminSongGeneroLabel.Size = new System.Drawing.Size(119, 43);
+            this.AdminSongGeneroLabel.TabIndex = 0;
+            this.AdminSongGeneroLabel.Text = "Genero";
+            this.AdminSongGeneroLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // UploadAdminlogo
             // 
+            this.UploadAdminlogo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.UploadAdminlogo.BackColor = System.Drawing.Color.Yellow;
             this.UploadAdminlogo.ForeColor = System.Drawing.SystemColors.ControlText;
             this.UploadAdminlogo.IconChar = FontAwesome.Sharp.IconChar.CloudUploadAlt;
             this.UploadAdminlogo.IconColor = System.Drawing.SystemColors.ControlText;
             this.UploadAdminlogo.IconSize = 189;
-            this.UploadAdminlogo.Location = new System.Drawing.Point(331, 218);
+            this.UploadAdminlogo.Location = new System.Drawing.Point(331, 272);
             this.UploadAdminlogo.Name = "UploadAdminlogo";
             this.UploadAdminlogo.Size = new System.Drawing.Size(189, 189);
             this.UploadAdminlogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -841,6 +1092,21 @@
             this.SubAdminPanel.Size = new System.Drawing.Size(250, 768);
             this.SubAdminPanel.TabIndex = 0;
             // 
+            // ExitAdminButton
+            // 
+            this.ExitAdminButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.ExitAdminButton.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.ExitAdminButton.IconChar = FontAwesome.Sharp.IconChar.SignOutAlt;
+            this.ExitAdminButton.IconColor = System.Drawing.Color.Black;
+            this.ExitAdminButton.IconSize = 36;
+            this.ExitAdminButton.Location = new System.Drawing.Point(0, 718);
+            this.ExitAdminButton.Name = "ExitAdminButton";
+            this.ExitAdminButton.Rotation = 0D;
+            this.ExitAdminButton.Size = new System.Drawing.Size(50, 50);
+            this.ExitAdminButton.TabIndex = 5;
+            this.ExitAdminButton.UseVisualStyleBackColor = true;
+            this.ExitAdminButton.Click += new System.EventHandler(this.ExitAdminButton_Click);
+            // 
             // SubAdminUploadContent
             // 
             this.SubAdminUploadContent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -865,6 +1131,7 @@
             this.UploadAdminVideoButton.TabIndex = 1;
             this.UploadAdminVideoButton.Text = "Subir Video";
             this.UploadAdminVideoButton.UseVisualStyleBackColor = false;
+            this.UploadAdminVideoButton.Click += new System.EventHandler(this.UploadAdminVideoButton_Click);
             // 
             // UploadAdminSongButton
             // 
@@ -878,6 +1145,7 @@
             this.UploadAdminSongButton.TabIndex = 0;
             this.UploadAdminSongButton.Text = "Subir Cancion";
             this.UploadAdminSongButton.UseVisualStyleBackColor = false;
+            this.UploadAdminSongButton.Click += new System.EventHandler(this.UploadAdminSongButton_Click);
             // 
             // UploadContenButton
             // 
@@ -4492,6 +4760,21 @@
             this.SideMainPanel.Size = new System.Drawing.Size(300, 768);
             this.SideMainPanel.TabIndex = 0;
             // 
+            // ExitMainPanel
+            // 
+            this.ExitMainPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.ExitMainPanel.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.ExitMainPanel.IconChar = FontAwesome.Sharp.IconChar.SignOutAlt;
+            this.ExitMainPanel.IconColor = System.Drawing.Color.Black;
+            this.ExitMainPanel.IconSize = 36;
+            this.ExitMainPanel.Location = new System.Drawing.Point(-1, 722);
+            this.ExitMainPanel.Name = "ExitMainPanel";
+            this.ExitMainPanel.Rotation = 0D;
+            this.ExitMainPanel.Size = new System.Drawing.Size(50, 50);
+            this.ExitMainPanel.TabIndex = 17;
+            this.ExitMainPanel.UseVisualStyleBackColor = true;
+            this.ExitMainPanel.Click += new System.EventHandler(this.LogOutButton_Click);
+            // 
             // SubProfilePanel
             // 
             this.SubProfilePanel.Controls.Add(this.InfoProfileButton);
@@ -5147,35 +5430,262 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // ExitAdminButton
+            // SubirCancionAdminLable
             // 
-            this.ExitAdminButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.ExitAdminButton.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.ExitAdminButton.IconChar = FontAwesome.Sharp.IconChar.SignOutAlt;
-            this.ExitAdminButton.IconColor = System.Drawing.Color.Black;
-            this.ExitAdminButton.IconSize = 36;
-            this.ExitAdminButton.Location = new System.Drawing.Point(0, 718);
-            this.ExitAdminButton.Name = "ExitAdminButton";
-            this.ExitAdminButton.Rotation = 0D;
-            this.ExitAdminButton.Size = new System.Drawing.Size(50, 50);
-            this.ExitAdminButton.TabIndex = 5;
-            this.ExitAdminButton.UseVisualStyleBackColor = true;
-            this.ExitAdminButton.Click += new System.EventHandler(this.ExitAdminButton_Click);
+            this.SubirCancionAdminLable.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.SubirCancionAdminLable.Font = new System.Drawing.Font("MV Boli", 26F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SubirCancionAdminLable.Location = new System.Drawing.Point(203, 22);
+            this.SubirCancionAdminLable.Name = "SubirCancionAdminLable";
+            this.SubirCancionAdminLable.Size = new System.Drawing.Size(471, 98);
+            this.SubirCancionAdminLable.TabIndex = 20;
+            this.SubirCancionAdminLable.Text = "Subir Cancion";
+            this.SubirCancionAdminLable.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // ExitMainPanel
+            // AdminSongSexoCombobox
             // 
-            this.ExitMainPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.ExitMainPanel.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.ExitMainPanel.IconChar = FontAwesome.Sharp.IconChar.SignOutAlt;
-            this.ExitMainPanel.IconColor = System.Drawing.Color.Black;
-            this.ExitMainPanel.IconSize = 36;
-            this.ExitMainPanel.Location = new System.Drawing.Point(-1, 722);
-            this.ExitMainPanel.Name = "ExitMainPanel";
-            this.ExitMainPanel.Rotation = 0D;
-            this.ExitMainPanel.Size = new System.Drawing.Size(50, 50);
-            this.ExitMainPanel.TabIndex = 17;
-            this.ExitMainPanel.UseVisualStyleBackColor = true;
-            this.ExitMainPanel.Click += new System.EventHandler(this.LogOutButton_Click);
+            this.AdminSongSexoCombobox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.AdminSongSexoCombobox.FormattingEnabled = true;
+            this.AdminSongSexoCombobox.Items.AddRange(new object[] {
+            "None",
+            "Mujer",
+            "Hombre",
+            "Otro"});
+            this.AdminSongSexoCombobox.Location = new System.Drawing.Point(203, 479);
+            this.AdminSongSexoCombobox.Name = "AdminSongSexoCombobox";
+            this.AdminSongSexoCombobox.Size = new System.Drawing.Size(471, 28);
+            this.AdminSongSexoCombobox.TabIndex = 21;
+            // 
+            // AdminUploadVideoPanel
+            // 
+            this.AdminUploadVideoPanel.BackColor = System.Drawing.Color.Yellow;
+            this.AdminUploadVideoPanel.Controls.Add(this.AdminVideoSexoCombobox);
+            this.AdminUploadVideoPanel.Controls.Add(this.AdminUploadSongLogo);
+            this.AdminUploadVideoPanel.Controls.Add(this.AdminUploadVideoButton);
+            this.AdminUploadVideoPanel.Controls.Add(this.AdminVideoEdadTextbox);
+            this.AdminUploadVideoPanel.Controls.Add(this.AdminVideoActorTextbox);
+            this.AdminUploadVideoPanel.Controls.Add(this.AdminVideoDirectorTextbox);
+            this.AdminUploadVideoPanel.Controls.Add(this.AdminVideoEstudioTextbox);
+            this.AdminUploadVideoPanel.Controls.Add(this.AdminVideoDescipcionTextbox);
+            this.AdminUploadVideoPanel.Controls.Add(this.AdminVideoCategoriaTextbox);
+            this.AdminUploadVideoPanel.Controls.Add(this.AdminVideoDuracionTextbox);
+            this.AdminUploadVideoPanel.Controls.Add(this.AdminVideoGeneroTextbox);
+            this.AdminUploadVideoPanel.Controls.Add(this.AdminVideoEdadLabel);
+            this.AdminUploadVideoPanel.Controls.Add(this.AdminVideoCategoriaLabel);
+            this.AdminUploadVideoPanel.Controls.Add(this.AdminVideoSexoLabel);
+            this.AdminUploadVideoPanel.Controls.Add(this.AdminVideoActorLabel);
+            this.AdminUploadVideoPanel.Controls.Add(this.AdminVideoDirectorLabel);
+            this.AdminUploadVideoPanel.Controls.Add(this.AdminVideoEstudioLabel);
+            this.AdminUploadVideoPanel.Controls.Add(this.AdminVideoDescipcionLabel);
+            this.AdminUploadVideoPanel.Controls.Add(this.AdminVideoduracionLabel);
+            this.AdminUploadVideoPanel.Controls.Add(this.AdminVideoGeneroLabel);
+            this.AdminUploadVideoPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.AdminUploadVideoPanel.Location = new System.Drawing.Point(0, 0);
+            this.AdminUploadVideoPanel.Name = "AdminUploadVideoPanel";
+            this.AdminUploadVideoPanel.Size = new System.Drawing.Size(774, 768);
+            this.AdminUploadVideoPanel.TabIndex = 2;
+            this.AdminUploadVideoPanel.Visible = false;
+            // 
+            // AdminVideoSexoCombobox
+            // 
+            this.AdminVideoSexoCombobox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.AdminVideoSexoCombobox.FormattingEnabled = true;
+            this.AdminVideoSexoCombobox.Items.AddRange(new object[] {
+            "None",
+            "Mujer",
+            "Hombre",
+            "Otro"});
+            this.AdminVideoSexoCombobox.Location = new System.Drawing.Point(203, 479);
+            this.AdminVideoSexoCombobox.Name = "AdminVideoSexoCombobox";
+            this.AdminVideoSexoCombobox.Size = new System.Drawing.Size(471, 28);
+            this.AdminVideoSexoCombobox.TabIndex = 41;
+            // 
+            // AdminUploadSongLogo
+            // 
+            this.AdminUploadSongLogo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.AdminUploadSongLogo.Font = new System.Drawing.Font("MV Boli", 26F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AdminUploadSongLogo.Location = new System.Drawing.Point(203, 22);
+            this.AdminUploadSongLogo.Name = "AdminUploadSongLogo";
+            this.AdminUploadSongLogo.Size = new System.Drawing.Size(471, 98);
+            this.AdminUploadSongLogo.TabIndex = 40;
+            this.AdminUploadSongLogo.Text = "Subir Video";
+            this.AdminUploadSongLogo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // AdminUploadVideoButton
+            // 
+            this.AdminUploadVideoButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.AdminUploadVideoButton.FlatAppearance.BorderSize = 0;
+            this.AdminUploadVideoButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AdminUploadVideoButton.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.AdminUploadVideoButton.IconChar = FontAwesome.Sharp.IconChar.CloudUploadAlt;
+            this.AdminUploadVideoButton.IconColor = System.Drawing.Color.Black;
+            this.AdminUploadVideoButton.IconSize = 36;
+            this.AdminUploadVideoButton.Location = new System.Drawing.Point(347, 627);
+            this.AdminUploadVideoButton.Name = "AdminUploadVideoButton";
+            this.AdminUploadVideoButton.Rotation = 0D;
+            this.AdminUploadVideoButton.Size = new System.Drawing.Size(218, 65);
+            this.AdminUploadVideoButton.TabIndex = 39;
+            this.AdminUploadVideoButton.Text = "Subir Video";
+            this.AdminUploadVideoButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.AdminUploadVideoButton.UseVisualStyleBackColor = true;
+            this.AdminUploadVideoButton.Click += new System.EventHandler(this.AdminUploadVideoButton_Click);
+            // 
+            // AdminVideoEdadTextbox
+            // 
+            this.AdminVideoEdadTextbox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.AdminVideoEdadTextbox.Location = new System.Drawing.Point(203, 528);
+            this.AdminVideoEdadTextbox.Name = "AdminVideoEdadTextbox";
+            this.AdminVideoEdadTextbox.Size = new System.Drawing.Size(471, 26);
+            this.AdminVideoEdadTextbox.TabIndex = 38;
+            // 
+            // AdminVideoActorTextbox
+            // 
+            this.AdminVideoActorTextbox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.AdminVideoActorTextbox.Location = new System.Drawing.Point(203, 179);
+            this.AdminVideoActorTextbox.Name = "AdminVideoActorTextbox";
+            this.AdminVideoActorTextbox.Size = new System.Drawing.Size(471, 26);
+            this.AdminVideoActorTextbox.TabIndex = 37;
+            // 
+            // AdminVideoDirectorTextbox
+            // 
+            this.AdminVideoDirectorTextbox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.AdminVideoDirectorTextbox.Location = new System.Drawing.Point(203, 229);
+            this.AdminVideoDirectorTextbox.Name = "AdminVideoDirectorTextbox";
+            this.AdminVideoDirectorTextbox.Size = new System.Drawing.Size(471, 26);
+            this.AdminVideoDirectorTextbox.TabIndex = 36;
+            // 
+            // AdminVideoEstudioTextbox
+            // 
+            this.AdminVideoEstudioTextbox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.AdminVideoEstudioTextbox.Location = new System.Drawing.Point(203, 278);
+            this.AdminVideoEstudioTextbox.Name = "AdminVideoEstudioTextbox";
+            this.AdminVideoEstudioTextbox.Size = new System.Drawing.Size(471, 26);
+            this.AdminVideoEstudioTextbox.TabIndex = 35;
+            // 
+            // AdminVideoDescipcionTextbox
+            // 
+            this.AdminVideoDescipcionTextbox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.AdminVideoDescipcionTextbox.Location = new System.Drawing.Point(203, 328);
+            this.AdminVideoDescipcionTextbox.Name = "AdminVideoDescipcionTextbox";
+            this.AdminVideoDescipcionTextbox.Size = new System.Drawing.Size(471, 26);
+            this.AdminVideoDescipcionTextbox.TabIndex = 34;
+            // 
+            // AdminVideoCategoriaTextbox
+            // 
+            this.AdminVideoCategoriaTextbox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.AdminVideoCategoriaTextbox.Location = new System.Drawing.Point(203, 429);
+            this.AdminVideoCategoriaTextbox.Name = "AdminVideoCategoriaTextbox";
+            this.AdminVideoCategoriaTextbox.Size = new System.Drawing.Size(471, 26);
+            this.AdminVideoCategoriaTextbox.TabIndex = 33;
+            // 
+            // AdminVideoDuracionTextbox
+            // 
+            this.AdminVideoDuracionTextbox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.AdminVideoDuracionTextbox.Location = new System.Drawing.Point(203, 376);
+            this.AdminVideoDuracionTextbox.Name = "AdminVideoDuracionTextbox";
+            this.AdminVideoDuracionTextbox.Size = new System.Drawing.Size(471, 26);
+            this.AdminVideoDuracionTextbox.TabIndex = 32;
+            // 
+            // AdminVideoGeneroTextbox
+            // 
+            this.AdminVideoGeneroTextbox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.AdminVideoGeneroTextbox.Location = new System.Drawing.Point(203, 131);
+            this.AdminVideoGeneroTextbox.Name = "AdminVideoGeneroTextbox";
+            this.AdminVideoGeneroTextbox.Size = new System.Drawing.Size(471, 26);
+            this.AdminVideoGeneroTextbox.TabIndex = 31;
+            // 
+            // AdminVideoEdadLabel
+            // 
+            this.AdminVideoEdadLabel.Location = new System.Drawing.Point(59, 520);
+            this.AdminVideoEdadLabel.Name = "AdminVideoEdadLabel";
+            this.AdminVideoEdadLabel.Size = new System.Drawing.Size(119, 43);
+            this.AdminVideoEdadLabel.TabIndex = 30;
+            this.AdminVideoEdadLabel.Text = "Edad";
+            this.AdminVideoEdadLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // AdminVideoCategoriaLabel
+            // 
+            this.AdminVideoCategoriaLabel.Location = new System.Drawing.Point(59, 421);
+            this.AdminVideoCategoriaLabel.Name = "AdminVideoCategoriaLabel";
+            this.AdminVideoCategoriaLabel.Size = new System.Drawing.Size(119, 43);
+            this.AdminVideoCategoriaLabel.TabIndex = 29;
+            this.AdminVideoCategoriaLabel.Text = "Categoría";
+            this.AdminVideoCategoriaLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // AdminVideoSexoLabel
+            // 
+            this.AdminVideoSexoLabel.Location = new System.Drawing.Point(59, 471);
+            this.AdminVideoSexoLabel.Name = "AdminVideoSexoLabel";
+            this.AdminVideoSexoLabel.Size = new System.Drawing.Size(119, 43);
+            this.AdminVideoSexoLabel.TabIndex = 28;
+            this.AdminVideoSexoLabel.Text = "Sexo";
+            this.AdminVideoSexoLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // AdminVideoActorLabel
+            // 
+            this.AdminVideoActorLabel.Location = new System.Drawing.Point(53, 173);
+            this.AdminVideoActorLabel.Name = "AdminVideoActorLabel";
+            this.AdminVideoActorLabel.Size = new System.Drawing.Size(138, 50);
+            this.AdminVideoActorLabel.TabIndex = 27;
+            this.AdminVideoActorLabel.Text = "Actor";
+            this.AdminVideoActorLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // AdminVideoDirectorLabel
+            // 
+            this.AdminVideoDirectorLabel.Location = new System.Drawing.Point(46, 221);
+            this.AdminVideoDirectorLabel.Name = "AdminVideoDirectorLabel";
+            this.AdminVideoDirectorLabel.Size = new System.Drawing.Size(145, 49);
+            this.AdminVideoDirectorLabel.TabIndex = 26;
+            this.AdminVideoDirectorLabel.Text = "Director";
+            this.AdminVideoDirectorLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // AdminVideoEstudioLabel
+            // 
+            this.AdminVideoEstudioLabel.Location = new System.Drawing.Point(53, 275);
+            this.AdminVideoEstudioLabel.Name = "AdminVideoEstudioLabel";
+            this.AdminVideoEstudioLabel.Size = new System.Drawing.Size(119, 43);
+            this.AdminVideoEstudioLabel.TabIndex = 25;
+            this.AdminVideoEstudioLabel.Text = "Estudio";
+            this.AdminVideoEstudioLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // AdminVideoDescipcionLabel
+            // 
+            this.AdminVideoDescipcionLabel.Location = new System.Drawing.Point(53, 319);
+            this.AdminVideoDescipcionLabel.Name = "AdminVideoDescipcionLabel";
+            this.AdminVideoDescipcionLabel.Size = new System.Drawing.Size(119, 43);
+            this.AdminVideoDescipcionLabel.TabIndex = 24;
+            this.AdminVideoDescipcionLabel.Text = "Descripción";
+            this.AdminVideoDescipcionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // AdminVideoduracionLabel
+            // 
+            this.AdminVideoduracionLabel.Location = new System.Drawing.Point(53, 370);
+            this.AdminVideoduracionLabel.Name = "AdminVideoduracionLabel";
+            this.AdminVideoduracionLabel.Size = new System.Drawing.Size(119, 43);
+            this.AdminVideoduracionLabel.TabIndex = 23;
+            this.AdminVideoduracionLabel.Text = "Duración\r\n(segundos)";
+            this.AdminVideoduracionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // AdminVideoGeneroLabel
+            // 
+            this.AdminVideoGeneroLabel.Location = new System.Drawing.Point(53, 129);
+            this.AdminVideoGeneroLabel.Name = "AdminVideoGeneroLabel";
+            this.AdminVideoGeneroLabel.Size = new System.Drawing.Size(119, 43);
+            this.AdminVideoGeneroLabel.TabIndex = 22;
+            this.AdminVideoGeneroLabel.Text = "Genero";
+            this.AdminVideoGeneroLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // AppForm
             // 
@@ -5193,6 +5703,8 @@
             this.LoginPanel.PerformLayout();
             this.AdminMainPanel.ResumeLayout(false);
             this.UploadAdminMainPanel.ResumeLayout(false);
+            this.AdminUpLoadSongPanel.ResumeLayout(false);
+            this.AdminUpLoadSongPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.UploadAdminlogo)).EndInit();
             this.AdminSearchMainPanel.ResumeLayout(false);
             this.AdminUserMainPanel.ResumeLayout(false);
@@ -5314,6 +5826,8 @@
             this.SubSerchPanel.ResumeLayout(false);
             this.RegisterPanel.ResumeLayout(false);
             this.RegisterPanel.PerformLayout();
+            this.AdminUploadVideoPanel.ResumeLayout(false);
+            this.AdminUploadVideoPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -5676,6 +6190,48 @@
         private FontAwesome.Sharp.IconPictureBox UploadAdminlogo;
         private FontAwesome.Sharp.IconButton ExitAdminButton;
         private FontAwesome.Sharp.IconButton ExitMainPanel;
+        private System.Windows.Forms.Panel AdminUpLoadSongPanel;
+        private System.Windows.Forms.Label AdminSongCategoriaLabel;
+        private System.Windows.Forms.Label AdminSongSexoLabel;
+        private System.Windows.Forms.Label AdminSongCompositorLabel;
+        private System.Windows.Forms.Label AdminSongDiscografiaLabel;
+        private System.Windows.Forms.Label AdminSongEstudioLabel;
+        private System.Windows.Forms.Label AdminSongLetraLabel;
+        private System.Windows.Forms.Label AdminSongDuracionLabel;
+        private FontAwesome.Sharp.IconButton AdminUploadSongButton;
+        private System.Windows.Forms.TextBox AdminSongEdadTextBox;
+        private System.Windows.Forms.TextBox AdminSongCompositorTextBox;
+        private System.Windows.Forms.TextBox AdminSongDiscografiaTextBox;
+        private System.Windows.Forms.TextBox AdminSongEstudioTextBox;
+        private System.Windows.Forms.TextBox AdminSongLetraTextBox;
+        private System.Windows.Forms.TextBox AdminSongCategoriaTextBox;
+        private System.Windows.Forms.TextBox AdminSongDuracionTextBox;
+        private System.Windows.Forms.TextBox AdminSongGeneroTextBox;
+        private System.Windows.Forms.Label AdminSongEdadLabel;
+        private System.Windows.Forms.Label AdminSongGeneroLabel;
+        private System.Windows.Forms.Label SubirCancionAdminLable;
+        private System.Windows.Forms.ComboBox AdminSongSexoCombobox;
+        private System.Windows.Forms.Panel AdminUploadVideoPanel;
+        private System.Windows.Forms.ComboBox AdminVideoSexoCombobox;
+        private System.Windows.Forms.Label AdminUploadSongLogo;
+        private FontAwesome.Sharp.IconButton AdminUploadVideoButton;
+        private System.Windows.Forms.TextBox AdminVideoEdadTextbox;
+        private System.Windows.Forms.TextBox AdminVideoActorTextbox;
+        private System.Windows.Forms.TextBox AdminVideoDirectorTextbox;
+        private System.Windows.Forms.TextBox AdminVideoEstudioTextbox;
+        private System.Windows.Forms.TextBox AdminVideoDescipcionTextbox;
+        private System.Windows.Forms.TextBox AdminVideoCategoriaTextbox;
+        private System.Windows.Forms.TextBox AdminVideoDuracionTextbox;
+        private System.Windows.Forms.TextBox AdminVideoGeneroTextbox;
+        private System.Windows.Forms.Label AdminVideoEdadLabel;
+        private System.Windows.Forms.Label AdminVideoCategoriaLabel;
+        private System.Windows.Forms.Label AdminVideoSexoLabel;
+        private System.Windows.Forms.Label AdminVideoActorLabel;
+        private System.Windows.Forms.Label AdminVideoDirectorLabel;
+        private System.Windows.Forms.Label AdminVideoEstudioLabel;
+        private System.Windows.Forms.Label AdminVideoDescipcionLabel;
+        private System.Windows.Forms.Label AdminVideoduracionLabel;
+        private System.Windows.Forms.Label AdminVideoGeneroLabel;
     }
 }
 

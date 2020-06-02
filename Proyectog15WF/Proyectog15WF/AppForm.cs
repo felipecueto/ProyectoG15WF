@@ -2174,5 +2174,196 @@ namespace Proyectog15WF
             UsernameInPutLogin.ResetText();
             PasswordInPutLogin.ResetText();
         }
+
+        private void UploadAdminSongButton_Click(object sender, EventArgs e)
+        {
+            AdminUpLoadSongPanel.Visible = true;
+            AdminSongSexoCombobox.SelectedIndex = 0;
+            AdminUploadVideoPanel.Visible = false;
+            AdminSongCategoriaTextBox.ResetText();
+            AdminSongCompositorTextBox.ResetText();
+            AdminSongDiscografiaTextBox.ResetText();
+            AdminSongDuracionTextBox.ResetText();
+            AdminSongEdadTextBox.ResetText();
+            AdminSongEstudioTextBox.ResetText();
+            AdminSongGeneroTextBox.ResetText();
+            AdminSongLetraTextBox.ResetText();
+        }
+
+        private void UploadAdminVideoButton_Click(object sender, EventArgs e)
+        {
+            AdminUpLoadSongPanel.Visible = false;
+            AdminUploadVideoPanel.Visible = true;
+            AdminVideoActorTextbox.ResetText();
+            AdminVideoCategoriaTextbox.ResetText();
+            AdminVideoDescipcionTextbox.ResetText();
+            AdminVideoDirectorTextbox.ResetText();
+            AdminVideoDuracionTextbox.ResetText();
+            AdminVideoEdadTextbox.ResetText();
+            AdminVideoEstudioTextbox.ResetText();
+            AdminVideoGeneroTextbox.ResetText();
+            AdminVideoSexoCombobox.SelectedIndex = 0;
+        }
+
+        private void AdminUploadSongButton_Click(object sender, EventArgs e)
+        {
+            string songCategoria = null;
+            string songGender = null;
+            string songDiscorafia = null;
+            string songLetra = null;
+            string songEtudio = null;
+            string songCompositor = null;
+            string songDuracion = null;
+            string sexo = null;
+            string age = null;
+            string path;
+            string songName;
+            songCategoria = AdminSongCategoriaTextBox.Text;
+            songCompositor = AdminSongCompositorTextBox.Text;
+            songDiscorafia=AdminSongDiscografiaTextBox.Text;
+            songDuracion= AdminSongDuracionTextBox.Text;
+            age= AdminSongEdadTextBox.Text;
+            songEtudio= AdminSongEstudioTextBox.Text;
+            songGender= AdminSongGeneroTextBox.Text;
+            songLetra=AdminSongLetraTextBox.Text;
+            sexo = AdminSongSexoCombobox.SelectedItem.ToString();
+            if (songCategoria==""||songGender==""||songDiscorafia==""||songLetra==""||songEtudio==""||songCompositor==""||songDuracion==""||sexo=="None"||age=="")
+            {
+                MessageBox.Show("Debe Rellenar todos los cambos");
+            }
+            else
+            {
+                OpenFileDialog openFileDialog = new OpenFileDialog();
+                openFileDialog.Title = "Selecione la cancion";
+                openFileDialog.Filter = "Song file (*.MP3; *.mp3;)|*.MP3; *.mp3";
+                bool exist = false;
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    songName = openFileDialog.SafeFileName;
+                    if (verfyedsong != null)
+                    {
+                        exist = verfyedsong(this, new SongsExistEventsArtgs() { SongName = songName });
+                    }
+                    if (exist)
+                    {
+                        MessageBox.Show("Esta cancion ya existe");
+                        AdminSongCategoriaTextBox.ResetText();
+                        AdminSongCompositorTextBox.ResetText();
+                        AdminSongDiscografiaTextBox.ResetText();
+                        AdminSongDuracionTextBox.ResetText();
+                        AdminSongEdadTextBox.ResetText();
+                        AdminSongEstudioTextBox.ResetText();
+                        AdminSongGeneroTextBox.ResetText();
+                        AdminSongLetraTextBox.ResetText();
+                        AdminSongSexoCombobox.SelectedIndex = 0;
+                    }
+                    else
+                    {
+                        path = openFileDialog.FileName;
+                        if (Songcaracteristics != null)
+                        {
+                            try
+                            {
+                                Songcaracteristics(this, new SendingsongcaracteristicsEventArgs() { Nombrecancion = songName, Genero = songGender, Compositor = songCompositor, Discografia = songDiscorafia, Estudio = songEtudio, Letra = songLetra, Sexo = sexo, Edad = age, Categoria = songCategoria, path = path });
+                                MessageBox.Show("Cancion subida con exito");
+                                AdminSongCategoriaTextBox.ResetText();
+                                AdminSongCompositorTextBox.ResetText();
+                                AdminSongDiscografiaTextBox.ResetText();
+                                AdminSongDuracionTextBox.ResetText();
+                                AdminSongEdadTextBox.ResetText();
+                                AdminSongEstudioTextBox.ResetText();
+                                AdminSongGeneroTextBox.ResetText();
+                                AdminSongLetraTextBox.ResetText();
+                                AdminSongSexoCombobox.SelectedIndex = 0;
+                            }
+                            catch
+                            {
+                                MessageBox.Show("Te faltan datos por rellenar en tu cuenta");
+                            }
+                        }
+                    }
+                }
+                SerializeData();
+            }
+        }
+
+        private void AdminUploadVideoButton_Click(object sender, EventArgs e)
+        {
+            string videoCategoria = null;
+            string videoGender = null;
+            string videoDescripcion = null;
+            string videoResolucion = null;
+            string videoEtudio = null;
+            string videoDuracion = null;
+            string actor = null;
+            string director = null;
+            string sexo = null;
+            string age = null;
+            string path;
+            string videoName;
+            videoCategoria= AdminVideoCategoriaTextbox.Text;
+            videoGender = AdminVideoGeneroTextbox.Text;
+            videoDescripcion = AdminVideoDescipcionTextbox.Text;
+            videoEtudio = AdminVideoEstudioTextbox.Text;
+            videoDuracion = AdminVideoDuracionTextbox.Text;
+            actor = AdminVideoActorTextbox.Text;
+            director = AdminVideoDirectorTextbox.Text;
+            sexo = AdminVideoSexoCombobox.SelectedItem.ToString();
+            age = AdminVideoEdadTextbox.Text;
+            if (videoCategoria == "" || videoGender == "" || videoDescripcion == "" || videoEtudio == "" || videoDuracion == "" || actor == "" || director == "" || sexo == "None" || age == "")
+            {
+                MessageBox.Show("Debe Rellenar todos los cambos");
+            }
+            else
+            {
+                OpenFileDialog openFileDialog = new OpenFileDialog();
+                openFileDialog.Title = "Selecione elvideo";
+                openFileDialog.Filter = "Video file (*.MP4; *.WEBM;*AVI; *.MPG; *.H264;*.MOV;*.WMV;)| *.MP4; *.WEBM;*AVI; *.MPG; *.H264;*.MOV;*.WMV;";
+                bool exist = false;
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    videoName = openFileDialog.SafeFileName;
+                    path = openFileDialog.FileName;
+
+                    if (verifyVideoExist != null)
+                    {
+                        exist = verifyVideoExist(this, new VideosExistEventsArtgs() { VideoNameText = videoName });
+                    }
+                    if (exist)
+                    {
+                        MessageBox.Show("Esta video ya existe");
+                        AdminVideoActorTextbox.ResetText();
+                        AdminVideoCategoriaTextbox.ResetText();
+                        AdminVideoDescipcionTextbox.ResetText();
+                        AdminVideoDirectorTextbox.ResetText();
+                        AdminVideoDuracionTextbox.ResetText();
+                        AdminVideoEdadTextbox.ResetText();
+                        AdminVideoEstudioTextbox.ResetText();
+                        AdminVideoGeneroTextbox.ResetText();
+                        AdminVideoSexoCombobox.SelectedIndex = 0;
+                    }
+                    else
+                    {
+                         if (Videocaracteristics != null)
+                            {
+                            Videocaracteristics(this, new SendingvideocaracteristicsEventArgs() { Videoname = videoName, Genero = videoGender, Categoria = videoCategoria, Actor = actor, Director = director, Estudio = videoEtudio, Descripcion = videoDescripcion, Sexo =sexo, Edad = age, Resolution = videoResolucion, path = path });
+                            MessageBox.Show("Video subido con exito");
+                            AdminVideoActorTextbox.ResetText();
+                            AdminVideoCategoriaTextbox.ResetText();
+                            AdminVideoDescipcionTextbox.ResetText();
+                            AdminVideoDirectorTextbox.ResetText();
+                            AdminVideoDuracionTextbox.ResetText();
+                            AdminVideoEdadTextbox.ResetText();
+                            AdminVideoEstudioTextbox.ResetText();
+                            AdminVideoGeneroTextbox.ResetText();
+                            AdminVideoSexoCombobox.SelectedIndex = 0;
+                        }
+                    }
+                }
+                SerializeData();
+            }
+
+
+        }
     }
 }
