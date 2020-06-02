@@ -1650,7 +1650,30 @@ namespace Proyectog15WF
 
         private void AddSongMyPlaylists_Click(object sender, EventArgs e)
         {
+            string playlist_seleccionada = Convert.ToString(MySongsListBox.SelectedItem);
+            string songseleccionda = Convert.ToString(SongInMyPlaylistListBox.SelectedItem);
 
+            foreach (PlaylistSong cancionesinplaylistsong in OnReciveUsernamePlaylist())
+            {
+                if (cancionesinplaylistsong.GetPlaylistName() == playlist_seleccionada)
+                {
+                    try
+                    {
+                        foreach (Song song in cancionesinplaylistsong.GetPlaylistAllSongs())
+                        {
+                            if (song.Namesong == songseleccionda)
+                            {
+                                cancionesinplaylistsong.RemoveSong(song);
+                                SongInMyPlaylistListBox.Items.Remove(songseleccionda);
+                            }
+                        }
+                    }
+                    catch
+                    {
+
+                    }
+                }
+            }
         }
 
         private void BorrarCancionMyplaylist_Click(object sender, EventArgs e)
@@ -2054,7 +2077,30 @@ namespace Proyectog15WF
 
         private void DeleteVideoButton_Click(object sender, EventArgs e)
         {
+            string playlist_seleccionada = Convert.ToString(MyVideoListBox.SelectedItem);
+            string songseleccionda = Convert.ToString(MisVideoMyPlaylist.SelectedItem);
 
+            foreach (PlaylistVideo videosinplaylistsong in OnReciveUsernamePlaylistVideo())
+            {
+                if (videosinplaylistsong.GetPlaylistName() == playlist_seleccionada)
+                {
+                    try
+                    {
+                        foreach (Video video in videosinplaylistsong.GetPlaylistAllVideos())
+                        {
+                            if (video.VideoName == songseleccionda)
+                            {
+                                videosinplaylistsong.RemoveSong(video);
+                                MisVideoMyPlaylist.Items.Remove(songseleccionda);
+                            }
+                        }
+                    }
+                    catch
+                    {
+
+                    }
+                }
+            }
         }
 
         private void BuscarMultiplesFiltroButton_Click(object sender, EventArgs e)
