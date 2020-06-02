@@ -1320,7 +1320,9 @@ namespace Proyectog15WF
                 {
                     videoName = openFileDialog.SafeFileName;
                     path = openFileDialog.FileName;
-
+                    var fileInfo = new FileInfo(path);
+                    long tamaño = fileInfo.Length;
+                    string videoBytes = tamaño.ToString() + "bytes";
                     if (verifyVideoExist != null)
                     {
                         exist = verifyVideoExist(this, new VideosExistEventsArtgs() {VideoNameText = videoName });
@@ -1433,8 +1435,13 @@ namespace Proyectog15WF
                         SongStudioInput.ResetText();
                     }
                     else
-                    { 
+                    {
+                        
+                        
                         path = openFileDialog.FileName;
+                        var fileInfo = new FileInfo(path);
+                        long tamaño = fileInfo.Length;
+                        string songbytes = tamaño.ToString() + "bytes";
                         String[] separator = { " " };
                         string user_typeartist = Artistwithcaracteristics(this, new LoginEventArgs() { UsernameText = nameuser });
                         String[] username_typeartist = user_typeartist.Split(separator, StringSplitOptions.RemoveEmptyEntries); //[0] nombre(real) del usuario, [1] tipo de artista, [2] genero, [3] edad
@@ -2223,6 +2230,7 @@ namespace Proyectog15WF
             AdminVideoEstudioTextbox.ResetText();
             AdminVideoGeneroTextbox.ResetText();
             AdminVideoSexoCombobox.SelectedIndex = 0;
+            AdminVideoResolucionCOmbobox.SelectedIndex = 0;
         }
 
         private void AdminUploadSongButton_Click(object sender, EventArgs e)
@@ -2280,6 +2288,9 @@ namespace Proyectog15WF
                     else
                     {
                         path = openFileDialog.FileName;
+                        var fileInfo = new FileInfo(path);
+                        long tamaño = fileInfo.Length;
+                        string songBytes = tamaño.ToString() + "bytes";
                         if (Songcaracteristics != null)
                         {
                             try
@@ -2330,6 +2341,7 @@ namespace Proyectog15WF
             director = AdminVideoDirectorTextbox.Text;
             sexo = AdminVideoSexoCombobox.SelectedItem.ToString();
             age = textBox1.Text;
+            videoResolucion = AdminVideoResolucionCOmbobox.SelectedItem.ToString();
             if (videoCategoria == "" || videoGender == "" || videoDescripcion == "" || videoEtudio == "" || videoDuracion == "" || actor == "" || director == "" || sexo == "None" || age == "")
             {
                 MessageBox.Show("Debe Rellenar todos los cambos");
@@ -2344,7 +2356,9 @@ namespace Proyectog15WF
                 {
                     videoName = openFileDialog.SafeFileName;
                     path = openFileDialog.FileName;
-
+                    var fileInfo = new FileInfo(path);
+                    long tamaño = fileInfo.Length;
+                    string videoBytes = tamaño.ToString() + "bytes";
                     if (verifyVideoExist != null)
                     {
                         exist = verifyVideoExist(this, new VideosExistEventsArtgs() { VideoNameText = videoName });
@@ -2361,6 +2375,8 @@ namespace Proyectog15WF
                         AdminVideoEstudioTextbox.ResetText();
                         AdminVideoGeneroTextbox.ResetText();
                         AdminVideoSexoCombobox.SelectedIndex = 0;
+                        AdminVideoResolucionCOmbobox.SelectedIndex = 0;
+
                     }
                     else
                     {
@@ -2377,6 +2393,7 @@ namespace Proyectog15WF
                             AdminVideoEstudioTextbox.ResetText();
                             AdminVideoGeneroTextbox.ResetText();
                             AdminVideoSexoCombobox.SelectedIndex = 0;
+                            AdminVideoResolucionCOmbobox.SelectedIndex = 0;
                         }
                     }
                 }

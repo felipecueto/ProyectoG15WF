@@ -427,6 +427,8 @@
             this.AdminVideoDescipcionLabel = new System.Windows.Forms.Label();
             this.AdminVideoduracionLabel = new System.Windows.Forms.Label();
             this.AdminVideoGeneroLabel = new System.Windows.Forms.Label();
+            this.AdminVideoResolucionLabel = new System.Windows.Forms.Label();
+            this.AdminVideoResolucionCOmbobox = new System.Windows.Forms.ComboBox();
             this.StartPanel.SuspendLayout();
             this.LoginPanel.SuspendLayout();
             this.AdminMainPanel.SuspendLayout();
@@ -5460,6 +5462,8 @@
             // AdminUploadVideoPanel
             // 
             this.AdminUploadVideoPanel.BackColor = System.Drawing.Color.Yellow;
+            this.AdminUploadVideoPanel.Controls.Add(this.AdminVideoResolucionCOmbobox);
+            this.AdminUploadVideoPanel.Controls.Add(this.AdminVideoResolucionLabel);
             this.AdminUploadVideoPanel.Controls.Add(this.AdminVideoSexoCombobox);
             this.AdminUploadVideoPanel.Controls.Add(this.AdminUploadSongLogo);
             this.AdminUploadVideoPanel.Controls.Add(this.AdminUploadVideoButton);
@@ -5524,7 +5528,7 @@
             this.AdminUploadVideoButton.IconChar = FontAwesome.Sharp.IconChar.CloudUploadAlt;
             this.AdminUploadVideoButton.IconColor = System.Drawing.Color.Black;
             this.AdminUploadVideoButton.IconSize = 36;
-            this.AdminUploadVideoButton.Location = new System.Drawing.Point(347, 627);
+            this.AdminUploadVideoButton.Location = new System.Drawing.Point(350, 677);
             this.AdminUploadVideoButton.Name = "AdminUploadVideoButton";
             this.AdminUploadVideoButton.Rotation = 0D;
             this.AdminUploadVideoButton.Size = new System.Drawing.Size(218, 65);
@@ -5686,6 +5690,31 @@
             this.AdminVideoGeneroLabel.TabIndex = 22;
             this.AdminVideoGeneroLabel.Text = "Genero";
             this.AdminVideoGeneroLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // AdminVideoResolucionLabel
+            // 
+            this.AdminVideoResolucionLabel.Location = new System.Drawing.Point(53, 580);
+            this.AdminVideoResolucionLabel.Name = "AdminVideoResolucionLabel";
+            this.AdminVideoResolucionLabel.Size = new System.Drawing.Size(138, 59);
+            this.AdminVideoResolucionLabel.TabIndex = 42;
+            this.AdminVideoResolucionLabel.Text = "Resolución \r\n(720,1080..)\r\n";
+            this.AdminVideoResolucionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // AdminVideoResolucionCOmbobox
+            // 
+            this.AdminVideoResolucionCOmbobox.FormattingEnabled = true;
+            this.AdminVideoResolucionCOmbobox.Items.AddRange(new object[] {
+            "---Selecione la Resolución---",
+            "360p",
+            "480p",
+            "720p(HD)",
+            "1080p(HD)",
+            "2k",
+            "4k"});
+            this.AdminVideoResolucionCOmbobox.Location = new System.Drawing.Point(202, 584);
+            this.AdminVideoResolucionCOmbobox.Name = "AdminVideoResolucionCOmbobox";
+            this.AdminVideoResolucionCOmbobox.Size = new System.Drawing.Size(471, 28);
+            this.AdminVideoResolucionCOmbobox.TabIndex = 43;
             // 
             // AppForm
             // 
@@ -6232,6 +6261,8 @@
         private System.Windows.Forms.Label AdminVideoDescipcionLabel;
         private System.Windows.Forms.Label AdminVideoduracionLabel;
         private System.Windows.Forms.Label AdminVideoGeneroLabel;
+        private System.Windows.Forms.Label AdminVideoResolucionLabel;
+        private System.Windows.Forms.ComboBox AdminVideoResolucionCOmbobox;
     }
 }
 
