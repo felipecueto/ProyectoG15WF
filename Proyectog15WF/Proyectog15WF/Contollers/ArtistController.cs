@@ -20,8 +20,17 @@ namespace Proyectog15WF.Contollers
         public ArtistController(Form view)
         {
             this.view = view as AppForm;
+            this.view.Artistifosend += OnCreateArtist;
             DeserializeData();
         }
+
+
+        public void OnCreateArtist(object sender, SendingArtistInfo e)
+        {
+           artists.Add(new Artist(e.Usernametext, e.AgeArtist, e.GenderArtist, e.ArtistText));
+
+        }
+
         public void SerializeData()
         {
             try

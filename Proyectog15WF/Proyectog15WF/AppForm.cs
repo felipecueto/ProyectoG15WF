@@ -22,6 +22,8 @@ namespace Proyectog15WF
         string namevideo = "";
         string namesong = "";
         string nameuser = ""; //ESTE ES EL NO,BRE DEL USUARIO
+        string ageAcctounte = ""; //EDAD DEL USUARIO
+        string GenderAccounte = "";//GENERO DEL USUARIO;
         bool buttonClickdelete = false;
         Song variablecancion = null; //CANCION SELECCIONADA
         Video variablevideo = null;
@@ -88,6 +90,9 @@ namespace Proyectog15WF
         //Evento para recibir la lista de canciones
         public delegate List<string> SongsEventHandler(object source, SendingSongsEventArgs args);
         public event SongsEventHandler Totalitsofsongs;
+        //Evento para recibir la lista de videos
+        public delegate List<string> VideosEventHandler(object source,SendingVideosEventArgs args);
+        public event VideosEventHandler Totalitsofvideos;
         // ver si existe la cancion
         public delegate bool VerfysongEventHandler(object source,SongsExistEventsArtgs args);
         public event VerfysongEventHandler verfyedsong;
@@ -929,12 +934,14 @@ namespace Proyectog15WF
                 List<string> listasdelartista = Totalitsofsongs(this, new SendingSongsEventArgs() { Sendinguser = nameuser });
                 foreach (string songs in listasdelartista)
                 {
-                    AlbumCanciones.Items.Add(songs);
+                    if (!AlbumCanciones.Items.Contains(songs))
+                    {
+                        AlbumCanciones.Items.Add(songs);
+                    }
+                    
                 }
 
             }
-
-
 
         }
 
@@ -943,6 +950,19 @@ namespace Proyectog15WF
             SerializeData();
             SongsAlbumPanel.Visible = false;
             VideoAlbumPanel.Visible = true;
+            if (Totalitsofvideos != null)
+            {
+                List<string> listasdelartista =Totalitsofvideos (this, new SendingVideosEventArgs() { Sendinguser = nameuser });
+                foreach (string videos in listasdelartista)
+                {
+                    if (!VideoAlbumListBox.Items.Contains(videos))
+                    {
+                        VideoAlbumListBox.Items.Add(videos);
+                    }
+
+                }
+            }
+
         }
 
         private void AlbumButton_Click(object sender, EventArgs e)
@@ -1047,8 +1067,8 @@ namespace Proyectog15WF
         private void AceptarCambioCuenta_Click(object sender, EventArgs e)
         {
             string typeAccounte = Convert.ToString(this.TipoDeCuentaCombobox.SelectedItem);
-            string GenderAccounte = Convert.ToString(this.GeneroComboBox.SelectedItem);
-            string ageAcctounte = Convert.ToString(this.EdadCuentaInput.Text);
+            GenderAccounte = Convert.ToString(this.GeneroComboBox.SelectedItem);
+            ageAcctounte = Convert.ToString(this.EdadCuentaInput.Text);
             string privacidad = Convert.ToString(this.PrivacidadInputCuenta.SelectedItem);
 
             if (Userifosend != null)
@@ -1978,7 +1998,7 @@ namespace Proyectog15WF
 
             if (Artistifosend != null)
             {
-                Artistifosend(this, new SendingArtistInfo() { Usernametext = nameuser, ArtistText = artist });
+                Artistifosend(this, new SendingArtistInfo() { Usernametext = nameuser, ArtistText = artist ,AgeArtist=ageAcctounte,GenderArtist=GenderAccounte});
             }
 
             VeryfyArtistPanel.Visible = false;
