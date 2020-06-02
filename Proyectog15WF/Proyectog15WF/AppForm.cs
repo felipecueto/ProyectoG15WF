@@ -874,8 +874,7 @@ namespace Proyectog15WF
             VideoFollowPanel.Visible = false;
             MasVistosPanel.Visible = false;
             VideoMyPlaylistPanel.Visible = false;
-            VideoSubidoConExito.Visible = false;
-            ErrorVideo.Visible = false;
+            
         }
 
         private void MyVideoPlaylistButton_Click(object sender, EventArgs e)
@@ -911,12 +910,12 @@ namespace Proyectog15WF
             UploadVideoPanel.Visible = true;
             SongUploadPanel.Visible = false;
             AlbumArtistPanel.Visible = false;
-            VideoSubidoConExito.Visible = false;
             VideoCategoriaTextbox.ResetText();
             VideoGeneroTextBox.ResetText();
-            ResolucionTextBox.ResetText();
             VideoEstudiTextbox.ResetText();
             VideoDescripcionTextBox.ResetText();
+            VideoDuracionTextbox.ResetText();
+            VideoResolucionCombobox.SelectedIndex = 0;
 
         }
 
@@ -1260,9 +1259,11 @@ namespace Proyectog15WF
             string videoDescripcion = null;
             string videoResolucion = null;
             string videoEtudio = null;
+            string videoDuracion = null;
             string path;
             string videoName;
             int count = 0;
+            videoDuracion = VideoDuracionTextbox.Text;
             videoCategoria = VideoCategoriaTextbox.Text;
             if (videoCategoria == "")
             {
@@ -1290,8 +1291,8 @@ namespace Proyectog15WF
             {
                 count++;
             }
-            videoResolucion = ResolucionTextBox.Text;
-            if (videoResolucion == "")
+            videoResolucion = VideoResolucionCombobox.SelectedItem.ToString();
+            if (videoResolucion == "---Selecione la Resolución---")
             {
                 MessageBox.Show("Falta campo Resolucion");
             }
@@ -1330,6 +1331,12 @@ namespace Proyectog15WF
                     if (exist)
                     {
                         MessageBox.Show("Esta video ya existe");
+                        VideoCategoriaTextbox.ResetText();
+                        VideoGeneroTextBox.ResetText();
+                        VideoEstudiTextbox.ResetText();
+                        VideoDescripcionTextBox.ResetText();
+                        VideoDuracionTextbox.ResetText();
+                        VideoResolucionCombobox.SelectedIndex = 0;
                     }
                     else
                     {
@@ -1342,9 +1349,10 @@ namespace Proyectog15WF
                             MessageBox.Show("Video subido con exito");
                             VideoCategoriaTextbox.ResetText();
                             VideoGeneroTextBox.ResetText();
-                            ResolucionTextBox.ResetText();
                             VideoEstudiTextbox.ResetText();
                             VideoDescripcionTextBox.ResetText();
+                            VideoDuracionTextbox.ResetText();
+                            VideoResolucionCombobox.SelectedIndex = 0;
                         }
                     }
                 }

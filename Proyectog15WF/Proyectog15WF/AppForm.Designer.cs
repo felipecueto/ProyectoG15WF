@@ -167,10 +167,7 @@
             this.iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
             this.AlbumLabel = new System.Windows.Forms.Label();
             this.UploadVideoPanel = new System.Windows.Forms.Panel();
-            this.VideoSubidoConExito = new System.Windows.Forms.Label();
             this.ResolucionVideo = new System.Windows.Forms.Label();
-            this.ResolucionTextBox = new System.Windows.Forms.TextBox();
-            this.ErrorVideo = new System.Windows.Forms.Label();
             this.SubirVideoButton = new FontAwesome.Sharp.IconButton();
             this.VideoLogoIconLabbel = new FontAwesome.Sharp.IconPictureBox();
             this.VideoCategoriaTextbox = new System.Windows.Forms.TextBox();
@@ -429,6 +426,9 @@
             this.AdminVideoGeneroLabel = new System.Windows.Forms.Label();
             this.AdminVideoResolucionLabel = new System.Windows.Forms.Label();
             this.AdminVideoResolucionCOmbobox = new System.Windows.Forms.ComboBox();
+            this.VideoduracrionLabel = new System.Windows.Forms.Label();
+            this.VideoResolucionCombobox = new System.Windows.Forms.ComboBox();
+            this.VideoDuracionTextbox = new System.Windows.Forms.TextBox();
             this.StartPanel.SuspendLayout();
             this.LoginPanel.SuspendLayout();
             this.AdminMainPanel.SuspendLayout();
@@ -2283,10 +2283,10 @@
             // 
             // UploadVideoPanel
             // 
-            this.UploadVideoPanel.Controls.Add(this.VideoSubidoConExito);
+            this.UploadVideoPanel.Controls.Add(this.VideoDuracionTextbox);
+            this.UploadVideoPanel.Controls.Add(this.VideoResolucionCombobox);
+            this.UploadVideoPanel.Controls.Add(this.VideoduracrionLabel);
             this.UploadVideoPanel.Controls.Add(this.ResolucionVideo);
-            this.UploadVideoPanel.Controls.Add(this.ResolucionTextBox);
-            this.UploadVideoPanel.Controls.Add(this.ErrorVideo);
             this.UploadVideoPanel.Controls.Add(this.SubirVideoButton);
             this.UploadVideoPanel.Controls.Add(this.VideoLogoIconLabbel);
             this.UploadVideoPanel.Controls.Add(this.VideoCategoriaTextbox);
@@ -2305,51 +2305,14 @@
             this.UploadVideoPanel.TabIndex = 8;
             this.UploadVideoPanel.Visible = false;
             // 
-            // VideoSubidoConExito
-            // 
-            this.VideoSubidoConExito.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.VideoSubidoConExito.AutoSize = true;
-            this.VideoSubidoConExito.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.VideoSubidoConExito.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.VideoSubidoConExito.Location = new System.Drawing.Point(266, 598);
-            this.VideoSubidoConExito.Name = "VideoSubidoConExito";
-            this.VideoSubidoConExito.Size = new System.Drawing.Size(220, 25);
-            this.VideoSubidoConExito.TabIndex = 53;
-            this.VideoSubidoConExito.Text = "Video Subido Con Exito";
-            this.VideoSubidoConExito.Visible = false;
-            // 
             // ResolucionVideo
             // 
-            this.ResolucionVideo.Location = new System.Drawing.Point(18, 429);
+            this.ResolucionVideo.Location = new System.Drawing.Point(18, 497);
             this.ResolucionVideo.Name = "ResolucionVideo";
             this.ResolucionVideo.Size = new System.Drawing.Size(144, 42);
             this.ResolucionVideo.TabIndex = 52;
             this.ResolucionVideo.Text = "Resolución";
             this.ResolucionVideo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // ResolucionTextBox
-            // 
-            this.ResolucionTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.ResolucionTextBox.Location = new System.Drawing.Point(164, 437);
-            this.ResolucionTextBox.Name = "ResolucionTextBox";
-            this.ResolucionTextBox.Size = new System.Drawing.Size(446, 26);
-            this.ResolucionTextBox.TabIndex = 51;
-            // 
-            // ErrorVideo
-            // 
-            this.ErrorVideo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.ErrorVideo.AutoSize = true;
-            this.ErrorVideo.BackColor = System.Drawing.Color.Yellow;
-            this.ErrorVideo.ForeColor = System.Drawing.Color.Red;
-            this.ErrorVideo.Location = new System.Drawing.Point(282, 489);
-            this.ErrorVideo.Name = "ErrorVideo";
-            this.ErrorVideo.Size = new System.Drawing.Size(188, 20);
-            this.ErrorVideo.TabIndex = 50;
-            this.ErrorVideo.Text = "***Esta cancion ya existe ";
-            this.ErrorVideo.Visible = false;
             // 
             // SubirVideoButton
             // 
@@ -2361,7 +2324,7 @@
             this.SubirVideoButton.IconChar = FontAwesome.Sharp.IconChar.FileUpload;
             this.SubirVideoButton.IconColor = System.Drawing.Color.Black;
             this.SubirVideoButton.IconSize = 36;
-            this.SubirVideoButton.Location = new System.Drawing.Point(310, 520);
+            this.SubirVideoButton.Location = new System.Drawing.Point(300, 573);
             this.SubirVideoButton.Name = "SubirVideoButton";
             this.SubirVideoButton.Rotation = 0D;
             this.SubirVideoButton.Size = new System.Drawing.Size(250, 66);
@@ -2389,9 +2352,9 @@
             // 
             this.VideoCategoriaTextbox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.VideoCategoriaTextbox.Location = new System.Drawing.Point(165, 388);
+            this.VideoCategoriaTextbox.Location = new System.Drawing.Point(163, 392);
             this.VideoCategoriaTextbox.Name = "VideoCategoriaTextbox";
-            this.VideoCategoriaTextbox.Size = new System.Drawing.Size(446, 26);
+            this.VideoCategoriaTextbox.Size = new System.Drawing.Size(448, 26);
             this.VideoCategoriaTextbox.TabIndex = 47;
             // 
             // VideoDescripcionTextBox
@@ -2427,7 +2390,7 @@
             this.CategoriaVideo.Name = "CategoriaVideo";
             this.CategoriaVideo.Size = new System.Drawing.Size(129, 38);
             this.CategoriaVideo.TabIndex = 41;
-            this.CategoriaVideo.Text = "Categoria";
+            this.CategoriaVideo.Text = "Categoría";
             this.CategoriaVideo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // EstudioVideo
@@ -2445,7 +2408,7 @@
             this.DescripcionVideo.Name = "DescripcionVideo";
             this.DescripcionVideo.Size = new System.Drawing.Size(159, 45);
             this.DescripcionVideo.TabIndex = 38;
-            this.DescripcionVideo.Text = "Descripcion";
+            this.DescripcionVideo.Text = "Descripción";
             this.DescripcionVideo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // GeneroVideo
@@ -5693,11 +5656,11 @@
             // 
             // AdminVideoResolucionLabel
             // 
-            this.AdminVideoResolucionLabel.Location = new System.Drawing.Point(53, 580);
+            this.AdminVideoResolucionLabel.Location = new System.Drawing.Point(53, 568);
             this.AdminVideoResolucionLabel.Name = "AdminVideoResolucionLabel";
             this.AdminVideoResolucionLabel.Size = new System.Drawing.Size(138, 59);
             this.AdminVideoResolucionLabel.TabIndex = 42;
-            this.AdminVideoResolucionLabel.Text = "Resolución \r\n(720,1080..)\r\n";
+            this.AdminVideoResolucionLabel.Text = "Resolución ";
             this.AdminVideoResolucionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // AdminVideoResolucionCOmbobox
@@ -5715,6 +5678,38 @@
             this.AdminVideoResolucionCOmbobox.Name = "AdminVideoResolucionCOmbobox";
             this.AdminVideoResolucionCOmbobox.Size = new System.Drawing.Size(471, 28);
             this.AdminVideoResolucionCOmbobox.TabIndex = 43;
+            // 
+            // VideoduracrionLabel
+            // 
+            this.VideoduracrionLabel.Location = new System.Drawing.Point(12, 429);
+            this.VideoduracrionLabel.Name = "VideoduracrionLabel";
+            this.VideoduracrionLabel.Size = new System.Drawing.Size(147, 72);
+            this.VideoduracrionLabel.TabIndex = 53;
+            this.VideoduracrionLabel.Text = "Duración\r\n(Segundos)\r\n";
+            this.VideoduracrionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // VideoResolucionCombobox
+            // 
+            this.VideoResolucionCombobox.FormattingEnabled = true;
+            this.VideoResolucionCombobox.Items.AddRange(new object[] {
+            "---Selecione la Resolución---",
+            "360p",
+            "480p",
+            "720p(HD)",
+            "1080p(HD)",
+            "2k",
+            "4k"});
+            this.VideoResolucionCombobox.Location = new System.Drawing.Point(163, 504);
+            this.VideoResolucionCombobox.Name = "VideoResolucionCombobox";
+            this.VideoResolucionCombobox.Size = new System.Drawing.Size(447, 28);
+            this.VideoResolucionCombobox.TabIndex = 54;
+            // 
+            // VideoDuracionTextbox
+            // 
+            this.VideoDuracionTextbox.Location = new System.Drawing.Point(164, 443);
+            this.VideoDuracionTextbox.Name = "VideoDuracionTextbox";
+            this.VideoDuracionTextbox.Size = new System.Drawing.Size(446, 26);
+            this.VideoDuracionTextbox.TabIndex = 55;
             // 
             // AppForm
             // 
@@ -6084,10 +6079,7 @@
         private FontAwesome.Sharp.IconPictureBox iconPictureBox1;
         private System.Windows.Forms.Label AlbumLabel;
         private System.Windows.Forms.Panel UploadVideoPanel;
-        private System.Windows.Forms.Label VideoSubidoConExito;
         private System.Windows.Forms.Label ResolucionVideo;
-        private System.Windows.Forms.TextBox ResolucionTextBox;
-        private System.Windows.Forms.Label ErrorVideo;
         private FontAwesome.Sharp.IconButton SubirVideoButton;
         private FontAwesome.Sharp.IconPictureBox VideoLogoIconLabbel;
         private System.Windows.Forms.TextBox VideoCategoriaTextbox;
@@ -6263,6 +6255,9 @@
         private System.Windows.Forms.Label AdminVideoGeneroLabel;
         private System.Windows.Forms.Label AdminVideoResolucionLabel;
         private System.Windows.Forms.ComboBox AdminVideoResolucionCOmbobox;
+        private System.Windows.Forms.TextBox VideoDuracionTextbox;
+        private System.Windows.Forms.ComboBox VideoResolucionCombobox;
+        private System.Windows.Forms.Label VideoduracrionLabel;
     }
 }
 
