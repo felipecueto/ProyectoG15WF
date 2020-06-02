@@ -604,11 +604,13 @@ namespace Proyectog15WF
         {
             SerializeData();
             SearchUserPanelResultlistusers.Items.Add("No results for search criteria");
+            AdminSearchUserlistBox.Items.Add("No se a encontrado resultados");
         }
         private void CleanSearch()
         {
             resultCounter = 0;
             SearchUserPanelResultlistusers.Items.Clear();
+            AdminSearchUserlistBox.Items.Clear();
         }
         public void UpdateResults(List<string> results)
         {
@@ -622,9 +624,14 @@ namespace Proyectog15WF
                         {
                             SearchUserPanelResultlistusers.Items.Add(result);
                             SearchUserPanelResultlistusers.Items.RemoveAt(0);
+                            AdminSearchUserlistBox.Items.Add(result);
+                            AdminSearchUserlistBox.Items.RemoveAt(0);
                         }
                         else
+                        {
                             SearchUserPanelResultlistusers.Items.Add(result);
+                            AdminSearchUserlistBox.Items.Add(result);
+                        }
                         resultCounter++;
                     }
                 }
@@ -1406,7 +1413,7 @@ namespace Proyectog15WF
             {
                 OpenFileDialog openFileDialog = new OpenFileDialog();
                 openFileDialog.Title = "Selecione la cancion";
-                openFileDialog.Filter = "Song file (*.MP3; *.mp3;)|*.MP3; *.mp3";
+                openFileDialog.Filter = "Song file (*.MP3; *.mp3; *.Vorbis; *.Musepack; *.AAC; *.WMA; *.Opus;)|*.MP3; *.mp3 *.Vorbis; *.Musepack; *.AAC; *.WMA; *.Opus;";
                 bool exist = false;
 
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
@@ -2155,11 +2162,24 @@ namespace Proyectog15WF
 
         private void AdminSearchUserTextBox_TextChanged(object sender, EventArgs e)
         {
+            SerializeData();
+            string searchtext = AdminSearchUserlistBox.Text;
+            List<string> results = new List<string>();
+            if (searchtext.Length >= 3)
+            {
+                CleanSearch();
+                Noresult();
+                if (Searching != null)
+                {
+                    Searching(this, new SearchUserEventArgs() { SearchText = searchtext });
+                }
 
+            }
         }
 
         private void AdminSearchUserlistBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            
 
         }
 
@@ -2199,7 +2219,7 @@ namespace Proyectog15WF
             AdminVideoDescipcionTextbox.ResetText();
             AdminVideoDirectorTextbox.ResetText();
             AdminVideoDuracionTextbox.ResetText();
-            AdminVideoEdadTextbox.ResetText();
+            textBox1.ResetText();
             AdminVideoEstudioTextbox.ResetText();
             AdminVideoGeneroTextbox.ResetText();
             AdminVideoSexoCombobox.SelectedIndex = 0;
@@ -2235,7 +2255,7 @@ namespace Proyectog15WF
             {
                 OpenFileDialog openFileDialog = new OpenFileDialog();
                 openFileDialog.Title = "Selecione la cancion";
-                openFileDialog.Filter = "Song file (*.MP3; *.mp3;)|*.MP3; *.mp3";
+                openFileDialog.Filter = "Song file (*.MP3; *.mp3; *.Vorbis; *.Musepack; *.AAC; *.WMA; *.Opus;)|*.MP3; *.mp3 *.Vorbis; *.Musepack; *.AAC; *.WMA; *.Opus;" ;
                 bool exist = false;
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
@@ -2309,7 +2329,7 @@ namespace Proyectog15WF
             actor = AdminVideoActorTextbox.Text;
             director = AdminVideoDirectorTextbox.Text;
             sexo = AdminVideoSexoCombobox.SelectedItem.ToString();
-            age = AdminVideoEdadTextbox.Text;
+            age = textBox1.Text;
             if (videoCategoria == "" || videoGender == "" || videoDescripcion == "" || videoEtudio == "" || videoDuracion == "" || actor == "" || director == "" || sexo == "None" || age == "")
             {
                 MessageBox.Show("Debe Rellenar todos los cambos");
@@ -2318,7 +2338,7 @@ namespace Proyectog15WF
             {
                 OpenFileDialog openFileDialog = new OpenFileDialog();
                 openFileDialog.Title = "Selecione elvideo";
-                openFileDialog.Filter = "Video file (*.MP4; *.WEBM;*AVI; *.MPG; *.H264;*.MOV;*.WMV;)| *.MP4; *.WEBM;*AVI; *.MPG; *.H264;*.MOV;*.WMV;";
+                openFileDialog.Filter = "Video file (*.MP4; *.WEBM;*AVI; *.MPG; *.H264;*.MOV;*.WMV;)| *.MP4; *.WEBM;*.AVI; *.MPG; *.H264;*.MOV;*.WMV;";
                 bool exist = false;
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
@@ -2337,7 +2357,7 @@ namespace Proyectog15WF
                         AdminVideoDescipcionTextbox.ResetText();
                         AdminVideoDirectorTextbox.ResetText();
                         AdminVideoDuracionTextbox.ResetText();
-                        AdminVideoEdadTextbox.ResetText();
+                        textBox1.ResetText();
                         AdminVideoEstudioTextbox.ResetText();
                         AdminVideoGeneroTextbox.ResetText();
                         AdminVideoSexoCombobox.SelectedIndex = 0;
@@ -2353,7 +2373,7 @@ namespace Proyectog15WF
                             AdminVideoDescipcionTextbox.ResetText();
                             AdminVideoDirectorTextbox.ResetText();
                             AdminVideoDuracionTextbox.ResetText();
-                            AdminVideoEdadTextbox.ResetText();
+                            textBox1.ResetText();
                             AdminVideoEstudioTextbox.ResetText();
                             AdminVideoGeneroTextbox.ResetText();
                             AdminVideoSexoCombobox.SelectedIndex = 0;
@@ -2363,6 +2383,11 @@ namespace Proyectog15WF
                 SerializeData();
             }
 
+
+        }
+
+        private void AdminSearchUserTextBox_Click(object sender, EventArgs e)
+        {
 
         }
     }

@@ -410,7 +410,7 @@
             this.AdminVideoSexoCombobox = new System.Windows.Forms.ComboBox();
             this.AdminUploadSongLogo = new System.Windows.Forms.Label();
             this.AdminUploadVideoButton = new FontAwesome.Sharp.IconButton();
-            this.AdminVideoEdadTextbox = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.AdminVideoActorTextbox = new System.Windows.Forms.TextBox();
             this.AdminVideoDirectorTextbox = new System.Windows.Forms.TextBox();
             this.AdminVideoEstudioTextbox = new System.Windows.Forms.TextBox();
@@ -831,9 +831,9 @@
             // 
             // AdminSongDuracionLabel
             // 
-            this.AdminSongDuracionLabel.Location = new System.Drawing.Point(53, 370);
+            this.AdminSongDuracionLabel.Location = new System.Drawing.Point(28, 357);
             this.AdminSongDuracionLabel.Name = "AdminSongDuracionLabel";
-            this.AdminSongDuracionLabel.Size = new System.Drawing.Size(119, 43);
+            this.AdminSongDuracionLabel.Size = new System.Drawing.Size(163, 62);
             this.AdminSongDuracionLabel.TabIndex = 1;
             this.AdminSongDuracionLabel.Text = "Duración\r\n(segundos)";
             this.AdminSongDuracionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -5463,7 +5463,7 @@
             this.AdminUploadVideoPanel.Controls.Add(this.AdminVideoSexoCombobox);
             this.AdminUploadVideoPanel.Controls.Add(this.AdminUploadSongLogo);
             this.AdminUploadVideoPanel.Controls.Add(this.AdminUploadVideoButton);
-            this.AdminUploadVideoPanel.Controls.Add(this.AdminVideoEdadTextbox);
+            this.AdminUploadVideoPanel.Controls.Add(this.textBox1);
             this.AdminUploadVideoPanel.Controls.Add(this.AdminVideoActorTextbox);
             this.AdminUploadVideoPanel.Controls.Add(this.AdminVideoDirectorTextbox);
             this.AdminUploadVideoPanel.Controls.Add(this.AdminVideoEstudioTextbox);
@@ -5534,14 +5534,14 @@
             this.AdminUploadVideoButton.UseVisualStyleBackColor = true;
             this.AdminUploadVideoButton.Click += new System.EventHandler(this.AdminUploadVideoButton_Click);
             // 
-            // AdminVideoEdadTextbox
+            // textBox1
             // 
-            this.AdminVideoEdadTextbox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.AdminVideoEdadTextbox.Location = new System.Drawing.Point(203, 528);
-            this.AdminVideoEdadTextbox.Name = "AdminVideoEdadTextbox";
-            this.AdminVideoEdadTextbox.Size = new System.Drawing.Size(471, 26);
-            this.AdminVideoEdadTextbox.TabIndex = 38;
+            this.textBox1.Location = new System.Drawing.Point(203, 528);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(471, 26);
+            this.textBox1.TabIndex = 38;
             // 
             // AdminVideoActorTextbox
             // 
@@ -5662,18 +5662,18 @@
             // 
             // AdminVideoDescipcionLabel
             // 
-            this.AdminVideoDescipcionLabel.Location = new System.Drawing.Point(53, 319);
+            this.AdminVideoDescipcionLabel.Location = new System.Drawing.Point(28, 317);
             this.AdminVideoDescipcionLabel.Name = "AdminVideoDescipcionLabel";
-            this.AdminVideoDescipcionLabel.Size = new System.Drawing.Size(119, 43);
+            this.AdminVideoDescipcionLabel.Size = new System.Drawing.Size(163, 46);
             this.AdminVideoDescipcionLabel.TabIndex = 24;
             this.AdminVideoDescipcionLabel.Text = "Descripción";
             this.AdminVideoDescipcionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // AdminVideoduracionLabel
             // 
-            this.AdminVideoduracionLabel.Location = new System.Drawing.Point(53, 370);
+            this.AdminVideoduracionLabel.Location = new System.Drawing.Point(41, 363);
             this.AdminVideoduracionLabel.Name = "AdminVideoduracionLabel";
-            this.AdminVideoduracionLabel.Size = new System.Drawing.Size(119, 43);
+            this.AdminVideoduracionLabel.Size = new System.Drawing.Size(150, 60);
             this.AdminVideoduracionLabel.TabIndex = 23;
             this.AdminVideoduracionLabel.Text = "Duración\r\n(segundos)";
             this.AdminVideoduracionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -6215,7 +6215,7 @@
         private System.Windows.Forms.ComboBox AdminVideoSexoCombobox;
         private System.Windows.Forms.Label AdminUploadSongLogo;
         private FontAwesome.Sharp.IconButton AdminUploadVideoButton;
-        private System.Windows.Forms.TextBox AdminVideoEdadTextbox;
+        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox AdminVideoActorTextbox;
         private System.Windows.Forms.TextBox AdminVideoDirectorTextbox;
         private System.Windows.Forms.TextBox AdminVideoEstudioTextbox;
