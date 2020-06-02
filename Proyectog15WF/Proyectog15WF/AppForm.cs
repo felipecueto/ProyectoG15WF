@@ -711,13 +711,12 @@ namespace Proyectog15WF
             SongUploadPanel.Visible = true;
             ArtistModeMainPanel.Visible = true;
             AlbumArtistPanel.Visible = false;
-            CancionSubidaConExito.Visible = false;
             SongCategoriaInput.ResetText();
             SongGenderInput.ResetText();
             SongDiscografiaInput.ResetText();
             SongLetraInput.ResetText(); 
             SongStudioInput.ResetText();
-            CancionSubidaConExito.Visible = false;
+            SongDuracionTextbox.ResetText();
 
         }
 
@@ -1369,12 +1368,12 @@ namespace Proyectog15WF
             string songDiscorafia = null;
             string songLetra = null;
             string songEtudio = null;
+            string songDuracion = null;
             string path;
             string songName;
             int count = 0;
-
             songCategoria = SongCategoriaInput.Text;
-
+            songDuracion = SongDuracionTextbox.Text;
             if (songCategoria == "")
             {
                 MessageBox.Show("Falta campo categoria");
@@ -1441,6 +1440,7 @@ namespace Proyectog15WF
                         SongDiscografiaInput.ResetText();
                         SongLetraInput.ResetText();
                         SongStudioInput.ResetText();
+                        SongDuracionTextbox.ResetText();
                     }
                     else
                     {
@@ -1464,6 +1464,7 @@ namespace Proyectog15WF
                                 SongDiscografiaInput.ResetText();
                                 SongLetraInput.ResetText();
                                 SongStudioInput.ResetText();
+                                SongDuracionTextbox.ResetText();
                             }
                             catch
                             {
@@ -2413,6 +2414,8 @@ namespace Proyectog15WF
 
         private void AdminSearchUserTextBox_Click(object sender, EventArgs e)
         {
+
+
 
         }
     }

@@ -180,8 +180,6 @@
             this.GeneroVideo = new System.Windows.Forms.Label();
             this.UpLoadVideoLabel = new System.Windows.Forms.Label();
             this.SongUploadPanel = new System.Windows.Forms.Panel();
-            this.CancionSubidaConExito = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.SubirCancionButton = new FontAwesome.Sharp.IconButton();
             this.UploadSongIcon = new FontAwesome.Sharp.IconPictureBox();
             this.SongCategoriaInput = new System.Windows.Forms.TextBox();
@@ -429,6 +427,8 @@
             this.VideoduracrionLabel = new System.Windows.Forms.Label();
             this.VideoResolucionCombobox = new System.Windows.Forms.ComboBox();
             this.VideoDuracionTextbox = new System.Windows.Forms.TextBox();
+            this.SongDuracionTextbox = new System.Windows.Forms.TextBox();
+            this.SongduracionLabel = new System.Windows.Forms.Label();
             this.StartPanel.SuspendLayout();
             this.LoginPanel.SuspendLayout();
             this.AdminMainPanel.SuspendLayout();
@@ -1241,7 +1241,7 @@
             this.ADMINSoptflixlogo.Name = "ADMINSoptflixlogo";
             this.ADMINSoptflixlogo.Size = new System.Drawing.Size(607, 82);
             this.ADMINSoptflixlogo.TabIndex = 4;
-            this.ADMINSoptflixlogo.Text = "Admin STOPFLIX";
+            this.ADMINSoptflixlogo.Text = "Admin SPOTFLIX";
             this.ADMINSoptflixlogo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // MainPanel
@@ -2435,8 +2435,8 @@
             // SongUploadPanel
             // 
             this.SongUploadPanel.BackColor = System.Drawing.Color.Yellow;
-            this.SongUploadPanel.Controls.Add(this.CancionSubidaConExito);
-            this.SongUploadPanel.Controls.Add(this.label1);
+            this.SongUploadPanel.Controls.Add(this.SongDuracionTextbox);
+            this.SongUploadPanel.Controls.Add(this.SongduracionLabel);
             this.SongUploadPanel.Controls.Add(this.SubirCancionButton);
             this.SongUploadPanel.Controls.Add(this.UploadSongIcon);
             this.SongUploadPanel.Controls.Add(this.SongCategoriaInput);
@@ -2457,30 +2457,6 @@
             this.SongUploadPanel.TabIndex = 7;
             this.SongUploadPanel.Visible = false;
             // 
-            // CancionSubidaConExito
-            // 
-            this.CancionSubidaConExito.AutoSize = true;
-            this.CancionSubidaConExito.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CancionSubidaConExito.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.CancionSubidaConExito.Location = new System.Drawing.Point(248, 598);
-            this.CancionSubidaConExito.Name = "CancionSubidaConExito";
-            this.CancionSubidaConExito.Size = new System.Drawing.Size(255, 26);
-            this.CancionSubidaConExito.TabIndex = 35;
-            this.CancionSubidaConExito.Text = "Cancion subida con exito";
-            this.CancionSubidaConExito.Visible = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Yellow;
-            this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(282, 497);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(188, 20);
-            this.label1.TabIndex = 34;
-            this.label1.Text = "***Esta cancion ya existe ";
-            this.label1.Visible = false;
-            // 
             // SubirCancionButton
             // 
             this.SubirCancionButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -2491,7 +2467,7 @@
             this.SubirCancionButton.IconChar = FontAwesome.Sharp.IconChar.FileUpload;
             this.SubirCancionButton.IconColor = System.Drawing.Color.Black;
             this.SubirCancionButton.IconSize = 36;
-            this.SubirCancionButton.Location = new System.Drawing.Point(310, 520);
+            this.SubirCancionButton.Location = new System.Drawing.Point(302, 555);
             this.SubirCancionButton.Name = "SubirCancionButton";
             this.SubirCancionButton.Rotation = 0D;
             this.SubirCancionButton.Size = new System.Drawing.Size(298, 66);
@@ -2565,7 +2541,7 @@
             this.SongCategoriaLabel.Name = "SongCategoriaLabel";
             this.SongCategoriaLabel.Size = new System.Drawing.Size(128, 62);
             this.SongCategoriaLabel.TabIndex = 24;
-            this.SongCategoriaLabel.Text = "Categoria";
+            this.SongCategoriaLabel.Text = "Categoría";
             this.SongCategoriaLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // SongLetraLabel
@@ -2592,7 +2568,7 @@
             this.SongDiscografiaLabel.Name = "SongDiscografiaLabel";
             this.SongDiscografiaLabel.Size = new System.Drawing.Size(152, 38);
             this.SongDiscografiaLabel.TabIndex = 21;
-            this.SongDiscografiaLabel.Text = "Discografia";
+            this.SongDiscografiaLabel.Text = "Discografía";
             this.SongDiscografiaLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // SongGenderLabel
@@ -4785,7 +4761,7 @@
             this.ProfileButton.Dock = System.Windows.Forms.DockStyle.Top;
             this.ProfileButton.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
             this.ProfileButton.IconChar = FontAwesome.Sharp.IconChar.UserCircle;
-            this.ProfileButton.IconColor = System.Drawing.Color.Black;
+            this.ProfileButton.IconColor = System.Drawing.Color.Lime;
             this.ProfileButton.IconSize = 30;
             this.ProfileButton.Location = new System.Drawing.Point(0, 593);
             this.ProfileButton.Name = "ProfileButton";
@@ -4858,7 +4834,7 @@
             this.ArtisteModeButton.Dock = System.Windows.Forms.DockStyle.Top;
             this.ArtisteModeButton.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
             this.ArtisteModeButton.IconChar = FontAwesome.Sharp.IconChar.ToggleOn;
-            this.ArtisteModeButton.IconColor = System.Drawing.Color.Black;
+            this.ArtisteModeButton.IconColor = System.Drawing.Color.Yellow;
             this.ArtisteModeButton.IconSize = 35;
             this.ArtisteModeButton.Location = new System.Drawing.Point(0, 410);
             this.ArtisteModeButton.Name = "ArtisteModeButton";
@@ -4916,7 +4892,7 @@
             this.PlayListButton.Dock = System.Windows.Forms.DockStyle.Top;
             this.PlayListButton.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
             this.PlayListButton.IconChar = FontAwesome.Sharp.IconChar.List;
-            this.PlayListButton.IconColor = System.Drawing.Color.Black;
+            this.PlayListButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.PlayListButton.IconSize = 30;
             this.PlayListButton.Location = new System.Drawing.Point(0, 275);
             this.PlayListButton.Name = "PlayListButton";
@@ -4989,7 +4965,7 @@
             this.SearchButton.Dock = System.Windows.Forms.DockStyle.Top;
             this.SearchButton.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
             this.SearchButton.IconChar = FontAwesome.Sharp.IconChar.Search;
-            this.SearchButton.IconColor = System.Drawing.Color.Black;
+            this.SearchButton.IconColor = System.Drawing.Color.DarkRed;
             this.SearchButton.IconSize = 30;
             this.SearchButton.Location = new System.Drawing.Point(0, 100);
             this.SearchButton.Name = "SearchButton";
@@ -5048,7 +5024,7 @@
             this.loginViewInvalidCredentialsAlert.Location = new System.Drawing.Point(418, 463);
             this.loginViewInvalidCredentialsAlert.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.loginViewInvalidCredentialsAlert.Name = "loginViewInvalidCredentialsAlert";
-            this.loginViewInvalidCredentialsAlert.Size = new System.Drawing.Size(256, 20);
+            this.loginViewInvalidCredentialsAlert.Size = new System.Drawing.Size(277, 57);
             this.loginViewInvalidCredentialsAlert.TabIndex = 8;
             this.loginViewInvalidCredentialsAlert.Text = "**Credencial de usuario invalida";
             this.loginViewInvalidCredentialsAlert.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -5114,7 +5090,7 @@
             this.IniciarseccionLabelLogin.Name = "IniciarseccionLabelLogin";
             this.IniciarseccionLabelLogin.Size = new System.Drawing.Size(280, 69);
             this.IniciarseccionLabelLogin.TabIndex = 2;
-            this.IniciarseccionLabelLogin.Text = "Inicar Seccion";
+            this.IniciarseccionLabelLogin.Text = "Iniciar Sesión";
             this.IniciarseccionLabelLogin.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // PasswordUsernameLabelLogin
@@ -5690,6 +5666,8 @@
             // 
             // VideoResolucionCombobox
             // 
+            this.VideoResolucionCombobox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.VideoResolucionCombobox.FormattingEnabled = true;
             this.VideoResolucionCombobox.Items.AddRange(new object[] {
             "---Selecione la Resolución---",
@@ -5706,10 +5684,28 @@
             // 
             // VideoDuracionTextbox
             // 
+            this.VideoDuracionTextbox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.VideoDuracionTextbox.Location = new System.Drawing.Point(164, 443);
             this.VideoDuracionTextbox.Name = "VideoDuracionTextbox";
             this.VideoDuracionTextbox.Size = new System.Drawing.Size(446, 26);
             this.VideoDuracionTextbox.TabIndex = 55;
+            // 
+            // SongDuracionTextbox
+            // 
+            this.SongDuracionTextbox.Location = new System.Drawing.Point(165, 494);
+            this.SongDuracionTextbox.Name = "SongDuracionTextbox";
+            this.SongDuracionTextbox.Size = new System.Drawing.Size(446, 26);
+            this.SongDuracionTextbox.TabIndex = 57;
+            // 
+            // SongduracionLabel
+            // 
+            this.SongduracionLabel.Location = new System.Drawing.Point(15, 481);
+            this.SongduracionLabel.Name = "SongduracionLabel";
+            this.SongduracionLabel.Size = new System.Drawing.Size(147, 72);
+            this.SongduracionLabel.TabIndex = 56;
+            this.SongduracionLabel.Text = "Duración\r\n(Segundos)\r\n";
+            this.SongduracionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // AppForm
             // 
@@ -5966,7 +5962,6 @@
         private FontAwesome.Sharp.IconPictureBox iconPictureBox4;
         private System.Windows.Forms.Panel ArtistModeMainPanel;
         private System.Windows.Forms.Panel SongUploadPanel;
-        private System.Windows.Forms.Label label1;
         private FontAwesome.Sharp.IconButton SubirCancionButton;
         private FontAwesome.Sharp.IconPictureBox UploadSongIcon;
         private System.Windows.Forms.TextBox SongCategoriaInput;
@@ -5992,7 +5987,6 @@
         private FontAwesome.Sharp.IconButton FollowUserButton;
         private System.Windows.Forms.Button ResolucionButton;
         private System.Windows.Forms.Panel SearchUserPanel;
-        private System.Windows.Forms.Label CancionSubidaConExito;
         private System.Windows.Forms.Panel MasVistosPanel;
         private System.Windows.Forms.Label VideoMasVistosLabel;
         private System.Windows.Forms.ListBox VideosMasVistos;
@@ -6258,6 +6252,8 @@
         private System.Windows.Forms.TextBox VideoDuracionTextbox;
         private System.Windows.Forms.ComboBox VideoResolucionCombobox;
         private System.Windows.Forms.Label VideoduracrionLabel;
+        private System.Windows.Forms.TextBox SongDuracionTextbox;
+        private System.Windows.Forms.Label SongduracionLabel;
     }
 }
 
