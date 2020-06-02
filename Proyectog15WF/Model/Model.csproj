@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Artist.cs" />
     <Compile Include="PlaylistSong.cs" />
     <Compile Include="PlaylistVideo.cs" />
     <Compile Include="Song.cs" />

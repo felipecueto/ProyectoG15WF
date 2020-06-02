@@ -20,6 +20,7 @@ namespace Proyectog15WF
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             AppForm appForm = new AppForm();
+            ArtistController artistController = new ArtistController(appForm);
             UserController userController = new UserController(appForm);
             Songcontroller songcontroller = new Songcontroller(appForm);
             VideoController videoController = new VideoController(appForm);
