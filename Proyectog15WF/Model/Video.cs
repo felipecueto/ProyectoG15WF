@@ -17,15 +17,16 @@ namespace Model
          string studio;
          DateTime uploadDate;
          string description;
-         int duration;
+         string duration;
          int qualification;
          int reproduction;
          string sexo;
          string age;
          string resolution;
          string path;
+         string byts;
 
-        public Video(string videoName, string genre, string category, string actor, string director, string studio, DateTime uploadDate, string description, int duration, int qualification, int reproduction, string sexo, string age, string resolution,string path)
+        public Video(string videoName, string genre, string category, string actor, string director, string studio, DateTime uploadDate, string description, string duration, int qualification, int reproduction, string sexo, string age, string resolution,string path,string byts)
         {
             this.VideoName = videoName;
             this.Genre = genre;
@@ -42,6 +43,7 @@ namespace Model
             this.Age = age;
             this.Resolution = resolution;
             this.path = path;
+            this.byts = byts;
         }
 
         public string VideoName { get => videoName; set => videoName = value; }
@@ -52,7 +54,7 @@ namespace Model
         public string Studio { get => studio; set => studio = value; }
         public DateTime UploadDate { get => uploadDate; set => uploadDate = value; }
         public string Description { get => description; set => description = value; }
-        public int Duration { get => duration; set => duration = value; }
+        public string Duration { get => duration; set => duration = value; }
         public int Qualification { get => qualification; set => qualification = value; }
         public int Reproduction { get => reproduction; set => reproduction = value; }
         public string Sexo { get => sexo; set => sexo = value; }

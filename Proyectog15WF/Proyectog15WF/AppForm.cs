@@ -752,6 +752,7 @@ namespace Proyectog15WF
             SearchMediapanel.Visible = false;
             SearchArtistPanel.Visible = true;
             SearchMainPanel.Visible = true;
+            AlbumSearchArtistListbox.Visible = false;
 
         }
 
@@ -1263,6 +1264,7 @@ namespace Proyectog15WF
             string videoName;
             int count = 0;
             videoDuracion = VideoDuracionTextbox.Text;
+            videoDuracion = videoDuracion + " Segundos";
             videoCategoria = VideoCategoriaTextbox.Text;
             if (videoCategoria == "")
             {
@@ -1344,7 +1346,7 @@ namespace Proyectog15WF
                         String[] username_typeartist = user_typeartist.Split(separator, StringSplitOptions.RemoveEmptyEntries);//[0] nombre(real) del usuario, [1] tipo de artista, [2] genero, [3] edad
                         if (Videocaracteristics != null)
                         {
-                            Videocaracteristics(this, new SendingvideocaracteristicsEventArgs() { Videoname = videoName, Genero = videoGender, Categoria = videoCategoria, Actor = username_typeartist[0], Director = username_typeartist[0], Estudio = videoEtudio, Descripcion = videoDescripcion, Sexo = username_typeartist[2], Edad = username_typeartist[3], Resolution = videoResolucion, path = path });
+                            Videocaracteristics(this, new SendingvideocaracteristicsEventArgs() { Videoname = videoName, Genero = videoGender, Categoria = videoCategoria, Actor = username_typeartist[0], Director = username_typeartist[0], Estudio = videoEtudio, Descripcion = videoDescripcion, Sexo = username_typeartist[2], Edad = username_typeartist[3], Resolution = videoResolucion, path = path, byts=videoBytes,duracion=videoDuracion});
                             MessageBox.Show("Video subido con exito");
                             VideoCategoriaTextbox.ResetText();
                             VideoGeneroTextBox.ResetText();
@@ -1374,6 +1376,7 @@ namespace Proyectog15WF
             int count = 0;
             songCategoria = SongCategoriaInput.Text;
             songDuracion = SongDuracionTextbox.Text;
+            songDuracion = songDuracion + " Segundos";
             if (songCategoria == "")
             {
                 MessageBox.Show("Falta campo categoria");
@@ -1457,7 +1460,7 @@ namespace Proyectog15WF
                         {
                             try
                             {
-                                Songcaracteristics(this, new SendingsongcaracteristicsEventArgs() { Nombrecancion = songName, Genero = songGender, Compositor = username_typeartist[0], Discografia = songDiscorafia, Estudio = songEtudio, Letra = songLetra, Sexo = username_typeartist[2], Edad = username_typeartist[3], Categoria = songCategoria, path = path });
+                                Songcaracteristics(this, new SendingsongcaracteristicsEventArgs() { Nombrecancion = songName, Genero = songGender, Compositor = username_typeartist[0], Discografia = songDiscorafia, Estudio = songEtudio, Letra = songLetra, Sexo = username_typeartist[2], Edad = username_typeartist[3], Categoria = songCategoria, path = path,byts=songbytes,duracion=songDuracion });
                                 MessageBox.Show("Cancion subida con exito");
                                 SongCategoriaInput.ResetText();
                                 SongGenderInput.ResetText();
@@ -1926,6 +1929,7 @@ namespace Proyectog15WF
             else
             {
                 SeguirPlaylistPanel.Visible = true;
+                
             }
             SerializeData();
         }
@@ -1949,11 +1953,11 @@ namespace Proyectog15WF
         {
             string artist = this.TipoArtistacomboBox1.SelectedItem.ToString();
 
-
             if (Artistifosend != null)
             {
                 Artistifosend(this, new SendingArtistInfo() { Usernametext = nameuser, ArtistText = artist });
             }
+
             VeryfyArtistPanel.Visible = false;
             SerializeData();
         }
@@ -2004,7 +2008,14 @@ namespace Proyectog15WF
 
         private void Album_Click(object sender, EventArgs e)
         {
-
+            if (AlbumSearchArtistListbox.Visible)
+            {
+                AlbumSearchArtistListbox.Visible = false;
+            }
+            else
+            {
+                AlbumSearchArtistListbox.Visible = true;
+            }
         }
 
         private void AlbumSearchArtistListbox_SelectedIndexChanged(object sender, EventArgs e)
@@ -2259,7 +2270,8 @@ namespace Proyectog15WF
             songCompositor = AdminSongCompositorTextBox.Text;
             songDiscorafia=AdminSongDiscografiaTextBox.Text;
             songDuracion= AdminSongDuracionTextBox.Text;
-            age= AdminSongEdadTextBox.Text;
+            songDuracion = songDuracion + " Segundos";
+            age = AdminSongEdadTextBox.Text;
             songEtudio= AdminSongEstudioTextBox.Text;
             songGender= AdminSongGeneroTextBox.Text;
             songLetra=AdminSongLetraTextBox.Text;
@@ -2304,7 +2316,7 @@ namespace Proyectog15WF
                         {
                             try
                             {
-                                Songcaracteristics(this, new SendingsongcaracteristicsEventArgs() { Nombrecancion = songName, Genero = songGender, Compositor = songCompositor, Discografia = songDiscorafia, Estudio = songEtudio, Letra = songLetra, Sexo = sexo, Edad = age, Categoria = songCategoria, path = path });
+                                Songcaracteristics(this, new SendingsongcaracteristicsEventArgs() { Nombrecancion = songName, Genero = songGender, Compositor = songCompositor, Discografia = songDiscorafia, Estudio = songEtudio, Letra = songLetra, Sexo = sexo, Edad = age, Categoria = songCategoria, path = path, byts=songBytes,duracion=songDuracion});
                                 MessageBox.Show("Cancion subida con exito");
                                 AdminSongCategoriaTextBox.ResetText();
                                 AdminSongCompositorTextBox.ResetText();
@@ -2346,6 +2358,7 @@ namespace Proyectog15WF
             videoDescripcion = AdminVideoDescipcionTextbox.Text;
             videoEtudio = AdminVideoEstudioTextbox.Text;
             videoDuracion = AdminVideoDuracionTextbox.Text;
+            videoDuracion = videoDuracion + " Segundos";
             actor = AdminVideoActorTextbox.Text;
             director = AdminVideoDirectorTextbox.Text;
             sexo = AdminVideoSexoCombobox.SelectedItem.ToString();
@@ -2391,7 +2404,7 @@ namespace Proyectog15WF
                     {
                          if (Videocaracteristics != null)
                             {
-                            Videocaracteristics(this, new SendingvideocaracteristicsEventArgs() { Videoname = videoName, Genero = videoGender, Categoria = videoCategoria, Actor = actor, Director = director, Estudio = videoEtudio, Descripcion = videoDescripcion, Sexo =sexo, Edad = age, Resolution = videoResolucion, path = path });
+                            Videocaracteristics(this, new SendingvideocaracteristicsEventArgs() { Videoname = videoName, Genero = videoGender, Categoria = videoCategoria, Actor = actor, Director = director, Estudio = videoEtudio, Descripcion = videoDescripcion, Sexo =sexo, Edad = age, Resolution = videoResolucion, path = path, byts=videoBytes,duracion=videoDuracion});
                             MessageBox.Show("Video subido con exito");
                             AdminVideoActorTextbox.ResetText();
                             AdminVideoCategoriaTextbox.ResetText();

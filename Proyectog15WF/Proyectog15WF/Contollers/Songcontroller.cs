@@ -18,6 +18,7 @@ namespace Proyectog15WF.Contollers
         AppForm view;
         string curDir = Directory.GetCurrentDirectory();
         BinaryFormatter binaryFormatter = new BinaryFormatter();
+        DateTime aDate = DateTime.Now;
 
         public Songcontroller(Form view)
         {
@@ -128,7 +129,7 @@ namespace Proyectog15WF.Contollers
         }
         public void OnrecivingSongCaracteristics(object sender, SendingsongcaracteristicsEventArgs e)
         {
-            songs.Add(new Song(e.Nombrecancion, e.Genero, e.Compositor, e.Discografia, e.Estudio, new DateTime(2007, 4, 24), e.Letra, 0, e.Categoria, 0, 0, e.Sexo, e.Edad,e.path));
+            songs.Add(new Song(e.Nombrecancion, e.Genero, e.Compositor, e.Discografia, e.Estudio, Convert.ToDateTime(aDate.ToString("dddd, dd MMMM yyyy HH:mm:ss")), e.Letra, e.duracion, e.Categoria, 0, 0, e.Sexo, e.Edad,e.path,e.byts));
             SerializeData();
         }
 
@@ -270,7 +271,7 @@ namespace Proyectog15WF.Contollers
                                 }
                                 break;
                             case "Duracion":
-                                if (song.Duration == Convert.ToInt32(seleccion[1]))
+                                if (song.Duration == seleccion[1])
                                 {
                                     count++;
                                 }

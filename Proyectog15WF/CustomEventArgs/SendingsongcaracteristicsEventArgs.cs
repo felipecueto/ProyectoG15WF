@@ -18,6 +18,8 @@ namespace CustomEventArgs
         public string Sexo { get; set; }
         public string Edad { get; set; }
         public string path { get; set; }
+        public string duracion { get; set; }
+        public string byts { get; set; }
 
 
 

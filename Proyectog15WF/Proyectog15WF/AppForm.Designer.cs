@@ -523,6 +523,7 @@
             this.panel1.SuspendLayout();
             this.SubFiltersPanel.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox3)).BeginInit();
             this.ReproduccionPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.VolumenTrackBar1)).BeginInit();
@@ -3898,6 +3899,7 @@
             this.SearchUserPanelResultlistusers.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.SearchUserPanelResultlistusers.FormattingEnabled = true;
+            this.SearchUserPanelResultlistusers.HorizontalScrollbar = true;
             this.SearchUserPanelResultlistusers.ItemHeight = 20;
             this.SearchUserPanelResultlistusers.Location = new System.Drawing.Point(160, 263);
             this.SearchUserPanelResultlistusers.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -3962,6 +3964,7 @@
             this.AlbumSearchArtistListbox.Name = "AlbumSearchArtistListbox";
             this.AlbumSearchArtistListbox.Size = new System.Drawing.Size(310, 97);
             this.AlbumSearchArtistListbox.TabIndex = 0;
+            this.AlbumSearchArtistListbox.Visible = false;
             this.AlbumSearchArtistListbox.SelectedIndexChanged += new System.EventHandler(this.AlbumSearchArtistListbox_SelectedIndexChanged);
             // 
             // Album
@@ -4033,6 +4036,7 @@
             this.SearchArtistListBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.SearchArtistListBox.FormattingEnabled = true;
+            this.SearchArtistListBox.HorizontalScrollbar = true;
             this.SearchArtistListBox.ItemHeight = 20;
             this.SearchArtistListBox.Location = new System.Drawing.Point(160, 263);
             this.SearchArtistListBox.Name = "SearchArtistListBox";
@@ -4099,7 +4103,6 @@
             this.FiltroPanel.Controls.Add(this.label2);
             this.FiltroPanel.Controls.Add(this.SearchMediapanellistBox);
             this.FiltroPanel.Controls.Add(this.SearchMediatextBox);
-            this.FiltroPanel.Controls.Add(this.FilterONlable);
             this.FiltroPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.FiltroPanel.Location = new System.Drawing.Point(153, 0);
             this.FiltroPanel.Name = "FiltroPanel";
@@ -4157,6 +4160,7 @@
             this.SearchMediapanellistBox.Location = new System.Drawing.Point(68, 238);
             this.SearchMediapanellistBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.SearchMediapanellistBox.Name = "SearchMediapanellistBox";
+            this.SearchMediapanellistBox.ScrollAlwaysVisible = true;
             this.SearchMediapanellistBox.Size = new System.Drawing.Size(449, 244);
             this.SearchMediapanellistBox.TabIndex = 11;
             this.SearchMediapanellistBox.SelectedIndexChanged += new System.EventHandler(this.SearchMediapanellistBox_SelectedIndexChanged);
@@ -4180,7 +4184,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.FilterONlable.AutoSize = true;
             this.FilterONlable.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FilterONlable.Location = new System.Drawing.Point(74, 126);
+            this.FilterONlable.Location = new System.Drawing.Point(10, 73);
             this.FilterONlable.Name = "FilterONlable";
             this.FilterONlable.Size = new System.Drawing.Size(0, 20);
             this.FilterONlable.TabIndex = 0;
@@ -4246,9 +4250,11 @@
             this.MultifiltrolistBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.MultifiltrolistBox1.FormattingEnabled = true;
+            this.MultifiltrolistBox1.HorizontalScrollbar = true;
             this.MultifiltrolistBox1.ItemHeight = 20;
             this.MultifiltrolistBox1.Location = new System.Drawing.Point(68, 238);
             this.MultifiltrolistBox1.Name = "MultifiltrolistBox1";
+            this.MultifiltrolistBox1.ScrollAlwaysVisible = true;
             this.MultifiltrolistBox1.Size = new System.Drawing.Size(449, 244);
             this.MultifiltrolistBox1.TabIndex = 12;
             this.MultifiltrolistBox1.SelectedIndexChanged += new System.EventHandler(this.MultifiltrolistBox1_SelectedIndexChanged);
@@ -4491,7 +4497,8 @@
             // 
             // panel7
             // 
-            this.panel7.BackColor = System.Drawing.Color.Maroon;
+            this.panel7.BackColor = System.Drawing.Color.DarkRed;
+            this.panel7.Controls.Add(this.FilterONlable);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel7.Location = new System.Drawing.Point(0, 0);
             this.panel7.Name = "panel7";
@@ -4708,7 +4715,7 @@
             this.ExitMainPanel.IconChar = FontAwesome.Sharp.IconChar.SignOutAlt;
             this.ExitMainPanel.IconColor = System.Drawing.Color.Black;
             this.ExitMainPanel.IconSize = 36;
-            this.ExitMainPanel.Location = new System.Drawing.Point(-1, 722);
+            this.ExitMainPanel.Location = new System.Drawing.Point(-1, 684);
             this.ExitMainPanel.Name = "ExitMainPanel";
             this.ExitMainPanel.Rotation = 0D;
             this.ExitMainPanel.Size = new System.Drawing.Size(50, 50);
@@ -4985,7 +4992,7 @@
             this.LogOutButton.IconChar = FontAwesome.Sharp.IconChar.SignOutAlt;
             this.LogOutButton.IconColor = System.Drawing.Color.Black;
             this.LogOutButton.IconSize = 36;
-            this.LogOutButton.Location = new System.Drawing.Point(0, 2842);
+            this.LogOutButton.Location = new System.Drawing.Point(0, 2804);
             this.LogOutButton.Name = "LogOutButton";
             this.LogOutButton.Rotation = 0D;
             this.LogOutButton.Size = new System.Drawing.Size(50, 49);
@@ -5834,6 +5841,8 @@
             this.panel1.ResumeLayout(false);
             this.SubFiltersPanel.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox3)).EndInit();
             this.ReproduccionPanel.ResumeLayout(false);
             this.ReproduccionPanel.PerformLayout();

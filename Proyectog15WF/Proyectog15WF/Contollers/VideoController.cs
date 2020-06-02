@@ -17,7 +17,7 @@ namespace Proyectog15WF.Contollers
         AppForm view;
         string curDir= Directory.GetCurrentDirectory();
         BinaryFormatter binaryFormatter = new BinaryFormatter();
-
+        DateTime aDate = DateTime.Now;
         public VideoController(Form view)
         {
             ChargeVideos();
@@ -128,7 +128,7 @@ namespace Proyectog15WF.Contollers
         }
         public void OnVideocaracteristics(object sender,SendingvideocaracteristicsEventArgs e)
         {
-            videos.Add(new Video(e.Videoname, e.Genero, e.Categoria, e.Actor, e.Director, e.Estudio, new DateTime(2019, 5, 12), e.Descripcion, 0, 0, 0, e.Sexo, e.Edad, e.Resolution,e.path));
+            videos.Add(new Video(e.Videoname, e.Genero, e.Categoria, e.Actor, e.Director, e.Estudio, Convert.ToDateTime(aDate.ToString("dddd, dd MMMM yyyy HH:mm:ss")), e.Descripcion, e.duracion, 0, 0, e.Sexo, e.Edad, e.Resolution,e.path,e.byts));
             SerializeData();
         }
         public bool OnverifyVideoExist(object sender, VideosExistEventsArtgs e)
