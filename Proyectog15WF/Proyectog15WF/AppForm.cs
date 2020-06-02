@@ -165,6 +165,8 @@ namespace Proyectog15WF
         private void EXITbutton_Click(object sender, EventArgs e)
         {
             SerializeData();
+            
+
             this.Close();
         }
 
@@ -198,6 +200,7 @@ namespace Proyectog15WF
             loginViewInvalidCredentialsAlert.Visible = false;
             //SaveLogin.ResumeLayout();
             LoginPanel.Visible = true;
+            
         }
 
         private void BackRegisterButton_Click(object sender, EventArgs e)
@@ -206,6 +209,7 @@ namespace Proyectog15WF
             RegisterPanel.SendToBack();
             StartPanel.BringToFront();
             RegisterPanel.Visible = false;
+            
         }
 
 
@@ -587,6 +591,8 @@ namespace Proyectog15WF
             ArtistModeMainPanel.Visible = false;
             ProfileMainPanel.Visible = false;
             ReproduccionMainPanel.Visible = false;
+            AlbumCanciones.Items.Clear();
+            VideoAlbumListBox.Items.Clear();
         }
 
         private void SearchUserPaneltextbox_TextChanged(object sender, EventArgs e)
@@ -2286,6 +2292,7 @@ namespace Proyectog15WF
             AdminMainPanel.Visible = false;
             UsernameInPutLogin.ResetText();
             PasswordInPutLogin.ResetText();
+            
         }
 
         private void UploadAdminSongButton_Click(object sender, EventArgs e)
