@@ -191,7 +191,7 @@ namespace Proyectog15WF
             LoginPanel.BringToFront();
             loginViewInvalidCredentialsAlert.ResetText();
             loginViewInvalidCredentialsAlert.Visible = false;
-            SaveLogin.ResumeLayout();
+            //SaveLogin.ResumeLayout();
             LoginPanel.Visible = true;
         }
 
@@ -364,7 +364,14 @@ namespace Proyectog15WF
             string username = UsernameInPutLogin.Text;
             string pass = PasswordInPutLogin.Text;
             SerializeData();
-            OnLoginButtonClicked(username, pass);
+            if (username == "Admin" && pass == "Admin123")
+            {
+                AdminMainPanel.Visible = true;
+            }
+            else
+            {
+                OnLoginButtonClicked(username, pass);
+            }
 
         }
 
@@ -2041,6 +2048,131 @@ namespace Proyectog15WF
         private void InfoMFbutton_Click(object sender, EventArgs e)
         {
 
+        }
+    //------------------------------------------------------ADMIN------------------------------------------------------------------------------//
+        private void AdminSearchAristTextbox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AdminSearchAristlistBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void InfoAristisListbox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ArtistInfoButton_Click(object sender, EventArgs e)
+        {
+            if (InfoAristisListbox.Visible)
+            {
+                InfoAristisListbox.Visible = false;
+            }
+            else
+            {
+                InfoAristisListbox.Visible = true;
+            }
+        }
+
+        private void SearchAdminArtistButton_Click(object sender, EventArgs e)
+        {
+            AdminUserInfoListBox.Visible = false;
+            AdminUserMainPanel.Visible = false;
+            if (AdminArtistSearchPanl.Visible)
+            {
+                AdminArtistSearchPanl.Visible = false;
+            }
+            else
+            {
+                AdminArtistSearchPanl.Visible = true;
+            }
+        }
+
+        private void AdminArtistSearchPanl_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void SearchAdminButton_Click(object sender, EventArgs e)
+        {
+            AdminSearchMainPanel.Visible = true;
+            SubAdminUploadContent.Visible = false;
+            UploadAdminMainPanel.Visible = false;
+            if (SubAdminSearchPanel.Visible)
+            {
+                SubAdminSearchPanel.Visible = false;
+            }
+            else 
+            {
+                SubAdminSearchPanel.Visible = true;
+            }
+        }
+
+        private void UploadContenButton_Click(object sender, EventArgs e)
+        {
+            SubAdminSearchPanel.Visible = false;
+            AdminSearchMainPanel.Visible = false;
+            UploadAdminMainPanel.Visible = true;
+            if (SubAdminUploadContent.Visible)
+            {
+                SubAdminUploadContent.Visible = false;
+            }
+            else
+            {
+                SubAdminUploadContent.Visible = true;
+            }
+
+        }
+
+        private void InfoUserButton_Click(object sender, EventArgs e)
+        {
+            if (AdminUserInfoListBox.Visible)
+            {
+                AdminUserInfoListBox.Visible = false;
+            }
+            else
+            {
+                AdminUserInfoListBox.Visible = true;
+            }
+        }
+
+        private void SearchAdminUserbutton_Click(object sender, EventArgs e)
+        {
+            AdminUserInfoListBox.Visible = false;
+            AdminArtistSearchPanl.Visible = false;
+            if (AdminUserMainPanel.Visible)
+            {
+                AdminUserMainPanel.Visible = false;
+            }
+            else
+            {
+                AdminUserMainPanel.Visible = true;
+            }
+        }
+
+        private void AdminSearchUserTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AdminSearchUserlistBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AdminUserInfoListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ExitAdminButton_Click(object sender, EventArgs e)
+        {
+            AdminMainPanel.Visible = false;
+            UsernameInPutLogin.ResetText();
+            PasswordInPutLogin.ResetText();
         }
     }
 }
