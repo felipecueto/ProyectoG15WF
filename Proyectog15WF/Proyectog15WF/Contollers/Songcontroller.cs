@@ -180,7 +180,7 @@ namespace Proyectog15WF.Contollers
                     else
                     {
 
-                        string[] champion = Contenido00.Split(new string[] { ":" }, StringSplitOptions.None);
+                        string[] champion = Contenido00.Split(new string[] { "=" }, StringSplitOptions.None);
                         another.Add(new List<string> { champion[0], champion[1] });
 
                     }
@@ -198,14 +198,14 @@ namespace Proyectog15WF.Contollers
                     {
                         string caract00 = caract.Replace(" ", "");
 
-                        string[] caract000= caract00.Split(new string[] { ":" }, StringSplitOptions.None);
+                        string[] caract000= caract00.Split(new string[] { "=" }, StringSplitOptions.None);
                         otro.Add(new List<string> { caract000[0], caract000[1] });
 
                     }
                 }
                 else
                 {
-                    string[] champion = Contenido.Split(new string[] { ":" }, StringSplitOptions.None);
+                    string[] champion = Contenido.Split(new string[] { "=" }, StringSplitOptions.None);
                     otro.Add(new List<string> { champion[0], champion[1] });
                 }
                 Agregar.Add(otro);
