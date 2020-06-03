@@ -4209,11 +4209,11 @@
             this.SearchLogoIcon.ForeColor = System.Drawing.SystemColors.ControlText;
             this.SearchLogoIcon.IconChar = FontAwesome.Sharp.IconChar.Search;
             this.SearchLogoIcon.IconColor = System.Drawing.SystemColors.ControlText;
-            this.SearchLogoIcon.IconSize = 70;
-            this.SearchLogoIcon.Location = new System.Drawing.Point(160, 100);
+            this.SearchLogoIcon.IconSize = 83;
+            this.SearchLogoIcon.Location = new System.Drawing.Point(142, 84);
             this.SearchLogoIcon.Name = "SearchLogoIcon";
-            this.SearchLogoIcon.Size = new System.Drawing.Size(70, 70);
-            this.SearchLogoIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.SearchLogoIcon.Size = new System.Drawing.Size(90, 83);
+            this.SearchLogoIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.SearchLogoIcon.TabIndex = 4;
             this.SearchLogoIcon.TabStop = false;
             // 
@@ -4495,7 +4495,6 @@
             this.SearchMediapanellistBox.Location = new System.Drawing.Point(68, 238);
             this.SearchMediapanellistBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.SearchMediapanellistBox.Name = "SearchMediapanellistBox";
-            this.SearchMediapanellistBox.ScrollAlwaysVisible = true;
             this.SearchMediapanellistBox.Size = new System.Drawing.Size(449, 244);
             this.SearchMediapanellistBox.TabIndex = 11;
             this.SearchMediapanellistBox.SelectedIndexChanged += new System.EventHandler(this.SearchMediapanellistBox_SelectedIndexChanged);
@@ -4578,7 +4577,6 @@
             this.MultifiltrolistBox1.ItemHeight = 20;
             this.MultifiltrolistBox1.Location = new System.Drawing.Point(68, 238);
             this.MultifiltrolistBox1.Name = "MultifiltrolistBox1";
-            this.MultifiltrolistBox1.ScrollAlwaysVisible = true;
             this.MultifiltrolistBox1.Size = new System.Drawing.Size(449, 244);
             this.MultifiltrolistBox1.TabIndex = 12;
             this.MultifiltrolistBox1.SelectedIndexChanged += new System.EventHandler(this.MultifiltrolistBox1_SelectedIndexChanged);

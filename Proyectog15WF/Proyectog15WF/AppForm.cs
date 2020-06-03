@@ -487,6 +487,8 @@ namespace Proyectog15WF
 
         private void UserSeachButton_Click(object sender, EventArgs e)
         {
+            SearchUserPanelResultlistusers.Items.Clear();
+            SearchUserPaneltextbox.ResetText();
             SerializeData();
             //MainScreenPanel.Visible = false;
             SearchMediapanel.Visible = false;
@@ -656,6 +658,10 @@ namespace Proyectog15WF
             SearchArtistPanel.Visible = false;
             SearchMainPanel.Visible = true;
             SubMediaSearchPanel.Visible = false;
+            MultifiltrolistBox1.Items.Clear();
+            MultiFiltrotextBox1.ResetText();
+            SearchMediatextBox.ResetText();
+            SearchMediapanellistBox.ResetText();
             if (SearchMediapanel.Visible)
             {
                 SearchMediapanel.Visible = true;
@@ -732,6 +738,8 @@ namespace Proyectog15WF
 
         private void FiltersButton_Click(object sender, EventArgs e)
         {
+            SearchMediatextBox.Clear();
+            SearchMediapanellistBox.Items.Clear();
             SerializeData();
             MultifiltroPanel.Visible = false;
             FilterONlable.ResetText();
@@ -756,6 +764,8 @@ namespace Proyectog15WF
 
         private void ArtistSeachButton_Click(object sender, EventArgs e)
         {
+            SearchArtistListBox.Items.Clear();
+            SearchTextBox.ResetText();
             SerializeData();
             // MainScreenPanel.Visible = false;
             SearchUserPanel.Visible = false;
@@ -1294,7 +1304,9 @@ namespace Proyectog15WF
             string videoName;
             int count = 0;
             videoDuracion = VideoDuracionTextbox.Text;
+
             videoDuracion = videoDuracion + " Segundos";
+
             videoCategoria = VideoCategoriaTextbox.Text;
             if (videoCategoria == "")
             {
@@ -1405,8 +1417,7 @@ namespace Proyectog15WF
             string songName;
             int count = 0;
             songCategoria = SongCategoriaInput.Text;
-            songDuracion = SongDuracionTextbox.Text;
-            songDuracion = songDuracion + " Segundos";
+            songDuracion = SongDuracionTextbox.Text + " Segundos";
             if (songCategoria == "")
             {
                 MessageBox.Show("Falta campo categoria");
@@ -2082,6 +2093,8 @@ namespace Proyectog15WF
 
         private void iconButton1_Click(object sender, EventArgs e)
         {
+            MultifiltrolistBox1.ResetText();
+            MultifiltrolistBox1.Items.Clear();
             SubFiltersPanel.Visible = false;
             FiltroPanel.Visible = false;
             if (MultifiltroPanel.Visible)
@@ -2151,13 +2164,53 @@ namespace Proyectog15WF
 
         private void InfoFButton_Click(object sender, EventArgs e)
         {
+            
             string mediaName = SearchMediapanellistBox.SelectedItem.ToString();
-            MessageBox.Show(mediaName);
+            infoSearch(mediaName);
+            
+        }
 
+        private void infoSearch(string mName)
+        {
+            string mediaName = mName;
+            if (mediaName=="-----Videos encontrados-----" || mediaName=="-----Canciones encontradas-----")
+            {
+
+            }
+            else
+            {
+
+                if (Recivingsong != null)
+                {
+                    Song song = Recivingsong(this, new ReturnsongEventArgs() { Verifysonginsongofuser = mediaName });
+                    if (song == null)
+                    {
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("\n Nombre cancion: " + song.Namesong + "\n Genero: " + song.Genre + "\n Compositor: " + song.Composer + "\n Discografia: " + song.Discography + "\n Estudio: " + song.Studio + "\n Año publicacion: " + song.Publicationyear + "\n Lirica: " + song.Lyrics + "\n Duracion: " + song.Duration + "\n Categoria: " + song.Category + "\n Calificacion: " + song.Qualification + "\n Reproducciones: " + song.Reproduction + "\nTamaño: " + song.Byts);
+                    }
+                }
+                if (Recivingvideo != null)
+                {
+                    Video video = Recivingvideo(this, new ReturnVideoEventArgs() { Verifyvideoinvideoofuser = mediaName });
+                    if (video == null)
+                    {
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("\n Nombre cancion: " + video.VideoName + "\n Genero: " + video.Genre + "\n Categoria: " + video.Category + "\n Actor: " + video.Actor + "\n Director: " + video.Director + "\n Estudio: " + video.Studio + "\n Fecha de subida: " + video.UploadDate + "\n Descripcion: " + video.Description + "\n Duracion: " + video.Duration + "\n Calificacion: " + video.Qualification + "\n Reproducciones: " + video.Reproduction + "\nTamaño: " + video.Byts + "\n Resolucion: " + video.Resolution);
+                    }
+                }
+            }
         }
 
         private void InfoMFbutton_Click(object sender, EventArgs e)
         {
+            string mediaName = MultifiltrolistBox1.SelectedItem.ToString();
+            infoSearch(mediaName);
 
         }
     //------------------------------------------------------ADMIN------------------------------------------------------------------------------//

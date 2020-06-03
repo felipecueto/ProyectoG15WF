@@ -62,7 +62,7 @@ namespace Model
 
         public override string ToString()
         {
-            return "\n Nombre cancion: " +Namesong+ "\n Genero: " +Genre+ "\n Compositor: " +Composer+ "\n Discografia: " +Discography+ "\n Estudio: " +Studio+ "\n Año publicacion: " +Publicationyear+ "\n Lirica: " +Lyrics+ "\n Duracion: " +Duration+ "\n Categoria: {8}" + Category+ "\n Calificacion: "+Qualification+"\n Reproducciones: " +Reproduction+ "\n Sexo: " +Sexo+ "\n Edad: "+Age;
+            return  Namesong;
         }
     }
 }

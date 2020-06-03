@@ -16,3 +16,9 @@ C:\Users\jaime\Desktop\POO\Proyecto\ProyectoG15WF\Proyectog15WF\Model\obj\Debug\
 C:\Users\jaime\Desktop\POO\Proyecto\ProyectoG15WF\Proyectog15WF\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
 C:\Users\jaime\Desktop\POO\Proyecto\ProyectoG15WF\Proyectog15WF\Model\obj\Debug\Model.dll
 C:\Users\jaime\Desktop\POO\Proyecto\ProyectoG15WF\Proyectog15WF\Model\obj\Debug\Model.pdb
+C:\Users\felij\Desktop\wf15\ProyectoG15WF\Proyectog15WF\Model\bin\Debug\Model.dll
+C:\Users\felij\Desktop\wf15\ProyectoG15WF\Proyectog15WF\Model\bin\Debug\Model.pdb
+C:\Users\felij\Desktop\wf15\ProyectoG15WF\Proyectog15WF\Model\obj\Debug\Model.csprojAssemblyReference.cache
+C:\Users\felij\Desktop\wf15\ProyectoG15WF\Proyectog15WF\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
+C:\Users\felij\Desktop\wf15\ProyectoG15WF\Proyectog15WF\Model\obj\Debug\Model.dll
+C:\Users\felij\Desktop\wf15\ProyectoG15WF\Proyectog15WF\Model\obj\Debug\Model.pdb

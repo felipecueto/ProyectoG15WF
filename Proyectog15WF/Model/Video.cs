@@ -61,10 +61,11 @@ namespace Model
         public string Age { get => age; set => age = value; }
         public string Resolution { get => resolution; set => resolution = value; }
         public string Path { get => path; set => path = value; }
+        public string Byts { get => byts; set => byts = value; }
 
         public override string ToString()
         {
-            return "\n Nombre cancion: " + VideoName + "\n Genero: " + Genre + "\n Compositor: " + Category + "\n Actor: " + Actor + "\n Director: " + Director + "\n Estudio: " + Studio + "\n Fecha de subida: " + UploadDate + "\n Descripcion: " + Description + "\n Duracion: " + Duration + "\n Calificacion: " + Qualification + "\n Reproducciones: " + Reproduction + "\n Sexo: " + Sexo + "\n Edad: " + Age+ "\n Calidad: "+Resolution;
+            return VideoName;
         }
     }
 }
