@@ -1152,18 +1152,15 @@ namespace Proyectog15WF
                 {
                     axWindowsMediaPlayer1.URL = namesong;
                     axWindowsMediaPlayer1.Ctlcontrols.play();
-                   // namesong = "";
-                   // namevideo = "";
 
-
-
+                    pasua = true;
                 }
                 else if (namesong == "" && namevideo != "")
                 {
                     axWindowsMediaPlayer1.URL = namevideo;
                     axWindowsMediaPlayer1.Ctlcontrols.play();
-                    //namesong = "";
-                    //namevideo = "";
+
+                    pasua = true;
 
                 }
 
