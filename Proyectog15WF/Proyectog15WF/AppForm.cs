@@ -18,6 +18,7 @@ namespace Proyectog15WF
 
     public partial class AppForm : Form
     {
+        bool pasua = false;
         int resultCounter = 0;
         string namevideo = "";
         string namesong = "";
@@ -1125,22 +1126,24 @@ namespace Proyectog15WF
 
         private void PlayButton_Click_1(object sender, EventArgs e)
         {
+            HideSubPanel();
             CalificacionComboBox.SelectedIndex = 0;
-
-            if (ReproduccionMainPanel.Visible)
+            ReproduccionMainPanel.Visible = true;
+            if (pasua)
             {
-                ReproduccionMainPanel.Visible = false;
+                //ReproduccionMainPanel.Visible = false;
+                axWindowsMediaPlayer1.Ctlcontrols.play();
 
             }
             else
-            {
-                ReproduccionMainPanel.Visible = true;
+            { 
+               
                 if (namesong != "" && namevideo == "")
                 {
                     axWindowsMediaPlayer1.URL = namesong;
                     axWindowsMediaPlayer1.Ctlcontrols.play();
-                    namesong = "";
-                    namevideo = "";
+                   // namesong = "";
+                   // namevideo = "";
 
 
 
@@ -1149,8 +1152,8 @@ namespace Proyectog15WF
                 {
                     axWindowsMediaPlayer1.URL = namevideo;
                     axWindowsMediaPlayer1.Ctlcontrols.play();
-                    namesong = "";
-                    namevideo = "";
+                    //namesong = "";
+                    //namevideo = "";
 
                 }
 
@@ -1182,6 +1185,7 @@ namespace Proyectog15WF
 
 
                     namevideo = Reproducevideo(this, new SelectVideoEventArgs() { Selectedvideo = Convert.ToString(SearchMediapanellistBox.SelectedItem) });
+                    pasua = false;
 
 
 
@@ -1192,7 +1196,7 @@ namespace Proyectog15WF
                 if (!SearchMediapanellistBox.SelectedItem.Equals("No results for search criteria"))
                 {
                     namesong = Reproducesong(this, new SelectSongEventArgs() { Selectedsong = Convert.ToString(SearchMediapanellistBox.SelectedItem) });
-
+                    pasua = false;
 
                 }
 
@@ -1203,7 +1207,7 @@ namespace Proyectog15WF
                 {
                     variablecancion = Recivingsong(this, new ReturnsongEventArgs() { Verifysonginsongofuser = Convert.ToString(SearchMediapanellistBox.SelectedItem) });
                     cancionesdelusuario.Add(variablecancion);
-
+                    pasua = false;
 
                 }
 
@@ -1214,6 +1218,7 @@ namespace Proyectog15WF
                 {
                     variablevideo = Recivingvideo(this, new ReturnVideoEventArgs() { Verifyvideoinvideoofuser = Convert.ToString(SearchMediapanellistBox.SelectedItem) });
                     videosdelusuario.Add(variablevideo);
+                    pasua = false;
                 }
             }
         }
@@ -1221,6 +1226,7 @@ namespace Proyectog15WF
         private void StopButton_Click(object sender, EventArgs e)
         {
             axWindowsMediaPlayer1.Ctlcontrols.pause();
+            pasua = true;
         }
         //Profile---------------------------------------------------------------------------------------------------//
 
@@ -2023,7 +2029,6 @@ namespace Proyectog15WF
 
         private void VolumenTrackBar1_Scroll(object sender, EventArgs e)
         {
-
             axWindowsMediaPlayer1.settings.volume = VolumenTrackBar1.Value;
         }
 
@@ -2146,6 +2151,8 @@ namespace Proyectog15WF
 
         private void InfoFButton_Click(object sender, EventArgs e)
         {
+            string mediaName = SearchMediapanellistBox.SelectedItem.ToString();
+            MessageBox.Show(mediaName);
 
         }
 
@@ -2317,12 +2324,6 @@ namespace Proyectog15WF
                     }
                 }
             }
-        }
-
-        private void AdminSearchUserlistBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
-
         }
 
         private void AdminUserInfoListBox_SelectedIndexChanged(object sender, EventArgs e)

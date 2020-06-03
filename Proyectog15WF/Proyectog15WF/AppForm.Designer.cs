@@ -640,9 +640,10 @@
             this.UploadAdminMainPanel.Controls.Add(this.AdminUploadVideoPanel);
             this.UploadAdminMainPanel.Controls.Add(this.AdminUpLoadSongPanel);
             this.UploadAdminMainPanel.Controls.Add(this.UploadAdminlogo);
-            this.UploadAdminMainPanel.Location = new System.Drawing.Point(250, 560);
+            this.UploadAdminMainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.UploadAdminMainPanel.Location = new System.Drawing.Point(250, 0);
             this.UploadAdminMainPanel.Name = "UploadAdminMainPanel";
-            this.UploadAdminMainPanel.Size = new System.Drawing.Size(774, 208);
+            this.UploadAdminMainPanel.Size = new System.Drawing.Size(774, 768);
             this.UploadAdminMainPanel.TabIndex = 5;
             this.UploadAdminMainPanel.Visible = false;
             // 
@@ -674,7 +675,7 @@
             this.AdminUploadVideoPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.AdminUploadVideoPanel.Location = new System.Drawing.Point(0, 0);
             this.AdminUploadVideoPanel.Name = "AdminUploadVideoPanel";
-            this.AdminUploadVideoPanel.Size = new System.Drawing.Size(774, 208);
+            this.AdminUploadVideoPanel.Size = new System.Drawing.Size(774, 768);
             this.AdminUploadVideoPanel.TabIndex = 2;
             this.AdminUploadVideoPanel.Visible = false;
             // 
@@ -929,7 +930,7 @@
             this.AdminUpLoadSongPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.AdminUpLoadSongPanel.Location = new System.Drawing.Point(0, 0);
             this.AdminUpLoadSongPanel.Name = "AdminUpLoadSongPanel";
-            this.AdminUpLoadSongPanel.Size = new System.Drawing.Size(774, 208);
+            this.AdminUpLoadSongPanel.Size = new System.Drawing.Size(774, 768);
             this.AdminUpLoadSongPanel.TabIndex = 1;
             this.AdminUpLoadSongPanel.Visible = false;
             // 
@@ -1632,7 +1633,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.QueueListBox.FormattingEnabled = true;
             this.QueueListBox.ItemHeight = 20;
-            this.QueueListBox.Location = new System.Drawing.Point(26, 25);
+            this.QueueListBox.Location = new System.Drawing.Point(2, 28);
             this.QueueListBox.Name = "QueueListBox";
             this.QueueListBox.Size = new System.Drawing.Size(722, 84);
             this.QueueListBox.TabIndex = 0;
@@ -4931,7 +4932,8 @@
             // 
             // StopButton
             // 
-            this.StopButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.StopButton.FlatAppearance.BorderSize = 0;
+            this.StopButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.StopButton.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
             this.StopButton.IconChar = FontAwesome.Sharp.IconChar.Pause;
             this.StopButton.IconColor = System.Drawing.Color.Black;
@@ -4947,6 +4949,7 @@
             // 
             // NextButton
             // 
+            this.NextButton.FlatAppearance.BorderSize = 0;
             this.NextButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.NextButton.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
             this.NextButton.IconChar = FontAwesome.Sharp.IconChar.StepForward;
@@ -4961,6 +4964,7 @@
             // 
             // BackButton
             // 
+            this.BackButton.FlatAppearance.BorderSize = 0;
             this.BackButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BackButton.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
             this.BackButton.IconChar = FontAwesome.Sharp.IconChar.StepBackward;
@@ -4991,6 +4995,7 @@
             // PlayButton
             // 
             this.PlayButton.AutoSize = true;
+            this.PlayButton.FlatAppearance.BorderSize = 0;
             this.PlayButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.PlayButton.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
             this.PlayButton.IconChar = FontAwesome.Sharp.IconChar.Play;
@@ -4999,7 +5004,7 @@
             this.PlayButton.Location = new System.Drawing.Point(346, 15);
             this.PlayButton.Name = "PlayButton";
             this.PlayButton.Rotation = 0D;
-            this.PlayButton.Size = new System.Drawing.Size(66, 68);
+            this.PlayButton.Size = new System.Drawing.Size(49, 49);
             this.PlayButton.TabIndex = 1;
             this.PlayButton.UseVisualStyleBackColor = true;
             this.PlayButton.Click += new System.EventHandler(this.PlayButton_Click_1);
@@ -5007,6 +5012,7 @@
             // LikeButton
             // 
             this.LikeButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.LikeButton.FlatAppearance.BorderSize = 0;
             this.LikeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.LikeButton.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
             this.LikeButton.IconChar = FontAwesome.Sharp.IconChar.ThumbsUp;
@@ -5049,7 +5055,7 @@
             this.ExitMainPanel.IconChar = FontAwesome.Sharp.IconChar.SignOutAlt;
             this.ExitMainPanel.IconColor = System.Drawing.Color.Black;
             this.ExitMainPanel.IconSize = 36;
-            this.ExitMainPanel.Location = new System.Drawing.Point(-2, 684);
+            this.ExitMainPanel.Location = new System.Drawing.Point(-1, 718);
             this.ExitMainPanel.Name = "ExitMainPanel";
             this.ExitMainPanel.Rotation = 0D;
             this.ExitMainPanel.Size = new System.Drawing.Size(50, 49);
@@ -6097,7 +6103,6 @@
         private System.Windows.Forms.Panel ReproduccionMainPanel;
         private System.Windows.Forms.Panel QueuePanel;
         private System.Windows.Forms.ListBox QueueListBox;
-        private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer1;
         private System.Windows.Forms.Panel ProfileMainPanel;
         private System.Windows.Forms.Panel MiInformacionPanel;
         private System.Windows.Forms.Panel SeguidosPanel;
@@ -6261,6 +6266,7 @@
         private FontAwesome.Sharp.IconButton SearchAdminButton;
         private System.Windows.Forms.Panel LogoSubPanel;
         private System.Windows.Forms.Label ADMINSoptflixlogo;
+        private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer1;
     }
 }
 
