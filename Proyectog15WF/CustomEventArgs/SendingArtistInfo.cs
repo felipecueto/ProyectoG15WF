@@ -10,6 +10,8 @@ namespace CustomEventArgs
     {
         public string ArtistText { get; set; }
         public string Usernametext { get; set; }
+        public string AgeArtist { get; set; }
+        public string GenderArtist { get; set; }
 
     }
 }

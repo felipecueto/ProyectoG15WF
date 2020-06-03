@@ -158,65 +158,65 @@ namespace Proyectog15WF.Contollers
             SerializeData();
             return modeartistsongs;
         }
-        public List<List<List<string>>> Declaration(string Declaration)
+        public List<List<List<string>>> Palabras(string Contenido)
         {
-            List<List<List<string>>> Total = new List<List<List<string>>>();
+            List<List<List<string>>> Agregar= new List<List<List<string>>>();
 
-            if (Declaration.Contains(" or ")) //Note: before it was .Contains("or") and now is .Contains(" or ")
+            if (Contenido.Contains(" or "))
             {
-                foreach (string SubDeclaration0 in Declaration.Split(new string[] { " or " }, StringSplitOptions.None))
+                foreach (string Contenido0 in Contenido.Split(new string[] { " or " }, StringSplitOptions.None))
                 {
-                    List<List<string>> subDec = new List<List<string>>();
-                    string SubDeclaration = SubDeclaration0.Replace(" ", "");
-                    if (SubDeclaration.Contains("and"))
+                    List<List<string>> another = new List<List<string>>();
+                    string Contenido00 = Contenido0.Replace(" ", "");
+                    if (Contenido00.Contains("and"))
                     {
-                        foreach (string atributes in SubDeclaration.Split(new string[] { "and" }, StringSplitOptions.None))
+                        foreach (string inside in Contenido00.Split(new string[] { "and" }, StringSplitOptions.None))
                         {
-                            string[] atFinal = atributes.Split(new string[] { ":" }, StringSplitOptions.None);
-                            subDec.Add(new List<string> { atFinal[0], atFinal[1] });
+                            string[] separacion= inside.Split(new string[] { ":" }, StringSplitOptions.None);
+                            another.Add(new List<string> { separacion[0], separacion[1] });
                         }
 
                     }
                     else
                     {
 
-                        string[] atFinal = SubDeclaration.Split(new string[] { ":" }, StringSplitOptions.None);
-                        subDec.Add(new List<string> { atFinal[0], atFinal[1] });
+                        string[] champion = Contenido00.Split(new string[] { "=" }, StringSplitOptions.None);
+                        another.Add(new List<string> { champion[0], champion[1] });
 
                     }
 
-                    Total.Add(subDec);
+                    Agregar.Add(another);
                 }
 
             }
             else
             {
-                List<List<string>> subDec = new List<List<string>>();
-                if (Declaration.Contains("and"))
+                List<List<string>> otro = new List<List<string>>();
+                if (Contenido.Contains("and"))
                 {
-                    foreach (string atributes0 in Declaration.Split(new string[] { "and" }, StringSplitOptions.None))
+                    foreach (string caract in Contenido.Split(new string[] { "and" }, StringSplitOptions.None))
                     {
-                        string atributes = atributes0.Replace(" ", "");
+                        string caract00 = caract.Replace(" ", "");
 
-                        string[] atFinal = atributes.Split(new string[] { ":" }, StringSplitOptions.None);
-                        subDec.Add(new List<string> { atFinal[0], atFinal[1] });
+                        string[] caract000= caract00.Split(new string[] { "=" }, StringSplitOptions.None);
+                        otro.Add(new List<string> { caract000[0], caract000[1] });
 
                     }
                 }
                 else
                 {
-                    string[] atFinal = Declaration.Split(new string[] { ":" }, StringSplitOptions.None);
-                    subDec.Add(new List<string> { atFinal[0], atFinal[1] });
+                    string[] champion = Contenido.Split(new string[] { "=" }, StringSplitOptions.None);
+                    otro.Add(new List<string> { champion[0], champion[1] });
                 }
-                Total.Add(subDec);
+                Agregar.Add(otro);
             }
 
-            return Total;
+            return Agregar;
         }
-        public List<Song> OnBuscar(object sender, SendingtextMultipleFiltersEventArgs e) //deberia retornar un una lista de canciones
+        public List<Song> OnBuscar(object sender, SendingtextMultipleFiltersEventArgs e) //deberia retornar una lista de canciones
         {
-            int count = 0;
-            List<List<List<string>>> palabras = Declaration(e.TexttoMultipleFilters);
+         
+            List<List<List<string>>> palabras = Palabras(e.TexttoMultipleFilters);
             List<Song> Definitivo = new List<Song>();
             List<List<Song>> optativo = new List<List<Song>>();
             foreach (List<List<string>> words in palabras)
@@ -224,11 +224,12 @@ namespace Proyectog15WF.Contollers
                 List<Song> cancionesseleccionadas = new List<Song>();
                 foreach (Song song in songs)
                 {
+                    int count = 0;
                     foreach (List<string> seleccion in words)
                     {
                         switch (seleccion[0])
                         {
-                            case "Nombre cancion":
+                            case "Nombrecancion":
                                 if (song.Namesong.Trim().ToUpper() == seleccion[1].ToUpper().Trim())
                                 {
                                     count++;
@@ -237,6 +238,7 @@ namespace Proyectog15WF.Contollers
                             case "Genero":
                                 if (song.Genre.ToUpper().Trim() == seleccion[1].ToUpper().Trim())
                                 {
+                                    
                                     count++;
                                 }
                                 break;
@@ -258,7 +260,7 @@ namespace Proyectog15WF.Contollers
                                     count++;
                                 }
                                 break;
-                            case "Año de publicacion":
+                            case "Añodepublicacion":
                                 if (song.Publicationyear == Convert.ToDateTime(seleccion[1]))
                                 {
                                     count++;
@@ -314,12 +316,12 @@ namespace Proyectog15WF.Contollers
 
                     }
 
-                    if (count == words.Count)
-                    {
-                        cancionesseleccionadas.Add(song);
-                        count = 0;
-                    }
-                    optativo.Add(cancionesseleccionadas);
+                if (count == words.Count)
+                {
+                    cancionesseleccionadas.Add(song);
+                    count = 0;
+                }
+                 optativo.Add(cancionesseleccionadas);
 
 
                 }

@@ -27,6 +27,7 @@ namespace Proyectog15WF.Contollers
             this.view.Recivingvideo += OnverifyVideo;
             this.view.Videocaracteristics += OnVideocaracteristics;
             this.view.verifyVideoExist += OnverifyVideoExist;
+            this.view.Totalitsofvideos += OnTotalitsofvideos;
             DeserializeData();
         }
 
@@ -143,6 +144,18 @@ namespace Proyectog15WF.Contollers
             SerializeData();
             return false;
         }
-
+        public List<string> OnTotalitsofvideos(object sender, SendingVideosEventArgs e)
+        {
+            List<string> modeartistsongs = new List<string>();
+            foreach (Video video in videos)
+            {
+                if (video.Actor == e.Sendinguser || video.Director==e.Sendinguser)
+                {
+                    modeartistsongs.Add(video.VideoName);
+                }
+            }
+            SerializeData();
+            return modeartistsongs;
+        }
     }
 }

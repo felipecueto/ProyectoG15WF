@@ -59,6 +59,7 @@
     <Compile Include="SendingtextMultipleFiltersEventArgs.cs" />
     <Compile Include="SendingtypeaccountEventArgs.cs" />
     <Compile Include="SendingvideocaracteristicsEventArgs.cs" />
+    <Compile Include="SendingVideosEventArgs.cs" />
     <Compile Include="SongsExistEventsArtgs.cs" />
     <Compile Include="VideosExistEventsArtgs.cs" />
   </ItemGroup>
