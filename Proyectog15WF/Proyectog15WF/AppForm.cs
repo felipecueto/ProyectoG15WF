@@ -615,7 +615,7 @@ namespace Proyectog15WF
         {
             SerializeData();
             SearchUserPanelResultlistusers.Items.Add("No results for search criteria");
-            AdminSearchUserlistBox.Items.Add("No se a encontrado resultados");
+            AdminSearchUserlistBox.Items.Add("No results for search criteria");
         }
         private void CleanSearch()
         {
@@ -635,13 +635,11 @@ namespace Proyectog15WF
                         {
                             SearchUserPanelResultlistusers.Items.Add(result);
                             SearchUserPanelResultlistusers.Items.RemoveAt(0);
-                            AdminSearchUserlistBox.Items.Add(result);
-                            AdminSearchUserlistBox.Items.RemoveAt(0);
+
                         }
                         else
                         {
                             SearchUserPanelResultlistusers.Items.Add(result);
-                            AdminSearchUserlistBox.Items.Add(result);
                         }
                         resultCounter++;
                     }
@@ -2235,27 +2233,50 @@ namespace Proyectog15WF
 
         private void InfoUserButton_Click(object sender, EventArgs e)
         {
-            if (AdminUserInfoListBox.Visible)
+            string usr;
+            AdminUserInfoListBox.Items.Clear();
+            usr = AdminSearchUserlistBox.SelectedItem.ToString();
+            if (usr == "-----Usuarios encontrados-----" || usr == "No results for search criteria")
             {
-                AdminUserInfoListBox.Visible = false;
+
             }
             else
             {
                 AdminUserInfoListBox.Visible = true;
+                if (Userrequest != null)
+                {
+                    User user = Userrequest(this, new LoginEventArgs() { UsernameText = usr });
+                    AdminUserInfoListBox.Items.Add("Infomracion usuario");
+                    AdminUserInfoListBox.Items.Add("");
+                    AdminUserInfoListBox.Items.Add("Nombre: " + user.Name + "" + user.Lastname);
+                    AdminUserInfoListBox.Items.Add("Usuario: " + user.Username);
+                    AdminUserInfoListBox.Items.Add("Mail: " + user.Mail);
+                    AdminUserInfoListBox.Items.Add("Edad: " + user.Edad);
+                    AdminUserInfoListBox.Items.Add("Genero: " + user.Genero);
+                    AdminUserInfoListBox.Items.Add("Privacidad: " + (user.Privacidad));
+                    AdminUserInfoListBox.Items.Add("Tipo de cuenta: " + user.Tipodeusuario);
+                    AdminUserInfoListBox.Items.Add("Artista: " + user.Artist);
+
+                }
             }
+            
         }
 
         private void SearchAdminUserbutton_Click(object sender, EventArgs e)
         {
+            AdminSearchUserlistBox.Items.Clear();
+            AdminSearchUserTextBox.Clear();
             AdminUserInfoListBox.Visible = false;
             AdminArtistSearchPanl.Visible = false;
             if (AdminUserMainPanel.Visible)
             {
                 AdminUserMainPanel.Visible = false;
+                AdminSearchUserlistBox.Items.Clear();
             }
             else
             {
                 AdminUserMainPanel.Visible = true;
+                AdminSearchUserlistBox.Items.Clear();
             }
         }
 
@@ -2264,15 +2285,37 @@ namespace Proyectog15WF
             SerializeData();
             string searchtext = AdminSearchUserlistBox.Text;
             List<string> results = new List<string>();
-            if (searchtext.Length >= 3)
+            
             {
-                CleanSearch();
                 Noresult();
+                CleanSearch();
                 if (Searching != null)
                 {
                     Searching(this, new SearchUserEventArgs() { SearchText = searchtext });
                 }
 
+            }
+        }
+        public void UpdateResultsAdmin(List<string> results)
+        {
+            if (results.Count > 0)
+            {
+                foreach (string result in results)
+                {
+                    if (resultCounter <= 50)
+                    {
+                        if (AdminSearchUserlistBox.Items.Count > 0 && AdminSearchUserlistBox.Items[0].Equals("No results for search criteria"))
+                        {
+                            AdminSearchUserlistBox.Items.Add(result);
+                            AdminSearchUserlistBox.Items.RemoveAt(0);
+                        }
+                        else
+                        {
+                            AdminSearchUserlistBox.Items.Add(result);
+                        }
+                        resultCounter++;
+                    }
+                }
             }
         }
 
@@ -2391,6 +2434,10 @@ namespace Proyectog15WF
                             {
                                 Songcaracteristics(this, new SendingsongcaracteristicsEventArgs() { Nombrecancion = songName, Genero = songGender, Compositor = songCompositor, Discografia = songDiscorafia, Estudio = songEtudio, Letra = songLetra, Sexo = sexo, Edad = age, Categoria = songCategoria, path = path, byts=songBytes,duracion=songDuracion});
                                 MessageBox.Show("Cancion subida con exito");
+                                if (Artistifosend != null)
+                                {
+                                    Artistifosend(this, new SendingArtistInfo() { Usernametext = songCompositor, ArtistText = "Cantante", AgeArtist = age, GenderArtist = sexo });
+                                }
                                 AdminSongCategoriaTextBox.ResetText();
                                 AdminSongCompositorTextBox.ResetText();
                                 AdminSongDiscografiaTextBox.ResetText();
@@ -2479,6 +2526,11 @@ namespace Proyectog15WF
                             {
                             Videocaracteristics(this, new SendingvideocaracteristicsEventArgs() { Videoname = videoName, Genero = videoGender, Categoria = videoCategoria, Actor = actor, Director = director, Estudio = videoEtudio, Descripcion = videoDescripcion, Sexo =sexo, Edad = age, Resolution = videoResolucion, path = path, byts=videoBytes,duracion=videoDuracion});
                             MessageBox.Show("Video subido con exito");
+                            if (Artistifosend != null)
+                            {
+                                Artistifosend(this, new SendingArtistInfo() { Usernametext = actor, ArtistText = "Actor", AgeArtist = age, GenderArtist = sexo });
+                                Artistifosend(this, new SendingArtistInfo() { Usernametext = director, ArtistText = "Director", AgeArtist = age, GenderArtist = sexo });
+                            }
                             AdminVideoActorTextbox.ResetText();
                             AdminVideoCategoriaTextbox.ResetText();
                             AdminVideoDescipcionTextbox.ResetText();
@@ -2494,13 +2546,6 @@ namespace Proyectog15WF
                 }
                 SerializeData();
             }
-
-
-        }
-
-        private void AdminSearchUserTextBox_Click(object sender, EventArgs e)
-        {
-
 
 
         }

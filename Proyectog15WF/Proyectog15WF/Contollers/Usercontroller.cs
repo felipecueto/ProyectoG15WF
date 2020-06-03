@@ -146,6 +146,7 @@ namespace Controllers
                     resultString.Add(s.ToString());
             }
             view.UpdateResults(resultString);
+            view.UpdateResultsAdmin(resultString);
         }
 
         public List<PlaylistSong> OnShowSongPlaylist(object sender, GetUserPlaylistEventsArgs e)
