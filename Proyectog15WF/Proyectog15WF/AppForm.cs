@@ -2289,19 +2289,22 @@ namespace Proyectog15WF
 
         private void AdminSearchUserTextBox_TextChanged(object sender, EventArgs e)
         {
-            SerializeData();
-            string searchtext = AdminSearchUserlistBox.Text;
-            List<string> results = new List<string>();
+           SerializeData();
+            string searchtextuser = AdminSearchUserTextBox.Text;
+           List<string> results = new List<string>();
             
-            {
-                Noresult();
-                CleanSearch();
-                if (Searching != null)
-                {
-                    Searching(this, new SearchUserEventArgs() { SearchText = searchtext });
-                }
+           if (searchtextuser.Length >= 2)
+           {
+               CleanSearch();
+               Noresult();
+               if (Searching != null)
+               {
+                   Searching(this, new SearchUserEventArgs() { SearchText = searchtextuser });
+               }
 
-            }
+           }
+
+            
         }
         public void UpdateResultsAdmin(List<string> results)
         {

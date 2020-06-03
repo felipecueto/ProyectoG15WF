@@ -43,6 +43,7 @@ namespace Controllers
             this.view.Followvideoplaylist += OnAddFollowedVideoPlaylist;
             this.view.Userselectedfollowedplaylist += OnRemoveFollowedPlaylist;
             this.view.Userselectedfollowedvideoplaylist += OnRemoveFollowedVideoPlaylist;
+            this.view.Searching += OnsereachtextAdmin;
 
 
 
@@ -146,8 +147,26 @@ namespace Controllers
                     resultString.Add(s.ToString());
             }
             view.UpdateResults(resultString);
-            view.UpdateResultsAdmin(resultString);
+            
         }
+        public void OnsereachtextAdmin(object sender ,SearchUserEventArgs e)
+        {
+            List<User> resultUsers = new List<User>();
+            List<string> resultString = new List<string>();
+            resultUsers = users.Where(t =>
+              t.Username.ToUpper().Contains(e.SearchText.ToUpper()))
+          .ToList();
+            if (resultUsers.Count > 0)
+            {
+                resultString.Add("-----Usuarios encontrados-----");
+                foreach (User s in resultUsers)
+                    resultString.Add(s.ToString());
+            }
+            view.UpdateResultsAdmin(resultString);
+
+        }
+
+
 
         public List<PlaylistSong> OnShowSongPlaylist(object sender, GetUserPlaylistEventsArgs e)
         {
