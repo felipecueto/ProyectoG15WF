@@ -45,6 +45,8 @@ namespace Model
             this.videoplaylist = new List<PlaylistVideo>();
             this.followedPlaylistSongs = new List<PlaylistSong>();
             this.followedPlaylistVideo = new List<PlaylistVideo>();
+            this.followingUsers = new List<User>();
+            this.followedUsers = new List<User>();
             AddMusicPlaylist("Musica Favorita");
             AddVideoPlaylist("Videos Favoritos");
         }
@@ -200,6 +202,56 @@ namespace Model
             return this.followedPlaylistVideo;
         }
         //
+
+        // Followers
+
+        public void AddFollowed(User followuser)
+        {
+            followedUsers.Add(followuser);
+        }
+
+        public void RemoveFollowed(string followed)
+        {
+            foreach (User followeduser in followedUsers)
+            {
+                if (followed == followeduser.username)
+                {
+                    followedUsers.Remove(followeduser);
+                    break;
+                }
+            }
+        }
+
+        public List<User> GetFollowedUsers()
+        {
+            return followedUsers;
+        }
+
+        // Following
+
+        public void AddFollowing(User followuser)
+        {
+            followingUsers.Add(followuser);
+        }
+
+        public void RemoveFollowing(string followed)
+        {
+            foreach (User followeduser in followingUsers)
+            {
+                if (followed == followeduser.username)
+                {
+                    followedUsers.Remove(followeduser);
+                    break;
+                }
+            }
+        }
+
+        public List<User> GetFollowingUsers()
+        {
+            return followingUsers;
+        }
+
+        // 
 
     }
 }
