@@ -52,6 +52,7 @@ namespace Controllers
             this.view.ShowFollowedUsers += OnShowFollowedUsers;
             this.view.ShowFollowingUsers += OnShowFollowingUsers;
             this.view.MailVerifyEvent += OncheckMail;
+            this.view.changeImage += OnImageChange;
             DeserializeData();
         }
 
@@ -77,7 +78,7 @@ namespace Controllers
                 FileStream FS = new FileStream("Users.bin", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
                 users =(List<User>)binaryFormatter.Deserialize(FS);
                 FS.Close();
-               
+                
             }
             catch
             {
@@ -119,8 +120,6 @@ namespace Controllers
             users.Add(new User(e.Usernametext, e.Nametext, e.Lastnametext, e.Email, e.Passwordtext));
             SerializeData();
             return true;
-            
-
         }
         public string OncheckUsernameregister(object sender, RegisterEventArgs e)
         {
@@ -527,6 +526,19 @@ namespace Controllers
                 }
             }
             return null;
+        }
+
+        public void OnImageChange(object sender, ChangeImageEventsArgs e)
+        {
+            foreach (User user in users)
+            {
+                if (user.Username == e.Usernametext)
+                {
+                    user.ImagePast = e.Ipath;
+
+                }
+            }
+            SerializeData();
         }
     }
 }   

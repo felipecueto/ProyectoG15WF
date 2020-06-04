@@ -429,6 +429,9 @@
             this.CloseAppStart = new BWCMM.MZButtonWindows();
             this.SOPTLOGO = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.SpotflixLableUper = new System.Windows.Forms.Label();
+            this.AdminLabel = new System.Windows.Forms.Label();
             this.StartPanel.SuspendLayout();
             this.LoginPanel.SuspendLayout();
             this.AdminMainPanel.SuspendLayout();
@@ -445,6 +448,7 @@
             this.SubAdminPanel.SuspendLayout();
             this.SubAdminUploadContent.SuspendLayout();
             this.SubAdminSearchPanel.SuspendLayout();
+            this.LogoSubPanel.SuspendLayout();
             this.MainPanel.SuspendLayout();
             this.MainScreenPanel.SuspendLayout();
             this.ReproduccionMainPanel.SuspendLayout();
@@ -533,7 +537,9 @@
             this.SubArtistPanel.SuspendLayout();
             this.SubPlaylistPanel.SuspendLayout();
             this.SubSerchPanel.SuspendLayout();
+            this.LogoPanel.SuspendLayout();
             this.RegisterPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // StartPanel
@@ -1508,6 +1514,7 @@
             // LogoSubPanel
             // 
             this.LogoSubPanel.BackColor = System.Drawing.SystemColors.GrayText;
+            this.LogoSubPanel.Controls.Add(this.AdminLabel);
             this.LogoSubPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.LogoSubPanel.Location = new System.Drawing.Point(0, 0);
             this.LogoSubPanel.Name = "LogoSubPanel";
@@ -1866,6 +1873,7 @@
             this.pictureBox1.Location = new System.Drawing.Point(104, 105);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(260, 282);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
@@ -2777,6 +2785,8 @@
             // 
             // SongDuracionTextbox
             // 
+            this.SongDuracionTextbox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.SongDuracionTextbox.Location = new System.Drawing.Point(165, 494);
             this.SongDuracionTextbox.Name = "SongDuracionTextbox";
             this.SongDuracionTextbox.Size = new System.Drawing.Size(446, 26);
@@ -3090,6 +3100,8 @@
             // 
             // DejarSeguirVideoPlaylist
             // 
+            this.DejarSeguirVideoPlaylist.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.DejarSeguirVideoPlaylist.BackColor = System.Drawing.Color.LightGray;
             this.DejarSeguirVideoPlaylist.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
             this.DejarSeguirVideoPlaylist.IconChar = FontAwesome.Sharp.IconChar.Minus;
@@ -4114,28 +4126,27 @@
             // FollowPlyalistButton
             // 
             this.FollowPlyalistButton.BackColor = System.Drawing.Color.DimGray;
-            this.FollowPlyalistButton.Dock = System.Windows.Forms.DockStyle.Right;
             this.FollowPlyalistButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.FollowPlyalistButton.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
             this.FollowPlyalistButton.IconChar = FontAwesome.Sharp.IconChar.Star;
             this.FollowPlyalistButton.IconColor = System.Drawing.Color.Black;
-            this.FollowPlyalistButton.IconSize = 30;
-            this.FollowPlyalistButton.Location = new System.Drawing.Point(248, 64);
+            this.FollowPlyalistButton.IconSize = 20;
+            this.FollowPlyalistButton.Location = new System.Drawing.Point(270, 59);
             this.FollowPlyalistButton.Name = "FollowPlyalistButton";
             this.FollowPlyalistButton.Rotation = 0D;
-            this.FollowPlyalistButton.Size = new System.Drawing.Size(62, 33);
+            this.FollowPlyalistButton.Size = new System.Drawing.Size(40, 38);
             this.FollowPlyalistButton.TabIndex = 1;
             this.FollowPlyalistButton.UseVisualStyleBackColor = false;
             this.FollowPlyalistButton.Click += new System.EventHandler(this.FollowPlyalistButton_Click);
             // 
             // SearchUserPlaylistListbox
             // 
-            this.SearchUserPlaylistListbox.Dock = System.Windows.Forms.DockStyle.Top;
+            this.SearchUserPlaylistListbox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.SearchUserPlaylistListbox.FormattingEnabled = true;
             this.SearchUserPlaylistListbox.ItemHeight = 20;
             this.SearchUserPlaylistListbox.Location = new System.Drawing.Point(0, 0);
             this.SearchUserPlaylistListbox.Name = "SearchUserPlaylistListbox";
-            this.SearchUserPlaylistListbox.Size = new System.Drawing.Size(310, 64);
+            this.SearchUserPlaylistListbox.Size = new System.Drawing.Size(310, 97);
             this.SearchUserPlaylistListbox.TabIndex = 0;
             this.SearchUserPlaylistListbox.SelectedIndexChanged += new System.EventHandler(this.SearchUserPlaylistListbox_SelectedIndexChanged);
             // 
@@ -5346,6 +5357,8 @@
             // 
             // LogoPanel
             // 
+            this.LogoPanel.Controls.Add(this.SpotflixLableUper);
+            this.LogoPanel.Controls.Add(this.pictureBox2);
             this.LogoPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.LogoPanel.Location = new System.Drawing.Point(0, 0);
             this.LogoPanel.Name = "LogoPanel";
@@ -5722,6 +5735,37 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pictureBox2.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(105, 100);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 0;
+            this.pictureBox2.TabStop = false;
+            // 
+            // SpotflixLableUper
+            // 
+            this.SpotflixLableUper.Font = new System.Drawing.Font("MV Boli", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SpotflixLableUper.Location = new System.Drawing.Point(106, 25);
+            this.SpotflixLableUper.Name = "SpotflixLableUper";
+            this.SpotflixLableUper.Size = new System.Drawing.Size(187, 46);
+            this.SpotflixLableUper.TabIndex = 1;
+            this.SpotflixLableUper.Text = "SPOTFLIX";
+            this.SpotflixLableUper.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // AdminLabel
+            // 
+            this.AdminLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.AdminLabel.Font = new System.Drawing.Font("MV Boli", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AdminLabel.Location = new System.Drawing.Point(0, 0);
+            this.AdminLabel.Name = "AdminLabel";
+            this.AdminLabel.Size = new System.Drawing.Size(250, 72);
+            this.AdminLabel.TabIndex = 0;
+            this.AdminLabel.Text = "ADMIN SPOTFLIX";
+            this.AdminLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // AppForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -5754,6 +5798,7 @@
             this.SubAdminPanel.ResumeLayout(false);
             this.SubAdminUploadContent.ResumeLayout(false);
             this.SubAdminSearchPanel.ResumeLayout(false);
+            this.LogoSubPanel.ResumeLayout(false);
             this.MainPanel.ResumeLayout(false);
             this.MainScreenPanel.ResumeLayout(false);
             this.ReproduccionMainPanel.ResumeLayout(false);
@@ -5863,8 +5908,10 @@
             this.SubArtistPanel.ResumeLayout(false);
             this.SubPlaylistPanel.ResumeLayout(false);
             this.SubSerchPanel.ResumeLayout(false);
+            this.LogoPanel.ResumeLayout(false);
             this.RegisterPanel.ResumeLayout(false);
             this.RegisterPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -6271,6 +6318,9 @@
         private System.Windows.Forms.Panel LogoSubPanel;
         private System.Windows.Forms.Label ADMINSoptflixlogo;
         private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer1;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label SpotflixLableUper;
+        private System.Windows.Forms.Label AdminLabel;
     }
 }
 

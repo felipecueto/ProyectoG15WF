@@ -26,6 +26,7 @@ namespace Model
         string tipodeusuario = "Free";
         string genero = "None";
         string artist = "";
+        string imagePast = "";
 
         public User()
         {
@@ -64,6 +65,7 @@ namespace Model
         public string Artist { get => artist; set => artist = value; }
         public List<PlaylistSong> Playlistsong { get => musicplaylist; set => musicplaylist = value; }
         public List<PlaylistVideo> Playlistvideo { get => videoplaylist; set => videoplaylist = value; }
+        public string ImagePast { get => imagePast; set => imagePast = value; }
 
         public bool CheckCredentials(string username, string pass)
         {

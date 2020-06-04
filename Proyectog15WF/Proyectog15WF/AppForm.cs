@@ -44,7 +44,7 @@ namespace Proyectog15WF
         public event LoginReturnUserEventHandler Userrequest;
         public delegate Artist GetingArtistEventHandler(object source, GetArtistEventArgs args);
         public event GetingArtistEventHandler getArtist;
-
+        public event EventHandler<ChangeImageEventsArgs> changeImage;
         // Eventos playlist
         public delegate List<PlaylistSong> SendingPlaylistHandler(object source, GetUserPlaylistEventsArgs args);
         public event SendingPlaylistHandler Sendingplaylist;
@@ -256,6 +256,7 @@ namespace Proyectog15WF
                     if (Userrequest != null)
                     {
                         actuallogeduser = Userrequest(this, new LoginEventArgs() { UsernameText = username });
+                        
                     }
                     {
                         string variable = actuallogeduser.Genero;
@@ -329,6 +330,12 @@ namespace Proyectog15WF
                     {
                         EdadCuentaInput.Text = null;
                         EdadCuentaInput.ReadOnly = false;
+                    }
+                    if (actuallogeduser.ImagePast != "")
+                    {
+                        Bitmap image = new Bitmap(actuallogeduser.ImagePast);
+                        pictureBox1.Image = image;
+                        pictureBox2.Image = image;
                     }
 
                     loginViewInvalidCredentialsAlert.ResetText();
@@ -646,6 +653,9 @@ namespace Proyectog15WF
             namevideo = "";
             namesong = "";
             pasua = false;
+            pictureBox1.Image = null;
+            pictureBox2.Image = null;
+
 
         }
 
@@ -1687,6 +1697,7 @@ namespace Proyectog15WF
             NombrePlaylistExiste.Visible = false;
             VideoPlaylistCreadaConExitoLabel.Visible = false;
             CrearVideoPlaylistpanel.Visible = true;
+            PrivacidadVideoPlaylist.SelectedIndex = 1;
             SerializeData();
 
         }
@@ -1753,6 +1764,7 @@ namespace Proyectog15WF
             ErrorCuentaPrivadaPlaylistSong.Visible = false;
             ErrorExisteSongPlaylisteNombre.Visible = false;
             PlaylistSongCreada.Visible = false;
+            NewSongPrivacidadComboBox.SelectedIndex = 1;
             SerializeData();
         }
 
@@ -2226,11 +2238,16 @@ namespace Proyectog15WF
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Title = "Selecione la imagen";
-            openFileDialog.Filter = "Image file (*.jpg; *.jpeg;*.bmp;)|*.jpg; *.jpeg;*.bmp;";
+            openFileDialog.Filter = "Image file (*.jpg; *.jpeg;*.bmp;*.PNG;)|*.jpg; *.jpeg;*.bmp;*.PNG;";
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 Bitmap image = new Bitmap(openFileDialog.FileName);
+                if (changeImage != null)
+                {
+                    changeImage(this, new ChangeImageEventsArgs() { Usernametext= nameuser, Ipath = openFileDialog.FileName});
+                }
                 pictureBox1.Image = image;
+                pictureBox2.Image = image;
             }
         }
 
