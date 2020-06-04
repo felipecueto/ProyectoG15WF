@@ -19,7 +19,7 @@ namespace Proyectog15WF.Contollers
         string curDir = Directory.GetCurrentDirectory();
         BinaryFormatter binaryFormatter = new BinaryFormatter();
         DateTime aDate = DateTime.Now;
-
+        int total = 1;
         public Songcontroller(Form view)
         {
             Chargesong();
@@ -32,6 +32,7 @@ namespace Proyectog15WF.Contollers
             this.view.verfyedsong += OnverifySongExist;
             this.view.Recivesongmultiplecriteria += OnBuscar;
             this.view.Reproduccionesname += Onsongreproduction;
+            this.view.Calificaciondelusuario += Onqualificationchanged;
             DeserializeData();
 
         }
@@ -354,6 +355,22 @@ namespace Proyectog15WF.Contollers
                 if (e.Nametext.Contains(song.Namesong))
                 {
                     song.Reproduction++;
+                }
+
+
+            }
+            SerializeData();
+
+        }
+        public void Onqualificationchanged(object sender ,MandarcalficacionEventArgs e)
+        {
+            
+            foreach (Song song in songs)
+            {
+                if (e.Namecancion.Contains(song.Namesong))
+                {   
+                    song.Qualification = (song.Qualification + e.Calification) / total;
+                    total++;
                 }
 
 

@@ -51,6 +51,7 @@ namespace Controllers
             this.view.RemoveFollowingUser += OnRemoveFollowingUser;
             this.view.ShowFollowedUsers += OnShowFollowedUsers;
             this.view.ShowFollowingUsers += OnShowFollowingUsers;
+            this.view.MailVerifyEvent += OncheckMail;
             DeserializeData();
         }
 
@@ -135,6 +136,26 @@ namespace Controllers
             return result;
 
         }
+        public string OncheckMail(object sender , MailEventArgs e)
+        {
+
+            string result = null;
+            foreach(User user in users)
+            {
+                if (user.Mail == e.Emailtext)
+                {
+                    result = user.Mail;
+                }
+
+
+            }
+            return result;
+
+
+
+        }
+
+
         public void OnSearchTextChanged(object sender, SearchUserEventArgs e)
         {
             List<User> resultUsers = new List<User>();

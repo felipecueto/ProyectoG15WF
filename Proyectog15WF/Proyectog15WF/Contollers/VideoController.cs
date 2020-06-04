@@ -18,6 +18,7 @@ namespace Proyectog15WF.Contollers
         string curDir= Directory.GetCurrentDirectory();
         BinaryFormatter binaryFormatter = new BinaryFormatter();
         DateTime aDate = DateTime.Now;
+        int total = 1;
         public VideoController(Form view)
         {
             ChargeVideos();
@@ -29,6 +30,7 @@ namespace Proyectog15WF.Contollers
             this.view.verifyVideoExist += OnverifyVideoExist;
             this.view.Totalitsofvideos += OnTotalitsofvideos;
             this.view.Reproduccionesname += Onvideoreproduction;
+            this.view.Calificaciondelusuario += Onqualificationchanged;
             DeserializeData();
         }
 
@@ -170,6 +172,22 @@ namespace Proyectog15WF.Contollers
 
             }
             SerializeData();
+        }
+        public void Onqualificationchanged(object sender, MandarcalficacionEventArgs e)
+        {
+
+            foreach (Video video in videos)
+            {
+                if (e.Namecancion.Contains(video.VideoName))
+                {
+                    video.Qualification = (video.Qualification + e.Calification) / total;
+                    total++;
+                }
+
+
+            }
+            SerializeData();
+
         }
     }
 }

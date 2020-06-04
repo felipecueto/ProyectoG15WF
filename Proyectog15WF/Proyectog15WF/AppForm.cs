@@ -119,8 +119,13 @@ namespace Proyectog15WF
         public event EventHandler<ArtistInfoEventArgs> Artistinfo;
         //Evento para subir reproducciones
         public event EventHandler<ReproduccionesEventArgs> Reproduccionesname;
+        //Evento para mandar la calificacion
+        public event EventHandler<MandarcalficacionEventArgs> Calificaciondelusuario;
+        //Evento para verificar mail
+        public delegate string CheckMailEventArgs(object source, MailEventArgs args);
+        public event CheckMailEventArgs MailVerifyEvent;
 
-        
+
 
 
         List<Panel> stackPanels = new List<Panel>();
@@ -344,7 +349,7 @@ namespace Proyectog15WF
                 if (Userrequest != null)
                 {
                     actuallogeduser = Userrequest(this, new LoginEventArgs() { UsernameText = username });
-                }
+                }     
                 stackPanels.Add(panels["StartPanel"]);
                 MainPanel.Visible = true;
                 MainPanel.BringToFront();
@@ -437,9 +442,9 @@ namespace Proyectog15WF
                     count++;
                 }
                 usernameInputuser = UsernameInputRegister.Text;
-                if (usernameInputuser == "")
+                if (usernameInputuser == ""||usernameInputuser.Length<=3)
                 {
-                    MessageBox.Show("Nombre usuario incorrecto");
+                    MessageBox.Show("Su usuario debe tener minimo 4 caracteres");
                 }
                 else if (OncheckUsernameregister(usernameInputuser) != null)
                 {
@@ -454,6 +459,10 @@ namespace Proyectog15WF
                 if (mailInputuser == "")
                 {
                     MessageBox.Show("Mail incorrecto");
+                }
+                else if (OncheckMail(mailInputuser) != null)
+                {
+                    MessageBox.Show("Ya existe este correo");
                 }
                 else
                 {
@@ -502,7 +511,25 @@ namespace Proyectog15WF
             return check;
 
         }
+        public string OncheckMail(string Mail)
+        {
+            SerializeData();
+            string check = null;
+            if (MailVerifyEvent != null)
+            {
+                if (Mail == MailVerifyEvent(this, new MailEventArgs() { Emailtext = Mail }))
+                {
+                    check += Mail;
+                }
+                else
+                {
+                    check = null;
+                }
+            }
+            return check;
 
+
+        }
 
         private void UserSeachButton_Click(object sender, EventArgs e)
         {
@@ -1915,7 +1942,27 @@ namespace Proyectog15WF
         //Reproducion------------------------------------------------------------------------------------------------//
         private void CalsificacionButton_Click(object sender, EventArgs e)
         {
-            string qual = CalificacionComboBox.SelectedItem.ToString();
+            int qual =Convert.ToInt32( CalificacionComboBox.SelectedItem.ToString());
+            if (namesong != "" )
+            {
+                if (Calificaciondelusuario != null)
+                {
+                    Calificaciondelusuario(this, new MandarcalficacionEventArgs() { Calification = qual, Namecancion = namesong });
+
+
+                }
+
+            }
+            if (namevideo != "")
+            {
+                if (Calificaciondelusuario != null)
+                {
+                    Calificaciondelusuario(this, new MandarcalficacionEventArgs() { Calification = qual, Namecancion = namevideo });
+
+                }
+
+            }
+
         }
 
         private void VideoInMyplaylistButton_Click(object sender, EventArgs e)
@@ -2478,9 +2525,8 @@ namespace Proyectog15WF
 
         private void ArtistInfoButton_Click(object sender, EventArgs e)
         {
-            
+
             string artistname = AdminSearchAristlistBox1.SelectedItem.ToString();
-            MessageBox.Show(artistname);
             InfoAristisListbox.Visible = true;
             if (artistname== "-----Artistas encontrados-----" || artistname == "No results for search criteria")
             {
