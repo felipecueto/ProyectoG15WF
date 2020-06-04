@@ -22,6 +22,7 @@ namespace Proyectog15WF.Contollers
             this.view = view as AppForm;
             this.view.Artistifosend += OnCreateArtist;
             this.view.Artistinfo += OnArtistinfo;
+            this.view.getArtist += OnGetArtist;
             DeserializeData();
         }
 
@@ -56,6 +57,20 @@ namespace Proyectog15WF.Contollers
         public void OnCreateArtist(object sender, SendingArtistInfo e)
         {
             artists.Add(new Artist(e.Usernametext, e.AgeArtist, e.GenderArtist, e.ArtistText));
+            SerializeData();
+
+        }
+        public Artist OnGetArtist(object sender, GetArtistEventArgs e)
+        {
+            foreach (Artist artist in artists)
+            {
+                if (artist.Name.ToUpper() == e.ArtistName.ToUpper())
+                {
+                    return artist;
+                }
+            }
+            return null;
+
 
         }
         public void OnArtistinfo(object sender,ArtistInfoEventArgs e)
@@ -73,9 +88,8 @@ namespace Proyectog15WF.Contollers
                         resultString.Add(s.ToString());
                 }
                 view.UpdateResultsArtist(resultString);
-
-
-
+                view.UpdateResultsArtistAdmin(resultString);
+                SerializeData();
             }
 
 

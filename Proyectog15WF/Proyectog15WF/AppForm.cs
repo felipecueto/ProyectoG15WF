@@ -41,6 +41,8 @@ namespace Proyectog15WF
         public event EventHandler<SearchingSongorVideo> Searchingnamevideoorsong;
         public delegate User LoginReturnUserEventHandler(object source, LoginEventArgs args);
         public event LoginReturnUserEventHandler Userrequest;
+        public delegate Artist GetingArtistEventHandler(object source, GetArtistEventArgs args);
+        public event GetingArtistEventHandler getArtist;
 
         // Eventos playlist
         public delegate List<PlaylistSong> SendingPlaylistHandler(object source, GetUserPlaylistEventsArgs args);
@@ -627,8 +629,7 @@ namespace Proyectog15WF
             SearchUserPanelResultlistusers.Items.Add("No results for search criteria");
             AdminSearchUserlistBox.Items.Add("No results for search criteria");
             SearchArtistListBox.Items.Add("No results for search criteria");
-
-
+            AdminSearchAristlistBox1.Items.Add("No results for search criteria");
         }
         private void CleanSearch()
         {
@@ -636,6 +637,7 @@ namespace Proyectog15WF
             SearchUserPanelResultlistusers.Items.Clear();
             AdminSearchUserlistBox.Items.Clear();
             SearchArtistListBox.Items.Clear();
+            AdminSearchAristlistBox1.Items.Clear();
 
         }
         public void UpdateResults(List<string> results)
@@ -2270,13 +2272,43 @@ namespace Proyectog15WF
     //------------------------------------------------------ADMIN------------------------------------------------------------------------------//
         private void AdminSearchAristTextbox_TextChanged(object sender, EventArgs e)
         {
+            string artist = AdminSearchAristTextbox.Text;
+            List<string> results = new List<string>();
+            if (artist.Length >= 2)
+            {
+                CleanSearch();
+                Noresult();
+                if (Artistinfo != null)
+                {
+                    Artistinfo(this, new ArtistInfoEventArgs() { ArtistText = artist });
+                }
+
+            }
 
         }
-
-        private void AdminSearchAristlistBox1_SelectedIndexChanged(object sender, EventArgs e)
+        public void UpdateResultsArtistAdmin(List<string> results)
         {
+            SerializeData();
+            if (results.Count > 0)
+            {
+                foreach (string result in results)
+                {
+                    if (resultCounter <= 50)
+                    {
+                        if (AdminSearchAristlistBox1.Items.Count > 0 && AdminSearchAristlistBox1.Items[0].Equals("No results for search criteria"))
+                        {
+                            AdminSearchAristlistBox1.Items.Add(result);
+                            AdminSearchAristlistBox1.Items.RemoveAt(0);
 
+                        }
+                        else
+                            AdminSearchAristlistBox1.Items.Add(result);
+                        resultCounter++;
+                    }
+                }
+            }
         }
+
 
         private void InfoAristisListbox_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -2285,18 +2317,39 @@ namespace Proyectog15WF
 
         private void ArtistInfoButton_Click(object sender, EventArgs e)
         {
-            if (InfoAristisListbox.Visible)
+            
+            string artistname = AdminSearchAristlistBox1.SelectedItem.ToString();
+            MessageBox.Show(artistname);
+            InfoAristisListbox.Visible = true;
+            if (artistname== "-----Artistas encontrados-----" || artistname == "No results for search criteria")
             {
-                InfoAristisListbox.Visible = false;
+
             }
             else
             {
+                InfoAristisListbox.Items.Clear();
                 InfoAristisListbox.Visible = true;
+                if (Userrequest != null)
+                {
+                    Artist artis = getArtist(this, new GetArtistEventArgs() { ArtistName=artistname });
+                    InfoAristisListbox.Items.Add("Infomracion Artista");
+                    InfoAristisListbox.Items.Add("");
+                    InfoAristisListbox.Items.Add("Nombre: " + artis.Name);
+                    InfoAristisListbox.Items.Add("Artista: " + artis.Artisttype);
+                    InfoAristisListbox.Items.Add("Edad: " + artis.Age);
+                    InfoAristisListbox.Items.Add("Genero: " + artis.Gender);
+
+                }
             }
+
         }
 
         private void SearchAdminArtistButton_Click(object sender, EventArgs e)
         {
+            AdminSearchAristlistBox1.Items.Clear();
+            AdminSearchAristTextbox.ResetText();
+            InfoAristisListbox.Visible = false;
+            InfoAristisListbox.Items.Clear();
             AdminUserInfoListBox.Visible = false;
             AdminUserMainPanel.Visible = false;
             if (AdminArtistSearchPanl.Visible)
@@ -2503,7 +2556,7 @@ namespace Proyectog15WF
             songGender= AdminSongGeneroTextBox.Text;
             songLetra=AdminSongLetraTextBox.Text;
             sexo = AdminSongSexoCombobox.SelectedItem.ToString();
-            if (songCategoria==""||songGender==""||songDiscorafia==""||songLetra==""||songEtudio==""||songCompositor==""||songDuracion==""||sexo=="None"||age=="")
+            if (songCategoria==""||songGender==""||songDiscorafia==""||songLetra==""||songEtudio==""||songCompositor==""||songDuracion==""||sexo=="None"||age==""||songCompositor.Length<3)
             {
                 MessageBox.Show("Debe Rellenar todos los cambos");
             }
