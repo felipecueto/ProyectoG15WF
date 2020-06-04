@@ -44,11 +44,13 @@ namespace Controllers
             this.view.Userselectedfollowedplaylist += OnRemoveFollowedPlaylist;
             this.view.Userselectedfollowedvideoplaylist += OnRemoveFollowedVideoPlaylist;
             this.view.Searching += OnsereachtextAdmin;
-
-
-
-
-
+            //Followers
+            this.view.AddFollowedUser += OnAddFollowedUser;
+            this.view.AddFollowingUser += OnAddFollowingUser;
+            this.view.RemoveFollowedUser += OnRemoveFollowedUser;
+            this.view.RemoveFollowingUser += OnRemoveFollowingUser;
+            this.view.ShowFollowedUsers += OnShowFollowedUsers;
+            this.view.ShowFollowingUsers += OnShowFollowingUsers;
             DeserializeData();
         }
 
@@ -409,6 +411,98 @@ namespace Controllers
                 if (user.Username == e.UsernameText)
                 {
                     return user.Username + " " + user.Artist+ " " +user.Genero+ " " +user.Edad;
+                }
+            }
+            return null;
+        }
+
+        public void OnAddFollowedUser(object source, GetUserPlaylistEventsArgs e)
+        {
+            foreach (User user in users)
+            {
+                if (user.Username.ToUpper() == e.ActualUsernameSelected.ToUpper())
+                {
+                    foreach (User selecteduser in users)
+                    {
+                        if (selecteduser.Username.ToUpper() == e.ActualLoggedUsername.ToUpper())
+                        {
+                            user.AddFollowed(selecteduser);
+                        }
+                    }
+                }
+            }
+        }
+
+        public void OnAddFollowingUser(object source, GetUserPlaylistEventsArgs e)
+        {
+            foreach (User user in users)
+            {
+                if (user.Username.ToUpper() == e.ActualLoggedUsername.ToUpper())
+                {
+                    foreach (User selecteduser in users)
+                    {
+                        if (selecteduser.Username.ToUpper() == e.ActualUsernameSelected.ToUpper())
+                        {
+                            user.AddFollowing(selecteduser);
+                        }
+                    }
+                }
+            }
+        }
+
+        public void OnRemoveFollowedUser(object source, GetUserPlaylistEventsArgs e)
+        {
+            foreach (User user in users)
+            {
+                if (user.Username.ToUpper() == e.ActualUsernameSelected.ToUpper())
+                {
+                    foreach (User selecteduser in users)
+                    {
+                        if (selecteduser.Username.ToUpper() == e.ActualLoggedUsername.ToUpper())
+                        {
+                            user.RemoveFollowed(selecteduser.Username);
+                        }
+                    }
+                }
+            }
+        }
+
+        public void OnRemoveFollowingUser(object source, GetUserPlaylistEventsArgs e)
+        {
+            foreach (User user in users)
+            {
+                if (user.Username.ToUpper() == e.ActualLoggedUsername.ToUpper())
+                {
+                    foreach (User selecteduser in users)
+                    {
+                        if (selecteduser.Username.ToUpper() == e.ActualUsernameSelected.ToUpper())
+                        {
+                            user.RemoveFollowing(selecteduser.Username); 
+                        }
+                    }
+                }
+            }
+        }
+
+        public List<User> OnShowFollowedUsers(object source, GetUserPlaylistEventsArgs e)
+        {
+            foreach (User user in users)
+            {
+                if (e.ActualLoggedUsername.ToUpper() == user.Username.ToUpper())
+                {
+                    return user.GetFollowedUsers();
+                }
+            }
+            return null;
+        }
+
+        public List<User> OnShowFollowingUsers(object source, GetUserPlaylistEventsArgs e)
+        {
+            foreach (User user in users)
+            {
+                if (e.ActualLoggedUsername.ToUpper() == user.Username.ToUpper())
+                {
+                    return user.GetFollowingUsers();
                 }
             }
             return null;

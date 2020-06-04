@@ -62,6 +62,15 @@ namespace Proyectog15WF
         public event EventHandler<GetUserPlaylistEventsArgs> Followmusicplaylist;
         public event EventHandler<GetUserPlaylistEventsArgs> Followvideoplaylist;
 
+        // Eventos seguir usuarios
+        public delegate List<User> SendingFollowUserHandler(object source, GetUserPlaylistEventsArgs args);
+        public event EventHandler<GetUserPlaylistEventsArgs> AddFollowedUser;
+        public event EventHandler<GetUserPlaylistEventsArgs> AddFollowingUser;
+        public event EventHandler<GetUserPlaylistEventsArgs> RemoveFollowedUser;
+        public event EventHandler<GetUserPlaylistEventsArgs> RemoveFollowingUser;
+        public event SendingFollowUserHandler ShowFollowedUsers;
+        public event SendingFollowUserHandler ShowFollowingUsers;
+
         //Evnetos de reproduccion
         public delegate string SelectedVideoEventHandler(object source, SelectVideoEventArgs args);
         public event SelectedVideoEventHandler Reproducevideo;
@@ -1136,6 +1145,12 @@ namespace Proyectog15WF
 
         private void FollowersButton_Click(object sender, EventArgs e)
         {
+            SeguidoreslistBox.Items.Clear();
+            List<User> followersuser = ShowFollowedUsers(this, new GetUserPlaylistEventsArgs() { ActualLoggedUsername = nameuser });
+            foreach (User user in followersuser)
+            {
+                SeguidoreslistBox.Items.Add(user.Username);
+            }
             SeguidoresPanel.Visible = true;
             SeguidosPanel.Visible = false;
             SerializeData();
@@ -1143,6 +1158,12 @@ namespace Proyectog15WF
 
         private void FollowButton_Click(object sender, EventArgs e)
         {
+            SeguidosListBox.Items.Clear();
+            List<User> followinguser = ShowFollowingUsers(this, new GetUserPlaylistEventsArgs() { ActualLoggedUsername = nameuser });
+            foreach (User user in followinguser)
+            {
+                SeguidosListBox.Items.Add(user.Username);
+            }
             SeguidoresPanel.Visible = false;
             SeguidosPanel.Visible = true;
             SerializeData();
@@ -1288,7 +1309,15 @@ namespace Proyectog15WF
 
         private void DejarDeSeguirButton1_Click(object sender, EventArgs e)
         {
-
+            string selecteduser = Convert.ToString(SeguidosListBox.SelectedItem);
+            RemoveFollowingUser(this, new GetUserPlaylistEventsArgs() { ActualLoggedUsername = nameuser, ActualUsernameSelected = selecteduser });
+            RemoveFollowedUser(this, new GetUserPlaylistEventsArgs() { ActualLoggedUsername = nameuser, ActualUsernameSelected = selecteduser });
+            SeguidosListBox.Items.Clear();
+            List<User> followinguser = ShowFollowingUsers(this, new GetUserPlaylistEventsArgs() { ActualLoggedUsername = nameuser });
+            foreach (User user in followinguser)
+            {
+                SeguidosListBox.Items.Add(user.Username);
+            }
         }
 
         private void SeguidoreslistBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -1738,7 +1767,30 @@ namespace Proyectog15WF
 
         private void BorrarCancionMyplaylist_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Hola");
+            string playlist_seleccionada = Convert.ToString(MySongsListBox.SelectedItem);
+            string songseleccionda = Convert.ToString(SongInMyPlaylistListBox.SelectedItem);
+
+            foreach (PlaylistSong cancionesinplaylistsong in OnReciveUsernamePlaylist())
+            {
+                if (cancionesinplaylistsong.GetPlaylistName() == playlist_seleccionada)
+                {
+                    try
+                    {
+                        foreach (Song song in cancionesinplaylistsong.GetPlaylistAllSongs())
+                        {
+                            if (song.Namesong == songseleccionda)
+                            {
+                                cancionesinplaylistsong.RemoveSong(song);
+                                SongInMyPlaylistListBox.Items.Remove(songseleccionda);
+                            }
+                        }
+                    }
+                    catch
+                    {
+
+                    }
+                }
+            }
         }
 
         private void CrearSongPlaylistButton_Click(object sender, EventArgs e)
@@ -2001,7 +2053,9 @@ namespace Proyectog15WF
 
         private void FollowUserButton_Click(object sender, EventArgs e)
         {
-
+            string selectedusername = Convert.ToString(SearchUserPanelResultlistusers.SelectedItem);
+            AddFollowedUser(this, new GetUserPlaylistEventsArgs { ActualLoggedUsername = nameuser, ActualUsernameSelected = selectedusername });
+            AddFollowingUser(this, new GetUserPlaylistEventsArgs { ActualLoggedUsername = nameuser, ActualUsernameSelected = selectedusername });
         }
 
         public List<PlaylistSong> OnReciveUsernamePlaylist(string selecteduser)

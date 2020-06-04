@@ -205,18 +205,29 @@ namespace Model
 
         // Followers
 
-        public void AddFollowed(User followuser)
+        public bool AddFollowed(User followuser)
         {
-            followedUsers.Add(followuser);
+            if (this.followedUsers != null)
+            {
+                foreach (User followeduser in this.followedUsers)
+                {
+                    if (followuser.username == followeduser.username)
+                    {
+                        return false;
+                    }
+                }
+            }
+            this.followedUsers.Add(followuser);
+            return true;
         }
 
         public void RemoveFollowed(string followed)
         {
-            foreach (User followeduser in followedUsers)
+            foreach (User followeduser in this.followedUsers)
             {
                 if (followed == followeduser.username)
                 {
-                    followedUsers.Remove(followeduser);
+                    this.followedUsers.Remove(followeduser);
                     break;
                 }
             }
@@ -224,23 +235,34 @@ namespace Model
 
         public List<User> GetFollowedUsers()
         {
-            return followedUsers;
+            return this.followedUsers;
         }
 
         // Following
 
-        public void AddFollowing(User followuser)
+        public bool AddFollowing(User following)
         {
-            followingUsers.Add(followuser);
+            if (this.followingUsers != null)
+            {
+                foreach (User followeduser in this.followingUsers)
+                {
+                    if (following.username.ToUpper() == followeduser.username.ToUpper())
+                    {
+                        return false;
+                    }
+                }
+            }
+            this.followingUsers.Add(following);
+            return true;
         }
 
         public void RemoveFollowing(string followed)
         {
-            foreach (User followeduser in followingUsers)
+            foreach (User followeduser in this.followingUsers)
             {
-                if (followed == followeduser.username)
+                if (followed.ToUpper() == followeduser.username.ToUpper())
                 {
-                    followedUsers.Remove(followeduser);
+                    this.followingUsers.Remove(followeduser);
                     break;
                 }
             }
@@ -248,7 +270,7 @@ namespace Model
 
         public List<User> GetFollowingUsers()
         {
-            return followingUsers;
+            return this.followingUsers;
         }
 
         // 
