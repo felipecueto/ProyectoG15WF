@@ -28,6 +28,7 @@ namespace Proyectog15WF.Contollers
             this.view.Videocaracteristics += OnVideocaracteristics;
             this.view.verifyVideoExist += OnverifyVideoExist;
             this.view.Totalitsofvideos += OnTotalitsofvideos;
+            this.view.Reproduccionesname += Onvideoreproduction;
             DeserializeData();
         }
 
@@ -156,6 +157,19 @@ namespace Proyectog15WF.Contollers
             }
             SerializeData();
             return modeartistsongs;
+        }
+        public void Onvideoreproduction(object sender, ReproduccionesEventArgs e)
+        {
+            foreach (Video video in videos)
+            {
+                if (e.Nametext.Contains(video.VideoName))
+                {
+                    video.Reproduction++;
+                }
+
+
+            }
+
         }
     }
 }

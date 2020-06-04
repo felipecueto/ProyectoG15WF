@@ -105,6 +105,10 @@ namespace Proyectog15WF
         public event SendingMultipleSong Recivesongmultiplecriteria;
         //Evento que manda al Artista
         public event EventHandler<ArtistInfoEventArgs> Artistinfo;
+        //Evento para subir reproducciones
+        public event EventHandler<ReproduccionesEventArgs> Reproduccionesname;
+
+        
 
 
         List<Panel> stackPanels = new List<Panel>();
@@ -1160,14 +1164,22 @@ namespace Proyectog15WF
                 {
                     axWindowsMediaPlayer1.URL = namesong;
                     axWindowsMediaPlayer1.Ctlcontrols.play();
+                    if (Reproduccionesname != null)
+                    {
+                        Reproduccionesname(this, new ReproduccionesEventArgs() { Nametext = namesong });
 
+                    }
                     pasua = true;
                 }
                 else if (namesong == "" && namevideo != "")
                 {
                     axWindowsMediaPlayer1.URL = namevideo;
                     axWindowsMediaPlayer1.Ctlcontrols.play();
+                    if (Reproduccionesname != null)
+                    {
+                        Reproduccionesname(this, new ReproduccionesEventArgs() { Nametext = namevideo });
 
+                    }
                     pasua = true;
 
                 }

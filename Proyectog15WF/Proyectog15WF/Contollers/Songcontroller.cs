@@ -31,6 +31,7 @@ namespace Proyectog15WF.Contollers
             this.view.Totalitsofsongs += OnTotalitsofsongs;
             this.view.verfyedsong += OnverifySongExist;
             this.view.Recivesongmultiplecriteria += OnBuscar;
+            this.view.Reproduccionesname += Onsongreproduction;
             DeserializeData();
 
         }
@@ -346,16 +347,22 @@ namespace Proyectog15WF.Contollers
 
 
         }
+        public void Onsongreproduction(object sender ,ReproduccionesEventArgs e)
+        {
+            foreach (Song song in songs)
+            {
+                if (e.Nametext.Contains(song.Namesong))
+                {
+                    song.Reproduction++;
+                }
 
 
+            }
 
+        }
 
 
     }
-    
-
-
-
-
+  
 
 }
