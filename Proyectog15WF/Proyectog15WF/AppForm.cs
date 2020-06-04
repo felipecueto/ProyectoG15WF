@@ -103,6 +103,9 @@ namespace Proyectog15WF
         //Evento para busqueda multiple
         public delegate List<Song> SendingMultipleSong(object source, SendingtextMultipleFiltersEventArgs args);
         public event SendingMultipleSong Recivesongmultiplecriteria;
+        //Evento que manda al Artista
+        public event EventHandler<ArtistInfoEventArgs> Artistinfo;
+
 
         List<Panel> stackPanels = new List<Panel>();
         Dictionary<string, Panel> panels = new Dictionary<string, Panel>();
@@ -619,12 +622,17 @@ namespace Proyectog15WF
             SerializeData();
             SearchUserPanelResultlistusers.Items.Add("No results for search criteria");
             AdminSearchUserlistBox.Items.Add("No results for search criteria");
+            SearchArtistListBox.Items.Add("No results for search criteria");
+
+
         }
         private void CleanSearch()
         {
             resultCounter = 0;
             SearchUserPanelResultlistusers.Items.Clear();
             AdminSearchUserlistBox.Items.Clear();
+            SearchArtistListBox.Items.Clear();
+
         }
         public void UpdateResults(List<string> results)
         {
@@ -1758,8 +1766,45 @@ namespace Proyectog15WF
 
         private void SearchTextBox_TextChanged(object sender, EventArgs e)
         {
+            string artist = SearchTextBox.Text;
+            List<string> results = new List<string>();
+            if (artist.Length >= 2)
+            {
+                CleanSearch();
+                Noresult();
+                if (Artistinfo != null)
+                {
+                    Artistinfo(this, new ArtistInfoEventArgs() {ArtistText=artist });
+                }
+
+            }
+
 
         }
+        public void UpdateResultsArtist(List<string> results)
+        {
+            SerializeData();
+            if (results.Count > 0)
+            {
+                foreach (string result in results)
+                {
+                    if (resultCounter <= 50)
+                    {
+                        if (SearchArtistListBox.Items.Count > 0 && SearchArtistListBox.Items[0].Equals("No results for search criteria"))
+                        {
+                             SearchArtistListBox.Items.Add(result);
+                             SearchArtistListBox.Items.RemoveAt(0);
+                            
+                        }
+                        else
+                            SearchArtistListBox.Items.Add(result);
+                        resultCounter++;
+                    }
+                }
+            }
+        }
+
+
 
 
         //Reproducion------------------------------------------------------------------------------------------------//

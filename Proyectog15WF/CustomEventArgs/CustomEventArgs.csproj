@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AddPlaylistEventArgs.cs" />
+    <Compile Include="ArtistInfoEventArgs.cs" />
     <Compile Include="ChangePasswordEventArgs.cs" />
     <Compile Include="GetUserPlaylistEventsArgs.cs" />
     <Compile Include="LoginEventArgs.cs" />

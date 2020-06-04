@@ -32,5 +32,11 @@ namespace Model
         public List<Song> Songs { get => songs; set => songs = value; }
         public List<User> FollowingUsers { get => followingUsers; set => followingUsers = value; }
         public string Artisttype { get => artist; set => artist = value; }
+
+        public override string ToString()
+        {
+            return name;
+        }
+
     }
 }

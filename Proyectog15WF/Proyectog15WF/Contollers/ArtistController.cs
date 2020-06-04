@@ -21,14 +21,8 @@ namespace Proyectog15WF.Contollers
         {
             this.view = view as AppForm;
             this.view.Artistifosend += OnCreateArtist;
+            this.view.Artistinfo += OnArtistinfo;
             DeserializeData();
-        }
-
-
-        public void OnCreateArtist(object sender, SendingArtistInfo e)
-        {
-           artists.Add(new Artist(e.Usernametext, e.AgeArtist, e.GenderArtist, e.ArtistText));
-
         }
 
         public void SerializeData()
@@ -59,6 +53,33 @@ namespace Proyectog15WF.Contollers
 
             }
         }
-        
+        public void OnCreateArtist(object sender, SendingArtistInfo e)
+        {
+            artists.Add(new Artist(e.Usernametext, e.AgeArtist, e.GenderArtist, e.ArtistText));
+
+        }
+        public void OnArtistinfo(object sender,ArtistInfoEventArgs e)
+        {
+            {
+                List<Artist> resultArtist = new List<Artist>();
+                List<string> resultString = new List<string>();
+                resultArtist = artists.Where(t =>
+                   t.Name.ToUpper().Contains(e.ArtistText.ToUpper()))
+               .ToList();
+                if (resultArtist.Count > 0)
+                {
+                    resultString.Add("-----Artistas encontrados-----");
+                    foreach (Artist s in resultArtist)
+                        resultString.Add(s.ToString());
+                }
+                view.UpdateResultsArtist(resultString);
+
+
+
+            }
+
+
+        }
+
     }
 }
