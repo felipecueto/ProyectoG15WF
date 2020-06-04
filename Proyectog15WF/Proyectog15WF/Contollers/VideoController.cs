@@ -169,7 +169,7 @@ namespace Proyectog15WF.Contollers
 
 
             }
-
+            SerializeData();
         }
     }
 }
