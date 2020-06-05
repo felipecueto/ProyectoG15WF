@@ -31,6 +31,7 @@ namespace Proyectog15WF.Contollers
             this.view.Totalitsofvideos += OnTotalitsofvideos;
             this.view.Reproduccionesname += Onvideoreproduction;
             this.view.Calificaciondelusuario += Onqualificationchanged;
+            this.view.Recivingvideomultiplecriteria += OnBuscarvideo;
             DeserializeData();
         }
 
@@ -187,6 +188,200 @@ namespace Proyectog15WF.Contollers
 
             }
             SerializeData();
+
+        }
+        public List<List<List<string>>> Palabras(string Contenido)
+        {
+            List<List<List<string>>> Agregar = new List<List<List<string>>>();
+
+            if (Contenido.Contains(" or "))
+            {
+                foreach (string Contenido0 in Contenido.Split(new string[] { " or " }, StringSplitOptions.None))
+                {
+                    List<List<string>> another = new List<List<string>>();
+                    string Contenido00 = Contenido0.Replace(" ", "");
+                    if (Contenido00.Contains("and"))
+                    {
+                        foreach (string inside in Contenido00.Split(new string[] { "and" }, StringSplitOptions.None))
+                        {
+                            string[] separacion = inside.Split(new string[] { ":" }, StringSplitOptions.None);
+                            another.Add(new List<string> { separacion[0], separacion[1] });
+                        }
+
+                    }
+                    else
+                    {
+
+                        string[] champion = Contenido00.Split(new string[] { "=" }, StringSplitOptions.None);
+                        another.Add(new List<string> { champion[0], champion[1] });
+
+                    }
+
+                    Agregar.Add(another);
+                }
+
+            }
+            else
+            {
+                List<List<string>> otro = new List<List<string>>();
+                if (Contenido.Contains("and"))
+                {
+                    foreach (string caract in Contenido.Split(new string[] { "and" }, StringSplitOptions.None))
+                    {
+                        string caract00 = caract.Replace(" ", "");
+
+                        string[] caract000 = caract00.Split(new string[] { "=" }, StringSplitOptions.None);
+                        otro.Add(new List<string> { caract000[0], caract000[1] });
+
+                    }
+                }
+                else
+                {
+                    string[] champion = Contenido.Split(new string[] { "=" }, StringSplitOptions.None);
+                    otro.Add(new List<string> { champion[0], champion[1] });
+                }
+                Agregar.Add(otro);
+            }
+
+            return Agregar;
+        }
+        public List<Video> OnBuscarvideo(object sender, SendingtextMultipleFiltersEventArgs e) //deberia retornar una lista de canciones
+        {
+
+            List<List<List<string>>> palabras = Palabras(e.TexttoMultipleFilters);
+            List<Video> Definitivo = new List<Video>();
+            List<List<Video>> optativo = new List<List<Video>>();
+            foreach (List<List<string>> words in palabras)
+            {
+                List<Video> cancionesseleccionadas = new List<Video>();
+                foreach (Video video in videos)
+                {
+                    int count = 0;
+                    foreach (List<string> seleccion in words)
+                    {
+                        switch (seleccion[0])
+                        {
+                            case "Nombrevideo":
+                                if (video.VideoName.Trim().ToUpper() == seleccion[1].ToUpper().Trim())
+                                {
+                                    count++;
+                                }
+                                break;
+                            case "Genero":
+                                if (video.Genre.ToUpper().Trim() == seleccion[1].ToUpper().Trim())
+                                {
+
+                                    count++;
+                                }
+                                break;
+                            case "Categoria":
+                                if (video.Category.ToUpper().Trim() == seleccion[1].ToUpper().Trim())
+                                {
+                                    count++;
+                                }
+                                break;
+                            case "Actor":
+                                if (video.Actor.ToUpper().Trim() == seleccion[1].ToUpper().Trim())
+                                {
+                                    count++;
+                                }
+                                break;
+                            case "Director":
+                                if (video.Director.ToUpper().Trim() == seleccion[1].ToUpper().Trim())
+                                {
+                                    count++;
+                                }
+                                break;
+                            case "Estudio":
+                                if (video.Studio.ToUpper().Trim() == seleccion[1].ToUpper().Trim())
+                                {
+                                    count++;
+                                }
+                                break;
+                            case "Añodepublicacion":
+                                if (video.UploadDate == Convert.ToDateTime(seleccion[1]))
+                                {
+                                    count++;
+                                }
+                                break;
+                            case "Descripcion":
+                                if (video.Description.ToUpper().Trim() == seleccion[1].ToUpper().Trim())
+                                {
+                                    count++;
+                                }
+                                break;
+                            case "Duracion":
+                                if (video.Duration == seleccion[1].ToUpper().Trim())
+                                {
+                                    count++;
+                                }
+                                break;
+                            case "Calificacion":
+                                if (video.Qualification == Convert.ToInt32(seleccion[1]))
+                                {
+                                    count++;
+                                }
+                                break;
+                            case "Reproducciones":
+                                if (video.Reproduction == Convert.ToInt32(seleccion[1]))
+                                {
+                                    count++;
+                                }
+                                break;
+                            case "Sexo":
+                                if (video.Sexo.ToUpper().Trim() == seleccion[1].ToUpper().Trim())
+                                {
+                                    count++;
+                                }
+                                break;
+                            case "Edad":
+                                if (video.Age.Trim() == seleccion[1].Trim())
+                                {
+                                    count++;
+                                }
+                                break;
+                            case "Resolucion":
+                                if (video.Resolution.Trim() == seleccion[1].Trim())
+                                {
+                                    count++;
+                                }
+                                break;
+                            default:
+
+                                break;
+
+                        }
+
+                    }
+
+                    if (count == words.Count)
+                    {
+                        cancionesseleccionadas.Add(video);
+                        count = 0;
+                    }
+                    optativo.Add(cancionesseleccionadas);
+
+
+                }
+
+
+            }
+            foreach (List<Video> vhs in optativo)
+            {
+                foreach (Video netflix in vhs)
+                {
+                    if (!Definitivo.Contains(netflix))
+                    {
+                        Definitivo.Add(netflix);
+                    }
+
+
+                }
+
+
+            }
+            return Definitivo;
+
 
         }
     }

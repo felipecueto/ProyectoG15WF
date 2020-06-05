@@ -119,6 +119,9 @@ namespace Proyectog15WF
         //Evento para busqueda multiple
         public delegate List<Song> SendingMultipleSong(object source, SendingtextMultipleFiltersEventArgs args);
         public event SendingMultipleSong Recivesongmultiplecriteria;
+        //Evento multiples filtros videos
+        public delegate List<Video> SendingMultiplevideos(object source, SendingtextMultipleFiltersEventArgs args);
+        public event SendingMultiplevideos Recivingvideomultiplecriteria;
         //Evento que manda al Artista
         public event EventHandler<ArtistInfoEventArgs> Artistinfo;
         //Evento para subir reproducciones
@@ -2699,6 +2702,16 @@ namespace Proyectog15WF
                 {
                     MultifiltrolistBox1.Items.Add(s.ToString());
                 }
+            }
+            if (Recivingvideomultiplecriteria != null)
+            {
+                List<Video> videosmultiplefilters = Recivingvideomultiplecriteria(this, new SendingtextMultipleFiltersEventArgs() { TexttoMultipleFilters = word });
+                foreach (Video s in videosmultiplefilters)
+                {
+                    MultifiltrolistBox1.Items.Add(s.ToString());
+                }
+
+
             }
 
 
