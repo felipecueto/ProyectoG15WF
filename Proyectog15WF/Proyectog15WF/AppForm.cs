@@ -1010,6 +1010,8 @@ namespace Proyectog15WF
             SerializeData();
             SongsAlbumPanel.Visible = true;
             VideoAlbumPanel.Visible = false;
+            AlbumCanciones.Items.Clear();
+
             if (Totalitsofsongs != null)
             {
                 List<string> listasdelartista = Totalitsofsongs(this, new SendingSongsEventArgs() { Sendinguser = nameuser });
@@ -1029,6 +1031,7 @@ namespace Proyectog15WF
         private void VideosAlbumButton_Click(object sender, EventArgs e)
         {
             SerializeData();
+            VideoAlbumListBox.Items.Clear();
             SongsAlbumPanel.Visible = false;
             VideoAlbumPanel.Visible = true;
             if (Totalitsofvideos != null)
@@ -1384,6 +1387,25 @@ namespace Proyectog15WF
                     pasua = false;
                 }
             }
+            if (Reproducesong != null)
+            {
+                if (!VideoAlbumListBox.SelectedItem.Equals("No results for search criteria"))
+                {
+                    namesong = Reproducesong(this, new SelectSongEventArgs() { Selectedsong = Convert.ToString(VideoAlbumListBox.SelectedItem) });
+                    pasua = false;
+                }
+
+            }
+            if (Recivingsong != null)
+            {
+                if (!VideoAlbumListBox.SelectedItem.Equals("No results for search criteria"))
+                {
+                    variablecancion = Recivingsong(this, new ReturnsongEventArgs() { Verifysonginsongofuser = Convert.ToString(VideoAlbumListBox.SelectedItem) });
+                    cancionesdelusuario.Add(variablecancion);
+                    pasua = false;
+                }
+
+            }
 
 
         }
@@ -1391,7 +1413,24 @@ namespace Proyectog15WF
         private void AlbumCanciones_SelectedIndexChanged(object sender, EventArgs e)
         {
             SerializeData();
-           
+
+            if (Reproducevideo != null)
+            {
+                if (!AlbumCanciones.SelectedItem.Equals("No results for search criteria"))
+                {
+                    namevideo = Reproducevideo(this, new SelectVideoEventArgs() { Selectedvideo = Convert.ToString(AlbumCanciones.SelectedItem) });
+                    pasua = false;
+                }
+            }
+            if (Recivingvideo != null)
+            {
+                if (!AlbumCanciones.SelectedItem.Equals("No results for search criteria"))
+                {
+                    variablevideo = Recivingvideo(this, new ReturnVideoEventArgs() { Verifyvideoinvideoofuser = Convert.ToString(AlbumCanciones.SelectedItem) });
+                    videosdelusuario.Add(variablevideo);
+                    pasua = false;
+                }
+            }
             if (Reproducesong != null)
             {
                 if (!AlbumCanciones.SelectedItem.Equals("No results for search criteria"))
@@ -1411,7 +1450,7 @@ namespace Proyectog15WF
                 }
 
             }
-            
+           
 
         }
 
@@ -1955,6 +1994,7 @@ namespace Proyectog15WF
         private void CalsificacionButton_Click(object sender, EventArgs e)
         {
             int qual =Convert.ToInt32( CalificacionComboBox.SelectedItem.ToString());
+            MessageBox.Show(namesong);
             if (namesong != "" )
             {
                 if (Calificaciondelusuario != null)
