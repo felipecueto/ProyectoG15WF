@@ -51,6 +51,10 @@ namespace Controllers
             this.view.RemoveFollowingUser += OnRemoveFollowingUser;
             this.view.ShowFollowedUsers += OnShowFollowedUsers;
             this.view.ShowFollowingUsers += OnShowFollowingUsers;
+            //privacy
+            this.view.SetPlaylistSongPrivacy += OnSetPlaylistSongPrivacy;
+            this.view.SetPlaylistVideoPrivacy += OnSetPlaylistVideoPrivacy;
+
             this.view.MailVerifyEvent += OncheckMail;
             this.view.changeImage += OnImageChange;
             DeserializeData();
@@ -539,6 +543,28 @@ namespace Controllers
                 }
             }
             SerializeData();
+        }
+
+        public void OnSetPlaylistSongPrivacy(object source, GetUserPlaylistEventsArgs e)
+        {
+            foreach (User user in users)
+            {
+                if (e.ActualLoggedUsername.ToUpper() == user.Username.ToUpper())
+                {
+                    user.SetPlaylistSongPrivacy(e.ActualPlaylistSelected, e.UserSelectedPrivacy);
+                }
+            }
+        }
+
+        public void OnSetPlaylistVideoPrivacy(object source, GetUserPlaylistEventsArgs e)
+        {
+            foreach (User user in users)
+            {
+                if (e.ActualLoggedUsername.ToUpper() == user.Username.ToUpper())
+                {
+                    user.SetPlaylistVideoPrivacy(e.ActualPlaylistSelected, e.UserSelectedPrivacy);
+                }
+            }
         }
     }
 }   

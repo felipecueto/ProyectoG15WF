@@ -39,18 +39,28 @@ namespace Model
         {
             return songs;
         }
-        //
+        public void SetPrivacy(string privacyoption)
+        {
+            if (privacyoption == "Privada" && name != "Videos Favoritos") // false es privado
+            {
+                preferences[1] = false;
+            }
+            else if (privacyoption == "Publica" && name != "Videos Favoritos") // false es privado
+            {
+                preferences[1] = true;
+            }
+        }
 
         public bool ChangePrivacy(bool input)
         {
-            if (preferences[0] == true)
+            if (preferences[1] == true)
             {
-                preferences[0] = false; // queda privada
+                preferences[1] = false; // queda privada
                 return false;
             }
-            if (preferences[0] == false)
+            if (preferences[1] == false)
             {
-                preferences[0] = true; // queda publica
+                preferences[1] = true; // queda publica
                 return true;
             }
             return false; // no paso nada por defecto setea la playlist a privada

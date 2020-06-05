@@ -111,7 +111,7 @@ namespace Model
         {
             foreach (PlaylistSong playlist in this.musicplaylist)
             {
-                if (playlist.GetPlaylistName() == playlistname)
+                if (playlist.GetPlaylistName() == playlistname && playlistname != "Musica Favorita")
                 {
                     this.musicplaylist.Remove(playlist);
                     return true; //elimina la playlist
@@ -167,7 +167,7 @@ namespace Model
         {
             foreach (PlaylistVideo playlist in this.videoplaylist)
             {
-                if (playlist.GetPlaylistName() == playlistname)
+                if (playlist.GetPlaylistName() == playlistname && playlistname != "Videos Favoritos")
                 {
                     this.videoplaylist.Remove(playlist);
                     break;
@@ -276,6 +276,43 @@ namespace Model
         }
 
         // 
+        //privacy
+
+        public void SetPlaylistSongPrivacy(string playlistname, string privacyvar)
+        {
+            foreach (PlaylistSong playlist in musicplaylist)
+            {
+                if (playlist.GetPlaylistName() == playlistname)
+                {
+                    if (privacidad == "Privado")
+                    {
+                        playlist.SetPrivacy("Privada");
+                    }
+                    else
+                    {
+                        playlist.SetPrivacy(privacyvar);
+                    }
+                }
+            }
+        }
+
+        public void SetPlaylistVideoPrivacy(string playlistname, string privacyvar)
+        {
+            foreach (PlaylistVideo playlist in videoplaylist)
+            {
+                if (playlist.GetPlaylistName() == playlistname)
+                {
+                    if (privacidad == "Privado")
+                    {
+                        playlist.SetPrivacy("Privada");
+                    }
+                    else
+                    {
+                        playlist.SetPrivacy(privacyvar);
+                    }
+                }
+            }
+        }
 
     }
 }

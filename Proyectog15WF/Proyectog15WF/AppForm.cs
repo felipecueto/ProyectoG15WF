@@ -72,6 +72,10 @@ namespace Proyectog15WF
         public event SendingFollowUserHandler ShowFollowedUsers;
         public event SendingFollowUserHandler ShowFollowingUsers;
 
+        //Eventos privacidad
+        public event EventHandler<GetUserPlaylistEventsArgs> SetPlaylistSongPrivacy;
+        public event EventHandler<GetUserPlaylistEventsArgs> SetPlaylistVideoPrivacy;
+
         //Evnetos de reproduccion
         public delegate string SelectedVideoEventHandler(object source, SelectVideoEventArgs args);
         public event SelectedVideoEventHandler Reproducevideo;
@@ -1754,6 +1758,14 @@ namespace Proyectog15WF
                     MyVideoListBox.Items.Remove(playlist_seleccionada);
                 }
             }
+            MyVideoListBox.Items.Clear();
+            foreach (PlaylistVideo playlist in OnReciveUsernamePlaylistVideo())
+            {
+                if (!MyVideoListBox.Items.Contains(playlist.GetPlaylistName()))
+                {
+                    MyVideoListBox.Items.Add(playlist.GetPlaylistName());// con esto accedo al listbox de playlistsong y obtengo las playlist
+                }
+            }
         }
 
         //Canciones
@@ -1816,6 +1828,14 @@ namespace Proyectog15WF
                 if (Userselectedplaylist(this, new GetUserPlaylistEventsArgs { ActualPlaylistSelected = playlist_seleccionada, ActualLoggedUsername = nameuser }) && buttonClickdelete)
                 {
                     MySongsListBox.Items.Remove(playlist_seleccionada);
+                }
+            }
+            MySongsListBox.Items.Clear();
+            foreach (PlaylistSong playlist in OnReciveUsernamePlaylist())
+            {
+                if (!MySongsListBox.Items.Contains(playlist.GetPlaylistName()))
+                {
+                    MySongsListBox.Items.Add(playlist.GetPlaylistName());// con esto accedo al listbox de playlistsong y obtengo las playlist
                 }
             }
             SerializeData();
@@ -1919,6 +1939,7 @@ namespace Proyectog15WF
             if (Addplaylist != null)
             {
                 Addplaylist(this, new GetUserPlaylistEventsArgs() { PlaylistNameText = nameplaylist, ActualLoggedUsername = nameuser }); //le estoy mandado a usercontroller el nombre de la playlist
+                SetPlaylistSongPrivacy(this, new GetUserPlaylistEventsArgs() { ActualPlaylistSelected = nameplaylist, ActualLoggedUsername = nameuser, UserSelectedPrivacy = privacidad });
             }
             if (UserNotPublic)
             {
@@ -2039,6 +2060,7 @@ namespace Proyectog15WF
             if (Addvideoplaylist != null)
             {
                 Addvideoplaylist(this, new GetUserPlaylistEventsArgs() { PlaylistNameText = nameVideo, ActualLoggedUsername = nameuser }); //le estoy mandado a usercontroller el nombre de la playlist
+                SetPlaylistSongPrivacy(this, new GetUserPlaylistEventsArgs() { ActualPlaylistSelected = nameVideo, ActualLoggedUsername = nameuser, UserSelectedPrivacy = privacidad });
             }
 
             if (UserNotPublic)
@@ -2194,6 +2216,7 @@ namespace Proyectog15WF
             string selectedusername = Convert.ToString(SearchUserPanelResultlistusers.SelectedItem);
             AddFollowedUser(this, new GetUserPlaylistEventsArgs { ActualLoggedUsername = nameuser, ActualUsernameSelected = selectedusername });
             AddFollowingUser(this, new GetUserPlaylistEventsArgs { ActualLoggedUsername = nameuser, ActualUsernameSelected = selectedusername });
+            MessageBox.Show("Siguiendo usuario");
         }
 
         public List<PlaylistSong> OnReciveUsernamePlaylist(string selecteduser)
@@ -2224,14 +2247,20 @@ namespace Proyectog15WF
             {
                 if (!SearchUserPlaylistListbox.Items.Contains(playlist.GetPlaylistName()))
                 {
-                    SearchUserPlaylistListbox.Items.Add(playlist.GetPlaylistName());// con esto accedo al listbox de playlistsong y obtengo las playlist
+                    if (playlist.GetPlaylistPrivacy() == true)
+                    {
+                        SearchUserPlaylistListbox.Items.Add(playlist.GetPlaylistName());// con esto accedo al listbox de playlistsong y obtengo las playlist
+                    }
                 }
             }
             foreach (PlaylistVideo playlist in OnReciveUsernamePlaylistVideo(selecteduser))
             {
                 if (!SearchUserPlaylistListbox.Items.Contains(playlist.GetPlaylistName()))
                 {
-                    SearchUserPlaylistListbox.Items.Add(playlist.GetPlaylistName());// con esto accedo al listbox de playlistsong y obtengo las playlist
+                    if (playlist.GetPlaylistPrivacy() == true)
+                    {
+                        SearchUserPlaylistListbox.Items.Add(playlist.GetPlaylistName());// con esto accedo al listbox de playlistsong y obtengo las playlist
+                    }
                 }
             }
             if (SeguirPlaylistPanel.Visible)
