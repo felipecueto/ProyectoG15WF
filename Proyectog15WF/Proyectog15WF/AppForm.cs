@@ -863,12 +863,14 @@ namespace Proyectog15WF
             else
             {
                 SubMyPlaylistPanel.Visible = true;
-                foreach (PlaylistSong playlist in OnReciveUsernamePlaylist())
+                
+            }
+
+            foreach (PlaylistSong playlist in OnReciveUsernamePlaylist())
+            {
+                if (!MySongsListBox.Items.Contains(playlist.GetPlaylistName()))
                 {
-                    if (!MySongsListBox.Items.Contains(playlist.GetPlaylistName()))
-                    {
-                        MySongsListBox.Items.Add(playlist.GetPlaylistName());// con esto accedo al listbox de playlistsong y obtengo las playlist
-                    }
+                    MySongsListBox.Items.Add(playlist.GetPlaylistName());// con esto accedo al listbox de playlistsong y obtengo las playlist
                 }
             }
         }
@@ -983,12 +985,13 @@ namespace Proyectog15WF
             else
             {
                 SubVideoPlaylistPanel.Visible = true;
-                foreach (PlaylistVideo playlist in OnReciveUsernamePlaylistVideo())
+               
+            }
+            foreach (PlaylistVideo playlist in OnReciveUsernamePlaylistVideo())
+            {
+                if (!MyVideoListBox.Items.Contains(playlist.GetPlaylistName()))
                 {
-                    if (!MyVideoListBox.Items.Contains(playlist.GetPlaylistName()))
-                    {
-                        MyVideoListBox.Items.Add(playlist.GetPlaylistName());// con esto accedo al listbox de playlistsong y obtengo las playlist
-                    }
+                    MyVideoListBox.Items.Add(playlist.GetPlaylistName());// con esto accedo al listbox de playlistsong y obtengo las playlist
                 }
             }
         }
@@ -1698,7 +1701,7 @@ namespace Proyectog15WF
         {
             MisVideoMyPlaylist.Items.Clear();
             string playlist_seleccionada = Convert.ToString(MyVideoListBox.SelectedItem);
-
+            MyVideoPlaylistNameLabel.Text = playlist_seleccionada;
             foreach (PlaylistVideo playlist in OnReciveUsernamePlaylistVideo())
             {
                 if (playlist.GetPlaylistName() == playlist_seleccionada)
@@ -1716,7 +1719,7 @@ namespace Proyectog15WF
         {
             VideosInFollowingPlaylistListbox.Items.Clear();
             string playlist_seleccionada = Convert.ToString(FollowVideoListBox.SelectedItem);
-
+            VideoFollowingPlaylistName.Text = playlist_seleccionada;
             foreach (PlaylistVideo playlist in OnReciveUsernameFollowedPlaylistVideo())
             {
                 if (playlist.GetPlaylistName() == playlist_seleccionada)
@@ -1731,6 +1734,44 @@ namespace Proyectog15WF
 
         private void VideosMasVistos_SelectedIndexChanged(object sender, EventArgs e)
         {
+            SerializeData();
+
+            if (Reproducevideo != null)
+            {
+                if (!VideosMasVistos.SelectedItem.Equals("No results for search criteria"))
+                {
+                    namevideo = Reproducevideo(this, new SelectVideoEventArgs() { Selectedvideo = Convert.ToString(VideosMasVistos.SelectedItem) });
+                    pasua = false;
+                }
+            }
+            if (Recivingvideo != null)
+            {
+                if (!VideosMasVistos.SelectedItem.Equals("No results for search criteria"))
+                {
+                    variablevideo = Recivingvideo(this, new ReturnVideoEventArgs() { Verifyvideoinvideoofuser = Convert.ToString(VideosMasVistos.SelectedItem) });
+                    videosdelusuario.Add(variablevideo);
+                    pasua = false;
+                }
+            }
+            if (Reproducesong != null)
+            {
+                if (!VideosMasVistos.SelectedItem.Equals("No results for search criteria"))
+                {
+                    namesong = Reproducesong(this, new SelectSongEventArgs() { Selectedsong = Convert.ToString(VideosMasVistos.SelectedItem) });
+                    pasua = false;
+                }
+
+            }
+            if (Recivingsong != null)
+            {
+                if (!VideosMasVistos.SelectedItem.Equals("No results for search criteria"))
+                {
+                    variablecancion = Recivingsong(this, new ReturnsongEventArgs() { Verifysonginsongofuser = Convert.ToString(VideosMasVistos.SelectedItem) });
+                    cancionesdelusuario.Add(variablecancion);
+                    pasua = false;
+                }
+
+            }
 
         }
 
@@ -1742,7 +1783,7 @@ namespace Proyectog15WF
             CrearVideoPlaylistpanel.Visible = true;
             PrivacidadVideoPlaylist.SelectedIndex = 1;
             SerializeData();
-
+            NombreVideoPlalistInput.ResetText();
         }
 
 
@@ -1773,7 +1814,7 @@ namespace Proyectog15WF
         {
             SongInMyPlaylistListBox.Items.Clear();
             string playlist_seleccionada = Convert.ToString(MySongsListBox.SelectedItem);
-
+            NombreMyplaylistSonglabel.Text = playlist_seleccionada;
             foreach (PlaylistSong playlist in OnReciveUsernamePlaylist())
             {
                 if (playlist.GetPlaylistName() == playlist_seleccionada)
@@ -1791,7 +1832,7 @@ namespace Proyectog15WF
         {
             SongsInFollowPlaylistListBox.Items.Clear();
             string playlist_seleccionada = Convert.ToString(FollowPlaylistSongListBox.SelectedItem);
-
+            NombrePlaylistSeguidaLabel.Text = playlist_seleccionada;
             foreach (PlaylistSong playlist in OnReciveUsernameFollowedPlaylist())
             {
                 if (playlist.GetPlaylistName() == playlist_seleccionada)
@@ -1817,6 +1858,7 @@ namespace Proyectog15WF
             PlaylistSongCreada.Visible = false;
             NewSongPrivacidadComboBox.SelectedIndex = 1;
             SerializeData();
+            PlaylistSongNameInput.ResetText();
         }
 
         private void DeletePlaylistButton_Click(object sender, EventArgs e)
@@ -1854,7 +1896,43 @@ namespace Proyectog15WF
 
         private void SongInMyPlaylistListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            SerializeData();
 
+            if (Reproducevideo != null)
+            {
+                if (!SongInMyPlaylistListBox.SelectedItem.Equals("No results for search criteria"))
+                {
+                    namevideo = Reproducevideo(this, new SelectVideoEventArgs() { Selectedvideo = Convert.ToString(SongInMyPlaylistListBox.SelectedItem) });
+                    pasua = false;
+                }
+            }
+            if (Recivingvideo != null)
+            {
+                if (!SongInMyPlaylistListBox.SelectedItem.Equals("No results for search criteria"))
+                {
+                    variablevideo = Recivingvideo(this, new ReturnVideoEventArgs() { Verifyvideoinvideoofuser = Convert.ToString(SongInMyPlaylistListBox.SelectedItem) });
+                    videosdelusuario.Add(variablevideo);
+                    pasua = false;
+                }
+            }
+            if (Reproducesong != null)
+            {
+                if (!SongInMyPlaylistListBox.SelectedItem.Equals("No results for search criteria"))
+                {
+                    namesong = Reproducesong(this, new SelectSongEventArgs() { Selectedsong = Convert.ToString(SongInMyPlaylistListBox.SelectedItem) });
+                    pasua = false;
+                }
+
+            }
+            if (Recivingsong != null)
+            {
+                if (SongInMyPlaylistListBox.SelectedItem.Equals("No results for search criteria"))
+                {
+                    variablecancion = Recivingsong(this, new ReturnsongEventArgs() { Verifysonginsongofuser = Convert.ToString(SongInMyPlaylistListBox.SelectedItem) });
+                    cancionesdelusuario.Add(variablecancion);
+                    pasua = false;
+                }
+            }
         }
 
         private void VerCancionesPlaylistSeguidas_Click(object sender, EventArgs e)
@@ -1871,7 +1949,43 @@ namespace Proyectog15WF
 
         private void SongsInFollowPlaylistListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            SerializeData();
 
+            if (Reproducevideo != null)
+            {
+                if (!SongsInFollowPlaylistListBox.SelectedItem.Equals("No results for search criteria"))
+                {
+                    namevideo = Reproducevideo(this, new SelectVideoEventArgs() { Selectedvideo = Convert.ToString(SongsInFollowPlaylistListBox.SelectedItem) });
+                    pasua = false;
+                }
+            }
+            if (Recivingvideo != null)
+            {
+                if (!SongsInFollowPlaylistListBox.SelectedItem.Equals("No results for search criteria"))
+                {
+                    variablevideo = Recivingvideo(this, new ReturnVideoEventArgs() { Verifyvideoinvideoofuser = Convert.ToString(SongsInFollowPlaylistListBox.SelectedItem) });
+                    videosdelusuario.Add(variablevideo);
+                    pasua = false;
+                }
+            }
+            if (Reproducesong != null)
+            {
+                if (!SongsInFollowPlaylistListBox.SelectedItem.Equals("No results for search criteria"))
+                {
+                    namesong = Reproducesong(this, new SelectSongEventArgs() { Selectedsong = Convert.ToString(SongsInFollowPlaylistListBox.SelectedItem) });
+                    pasua = false;
+                }
+
+            }
+            if (Recivingsong != null)
+            {
+                if (SongsInFollowPlaylistListBox.SelectedItem.Equals("No results for search criteria"))
+                {
+                    variablecancion = Recivingsong(this, new ReturnsongEventArgs() { Verifysonginsongofuser = Convert.ToString(SongsInFollowPlaylistListBox.SelectedItem) });
+                    cancionesdelusuario.Add(variablecancion);
+                    pasua = false;
+                }
+            }
         }
 
         private void AddSongMyPlaylists_Click(object sender, EventArgs e)
@@ -1953,7 +2067,10 @@ namespace Proyectog15WF
             {
                 PlaylistSongCreada.Visible = true;
             }
+            NewSongPrivacidadComboBox.SelectedIndex = 1;
             SerializeData();
+            PlaylistSongNameInput.ResetText();
+           
         }
 
         //Search-----------------------------------------------------------------------------------------------------//
@@ -2076,6 +2193,8 @@ namespace Proyectog15WF
                 VideoPlaylistCreadaConExitoLabel.Visible = true;
             }
             SerializeData();
+            PrivacidadVideoPlaylist.SelectedIndex = 1;
+            NombreVideoPlalistInput.ResetText();
 
         }
 
@@ -2093,12 +2212,86 @@ namespace Proyectog15WF
 
         private void VideosInFollowingPlaylistListbox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            SerializeData();
+
+            if (Reproducevideo != null)
+            {
+                if (!VideosInFollowingPlaylistListbox.SelectedItem.Equals("No results for search criteria"))
+                {
+                    namevideo = Reproducevideo(this, new SelectVideoEventArgs() { Selectedvideo = Convert.ToString(VideosInFollowingPlaylistListbox.SelectedItem) });
+                    pasua = false;
+                }
+            }
+            if (Recivingvideo != null)
+            {
+                if (!VideosInFollowingPlaylistListbox.SelectedItem.Equals("No results for search criteria"))
+                {
+                    variablevideo = Recivingvideo(this, new ReturnVideoEventArgs() { Verifyvideoinvideoofuser = Convert.ToString(VideosInFollowingPlaylistListbox.SelectedItem) });
+                    videosdelusuario.Add(variablevideo);
+                    pasua = false;
+                }
+            }
+            if (Reproducesong != null)
+            {
+                if (!VideosInFollowingPlaylistListbox.SelectedItem.Equals("No results for search criteria"))
+                {
+                    namesong = Reproducesong(this, new SelectSongEventArgs() { Selectedsong = Convert.ToString(VideosInFollowingPlaylistListbox.SelectedItem) });
+                    pasua = false;
+                }
+
+            }
+            if (Recivingsong != null)
+            {
+                if (VideosInFollowingPlaylistListbox.SelectedItem.Equals("No results for search criteria"))
+                {
+                    variablecancion = Recivingsong(this, new ReturnsongEventArgs() { Verifysonginsongofuser = Convert.ToString(VideosInFollowingPlaylistListbox.SelectedItem) });
+                    cancionesdelusuario.Add(variablecancion);
+                    pasua = false;
+                }
+
+            }
 
         }
 
         private void MisVideoMyPlaylist_SelectedIndexChanged(object sender, EventArgs e)
         {
+            SerializeData();
 
+            if (Reproducevideo != null)
+            {
+                if (!MisVideoMyPlaylist.SelectedItem.Equals("No results for search criteria"))
+                {
+                    namevideo = Reproducevideo(this, new SelectVideoEventArgs() { Selectedvideo = Convert.ToString(MisVideoMyPlaylist.SelectedItem) });
+                    pasua = false;
+                }
+            }
+            if (Recivingvideo != null)
+            {
+                if (!MisVideoMyPlaylist.SelectedItem.Equals("No results for search criteria"))
+                {
+                    variablevideo = Recivingvideo(this, new ReturnVideoEventArgs() { Verifyvideoinvideoofuser = Convert.ToString(MisVideoMyPlaylist.SelectedItem) });
+                    videosdelusuario.Add(variablevideo);
+                    pasua = false;
+                }
+            }
+            if (Reproducesong != null)
+            {
+                if (!MisVideoMyPlaylist.SelectedItem.Equals("No results for search criteria"))
+                {
+                    namesong = Reproducesong(this, new SelectSongEventArgs() { Selectedsong = Convert.ToString(MisVideoMyPlaylist.SelectedItem) });
+                    pasua = false;
+                }
+
+            }
+            if (Recivingsong != null)
+            {
+                if (MisVideoMyPlaylist.SelectedItem.Equals("No results for search criteria"))
+                {
+                    variablecancion = Recivingsong(this, new ReturnsongEventArgs() { Verifysonginsongofuser = Convert.ToString(MisVideoMyPlaylist.SelectedItem) });
+                    cancionesdelusuario.Add(variablecancion);
+                    pasua = false;
+                }
+            }
         }
 
         private void AddMediaButton_Click(object sender, EventArgs e)
@@ -3005,6 +3198,47 @@ namespace Proyectog15WF
             }
 
 
+        }
+
+        private void MasEsuchadaListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            SerializeData();
+
+            if (Reproducevideo != null)
+            {
+                if (!MasEsuchadaListBox.SelectedItem.Equals("No results for search criteria"))
+                {
+                    namevideo = Reproducevideo(this, new SelectVideoEventArgs() { Selectedvideo = Convert.ToString(MasEsuchadaListBox.SelectedItem) });
+                    pasua = false;
+                }
+            }
+            if (Recivingvideo != null)
+            {
+                if (!MasEsuchadaListBox.SelectedItem.Equals("No results for search criteria"))
+                {
+                    variablevideo = Recivingvideo(this, new ReturnVideoEventArgs() { Verifyvideoinvideoofuser = Convert.ToString(MasEsuchadaListBox.SelectedItem) });
+                    videosdelusuario.Add(variablevideo);
+                    pasua = false;
+                }
+            }
+            if (Reproducesong != null)
+            {
+                if (!MasEsuchadaListBox.SelectedItem.Equals("No results for search criteria"))
+                {
+                    namesong = Reproducesong(this, new SelectSongEventArgs() { Selectedsong = Convert.ToString(MasEsuchadaListBox.SelectedItem) });
+                    pasua = false;
+                }
+
+            }
+            if (Recivingsong != null)
+            {
+                if( MasEsuchadaListBox.SelectedItem.Equals("No results for search criteria"))
+                {
+                    variablecancion = Recivingsong(this, new ReturnsongEventArgs() { Verifysonginsongofuser = Convert.ToString(MasEsuchadaListBox.SelectedItem) });
+                    cancionesdelusuario.Add(variablecancion);
+                    pasua = false;
+                }
+            }
         }
     }
 }
