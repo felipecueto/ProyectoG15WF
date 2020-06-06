@@ -18,5 +18,7 @@ namespace CustomEventArgs
 
         public string UserSelectedPrivacy { get; set; }
 
+        public string SelectedSong { get; set; }
+
     }
 }

@@ -127,6 +127,21 @@ namespace Model
             return false;
         }
 
+        public List<Video> NextOnQueue()
+        {
+            List<Video> newlist = new List<Video>();
+            int counter = 0;
+            foreach (Video elemntsong in random)
+            {
+                if (counter != 0)
+                {
+                    newlist.Add(elemntsong);
+                }
+                counter++;
+            }
+            return random = newlist;
+        }
+
         public bool AddToQueue(Video video)
         {
             random.Add(video);
@@ -154,20 +169,23 @@ namespace Model
             Random random = new Random();
             return random.Next(min, max); // Devuelve un numero random
         }
-        public List<Video> RandomPlaylistOrder()
+        public List<Video> RandomPlaylistOrder(string selectedsong)
         {
             random.Clear();
             List<Video> videolist = new List<Video>();
             foreach (Video video in videos)
             {
-                videolist.Add(video);
+                if (video.VideoName != selectedsong)
+                {
+                    videolist.Add(video);
+                }
             }
             int counter = videolist.Count();
 
-            for (int i = 0; i < videos.Count(); i++)
+            for (int i = 0; i < videos.Count() - 1; i++)
             {
                 int rnd = RandomNumber(0, counter);
-                random.Add(videos[rnd]);
+                random.Add(videolist[rnd]);
                 videolist.RemoveAt(rnd);
                 counter--;
             }

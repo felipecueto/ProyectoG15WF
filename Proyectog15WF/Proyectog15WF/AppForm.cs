@@ -1228,9 +1228,16 @@ namespace Proyectog15WF
         {
             SeguidosListBox.Items.Clear();
             List<User> followinguser = ShowFollowingUsers(this, new GetUserPlaylistEventsArgs() { ActualLoggedUsername = nameuser });
+            SeguidosListBox.Items.Add("---Usuarios---");
             foreach (User user in followinguser)
             {
                 SeguidosListBox.Items.Add(user.Username);
+            }
+            User logeduser = Userrequest(this, new LoginEventArgs() { UsernameText = nameuser });
+            SeguidosListBox.Items.Add("---Artistas---");
+            foreach (Artist artist in logeduser.GetFollowedArtist())
+            {
+                SeguidosListBox.Items.Add(artist.Name);
             }
             SeguidoresPanel.Visible = false;
             SeguidosPanel.Visible = true;
@@ -1251,7 +1258,6 @@ namespace Proyectog15WF
             }
             else
             { 
-               
                 if (namesong != "" && namevideo == "")
                 {
                     axWindowsMediaPlayer1.URL = namesong;
@@ -1393,13 +1399,24 @@ namespace Proyectog15WF
         private void DejarDeSeguirButton1_Click(object sender, EventArgs e)
         {
             string selecteduser = Convert.ToString(SeguidosListBox.SelectedItem);
+            User logeduser = Userrequest(this, new LoginEventArgs() { UsernameText = nameuser });
+            Artist selectedartist = getArtist(this, new GetArtistEventArgs() { ArtistName = selecteduser });
+
             RemoveFollowingUser(this, new GetUserPlaylistEventsArgs() { ActualLoggedUsername = nameuser, ActualUsernameSelected = selecteduser });
             RemoveFollowedUser(this, new GetUserPlaylistEventsArgs() { ActualLoggedUsername = nameuser, ActualUsernameSelected = selecteduser });
+            logeduser.UnFollowArtist(selectedartist);
+
             SeguidosListBox.Items.Clear();
             List<User> followinguser = ShowFollowingUsers(this, new GetUserPlaylistEventsArgs() { ActualLoggedUsername = nameuser });
+            SeguidosListBox.Items.Add("---Usuarios---");
             foreach (User user in followinguser)
             {
                 SeguidosListBox.Items.Add(user.Username);
+            }
+            SeguidosListBox.Items.Add("---Artistas---");
+            foreach (Artist artist in logeduser.GetFollowedArtist())
+            {
+                SeguidosListBox.Items.Add(artist.Name);
             }
         }
 
@@ -1939,7 +1956,8 @@ namespace Proyectog15WF
                     if (queuecheck == true)
                     {
                         string actualplaylistselected = MySongsListBox.SelectedItem.ToString();
-                        songqueuelist = CreateSongQueue(this, new GetUserPlaylistEventsArgs { ActualLoggedUsername = nameuser, ActualPlaylistSelected = actualplaylistselected });
+                        string actualselectedsong = SongInMyPlaylistListBox.SelectedItem.ToString();
+                        songqueuelist = CreateSongQueue(this, new GetUserPlaylistEventsArgs { ActualLoggedUsername = nameuser, ActualPlaylistSelected = actualplaylistselected, SelectedSong = actualselectedsong });
                     }
                     namesong = Reproducesong(this, new SelectSongEventArgs() { Selectedsong = Convert.ToString(SongInMyPlaylistListBox.SelectedItem) });
                     pasua = false;
@@ -1980,8 +1998,9 @@ namespace Proyectog15WF
                 {
                     if (queuecheck == true)
                     {
-                        string actualplaylistselected = SongsInFollowPlaylistListBox.SelectedItem.ToString();
-                        songqueuelist = CreateSongQueue(this, new GetUserPlaylistEventsArgs { ActualLoggedUsername = nameuser, ActualPlaylistSelected = actualplaylistselected });
+                        string actualplaylistselected = FollowPlaylistSongListBox.SelectedItem.ToString();
+                        string actualselectedsong = SongsInFollowPlaylistListBox.SelectedItem.ToString();
+                        songqueuelist = CreateSongQueue(this, new GetUserPlaylistEventsArgs { ActualLoggedUsername = nameuser, ActualPlaylistSelected = actualplaylistselected, SelectedSong = actualselectedsong });
                     }
                     namesong = Reproducesong(this, new SelectSongEventArgs() { Selectedsong = Convert.ToString(SongsInFollowPlaylistListBox.SelectedItem) });
                     pasua = false;
@@ -2231,8 +2250,9 @@ namespace Proyectog15WF
                 {
                     if (queuecheck == true)
                     {
-                        string actualplaylistselected = VideosInFollowingPlaylistListbox.SelectedItem.ToString();
-                        videoqueuelist = CreateVideoQueue(this, new GetUserPlaylistEventsArgs { ActualLoggedUsername = nameuser, ActualPlaylistSelected = actualplaylistselected });
+                        string actualplaylistselected = FollowVideoListBox.SelectedItem.ToString();
+                        string actualselectedsong = VideosInFollowingPlaylistListbox.SelectedItem.ToString();
+                        videoqueuelist = CreateVideoQueue(this, new GetUserPlaylistEventsArgs { ActualLoggedUsername = nameuser, ActualPlaylistSelected = actualplaylistselected, SelectedSong = actualselectedsong });
                     }
                     namevideo = Reproducevideo(this, new SelectVideoEventArgs() { Selectedvideo = Convert.ToString(VideosInFollowingPlaylistListbox.SelectedItem) });
                     SerializeData();
@@ -2258,8 +2278,9 @@ namespace Proyectog15WF
                 {
                     if (queuecheck == true)
                     {
-                        string actualplaylistselected = MisVideoMyPlaylist.SelectedItem.ToString();
-                        videoqueuelist = CreateVideoQueue(this, new GetUserPlaylistEventsArgs { ActualLoggedUsername = nameuser, ActualPlaylistSelected = actualplaylistselected });
+                        string actualplaylistselected = MyVideoListBox.SelectedItem.ToString();
+                        string actualselectedsong = MisVideoMyPlaylist.SelectedItem.ToString();
+                        videoqueuelist = CreateVideoQueue(this, new GetUserPlaylistEventsArgs { ActualLoggedUsername = nameuser, ActualPlaylistSelected = actualplaylistselected, SelectedSong = actualselectedsong });
                     }
                     namevideo = Reproducevideo(this, new SelectVideoEventArgs() { Selectedvideo = Convert.ToString(MisVideoMyPlaylist.SelectedItem) });
                     pasua = false;
@@ -2613,9 +2634,9 @@ namespace Proyectog15WF
         private void FollowArtist_Click(object sender, EventArgs e)
         {
             string selectedartist = Convert.ToString(SearchArtistListBox.SelectedItem);
-            //getArtist(this, new GetArtistEventArgs { ArtistName = artistselected });
-            AddFollowedUser(this, new GetUserPlaylistEventsArgs { ActualLoggedUsername = nameuser, ActualUsernameSelected = selectedartist });
-            AddFollowingUser(this, new GetUserPlaylistEventsArgs { ActualLoggedUsername = nameuser, ActualUsernameSelected = selectedartist });
+            Artist artist = getArtist(this, new GetArtistEventArgs() { ArtistName = selectedartist });
+            User logeduser = Userrequest(this, new LoginEventArgs() { UsernameText = nameuser });
+            logeduser.FollowArtist(artist);
             MessageBox.Show("Siguiendo Artista");
         }
 
@@ -3232,6 +3253,36 @@ namespace Proyectog15WF
                     variablecancion = Recivingsong(this, new ReturnsongEventArgs() { Verifysonginsongofuser = Convert.ToString(MasEsuchadaListBox.SelectedItem) });
                     cancionesdelusuario.Add(variablecancion);
                     pasua = false;
+                }
+            }
+        }
+
+        private void NextButton_Click(object sender, EventArgs e)
+        {
+            actuallogeduser = Userrequest(this, new LoginEventArgs() { UsernameText = nameuser });
+            List<Song> updatedsongqueue = actuallogeduser.GetNextSongQueue();
+            List<Video> updatedvideoqueue = actuallogeduser.GetNextVideoQueue();
+
+            songqueuelist = updatedsongqueue;
+            videoqueuelist = updatedvideoqueue;
+
+            QueueListBox.Items.Clear();
+
+            QueueListBox.Items.Add("---Canciones---");
+            if (songqueuelist != null)
+            {
+                foreach (Song song in songqueuelist)
+                {
+                    QueueListBox.Items.Add(song.Namesong);
+                }
+            }
+
+            QueueListBox.Items.Add("---Videos---");
+            if (videoqueuelist != null)
+            {
+                foreach (Video video in videoqueuelist)
+                {
+                    QueueListBox.Items.Add(video.VideoName);
                 }
             }
         }

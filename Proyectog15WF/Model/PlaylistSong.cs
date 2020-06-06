@@ -10,7 +10,6 @@ namespace Model
     public class PlaylistSong
     {
         List<Song> songs;
-
         List<Song> random;
         List<bool> preferences;
         string name;
@@ -130,9 +129,30 @@ namespace Model
             return false;
         }
 
+        public List<Song> NextOnQueue()
+        {
+            List<Song> newlist = new List<Song>();
+            int counter = 0;
+            foreach (Song elemntsong in random)
+            {
+                if (counter != 0)
+                {
+                    newlist.Add(elemntsong);
+                }
+                counter++;
+            }
+            return random = newlist;
+        }
+
         public bool AddToQueue(Song song)
         {
-            random.Add(song);
+            List<Song> newlist = new List<Song>();
+            newlist.Add(song);
+            foreach (Song elemntsong in random)
+            {
+                newlist.Add(elemntsong);
+            }
+            random = newlist;
             return true; // Se agrega cancion a la queue
         }
 
@@ -145,7 +165,7 @@ namespace Model
                     if (value.Namesong == songName)
                     {
                         random.Remove(value);
-                        return true; // Cancion agregada
+                        return true; // Cancion eliminada
                     }
                 }
             }
@@ -158,20 +178,23 @@ namespace Model
             return random.Next(min, max); // Devuelve un numero random
         }
 
-        public List<Song> RandomPlaylistOrder()
+        public List<Song> RandomPlaylistOrder(string selectedsong)
         {
             random.Clear();
             List<Song> songlist = new List<Song>();
             foreach (Song song in songs)
             {
-                songlist.Add(song);
+                if (song.Namesong != selectedsong)
+                {
+                    songlist.Add(song);
+                }
             }
             int counter = songlist.Count();
 
-            for (int i = 0; i < songs.Count(); i++)
+            for (int i = 0; i < songs.Count() - 1; i++)
             {
                 int rnd = RandomNumber(0, counter);
-                random.Add(songs[rnd]);
+                random.Add(songlist[rnd]);
                 songlist.RemoveAt(rnd);
                 counter--;
             }

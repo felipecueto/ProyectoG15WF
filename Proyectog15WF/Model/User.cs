@@ -15,6 +15,8 @@ namespace Model
         string name;
         string lastname;
         string mail;
+        string playlistsongqueue = "";
+        string playlistvideoqueue = "";
         List<PlaylistSong> musicplaylist;
         List<PlaylistVideo> videoplaylist;
         List<PlaylistSong> followedPlaylistSongs;
@@ -31,7 +33,7 @@ namespace Model
 
         public User()
         {
-
+            
         }
 
         public User(string username, string name, string lastname, string email, string password)
@@ -281,24 +283,30 @@ namespace Model
 
         public bool FollowArtist(Artist followartist)
         {
-            foreach (Artist artist in followedartist)
+            if (followedartist != null)
             {
-                if (artist.Name == followartist.Name)
+                foreach (Artist artist in this.followedartist)
                 {
-                    return false;
+                    if (artist.Name == followartist.Name)
+                    {
+                        return false;
+                    }
                 }
             }
-            followedartist.Add(followartist);
+            this.followedartist.Add(followartist);
             return true;
         }
         public bool UnFollowArtist(Artist followartist)
         {
-            foreach (Artist artist in followedartist)
+            if (followedartist != null)
             {
-                if (artist.Name == followartist.Name)
+                foreach (Artist artist in this.followedartist)
                 {
-                    followedartist.Remove(followartist);
-                    return true;
+                    if (artist.Name == followartist.Name)
+                    {
+                        this.followedartist.Remove(artist);
+                        return true;
+                    }
                 }
             }
             return false;
@@ -348,24 +356,48 @@ namespace Model
             }
         }
 
-        public List<Song> CreateSongQueue(string selectedplaylist, string logeduser)
+        public List<Song> CreateSongQueue(string selectedplaylist, string logeduser, string selectedsong)
         {
+            playlistsongqueue = selectedplaylist;
             foreach (PlaylistSong playlist in musicplaylist)
             {
                 if (playlist.GetPlaylistName() == selectedplaylist)
                 {
-                    return playlist.RandomPlaylistOrder();
+                    return playlist.RandomPlaylistOrder(selectedsong);
                 }
             }
             return null;
         }
-        public List<Video> CreateVideoQueue(string selectedplaylist, string logeduser)
+        public List<Video> CreateVideoQueue(string selectedplaylist, string logeduser, string selectedsong)
         {
+            playlistvideoqueue = selectedplaylist;
             foreach (PlaylistVideo playlist in videoplaylist)
             {
                 if (playlist.GetPlaylistName() == selectedplaylist)
                 {
-                    return playlist.RandomPlaylistOrder();
+                    return playlist.RandomPlaylistOrder(selectedsong);
+                }
+            }
+            return null;
+        }
+        public List<Song> GetNextSongQueue()
+        {
+            foreach (PlaylistSong playlistsong in musicplaylist)
+            {
+                if (playlistsong.GetPlaylistName() == playlistsongqueue)
+                {
+                    return playlistsong.NextOnQueue();
+                }
+            }
+            return null;
+        }
+        public List<Video> GetNextVideoQueue()
+        {
+            foreach (PlaylistVideo playlistvideo in videoplaylist)
+            {
+                if (playlistvideo.GetPlaylistName() == playlistvideoqueue)
+                {
+                    return playlistvideo.NextOnQueue();
                 }
             }
             return null;

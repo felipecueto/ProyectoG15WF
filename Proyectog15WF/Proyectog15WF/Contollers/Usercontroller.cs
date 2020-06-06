@@ -575,7 +575,7 @@ namespace Controllers
             {
                 if (e.ActualLoggedUsername.ToUpper() == user.Username.ToUpper())
                 {
-                    return user.CreateSongQueue(e.ActualPlaylistSelected, e.ActualLoggedUsername);
+                    return user.CreateSongQueue(e.ActualPlaylistSelected, e.ActualLoggedUsername, e.SelectedSong);
                 }
             }
             return null;
@@ -587,7 +587,7 @@ namespace Controllers
             {
                 if (e.ActualLoggedUsername.ToUpper() == user.Username.ToUpper())
                 {
-                    return user.CreateVideoQueue(e.ActualPlaylistSelected, e.ActualLoggedUsername);
+                    return user.CreateVideoQueue(e.ActualPlaylistSelected, e.ActualLoggedUsername, e.SelectedSong);
                 }
             }
             return null;
