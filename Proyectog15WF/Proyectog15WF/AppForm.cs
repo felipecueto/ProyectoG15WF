@@ -1854,8 +1854,45 @@ namespace Proyectog15WF
 
         private void SongInMyPlaylistListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (Reproducevideo != null)
+            {
+                if (!SearchMediapanellistBox.SelectedItem.Equals("No results for search criteria"))
+                {
+                    namevideo = Reproducevideo(this, new SelectVideoEventArgs() { Selectedvideo = Convert.ToString(SearchMediapanellistBox.SelectedItem) });
+                    pasua = false;
+                }
+            }
+            if (Reproducesong != null)
+            {
+                if (!SearchMediapanellistBox.SelectedItem.Equals("No results for search criteria"))
+                {
+                    namesong = Reproducesong(this, new SelectSongEventArgs() { Selectedsong = Convert.ToString(SearchMediapanellistBox.SelectedItem) });
+                    pasua = false;
+                }
 
+            }
+
+            if (Recivingsong != null)
+            {
+                if (!SearchMediapanellistBox.SelectedItem.Equals("No results for search criteria"))
+                {
+                    variablecancion = Recivingsong(this, new ReturnsongEventArgs() { Verifysonginsongofuser = Convert.ToString(SearchMediapanellistBox.SelectedItem) });
+                    cancionesdelusuario.Add(variablecancion);
+                    pasua = false;
+                }
+
+            }
+            if (Recivingvideo != null)
+            {
+                if (!SearchMediapanellistBox.SelectedItem.Equals("No results for search criteria"))
+                {
+                    variablevideo = Recivingvideo(this, new ReturnVideoEventArgs() { Verifyvideoinvideoofuser = Convert.ToString(SearchMediapanellistBox.SelectedItem) });
+                    videosdelusuario.Add(variablevideo);
+                    pasua = false;
+                }
+            }
         }
+    
 
         private void VerCancionesPlaylistSeguidas_Click(object sender, EventArgs e)
         {
@@ -1871,7 +1908,43 @@ namespace Proyectog15WF
 
         private void SongsInFollowPlaylistListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (Reproducevideo != null)
+            {
+                if (!SearchMediapanellistBox.SelectedItem.Equals("No results for search criteria"))
+                {
+                    namevideo = Reproducevideo(this, new SelectVideoEventArgs() { Selectedvideo = Convert.ToString(SearchMediapanellistBox.SelectedItem) });
+                    pasua = false;
+                }
+            }
+            if (Reproducesong != null)
+            {
+                if (!SearchMediapanellistBox.SelectedItem.Equals("No results for search criteria"))
+                {
+                    namesong = Reproducesong(this, new SelectSongEventArgs() { Selectedsong = Convert.ToString(SearchMediapanellistBox.SelectedItem) });
+                    pasua = false;
+                }
 
+            }
+
+            if (Recivingsong != null)
+            {
+                if (!SearchMediapanellistBox.SelectedItem.Equals("No results for search criteria"))
+                {
+                    variablecancion = Recivingsong(this, new ReturnsongEventArgs() { Verifysonginsongofuser = Convert.ToString(SearchMediapanellistBox.SelectedItem) });
+                    cancionesdelusuario.Add(variablecancion);
+                    pasua = false;
+                }
+
+            }
+            if (Recivingvideo != null)
+            {
+                if (!SearchMediapanellistBox.SelectedItem.Equals("No results for search criteria"))
+                {
+                    variablevideo = Recivingvideo(this, new ReturnVideoEventArgs() { Verifyvideoinvideoofuser = Convert.ToString(SearchMediapanellistBox.SelectedItem) });
+                    videosdelusuario.Add(variablevideo);
+                    pasua = false;
+                }
+            }
         }
 
         private void AddSongMyPlaylists_Click(object sender, EventArgs e)
@@ -2093,12 +2166,84 @@ namespace Proyectog15WF
 
         private void VideosInFollowingPlaylistListbox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (Reproducevideo != null)
+            {
+                if (!SearchMediapanellistBox.SelectedItem.Equals("No results for search criteria"))
+                {
+                    namevideo = Reproducevideo(this, new SelectVideoEventArgs() { Selectedvideo = Convert.ToString(SearchMediapanellistBox.SelectedItem) });
+                    pasua = false;
+                }
+            }
+            if (Reproducesong != null)
+            {
+                if (!SearchMediapanellistBox.SelectedItem.Equals("No results for search criteria"))
+                {
+                    namesong = Reproducesong(this, new SelectSongEventArgs() { Selectedsong = Convert.ToString(SearchMediapanellistBox.SelectedItem) });
+                    pasua = false;
+                }
 
+            }
+
+            if (Recivingsong != null)
+            {
+                if (!SearchMediapanellistBox.SelectedItem.Equals("No results for search criteria"))
+                {
+                    variablecancion = Recivingsong(this, new ReturnsongEventArgs() { Verifysonginsongofuser = Convert.ToString(SearchMediapanellistBox.SelectedItem) });
+                    cancionesdelusuario.Add(variablecancion);
+                    pasua = false;
+                }
+
+            }
+            if (Recivingvideo != null)
+            {
+                if (!SearchMediapanellistBox.SelectedItem.Equals("No results for search criteria"))
+                {
+                    variablevideo = Recivingvideo(this, new ReturnVideoEventArgs() { Verifyvideoinvideoofuser = Convert.ToString(SearchMediapanellistBox.SelectedItem) });
+                    videosdelusuario.Add(variablevideo);
+                    pasua = false;
+                }
+            }
         }
 
         private void MisVideoMyPlaylist_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (Reproducevideo != null)
+            {
+                if (!SearchMediapanellistBox.SelectedItem.Equals("No results for search criteria"))
+                {
+                    namevideo = Reproducevideo(this, new SelectVideoEventArgs() { Selectedvideo = Convert.ToString(SearchMediapanellistBox.SelectedItem) });
+                    pasua = false;
+                }
+            }
+            if (Reproducesong != null)
+            {
+                if (!SearchMediapanellistBox.SelectedItem.Equals("No results for search criteria"))
+                {
+                    namesong = Reproducesong(this, new SelectSongEventArgs() { Selectedsong = Convert.ToString(SearchMediapanellistBox.SelectedItem) });
+                    pasua = false;
+                }
 
+            }
+
+            if (Recivingsong != null)
+            {
+                if (!SearchMediapanellistBox.SelectedItem.Equals("No results for search criteria"))
+                {
+                    variablecancion = Recivingsong(this, new ReturnsongEventArgs() { Verifysonginsongofuser = Convert.ToString(SearchMediapanellistBox.SelectedItem) });
+                    cancionesdelusuario.Add(variablecancion);
+                    pasua = false;
+                }
+
+            }
+            if (Recivingvideo != null)
+            {
+                if (!SearchMediapanellistBox.SelectedItem.Equals("No results for search criteria"))
+                {
+                    variablevideo = Recivingvideo(this, new ReturnVideoEventArgs() { Verifyvideoinvideoofuser = Convert.ToString(SearchMediapanellistBox.SelectedItem) });
+                    videosdelusuario.Add(variablevideo);
+                    pasua = false;
+                }
+            }
         }
 
         private void AddMediaButton_Click(object sender, EventArgs e)
@@ -2438,7 +2583,11 @@ namespace Proyectog15WF
         }
         private void FollowArtist_Click(object sender, EventArgs e)
         {
-
+            string selectedartist = Convert.ToString(SearchArtistListBox.SelectedItem);
+            //getArtist(this, new GetArtistEventArgs { ArtistName = artistselected });
+            AddFollowedUser(this, new GetUserPlaylistEventsArgs { ActualLoggedUsername = nameuser, ActualUsernameSelected = selectedartist });
+            AddFollowingUser(this, new GetUserPlaylistEventsArgs { ActualLoggedUsername = nameuser, ActualUsernameSelected = selectedartist });
+            MessageBox.Show("Siguiendo Artista");
         }
 
         private void iconButton1_Click(object sender, EventArgs e)

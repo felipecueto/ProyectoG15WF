@@ -21,6 +21,7 @@ namespace Model
         List<PlaylistVideo> followedPlaylistVideo;
         List<User> followingUsers;
         List<User> followedUsers;
+        List<Artist> followedartist;
         string edad = "";
         string privacidad = "Publico";
         string tipodeusuario = "Free";
@@ -48,6 +49,7 @@ namespace Model
             this.followedPlaylistVideo = new List<PlaylistVideo>();
             this.followingUsers = new List<User>();
             this.followedUsers = new List<User>();
+            this.followedartist = new List<Artist>();
             AddMusicPlaylist("Musica Favorita");
             AddVideoPlaylist("Videos Favoritos");
         }
@@ -273,6 +275,38 @@ namespace Model
         public List<User> GetFollowingUsers()
         {
             return this.followingUsers;
+        }
+
+        // Follow artist
+
+        public bool FollowArtist(Artist followartist)
+        {
+            foreach (Artist artist in followedartist)
+            {
+                if (artist.Name == followartist.Name)
+                {
+                    return false;
+                }
+            }
+            followedartist.Add(followartist);
+            return true;
+        }
+        public bool UnFollowArtist(Artist followartist)
+        {
+            foreach (Artist artist in followedartist)
+            {
+                if (artist.Name == followartist.Name)
+                {
+                    followedartist.Remove(followartist);
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public List<Artist> GetFollowedArtist()
+        {
+            return followedartist;
         }
 
         // 

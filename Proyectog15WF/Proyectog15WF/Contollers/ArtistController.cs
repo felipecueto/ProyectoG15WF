@@ -58,7 +58,6 @@ namespace Proyectog15WF.Contollers
         {
             artists.Add(new Artist(e.Usernametext, e.AgeArtist, e.GenderArtist, e.ArtistText));
             SerializeData();
-
         }
         public Artist OnGetArtist(object sender, GetArtistEventArgs e)
         {
@@ -70,8 +69,6 @@ namespace Proyectog15WF.Contollers
                 }
             }
             return null;
-
-
         }
         public void OnArtistinfo(object sender,ArtistInfoEventArgs e)
         {
@@ -91,9 +88,6 @@ namespace Proyectog15WF.Contollers
                 view.UpdateResultsArtistAdmin(resultString);
                 SerializeData();
             }
-
-
         }
-
     }
 }

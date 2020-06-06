@@ -117,6 +117,38 @@ namespace Model
             return false; // La cancion no fue encontrada
         }
 
+        // queue
+        public bool CheckSongsInQueue()
+        {
+            if (0 < random.Count())
+            {
+                return true; // Hay canciones en Queue
+            }
+            return false;
+        }
+
+        public bool AddToQueue(Video video)
+        {
+            random.Add(video);
+            return true; // Se agrega cancion a la queue
+        }
+
+        public bool RemoveFromQueue(string songName)
+        {
+            if (0 < random.Count())
+            {
+                foreach (Video value in random)
+                {
+                    if (value.VideoName == songName)
+                    {
+                        random.Remove(value);
+                        return true; // Cancion agregada
+                    }
+                }
+            }
+            return false; // No se elimino la cancion o no hay canciones en queue
+        }
+
         public int RandomNumber(int min, int max)
         {
             Random random = new Random();
@@ -126,14 +158,23 @@ namespace Model
         public List<Video> RandomPlaylistOrder()
         {
             random.Clear();
-            int counter = videos.Count();
+            List<Video> videolist = videos;
+            int counter = videolist.Count();
 
-            foreach (Video value in this.videos)
+            for (int i = 0; i < videolist.Count; i++)
             {
-                random.Add(videos[RandomNumber(1, counter + 1)]);
+                int rnd = RandomNumber(1, counter + 1);
+                random.Add(videolist[rnd]);
+                videolist.RemoveAt(rnd);
                 counter--;
             }
             return random; // devualve una mezcla de canciones de esta playlist
+        }
+
+        public bool ClearQueue()
+        {
+            random.Clear();
+            return true; // Queue Cleared
         }
     }
 }
