@@ -10,6 +10,7 @@ namespace Model
     public class PlaylistSong
     {
         List<Song> songs;
+
         List<Song> random;
         List<bool> preferences;
         string name;
@@ -160,17 +161,27 @@ namespace Model
         public List<Song> RandomPlaylistOrder()
         {
             random.Clear();
-            List<Song> songlist = songs;
+            List<Song> songlist = new List<Song>();
+            foreach (Song song in songs)
+            {
+                songlist.Add(song);
+            }
             int counter = songlist.Count();
 
-            for (int i = 0; i < songlist.Count; i++)
+            for (int i = 0; i < songs.Count(); i++)
             {
-                int rnd = RandomNumber(1, counter + 1);
+                int rnd = RandomNumber(0, counter);
                 random.Add(songs[rnd]);
                 songlist.RemoveAt(rnd);
                 counter--;
             }
+
             return random; // devualve una mezcla de canciones de esta playlist
+        }
+
+        public List<Song> GetQueue()
+        {
+            return random;
         }
 
         public bool ClearQueue()

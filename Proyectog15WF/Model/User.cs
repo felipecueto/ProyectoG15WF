@@ -348,5 +348,28 @@ namespace Model
             }
         }
 
+        public List<Song> CreateSongQueue(string selectedplaylist, string logeduser)
+        {
+            foreach (PlaylistSong playlist in musicplaylist)
+            {
+                if (playlist.GetPlaylistName() == selectedplaylist)
+                {
+                    return playlist.RandomPlaylistOrder();
+                }
+            }
+            return null;
+        }
+        public List<Video> CreateVideoQueue(string selectedplaylist, string logeduser)
+        {
+            foreach (PlaylistVideo playlist in videoplaylist)
+            {
+                if (playlist.GetPlaylistName() == selectedplaylist)
+                {
+                    return playlist.RandomPlaylistOrder();
+                }
+            }
+            return null;
+        }
+
     }
 }

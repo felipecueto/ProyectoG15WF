@@ -54,6 +54,9 @@ namespace Controllers
             //privacy
             this.view.SetPlaylistSongPrivacy += OnSetPlaylistSongPrivacy;
             this.view.SetPlaylistVideoPrivacy += OnSetPlaylistVideoPrivacy;
+            //Queue
+            this.view.CreateSongQueue += OnCreateSongQueue;
+            this.view.CreateVideoQueue += OnCreateVideoQueue;
 
             this.view.MailVerifyEvent += OncheckMail;
             this.view.changeImage += OnImageChange;
@@ -564,6 +567,30 @@ namespace Controllers
                     user.SetPlaylistVideoPrivacy(e.ActualPlaylistSelected, e.UserSelectedPrivacy);
                 }
             }
+        }
+
+        public List<Song> OnCreateSongQueue(object source, GetUserPlaylistEventsArgs e)
+        {
+            foreach (User user in users)
+            {
+                if (e.ActualLoggedUsername.ToUpper() == user.Username.ToUpper())
+                {
+                    return user.CreateSongQueue(e.ActualPlaylistSelected, e.ActualLoggedUsername);
+                }
+            }
+            return null;
+        }
+
+        public List<Video> OnCreateVideoQueue(object source, GetUserPlaylistEventsArgs e)
+        {
+            foreach (User user in users)
+            {
+                if (e.ActualLoggedUsername.ToUpper() == user.Username.ToUpper())
+                {
+                    return user.CreateVideoQueue(e.ActualPlaylistSelected, e.ActualLoggedUsername);
+                }
+            }
+            return null;
         }
     }
 }   

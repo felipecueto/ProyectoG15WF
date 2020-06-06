@@ -154,21 +154,30 @@ namespace Model
             Random random = new Random();
             return random.Next(min, max); // Devuelve un numero random
         }
-
         public List<Video> RandomPlaylistOrder()
         {
             random.Clear();
-            List<Video> videolist = videos;
+            List<Video> videolist = new List<Video>();
+            foreach (Video video in videos)
+            {
+                videolist.Add(video);
+            }
             int counter = videolist.Count();
 
-            for (int i = 0; i < videolist.Count; i++)
+            for (int i = 0; i < videos.Count(); i++)
             {
-                int rnd = RandomNumber(1, counter + 1);
-                random.Add(videolist[rnd]);
+                int rnd = RandomNumber(0, counter);
+                random.Add(videos[rnd]);
                 videolist.RemoveAt(rnd);
                 counter--;
             }
+
             return random; // devualve una mezcla de canciones de esta playlist
+        }
+
+        public List<Video> GetQueue()
+        {
+            return random;
         }
 
         public bool ClearQueue()
