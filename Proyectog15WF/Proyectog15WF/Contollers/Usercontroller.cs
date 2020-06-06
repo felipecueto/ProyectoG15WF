@@ -189,7 +189,6 @@ namespace Controllers
                     resultString.Add(s.ToString());
             }
             view.UpdateResultsAdmin(resultString);
-
         }
 
 
