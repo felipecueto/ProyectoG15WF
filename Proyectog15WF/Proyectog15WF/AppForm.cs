@@ -27,6 +27,7 @@ namespace Proyectog15WF
         string ageAcctounte = ""; //EDAD DEL USUARIO
         string GenderAccounte = "";//GENERO DEL USUARIO;
         bool buttonClickdelete = false;
+        bool queuecheck = true;
         Song variablecancion = null; //CANCION SELECCIONADA
         Video variablevideo = null;
         List<Song> cancionesdelusuario = new List<Song>(); //LISTA DE CANCIONES DEL USUARIO
@@ -602,6 +603,7 @@ namespace Proyectog15WF
             ArtistModeMainPanel.Visible = false;
             ProfileMainPanel.Visible = false;
             ReproduccionMainPanel.Visible = false;
+            queuecheck = true;
             if (PlaylistMainPanel.Visible)
             {
                 PlaylistMainPanel.Visible = false;
@@ -866,6 +868,7 @@ namespace Proyectog15WF
             SongsInMyPlaylistPanel.Visible = false;
             SongSeguidasPlaylistPanel.Visible = false;
             CrearSongPlaylistPanel.Visible = false;
+            queuecheck = true;
             if (SubMyPlaylistPanel.Visible)
             {
                 SubMyPlaylistPanel.Visible = false;
@@ -931,6 +934,7 @@ namespace Proyectog15WF
             PlaylistMySongPanel.Visible = false;
             CrearSongPlaylistPanel.Visible = false;
             SubMyPlaylistPanel.Visible = false;
+            queuecheck = true;
 
             foreach (PlaylistSong playlist in OnReciveUsernameFollowedPlaylist())
             {
@@ -961,7 +965,7 @@ namespace Proyectog15WF
             FollowPlaylistSongPanel.Visible = false;
             MasEsuchadaPanel.Visible = false;
             SubMyPlaylistPanel.Visible = false;
-
+            queuecheck = true;
 
 
         }
@@ -976,7 +980,7 @@ namespace Proyectog15WF
             VideoFollowPanel.Visible = false;
             MasVistosPanel.Visible = false;
             VideoMyPlaylistPanel.Visible = false;
-            
+            queuecheck = true;
         }
 
         private void MyVideoPlaylistButton_Click(object sender, EventArgs e)
@@ -988,6 +992,7 @@ namespace Proyectog15WF
             MasVistosPanel.Visible = false;
             MyVideoPlaylistPanel.Visible = false;
             CrearVideoPlaylistpanel.Visible = false;
+            queuecheck = true;
             if (SubVideoPlaylistPanel.Visible)
             {
                 SubVideoPlaylistPanel.Visible = false;
@@ -1237,6 +1242,7 @@ namespace Proyectog15WF
             HideSubPanel();
             CalificacionComboBox.SelectedIndex = 0;
             ReproduccionMainPanel.Visible = true;
+            queuecheck = false;
             if (pasua)
             {
                 //ReproduccionMainPanel.Visible = false;
@@ -1930,8 +1936,11 @@ namespace Proyectog15WF
             {
                 if (!SongInMyPlaylistListBox.SelectedItem.Equals("No results for search criteria"))
                 {
-                    string actualplaylistselected = MySongsListBox.SelectedItem.ToString();
-                    songqueuelist = CreateSongQueue(this, new GetUserPlaylistEventsArgs { ActualLoggedUsername = nameuser, ActualPlaylistSelected = actualplaylistselected });
+                    if (queuecheck == true)
+                    {
+                        string actualplaylistselected = MySongsListBox.SelectedItem.ToString();
+                        songqueuelist = CreateSongQueue(this, new GetUserPlaylistEventsArgs { ActualLoggedUsername = nameuser, ActualPlaylistSelected = actualplaylistselected });
+                    }
                     namesong = Reproducesong(this, new SelectSongEventArgs() { Selectedsong = Convert.ToString(SongInMyPlaylistListBox.SelectedItem) });
                     pasua = false;
                 }
@@ -1969,8 +1978,11 @@ namespace Proyectog15WF
             {
                 if (!SongsInFollowPlaylistListBox.SelectedItem.Equals("No results for search criteria"))
                 {
-                    string actualplaylistselected = SongsInFollowPlaylistListBox.SelectedItem.ToString();
-                    songqueuelist = CreateSongQueue(this, new GetUserPlaylistEventsArgs { ActualLoggedUsername = nameuser, ActualPlaylistSelected = actualplaylistselected });
+                    if (queuecheck == true)
+                    {
+                        string actualplaylistselected = SongsInFollowPlaylistListBox.SelectedItem.ToString();
+                        songqueuelist = CreateSongQueue(this, new GetUserPlaylistEventsArgs { ActualLoggedUsername = nameuser, ActualPlaylistSelected = actualplaylistselected });
+                    }
                     namesong = Reproducesong(this, new SelectSongEventArgs() { Selectedsong = Convert.ToString(SongsInFollowPlaylistListBox.SelectedItem) });
                     pasua = false;
                 }
@@ -2178,7 +2190,7 @@ namespace Proyectog15WF
             if (Addvideoplaylist != null)
             {
                 Addvideoplaylist(this, new GetUserPlaylistEventsArgs() { PlaylistNameText = nameVideo, ActualLoggedUsername = nameuser }); //le estoy mandado a usercontroller el nombre de la playlist
-                SetPlaylistSongPrivacy(this, new GetUserPlaylistEventsArgs() { ActualPlaylistSelected = nameVideo, ActualLoggedUsername = nameuser, UserSelectedPrivacy = privacidad });
+                SetPlaylistVideoPrivacy(this, new GetUserPlaylistEventsArgs() { ActualPlaylistSelected = nameVideo, ActualLoggedUsername = nameuser, UserSelectedPrivacy = privacidad });
             }
 
             if (UserNotPublic)
@@ -2217,8 +2229,11 @@ namespace Proyectog15WF
             {
                 if (!VideosInFollowingPlaylistListbox.SelectedItem.Equals("No results for search criteria"))
                 {
-                    string actualplaylistselected = VideosInFollowingPlaylistListbox.SelectedItem.ToString();
-                    videoqueuelist = CreateVideoQueue(this, new GetUserPlaylistEventsArgs { ActualLoggedUsername = nameuser, ActualPlaylistSelected = actualplaylistselected });
+                    if (queuecheck == true)
+                    {
+                        string actualplaylistselected = VideosInFollowingPlaylistListbox.SelectedItem.ToString();
+                        videoqueuelist = CreateVideoQueue(this, new GetUserPlaylistEventsArgs { ActualLoggedUsername = nameuser, ActualPlaylistSelected = actualplaylistselected });
+                    }
                     namevideo = Reproducevideo(this, new SelectVideoEventArgs() { Selectedvideo = Convert.ToString(VideosInFollowingPlaylistListbox.SelectedItem) });
                     SerializeData();
                 }
@@ -2241,8 +2256,11 @@ namespace Proyectog15WF
             {
                 if (!MisVideoMyPlaylist.SelectedItem.Equals("No results for search criteria"))
                 {
-                    string actualplaylistselected = MisVideoMyPlaylist.SelectedItem.ToString();
-                    videoqueuelist = CreateVideoQueue(this, new GetUserPlaylistEventsArgs { ActualLoggedUsername = nameuser, ActualPlaylistSelected = actualplaylistselected });
+                    if (queuecheck == true)
+                    {
+                        string actualplaylistselected = MisVideoMyPlaylist.SelectedItem.ToString();
+                        videoqueuelist = CreateVideoQueue(this, new GetUserPlaylistEventsArgs { ActualLoggedUsername = nameuser, ActualPlaylistSelected = actualplaylistselected });
+                    }
                     namevideo = Reproducevideo(this, new SelectVideoEventArgs() { Selectedvideo = Convert.ToString(MisVideoMyPlaylist.SelectedItem) });
                     pasua = false;
                 }
