@@ -356,7 +356,15 @@ namespace Proyectog15WF
                     loginViewInvalidCredentialsAlert.ResetText();
                     loginViewInvalidCredentialsAlert.Visible = false;
                     OnUserChecked(username, pass);
-
+                    actuallogeduser = Userrequest(this, new LoginEventArgs() { UsernameText = nameuser });
+                    foreach (PlaylistSong playlist in actuallogeduser.GetPlaylistSongs())
+                    {
+                        playlist.ClearQueue();
+                    }
+                    foreach (PlaylistVideo playlist in actuallogeduser.GetPlaylistVideo())
+                    {
+                        playlist.ClearQueue();
+                    }
                 }
             }
         }
@@ -1249,10 +1257,10 @@ namespace Proyectog15WF
             HideSubPanel();
             CalificacionComboBox.SelectedIndex = 0;
             ReproduccionMainPanel.Visible = true;
+            QueuePanel.Visible = false;
             queuecheck = false;
             if (pasua)
             {
-                //ReproduccionMainPanel.Visible = false;
                 axWindowsMediaPlayer1.Ctlcontrols.play();
 
             }
@@ -1949,6 +1957,20 @@ namespace Proyectog15WF
 
         private void SongInMyPlaylistListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (Reproducevideo != null)
+            {
+                if (!SongInMyPlaylistListBox.SelectedItem.Equals("No results for search criteria"))
+                {
+                    if (queuecheck == true)
+                    {
+                        string actualplaylistselected = MySongsListBox.SelectedItem.ToString();
+                        string actualselectedsong = SongInMyPlaylistListBox.SelectedItem.ToString();
+                    }
+                    pasua = false;
+                    namevideo = Reproducevideo(this, new SelectVideoEventArgs() { Selectedvideo = Convert.ToString(SongInMyPlaylistListBox.SelectedItem) });
+                    SerializeData();
+                }
+            }
             if (Reproducesong != null)
             {
                 if (!SongInMyPlaylistListBox.SelectedItem.Equals("No results for search criteria"))
@@ -1958,6 +1980,10 @@ namespace Proyectog15WF
                         string actualplaylistselected = MySongsListBox.SelectedItem.ToString();
                         string actualselectedsong = SongInMyPlaylistListBox.SelectedItem.ToString();
                         songqueuelist = CreateSongQueue(this, new GetUserPlaylistEventsArgs { ActualLoggedUsername = nameuser, ActualPlaylistSelected = actualplaylistselected, SelectedSong = actualselectedsong });
+                        if (videoqueuelist != null)
+                        {
+                            videoqueuelist.Clear();
+                        }
                     }
                     namesong = Reproducesong(this, new SelectSongEventArgs() { Selectedsong = Convert.ToString(SongInMyPlaylistListBox.SelectedItem) });
                     pasua = false;
@@ -1972,7 +1998,15 @@ namespace Proyectog15WF
                     cancionesdelusuario.Add(variablecancion);
                     pasua = false;
                 }
-
+            }
+            if (Recivingvideo != null)
+            {
+                if (!SongInMyPlaylistListBox.SelectedItem.Equals("No results for search criteria"))
+                {
+                    variablevideo = Recivingvideo(this, new ReturnVideoEventArgs() { Verifyvideoinvideoofuser = Convert.ToString(SongInMyPlaylistListBox.SelectedItem) });
+                    videosdelusuario.Add(variablevideo);
+                    pasua = false;
+                }
             }
         }
 
@@ -2001,6 +2035,10 @@ namespace Proyectog15WF
                         string actualplaylistselected = FollowPlaylistSongListBox.SelectedItem.ToString();
                         string actualselectedsong = SongsInFollowPlaylistListBox.SelectedItem.ToString();
                         songqueuelist = CreateSongQueue(this, new GetUserPlaylistEventsArgs { ActualLoggedUsername = nameuser, ActualPlaylistSelected = actualplaylistselected, SelectedSong = actualselectedsong });
+                        if (videoqueuelist != null)
+                        {
+                            videoqueuelist.Clear();
+                        }
                     }
                     namesong = Reproducesong(this, new SelectSongEventArgs() { Selectedsong = Convert.ToString(SongsInFollowPlaylistListBox.SelectedItem) });
                     pasua = false;
@@ -2014,6 +2052,7 @@ namespace Proyectog15WF
                 {
                     variablecancion = Recivingsong(this, new ReturnsongEventArgs() { Verifysonginsongofuser = Convert.ToString(SongsInFollowPlaylistListBox.SelectedItem) });
                     cancionesdelusuario.Add(variablecancion);
+                    pasua = false;
                     SerializeData();
                 }
             }
@@ -2253,9 +2292,37 @@ namespace Proyectog15WF
                         string actualplaylistselected = FollowVideoListBox.SelectedItem.ToString();
                         string actualselectedsong = VideosInFollowingPlaylistListbox.SelectedItem.ToString();
                         videoqueuelist = CreateVideoQueue(this, new GetUserPlaylistEventsArgs { ActualLoggedUsername = nameuser, ActualPlaylistSelected = actualplaylistselected, SelectedSong = actualselectedsong });
+                        if (songqueuelist != null)
+                        {
+                            songqueuelist.Clear();
+                        }
                     }
+                    pasua = false;
                     namevideo = Reproducevideo(this, new SelectVideoEventArgs() { Selectedvideo = Convert.ToString(VideosInFollowingPlaylistListbox.SelectedItem) });
                     SerializeData();
+                }
+            }
+            if (Reproducesong != null)
+            {
+                if (!VideosInFollowingPlaylistListbox.SelectedItem.Equals("No results for search criteria"))
+                {
+                    if (queuecheck == true)
+                    {
+                        string actualplaylistselected = FollowVideoListBox.SelectedItem.ToString();
+                        string actualselectedsong = VideosInFollowingPlaylistListbox.SelectedItem.ToString();
+                    }
+                    namesong = Reproducesong(this, new SelectSongEventArgs() { Selectedsong = Convert.ToString(VideosInFollowingPlaylistListbox.SelectedItem) });
+                    pasua = false;
+                }
+            }
+
+            if (Recivingsong != null)
+            {
+                if (!VideosInFollowingPlaylistListbox.SelectedItem.Equals("No results for search criteria"))
+                {
+                    variablecancion = Recivingsong(this, new ReturnsongEventArgs() { Verifysonginsongofuser = Convert.ToString(VideosInFollowingPlaylistListbox.SelectedItem) });
+                    cancionesdelusuario.Add(variablecancion);
+                    pasua = false;
                 }
             }
 
@@ -2281,17 +2348,47 @@ namespace Proyectog15WF
                         string actualplaylistselected = MyVideoListBox.SelectedItem.ToString();
                         string actualselectedsong = MisVideoMyPlaylist.SelectedItem.ToString();
                         videoqueuelist = CreateVideoQueue(this, new GetUserPlaylistEventsArgs { ActualLoggedUsername = nameuser, ActualPlaylistSelected = actualplaylistselected, SelectedSong = actualselectedsong });
+                        if (songqueuelist != null)
+                        {
+                            songqueuelist.Clear();
+                        }
                     }
                     namevideo = Reproducevideo(this, new SelectVideoEventArgs() { Selectedvideo = Convert.ToString(MisVideoMyPlaylist.SelectedItem) });
                     pasua = false;
                 }
             }
+
+            if (Reproducesong != null)
+            {
+                if (!MisVideoMyPlaylist.SelectedItem.Equals("No results for search criteria"))
+                {
+                    if (queuecheck == true)
+                    {
+                        string actualplaylistselected = MyVideoListBox.SelectedItem.ToString();
+                        string actualselectedsong = MisVideoMyPlaylist.SelectedItem.ToString();
+                    }
+                    namesong = Reproducesong(this, new SelectSongEventArgs() { Selectedsong = Convert.ToString(MisVideoMyPlaylist.SelectedItem) });
+                    pasua = false;
+                }
+            }
+
+            if (Recivingsong != null)
+            {
+                if (!MisVideoMyPlaylist.SelectedItem.Equals("No results for search criteria"))
+                {
+                    variablecancion = Recivingsong(this, new ReturnsongEventArgs() { Verifysonginsongofuser = Convert.ToString(MisVideoMyPlaylist.SelectedItem) });
+                    cancionesdelusuario.Add(variablecancion);
+                    pasua = false;
+                }
+            }
+
             if (Recivingvideo != null)
             {
                 if (!MisVideoMyPlaylist.SelectedItem.Equals("No results for search criteria"))
                 {
                     variablevideo = Recivingvideo(this, new ReturnVideoEventArgs() { Verifyvideoinvideoofuser = Convert.ToString(MisVideoMyPlaylist.SelectedItem) });
                     SerializeData();
+                    pasua = false;
                 }
             }
         }
@@ -3259,6 +3356,18 @@ namespace Proyectog15WF
 
         private void NextButton_Click(object sender, EventArgs e)
         {
+            if (songqueuelist.Count() != 0)
+            {
+                namesong = songqueuelist[0].Path;
+                pasua = false;
+            }
+
+            if (videoqueuelist.Count() != 0)
+            {
+                namevideo = videoqueuelist[0].Path;
+                pasua = false;
+            }
+
             actuallogeduser = Userrequest(this, new LoginEventArgs() { UsernameText = nameuser });
             List<Song> updatedsongqueue = actuallogeduser.GetNextSongQueue();
             List<Video> updatedvideoqueue = actuallogeduser.GetNextVideoQueue();
@@ -3268,45 +3377,62 @@ namespace Proyectog15WF
 
             QueueListBox.Items.Clear();
 
-            QueueListBox.Items.Add("---Canciones---");
-            if (songqueuelist != null)
+            if (songqueuelist.Count() != 0)
             {
+                QueueListBox.Items.Add("---Canciones---");
                 foreach (Song song in songqueuelist)
                 {
                     QueueListBox.Items.Add(song.Namesong);
                 }
             }
 
-            QueueListBox.Items.Add("---Videos---");
-            if (videoqueuelist != null)
+            if (videoqueuelist.Count() != 0)
             {
+                QueueListBox.Items.Add("---Videos---");
                 foreach (Video video in videoqueuelist)
                 {
                     QueueListBox.Items.Add(video.VideoName);
                 }
             }
 
-            if (Reproducesong != null)
+            if (pasua)
             {
-                if (songqueuelist != null)
-                {
-                    namesong = Reproducesong(this, new SelectSongEventArgs() { Selectedsong = Convert.ToString(songqueuelist[0].Namesong) });
-                    pasua = false;
-                }
-                
-            }
+                //ReproduccionMainPanel.Visible = false;
+                axWindowsMediaPlayer1.Ctlcontrols.play();
 
-            if (Recivingsong != null)
+            }
+            else
             {
-                if (songqueuelist != null)
+                if (namesong != "" && namevideo == "")
                 {
-                    variablecancion = Recivingsong(this, new ReturnsongEventArgs() { Verifysonginsongofuser = Convert.ToString(songqueuelist[0].Namesong) });
-                    cancionesdelusuario.Add(variablecancion);
-                    pasua = false;
+                    axWindowsMediaPlayer1.URL = namesong;
+                    axWindowsMediaPlayer1.Ctlcontrols.play();
+                    if (Reproduccionesname != null)
+                    {
+                        Reproduccionesname(this, new ReproduccionesEventArgs() { Nametext = namesong });
+                    }
+                    pasua = true;
                 }
-                
-            }
+                else if (namesong == "" && namevideo != "")
+                {
+                    axWindowsMediaPlayer1.URL = namevideo;
+                    axWindowsMediaPlayer1.Ctlcontrols.play();
+                    if (Reproduccionesname != null)
+                    {
+                        Reproduccionesname(this, new ReproduccionesEventArgs() { Nametext = namevideo });
 
+                    }
+                    pasua = true;
+
+                }
+
+            }
+            if (QueueListBox.Items.Count == 0)
+            {
+                axWindowsMediaPlayer1.Ctlcontrols.stop();
+                namevideo = "";
+                namesong = "";
+            }
 
         }
 
