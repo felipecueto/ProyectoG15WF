@@ -576,6 +576,7 @@ namespace Controllers
                 if (e.ActualLoggedUsername.ToUpper() == user.Username.ToUpper())
                 {
                     return user.CreateSongQueue(e.ActualPlaylistSelected, e.ActualLoggedUsername, e.SelectedSong);
+
                 }
             }
             return null;

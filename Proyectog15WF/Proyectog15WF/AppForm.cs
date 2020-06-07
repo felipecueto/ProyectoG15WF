@@ -28,6 +28,7 @@ namespace Proyectog15WF
         string GenderAccounte = "";//GENERO DEL USUARIO;
         bool buttonClickdelete = false;
         bool queuecheck = true;
+        bool emptyqueue = false;
         Song variablecancion = null; //CANCION SELECCIONADA
         Video variablevideo = null;
         List<Song> cancionesdelusuario = new List<Song>(); //LISTA DE CANCIONES DEL USUARIO
@@ -1318,21 +1319,27 @@ namespace Proyectog15WF
             SerializeData();
             QueueListBox.Items.Clear();
 
-            QueueListBox.Items.Add("---Canciones---");
             if (songqueuelist != null)
             {
+                QueueListBox.Items.Add("---Canciones---");
                 foreach (Song song in songqueuelist)
                 {
-                    QueueListBox.Items.Add(song.Namesong);
+                    if (song != null)
+                    {
+                        QueueListBox.Items.Add(song.Namesong);
+                    }
                 }
             }
 
-            QueueListBox.Items.Add("---Videos---");
             if (videoqueuelist != null)
             {
+                QueueListBox.Items.Add("---Videos---");
                 foreach (Video video in videoqueuelist)
                 {
-                    QueueListBox.Items.Add(video.VideoName);
+                    if (video != null)
+                    {
+                        QueueListBox.Items.Add(video.VideoName);
+                    }
                 }
             }
 
@@ -2004,6 +2011,7 @@ namespace Proyectog15WF
                         string actualplaylistselected = MySongsListBox.SelectedItem.ToString();
                         string actualselectedsong = SongInMyPlaylistListBox.SelectedItem.ToString();
                         songqueuelist = CreateSongQueue(this, new GetUserPlaylistEventsArgs { ActualLoggedUsername = nameuser, ActualPlaylistSelected = actualplaylistselected, SelectedSong = actualselectedsong });
+                        bool emptyqueue = false;
                         if (videoqueuelist != null)
                         {
                             videoqueuelist.Clear();
@@ -2060,6 +2068,7 @@ namespace Proyectog15WF
                         string actualplaylistselected = FollowPlaylistSongListBox.SelectedItem.ToString();
                         string actualselectedsong = SongsInFollowPlaylistListBox.SelectedItem.ToString();
                         songqueuelist = CreateSongQueue(this, new GetUserPlaylistEventsArgs { ActualLoggedUsername = nameuser, ActualPlaylistSelected = actualplaylistselected, SelectedSong = actualselectedsong });
+                        bool emptyqueue = false;
                         if (videoqueuelist != null)
                         {
                             videoqueuelist.Clear();
@@ -2318,6 +2327,7 @@ namespace Proyectog15WF
                         string actualplaylistselected = FollowVideoListBox.SelectedItem.ToString();
                         string actualselectedsong = VideosInFollowingPlaylistListbox.SelectedItem.ToString();
                         videoqueuelist = CreateVideoQueue(this, new GetUserPlaylistEventsArgs { ActualLoggedUsername = nameuser, ActualPlaylistSelected = actualplaylistselected, SelectedSong = actualselectedsong });
+                        bool emptyqueue = false;
                         if (songqueuelist != null)
                         {
                             songqueuelist.Clear();
@@ -2375,6 +2385,7 @@ namespace Proyectog15WF
                         string actualplaylistselected = MyVideoListBox.SelectedItem.ToString();
                         string actualselectedsong = MisVideoMyPlaylist.SelectedItem.ToString();
                         videoqueuelist = CreateVideoQueue(this, new GetUserPlaylistEventsArgs { ActualLoggedUsername = nameuser, ActualPlaylistSelected = actualplaylistselected, SelectedSong = actualselectedsong });
+                        bool emptyqueue = false;
                         if (songqueuelist != null)
                         {
                             songqueuelist.Clear();
@@ -3387,16 +3398,22 @@ namespace Proyectog15WF
 
         private void NextButton_Click(object sender, EventArgs e)
         {
-            if (songqueuelist.Count() != 0)
+            if (songqueuelist != null)
             {
-                namesong = songqueuelist[0].Path;
-                pasua = false;
+                if (songqueuelist.Count() != 0)
+                {
+                    namesong = songqueuelist[0].Path;
+                    pasua = false;
+                }
             }
 
-            if (videoqueuelist.Count() != 0)
+            if (videoqueuelist != null)
             {
-                namevideo = videoqueuelist[0].Path;
-                pasua = false;
+                if (videoqueuelist.Count() != 0)
+                {
+                    namevideo = videoqueuelist[0].Path;
+                    pasua = false;
+                }
             }
 
             actuallogeduser = Userrequest(this, new LoginEventArgs() { UsernameText = nameuser });
@@ -3408,21 +3425,32 @@ namespace Proyectog15WF
 
             QueueListBox.Items.Clear();
 
-            if (songqueuelist.Count() != 0 && songqueuelist != null)
+            if (songqueuelist != null)
             {
-                QueueListBox.Items.Add("---Canciones---");
-                foreach (Song song in songqueuelist)
-                {
-                    QueueListBox.Items.Add(song.Namesong);
+                if (songqueuelist.Count() != 0) {
+                    QueueListBox.Items.Add("---Canciones---");
+                    foreach (Song song in songqueuelist)
+                    {
+                        if (song != null)
+                        {
+                            QueueListBox.Items.Add(song.Namesong);
+                        }
+                    }
                 }
             }
 
-            if (videoqueuelist.Count() != 0 && videoqueuelist != null)
+            if (videoqueuelist != null)
             {
-                QueueListBox.Items.Add("---Videos---");
-                foreach (Video video in videoqueuelist)
+                if (videoqueuelist.Count() != 0)
                 {
-                    QueueListBox.Items.Add(video.VideoName);
+                    QueueListBox.Items.Add("---Videos---");
+                    foreach (Video video in videoqueuelist)
+                    {
+                        if (video != null)
+                        {
+                            QueueListBox.Items.Add(video.VideoName);
+                        }
+                    }
                 }
             }
 
@@ -3458,11 +3486,16 @@ namespace Proyectog15WF
                 }
 
             }
+            
             if (QueueListBox.Items.Count == 0)
             {
-                axWindowsMediaPlayer1.Ctlcontrols.stop();
-                namevideo = "";
-                namesong = "";
+                if (emptyqueue)
+                {
+                    axWindowsMediaPlayer1.Ctlcontrols.stop();
+                    namevideo = "";
+                    namesong = "";
+                }
+                emptyqueue = true;
             }
 
         }
@@ -3485,6 +3518,7 @@ namespace Proyectog15WF
                 newlistvideo.Add(elemntsong);
             }
             videoqueuelist = newlistvideo;
+            emptyqueue = false;
         }
         //Eliminar de playlist
 
@@ -3516,21 +3550,27 @@ namespace Proyectog15WF
                 }
             }
 
-            if (songqueuelist.Count() != 0 && songqueuelist != null)
+            if (songqueuelist != null)
             {
-                QueueListBox.Items.Add("---Canciones---");
-                foreach (Song song in songqueuelist)
+                if (songqueuelist.Count() != 0)
                 {
-                    QueueListBox.Items.Add(song.Namesong);
+                    QueueListBox.Items.Add("---Canciones---");
+                    foreach (Song song in songqueuelist)
+                    {
+                        QueueListBox.Items.Add(song.Namesong);
+                    }
                 }
             }
 
-            if (videoqueuelist.Count() != 0 && videoqueuelist != null)
+            if (videoqueuelist != null)
             {
-                QueueListBox.Items.Add("---Videos---");
-                foreach (Video video in videoqueuelist)
+                if (videoqueuelist.Count() != 0)
                 {
-                    QueueListBox.Items.Add(video.VideoName);
+                    QueueListBox.Items.Add("---Videos---");
+                    foreach (Video video in videoqueuelist)
+                    {
+                        QueueListBox.Items.Add(video.VideoName);
+                    }
                 }
             }
         }
