@@ -25,11 +25,11 @@ namespace Model
         // Get
         public bool GetPlaylistPrivacy()
         {
-            return preferences[0];
+            return preferences[1];
         }
         public bool GetPlaylistDownload()
         {
-            return preferences[1];
+            return preferences[0];
         }
         public string GetPlaylistName()
         {
