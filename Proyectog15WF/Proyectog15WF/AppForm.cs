@@ -349,9 +349,12 @@ namespace Proyectog15WF
                     if (actuallogeduser.ImagePast != "")
                     {
                         Bitmap image = new Bitmap(actuallogeduser.ImagePast);
+                        pictureBox1.BackgroundImage = null;
+                        pictureBox2.BackgroundImage = null; 
                         pictureBox1.Image = image;
                         pictureBox2.Image = image;
                     }
+                    
 
                     loginViewInvalidCredentialsAlert.ResetText();
                     loginViewInvalidCredentialsAlert.Visible = false;
@@ -2203,7 +2206,6 @@ namespace Proyectog15WF
         private void CalsificacionButton_Click(object sender, EventArgs e)
         {
             int qual = Convert.ToInt32(CalificacionComboBox.SelectedItem.ToString());
-            MessageBox.Show(namesong);
             if (namesong != "")
             {
                 if (Calificaciondelusuario != null)
@@ -2223,6 +2225,7 @@ namespace Proyectog15WF
                 }
 
             }
+            CalificacionComboBox.SelectedIndex = 0;
 
         }
 
@@ -2607,6 +2610,8 @@ namespace Proyectog15WF
                 {
                     changeImage(this, new ChangeImageEventsArgs() { Usernametext = nameuser, Ipath = openFileDialog.FileName });
                 }
+                pictureBox1.BackgroundImage = null;
+                pictureBox2.BackgroundImage = null;
                 pictureBox1.Image = image;
                 pictureBox2.Image = image;
             }
@@ -3436,7 +3441,17 @@ namespace Proyectog15WF
 
         }
 
+        //agrgar Al queue
+        private void LikeButton_Click(object sender, EventArgs e)
+        {
 
+        }
+        //Eliminar de playlist
+
+        private void EliminarMediaQueueButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }
