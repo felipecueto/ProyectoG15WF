@@ -1293,21 +1293,26 @@ namespace Proyectog15WF
                     pasua = true;
 
                 }
-                if (songqueuelist.Count() != 0 && songqueuelist != null)
+                if (songqueuelist != null)
                 {
-                    QueueListBox.Items.Add("---Canciones---");
-                    foreach (Song song in songqueuelist)
+                    if (songqueuelist.Count() != 0)
                     {
-                        QueueListBox.Items.Add(song.Namesong);
+                        QueueListBox.Items.Add("---Canciones---");
+                        foreach (Song song in songqueuelist)
+                        {
+                            QueueListBox.Items.Add(song.Namesong);
+                        }
                     }
                 }
-
-                if (videoqueuelist.Count() != 0 && videoqueuelist != null)
+                if (videoqueuelist != null)
                 {
-                    QueueListBox.Items.Add("---Videos---");
-                    foreach (Video video in videoqueuelist)
+                    if (videoqueuelist.Count() != 0 && videoqueuelist != null)
                     {
-                        QueueListBox.Items.Add(video.VideoName);
+                        QueueListBox.Items.Add("---Videos---");
+                        foreach (Video video in videoqueuelist)
+                        {
+                            QueueListBox.Items.Add(video.VideoName);
+                        }
                     }
                 }
             }
@@ -2059,6 +2064,20 @@ namespace Proyectog15WF
 
         private void SongsInFollowPlaylistListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (Reproducevideo != null)
+            {
+                if (!SongsInFollowPlaylistListBox.SelectedItem.Equals("No results for search criteria"))
+                {
+                    if (queuecheck == true)
+                    {
+                        string actualplaylistselected = FollowPlaylistSongListBox.SelectedItem.ToString();
+                        string actualselectedsong = SongsInFollowPlaylistListBox.SelectedItem.ToString();
+                    }
+                    pasua = false;
+                    namevideo = Reproducevideo(this, new SelectVideoEventArgs() { Selectedvideo = Convert.ToString(SongsInFollowPlaylistListBox.SelectedItem) });
+                    SerializeData();
+                }
+            }
             if (Reproducesong != null)
             {
                 if (!SongsInFollowPlaylistListBox.SelectedItem.Equals("No results for search criteria"))
@@ -2089,6 +2108,15 @@ namespace Proyectog15WF
                     cancionesdelusuario.Add(variablecancion);
                     pasua = false;
                     SerializeData();
+                }
+            }
+            if (Recivingvideo != null)
+            {
+                if (!SongsInFollowPlaylistListBox.SelectedItem.Equals("No results for search criteria"))
+                {
+                    variablevideo = Recivingvideo(this, new ReturnVideoEventArgs() { Verifyvideoinvideoofuser = Convert.ToString(SongsInFollowPlaylistListBox.SelectedItem) });
+                    videosdelusuario.Add(variablevideo);
+                    pasua = false;
                 }
             }
         }
