@@ -338,7 +338,7 @@ namespace Model
             }
         }
 
-        public void SetPlaylistVideoPrivacy(string playlistname, string privacyvar)
+        public bool SetPlaylistVideoPrivacy(string playlistname, string privacyvar)
         {
             foreach (PlaylistVideo playlist in videoplaylist)
             {
@@ -347,13 +347,16 @@ namespace Model
                     if (privacidad == "Privado")
                     {
                         playlist.SetPrivacy("Privada");
+                        return true;
                     }
                     else
                     {
                         playlist.SetPrivacy(privacyvar);
+                        return false;
                     }
                 }
             }
+            return false;
         }
 
         public List<Song> CreateSongQueue(string selectedplaylist, string logeduser, string selectedsong)

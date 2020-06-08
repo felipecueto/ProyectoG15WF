@@ -469,7 +469,10 @@ namespace Controllers
                     {
                         if (selecteduser.Username.ToUpper() == e.ActualUsernameSelected.ToUpper())
                         {
-                            user.AddFollowing(selecteduser);
+                            if (user.AddFollowing(selecteduser) == true)
+                            {
+                                MessageBox.Show("Siguiendo usuario");
+                            }
                         }
                     }
                 }
@@ -480,11 +483,11 @@ namespace Controllers
         {
             foreach (User user in users)
             {
-                if (user.Username.ToUpper() == e.ActualUsernameSelected.ToUpper())
+                if (user.Username.ToUpper() == e.ActualLoggedUsername.ToUpper())
                 {
                     foreach (User selecteduser in users)
                     {
-                        if (selecteduser.Username.ToUpper() == e.ActualLoggedUsername.ToUpper())
+                        if (selecteduser.Username.ToUpper() == e.ActualUsernameSelected.ToUpper())
                         {
                             user.RemoveFollowed(selecteduser.Username);
                         }
@@ -503,7 +506,7 @@ namespace Controllers
                     {
                         if (selecteduser.Username.ToUpper() == e.ActualUsernameSelected.ToUpper())
                         {
-                            user.RemoveFollowing(selecteduser.Username); 
+                            user.RemoveFollowing(selecteduser.Username);
                         }
                     }
                 }
